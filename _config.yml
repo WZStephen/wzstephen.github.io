@@ -50,17 +50,19 @@ about_profile_image: images/profile.jpg
 about_content: | # this will include new lines to allow paragraphs
   硕士研究生毕业于亚利桑大州立大学.主修计算机科学，专修软件工程，数据结构设计，机器学习和数据可视化.致力于成为一个踏实能干以及以解决问题为导向并且拥有丰富实践经验的工程师.拥有善于分析的特质和卓越的领导力.
 
-  # I am most skilled in: <mark>AWS</mark> and <mark>Eating Pizza</mark>
-  * 擅长于面向对象程序和后端的设计，开发，测试, 排除故障和计算机网络. 
-  * 擅长于数据库管理, 统计分析,数据挖掘以及数据可视化. 
-  * 对机器学习以及数据分析有着一定的实践和运用. 
-  * 对虚拟现实的开发和测试以及对三维模型的设计和运用有着一定的经验. 
-  * 能快速高效地抓住新理念，具有秀的项目管理以及组织能力, 既能团队协作，也能自我导向独立完成工作.
-  * 编程语言：<mark>Java</mark>, <mark>Python</mark>, <mark>JavaScript</mark>, <mark>ASP</mark>, <mark>MATLAB</mark>
-  * 交流语言：<mark>中文</mark>，<mark>英文</mark> 
-
 content:
-  - title: Projects # Title for the section
+    - title: IT 技能
+    layout: text
+    content: | # this will include new lines to allow paragraphs
+    - 擅长于面向对象程序和后端的设计，开发，测试, 排除故障和计算机网络. 
+    - 擅长于数据库管理, 统计分析,数据挖掘以及数据可视化. 
+    - 对机器学习以及数据分析有着一定的实践和运用. 
+    - 对虚拟现实的开发和测试以及对三维模型的设计和运用有着一定的经验. 
+    - 能快速高效地抓住新理念，具有秀的项目管理以及组织能力, 既能团队协作，也能自我导向独立完成工作.
+    - 编程语言：<mark>Java</mark> <mark>Python</mark> <mark>JavaScript</mark> <mark>ASP</mark> <mark>MATLAB</mark>
+    - 交流语言：<mark>中文</mark> <mark>英文</mark> 
+
+  - title: 项目 # Title for the section
     layout: list # Type of content section (list/text)
     content:
       - layout: top-middle
