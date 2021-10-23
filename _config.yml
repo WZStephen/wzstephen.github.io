@@ -62,6 +62,24 @@ content:
       - 编程语言：<mark>Java</mark> <mark>Python</mark> <mark>JavaScript</mark> <mark>ASP</mark> <mark>MATLAB</mark>
       - 交流语言：<mark>中文</mark> <mark>英文</mark> 
 
+  - title: 教育背景 # Title for the section
+    layout: list # Type of content section (list/text)
+    content:
+      - layout: left
+        title: 亚利桑那州立大学富尔顿工程学院 （GPA 3.40/4.00）
+        caption: 2015.08 - 2019.05
+        sub_title: 本科 - 计算机科学
+        # quote: >
+        #   Established in 1636, Harvard is the oldest higher education institution in the United States, and is widely regarded in terms of its influence, reputation, and academic pedigree as a leading university in not just the US but also the world.
+        # description: | # this will include new lines to allow paragraphs
+        #   During my time at Harvard I learnt most of my key skills that have I have taken through my career such as teamwork and working to tight deadlines. I thouroughly enjoyed my time as university and learnt a lot about a healthy work life balance.
+
+        #   I spent a lot of my free time as a committee member of the *Harvard Mountaineering Club* taking on roles such as *Trip Secretary* and *Vice-President*.
+      
+      - layout: left
+        title: 亚利桑那州立大学富尔顿工程学院 （GPA 3.97/4.00）
+        caption: 2019.06 - 2020.12
+        sub_title: 硕士 - 计算机科学
   - title: 经历 # Title for the section
     layout: list # Type of content section (list/text)
     content:
@@ -103,13 +121,12 @@ content:
             - 协助组织与管理本科阶段的计算机科学课程. 
             - 协助 CSE205 面向对象程序设计，CSE412 数据库管理，CSE434 计算机网络，CSE464 软件 QA 和测试课程的答疑与教学.
       
-
   - title: 项目 # Title for the section
     layout: list # Type of content section (list/text)
     content:
       - layout: top-middle
-        title: Super awesome project
-        link: github.com/sproogen
+        title: Map-Reduce 中地理空间数据分析
+        link: https://github.com/WZStephen/Spatial-Data-Analysis
         # link_text: Project Website
         additional_links:
           - title:  sproogen/modern-resume-theme
@@ -118,25 +135,60 @@ content:
           # - title:  Github page for project (eg. sproogen/modern-resume-theme)
           #   icon: fab fa-github
           #   url: Link to project (eg. sproogen.github.io/modern-resume-theme)
-        quote: >
-          This is probably one of the greatest apps ever created, if you don't agree you're probably wrong.
+        # quote: >
+        #   This is probably one of the greatest apps ever created, if you don't agree you're probably wrong.
         description: | # this will include new lines to allow paragraphs
-          I started this project as a way if learning <mark>React</mark> and it has since grown into a fully fledged app. I have learned many skills through this and been I'm very proud of having this in my portfolio. If you don't have a project as awesome as this I would advise you make one.
+          - 根据纽约出租车出行记录来进行空间分析。此项目的目的是通过Apache Spark的分布式记忆计算框架来识别在统计显著的模式中异常的模式. 
       
-
-  - title: 教育背景 # Title for the section
-    layout: list # Type of content section (list/text)
-    content:
-      - layout: left
-        title: Harvard University
-        caption: 2010 - 2013
-        sub_title: BSc Computer Science
-        quote: >
-          Established in 1636, Harvard is the oldest higher education institution in the United States, and is widely regarded in terms of its influence, reputation, and academic pedigree as a leading university in not just the US but also the world.
+      - layout: top-middle
+        title: 时序性的血糖监测数据分析.
+        link: https://github.com/WZStephen/CGN-Data-Mining
+        # link_text: Project Website
+        additional_links:
+          - title:  sproogen/modern-resume-theme
+            icon: fab fa-github
+            url: github.com/sproogen/modern-resume-theme
+          # - title:  Github page for project (eg. sproogen/modern-resume-theme)
+          #   icon: fab fa-github
+          #   url: Link to project (eg. sproogen.github.io/modern-resume-theme)
+        # quote: >
+        #   This is probably one of the greatest apps ever created, if you don't agree you're probably wrong.
         description: | # this will include new lines to allow paragraphs
-          During my time at Harvard I learnt most of my key skills that have I have taken through my career such as teamwork and working to tight deadlines. I thouroughly enjoyed my time as university and learnt a lot about a healthy work life balance.
-
-          I spent a lot of my free time as a committee member of the *Harvard Mountaineering Club* taking on roles such as *Trip Secretary* and *Vice-President*.
+          - 收集血糖数据来对时间序列数据进行分析，进而选取有意义的统计数据和分析数据的其他特征.
+    
+      - layout: top-middle
+        title: Large Mini-Batch 深度学习模型的计算引擎的基准测试
+        link: https://github.com/WZStephen/Spark-Bench
+        # link_text: Project Website
+        additional_links:
+          - title:  sproogen/modern-resume-theme
+            icon: fab fa-github
+            url: github.com/sproogen/modern-resume-theme
+          # - title:  Github page for project (eg. sproogen/modern-resume-theme)
+          #   icon: fab fa-github
+          #   url: Link to project (eg. sproogen.github.io/modern-resume-theme)
+        # quote: >
+        #   This is probably one of the greatest apps ever created, if you don't agree you're probably wrong.
+        description: | # this will include new lines to allow paragraphs
+          - 研究计算引擎中的传统优化器 SGD，以及优化相关大数据集和 DNN 模式的性能。 
+          - 将新式的 LARS-SGD 优化器集成到传统计算引擎中，对同一数据集合 DNN 模式进行基准测试.在 16384 批次中，测试样本的检测准确率达到 97.79%. 
+    
+      - layout: top-middle
+        title: VAST Challenge 2015 设计数据可视化来解决问题 
+        link: https://github.com/WZStephen/VAST-Challenge-2015-MC1
+        # link_text: Project Website
+        additional_links:
+          - title:  sproogen/modern-resume-theme
+            icon: fab fa-github
+            url: github.com/sproogen/modern-resume-theme
+          # - title:  Github page for project (eg. sproogen/modern-resume-theme)
+          #   icon: fab fa-github
+          #   url: Link to project (eg. sproogen.github.io/modern-resume-theme)
+        # quote: >
+        #   This is probably one of the greatest apps ever created, if you don't agree you're probably wrong.
+        description: | # this will include new lines to allow paragraphs
+          - 收集恐龙公园中某个事件中游客移动的时间序列数据并分析出有用的特征. 
+          - 设计数据分析可视化来展示引起混乱的原因以及其中有价值的发现. 
 
   - title: A Little More About Me
     layout: text
@@ -151,7 +203,6 @@ content:
       ![Trees](/modern-resume-theme/images/landscape-trees.jpg "Trees")
       - title: IT 技能
 
-  
 # Footer
 footer_show_references: true
 # references_title: References on request (Override references text)
