@@ -65,7 +65,7 @@ content:
   - title: 教育背景 # Title for the section
     layout: list # Type of content section (list/text)
     content:
-      - layout: left
+      - layout: middle
         title: 亚利桑那州立大学富尔顿工程学院 （GPA 3.40/4.00）
         caption: 2015.08 - 2019.05
         sub_title: 本科 - 计算机科学
@@ -76,7 +76,7 @@ content:
 
         #   I spent a lot of my free time as a committee member of the *Harvard Mountaineering Club* taking on roles such as *Trip Secretary* and *Vice-President*.
       
-      - layout: left
+      - layout: middle
         title: 亚利桑那州立大学富尔顿工程学院 （GPA 3.97/4.00）
         caption: 2019.06 - 2020.12
         sub_title: 硕士 - 计算机科学
@@ -140,7 +140,7 @@ content:
         description: | # this will include new lines to allow paragraphs
           - 根据纽约出租车出行记录来进行空间分析。此项目的目的是通过Apache Spark的分布式记忆计算框架来识别在统计显著的模式中异常的模式. 
       
-      - layout: top-middle
+      - layout: middle
         title: 时序性的血糖监测数据分析.
         link: https://github.com/WZStephen/CGN-Data-Mining
         # link_text: Project Website
