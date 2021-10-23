@@ -15,7 +15,7 @@ website: wzstephen.github.io
 darkmode: false
 
 # Social links
-twitter_username: facespics
+# twitter_username: facespics
 github_username:  WZStephen
 # stackoverflow_username: "00000001"
 # dribbble_username: jekyll
@@ -48,12 +48,12 @@ additional_links:
 # about_title: About Me
 about_profile_image: images/profile.jpg
 about_content: | # this will include new lines to allow paragraphs
-  Hi, my name's Brett and I'm a senior network system administrator. As well as administrating systems I also have experience making software and web apps. I have worked at a number of companies gaining teamwork and leadership skills.
-
-  I am most skilled in: <mark>AWS</mark> and <mark>Eating Pizza</mark>
+硕士研究生毕业于亚利桑大州立大学.主修计算机科学，专修软件工程，数据结
+构设计，机器学习和数据可视化.致力于成为一个踏实能干以及以解决问题为导
+向并且拥有丰富实践经验的工程师.拥有善于分析的特质和卓越的领导力.
 
 content:
-  - title: Projects # Title for the section
+  - title: 项目 # Title for the section
     layout: list # Type of content section (list/text)
     content:
       - layout: top-middle
