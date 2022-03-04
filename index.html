@@ -1,0 +1,595 @@
+<!-- Kaihua Tang, 2017.11.20 -->
+<html class="kaihua__cs_sjtu_edu">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Kaihua Tang</title>
+  <script async="" src="./JS_CSS_Files/analytics.js"></script>
+  <script src="./JS_CSS_Files/jquery-1.11.2.min.js"></script>
+  <script src="./JS_CSS_Files/bootstrap.min.js"></script>
+  <link href="./JS_CSS_Files/bootstrap.min.css" rel="stylesheet">
+  <link href="./JS_CSS_Files/css" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" href="./Img_Files/icon_ailurus.ico" />
+  <style>
+    body {
+      font-family: 'sans-serif';
+      font-size: 16px;
+      background-color: #FFFCF4;
+      color: #4F6071;
+    }
+
+    .color1 {
+      background-color: #CCC;
+    }
+
+    #header {
+      width: 100%;
+      height: 360px;
+      background-color: #F0EAD6
+        /* background-color: #b30000; */
+    }
+
+    #header-inner {
+      position: absolute;
+      width: 70%;
+      left: 30%;
+      top: 150px;
+    }
+
+    .img-me {
+      border: 3px solid white;
+      float: left;
+      height: 200px;
+    }
+
+    .header-text {
+      margin-top: 60px;
+      margin-left: 220px;
+    }
+
+    .header-text-name {
+      font-weight: bold;
+      font-size: 40px;
+    }
+
+    .header-text-email {
+      font-size: 20px;
+      font-style: italic;
+    }
+
+    .header-text-cv {
+      margin-left: 50px;
+      font-size: 20px;
+      font-style: italic;
+    }
+
+    .header-text-desc {
+      font-size: 20px;
+    }
+
+    #contact-info {
+      position: absolute;
+      left: 80%;
+      width: 20%;
+      top: 360px;
+      height: 100px;
+      background-color: #EEE;
+    }
+
+    .vspace {
+      margin-bottom: 20px;
+    }
+
+    .vspace-top {
+      margin-top: 30px;
+    }
+
+    .paper-title {
+      margin-left: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .paper-authors {
+      margin-left: 20px;
+      font-style: italic;
+    }
+
+    .paper-link {
+      margin-left: 20px;
+    }
+
+    .paper-detail {
+      margin-left: 20px;
+    }
+
+    .school-image {
+      width: 100px;
+    }
+
+    .dual-school-image {
+      width: 150px;
+    }
+
+    .school-name {
+      font-size: 20px;
+    }
+
+    .school-time {
+      font-style: italic;
+    }
+
+    .school-detail {}
+
+    .project-image {
+      width: 300px;
+    }
+
+    .project-name {
+      margin-left: 120px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .project-detail {
+      margin-left: 120px;
+    }
+  </style>
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-50623594-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+<body data-gr-c-s-loaded="true">
+  <div id="header">
+    <div id="header-inner">
+      <img src="./Img_Files/me.png" class="img-circle img-me">
+      <div class="header-text">
+        <div class="header-text-name">
+          Kaihua (Kyle) Tang
+        </div>
+        <div class="header-text-email">
+          tkhchipaomian [at] gmail [dot] com
+        </div>
+        <div>
+          <a href="https://github.com/KaihuaTang">[Github]</a>
+          <a href="https://kaihuatang.github.io/kyle-blog/">[Blog]</a> 
+          <a href="https://www.linkedin.com/in/kaihua-tang-1b2522125/">[Linkedin]</a> 
+          <a href="https://scholar.google.com.sg/citations?user=WuO1sSkAAAAJ&hl=en">[Google Scholar]</a>
+          <a href="./Files/KaihuaTang_Resume.pdf">[Résumé]</a>
+          <a href="./Files/KaihuaTang_ResumeCN.pdf">[中文简历]</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="col-md-11 col-md-offset-1">
+      <div class="row">
+        <h2>About Me</h2>
+        <div class="vspace">
+          I'm a fourth-year Ph.D. student at Nanyang Technological University <a href="https://mreallab.github.io/"
+            target="_blank">MReaL Lab</a>, supervised by <a href="https://personal.ntu.edu.sg/hanwangzhang/"
+            target="_blank">Hanwang Zhang</a>. Prior to NTU, I got my Bachelor's degree from 
+            <a href="http://english.seiee.sjtu.edu.cn/english/info/8338.htm" target="_blank">
+              IEEE honor class</a> at Shanghai Jiao Tong University, and dual-master degrees from the joint programme of SJTU and Waseda
+            University.
+        </div>
+
+
+        <div>
+          Currently, I'm working on 1) robust machine learning, including causal de-confounding, long-tailed recognition & adversarial robustness,
+          and 2) visual reasoning, including scene understanding & causal inference in computer vision.
+          Besides, 3) as a gamer and a former game developer, I'm always interested in artificial intelligence in video games.
+        </div>
+      </div>
+
+
+      <div class="row">
+        <h2>News</h2>
+        <ul>
+            <li>05/2021 : Received the Silver Award in <a href="http://www.premiasg.org/for-members/premia-best-student-paper-awards/premia-best-student-paper-awards-2021/" target="_blank">2021 PREMIA Best Student Paper Award</a></li>
+            <li>03/2021 : Selected as one of the <a href="https://damo.alibaba.com/events/114" target="_blank">2021 Alibaba Outstanding Interns in Academic Cooperation</a></li>
+            <li>01/2021 : Two Papers Accepted by CVPR 2021</li>
+            <li>01/2021 : One Paper Accepted by TMM 2021</li>
+            <li>09/2020 : One Paper Accepted by NeurIPS 2020</li>
+            <li>01/2020 : Two Papers (One Oral) Accepted by CVPR 2020</li>
+            <li>01/2019 : Two Papers (Both Oral) Accepted by CVPR 2019</li>
+        </ul>
+      </div>
+
+
+      <div class="row">
+        <h2>Publications</h2>
+
+
+        <div class="row">
+          <div class="paper-title">
+            <a href="https://arxiv.org/abs/2106.09534" target="_blank">
+              Adversarial Visual Robustness by Causal Intervention
+            </a>
+          </div>
+          <div class="paper-authors">
+            <u>Kaihua Tang</u>, Mingyuan Tao, Hanwang Zhang
+          </div>
+          <div class="paper-detail">
+            arXiv preprint 2021</b>
+          </div>
+        </div>
+
+
+        <div class="row vspace-top">
+          <div class="paper-title">
+            <a href="https://arxiv.org/abs/2103.01737" target="_blank">
+              Distilling Causal Effect of Data in Class-Incremental Learning
+            </a>
+          </div>
+          <div class="paper-authors">
+            Xinting Hu, <u>Kaihua Tang</u>, Chunyan Miao, Xian-Sheng Hua, Hanwang Zhang
+          </div>
+          <div class="paper-detail">
+            CVPR 2021</b>
+          </div>
+        </div>
+
+        <div class="row vspace-top">
+          <div class="paper-title">
+            <a href="https://arxiv.org/abs/2006.04315" target="_blank">
+              Counterfactual VQA: A Cause-Effect Look at Language Bias
+            </a>
+          </div>
+          <div class="paper-authors">
+            Yulei Niu, <u>Kaihua Tang</u>, Hanwang Zhang, Zhiwu Lu, Xian-Sheng Hua, Ji-Rong Wen
+          </div>
+          <div class="paper-detail">
+            CVPR 2021</b>
+          </div>
+        </div>
+
+        <div class="row vspace-top">
+          <div class="paper-title">
+            <a href="https://ieeexplore.ieee.org/document/9364727/" target="_blank">
+              Align R-CNN: A Pairwise Head Network for Visual Relationship Detection
+            </a>
+          </div>
+          <div class="paper-authors">
+            Mitra Tajrobehkar, <u>Kaihua Tang</u>, Hanwang Zhang, Joo-Hwee Lim
+          </div>
+          <div class="paper-detail">
+            TMM 2021</b>
+          </div>
+        </div>
+
+        <div class="row vspace-top">
+          <div class="paper-title">
+            <a href="https://arxiv.org/abs/2009.12991" target="_blank">
+              Long-Tailed Classification by Keeping the Good and Removing the Bad Momentum Causal Effect
+            </a>
+          </div>
+          <div class="paper-authors">
+            <u>Kaihua Tang</u>, Jianqiang Huang, Hanwang Zhang
+          </div>
+          <div class="paper-detail">
+            NeurIPS 2020</b>
+          </div>
+        </div>
+
+        <div class="row vspace-top">
+          <div class="paper-title">
+            <a href="https://arxiv.org/abs/2002.11949" target="_blank">
+              Unbiased Scene Graph Generation from Biased Training
+            </a>
+          </div>
+          <div class="paper-authors">
+            <u>Kaihua Tang</u>, Yulei Niu, Jianqiang Huang, Jiaxin Shi, Hanwang Zhang
+          </div>
+          <div class="paper-detail">
+            CVPR 2020 <b>(oral)</b>
+          </div>
+        </div>
+
+        <div class="row vspace-top">
+          <div class="paper-title">
+            <a href="https://arxiv.org/abs/2004.00900" target="_blank">
+              Learning to Segment the Tail
+            </a>
+          </div>
+          <div class="paper-authors">
+            Xinting Hu, Yi Jiang, <u>Kaihua Tang</u>, Hanwang Zhang, Chunyan Miao, Jingyuan Chen
+          </div>
+          <div class="paper-detail">
+            CVPR 2020
+          </div>
+        </div>
+
+        <div class="row vspace-top">
+          <div class="paper-title">
+            <a href="https://arxiv.org/abs/1812.01880" target="_blank">
+              Learning to Compose Dynamic Tree Structures for Visual Contexts
+            </a>
+          </div>
+          <div class="paper-authors">
+            <u>Kaihua Tang</u>, Hanwang Zhang, Baoyuan Wu, Wenhan Luo, Wei Liu
+          </div>
+          <div class="paper-detail">
+            CVPR 2019 <b>(oral & appears on the Best Paper Finalists [accept rate: 0.87% = 45/5160])</b>
+          </div>
+        </div>
+
+        <div class="row vspace-top">
+          <div class="paper-title">
+            <a href="https://arxiv.org/abs/1812.02378" target="_blank">
+              Auto-Encoding Scene Graphs for Image Captioning
+            </a>
+          </div>
+          <div class="paper-authors">
+            Xu Yang, <u>Kaihua Tang</u>, Hanwang Zhang, Jianfei Cai
+          </div>
+          <div class="paper-detail">
+            CVPR 2019 <b>(oral)</b>
+          </div>
+        </div>
+
+
+        <div class="row vspace-top">
+          <div class="paper-title">
+            <a href="./Files/ACCV16.pdf" target="_blank">
+              Eigen-Aging Reference Coding for Cross-Age Face Verification and Retrieval
+            </a>
+          </div>
+          <div class="paper-authors">
+            <u>Kaihua Tang</u>, Sei-ichiro Kamata, Xiaonan Hou, Shouhong Ding, Lizhuang Ma
+          </div>
+          <div class="paper-detail">
+            ACCV 2016
+          </div>
+        </div>
+
+      </div>
+
+
+     <!--
+      <div class="row">
+        <h2>Educations</h2>
+
+        <div class="row">
+          <div class="col-xs-3 text-center">
+            <img class="school-image" src="./Img_Files/ntu2.png">
+          </div>
+          <div class="col-xs-9">
+            <div class="school-name">
+              <b>Nanyang Technological University</b>, Singapore
+            </div>
+            <div class="school-time">
+              Ph.D Candidate of Computer Science and Engineering (2018.7 - Now)
+            </div>
+            <div class="school-detail">
+              Working with Asst Prof.Zhang Hanwang.
+            </div>
+          </div>
+        </div>
+
+        <div class="row vspace-top">
+          <div class="col-xs-3 text-center">
+            <img class="dual-school-image" src="./Img_Files/dualms.png">
+          </div>
+          <div class="col-xs-9">
+            <div class="school-name">
+              <b>Waseda University</b>, Japan; <b>Shanghai Jiao Tong University</b>, China
+            </div>
+            <div class="school-time">
+              Dual Master Program of Science (2015.9 - 2018.3)
+            </div>
+            <div class="school-detail">
+              Primary major in Computer Science. Working with Prof.Ma Lizhuang & Prof.Kamata Sei-ichiro.
+            </div>
+          </div>
+        </div>
+
+        <div class="row vspace-top">
+          <div class="col-xs-3 text-center">
+            <img class="school-image" src="./Img_Files/sjtu.png">
+          </div>
+          <div class="col-xs-9">
+            <div class="school-name">
+              <b>Shanghai Jiao Tong University</b>, China
+            </div>
+            <div class="school-time">
+              Bachelor of Science (2011.9 - 2015.8)
+            </div>
+            <div class="school-detail">
+              Primary major in Computer Science, Second major in Chinese Traditional Painting
+            </div>
+          </div>
+        </div>
+
+      </div>
+    -->
+
+
+      <div class="row vspace-top">
+        <h2>Awards</h2>
+        <li>2021 Alibaba Outstanding Interns in Academic Cooperation, Alibaba Group, 2021</li>
+        <li>2021 & 2019 PREMIA Best Student Paper Award, 2nd Place, PREMIA, 2021 & 2019</li>
+        <li>CVPR 2019 Best Paper Finalists, 2019</li>
+        <li>Honorable Judge Award, The 5th Cloud Programming World Cup, FORUM8 Tokyo, 2017</li>
+        <li>Waseda Partial Tuition-Waiver Scholarship for International Students (10/300), Waseda University, 2015</li>
+        <li>IPS special scholarship for international students, Waseda University, 2014</li>
+        <li>Monbukagakusho Honors Scholarship for International Students, JASSO, 2014</li>
+        <li>Emerging Talent Award, The 1st Cloud Programming World Cup, FORUM8 Tokyo, 2013</li>
+      </div>
+
+      <div class="row vspace-top">
+        <h2>Academic Services</h2>
+
+        <h4><i>Organizing Committees</i></h4>
+        <a href="http://www.causalityinvision.com/" target="_blank">Causality in Vision Workshop</a> at CVPR 2021
+
+
+        <h4><i>Talks and Blogs</i></h4>
+        <div>Invited Talk : To <a href="https://www.kuaishou.com/en/" target="_blank">Kuaishou, Recommendation System Group</a>, Beijing, 2021.07</div>
+        <div>Invited Talk : To <a href="https://www.fudan.edu.cn/en/2019/0515/c295a96709/page.htm" target="_blank">Fudan University, Department of CS</a>, Hosted by Asso Prof.Jingjing Chen, Shanghai, 2021.07</div>
+        <div>Invited Talk : To <a href="https://lms.comp.nus.edu.sg/" target="_blank">The Lab for Media Search (LMS)</a>, NUS, 2021.06</div>
+        <div>Invited Talk : To <a href="http://valser.org/webinar/slide/index.php/Home/Index/index/dir/20201202.html" target="_blank">VALSE Webinar (volume 20-29)</a>, Hosted by <a href="http://www.smartllv.com/director.html" target="_blank">Prof.Meng Yang</a>, Online, 2020.12</div>
+        <div>Invited Talk : To Causal AI Reading Group, Jointly Hosted by <a href="https://swarma.org/" target="_blank">Swarma Club</a> and <a href="https://hub.baai.ac.cn/" target="_blank">BAAI Hub</a>, 2020.12</div>
+        <div>Invited Talk : To <a href="https://www.cvmart.net/" target="_blank">Jishi Community</a>,  Hosted by Jishi Team, BiliBili, 2020.12 </div>
+        <div>Invited Talk : To Alibaba Group, Hosted by Tianchi Team from Alibaba Cloud, Hangzhou, China, 2020.11</div>
+        <div>Invited Talk : To <a href="https://people.eecs.berkeley.edu/~jiantao/" target="_blank">Jiantao Jiao's Lab</a>,  Hosted by Ph.D. Banghua Zhou, UC Berkeley, 2020.10</div>
+        <div>Blogs : Sharing Research Experiences at <a href="https://www.zhihu.com/column/c_1221858687846834176" target="_blank">Zhihu</a>, Language: Chinese</div>  
+
+        
+        <h4><i>Paper Review</i></h4>
+        TPAMI, CVPR (2020-2022), NeurIPS (2020-2021), ICLR (2021-2022), ICCV (2021), AAAI (2021),
+          ICML (2021), WACV (2021).
+      
+      </div>
+
+
+      <div class="row vspace-top">
+        <h2>Projects</h2>
+
+        <div class="row">
+          <div class="col-xs-3 text-center">
+            <img class="project-image" src="./Img_Files/project4.png">
+          </div>
+          <div class="col-xs-9">
+            <div class="project-name">
+              <a href="https://github.com/KaihuaTang/Scene-Graph-Benchmark.pytorch" target="_blank">Scene Graph
+                Benchmark in Pytorch</a>
+            </div>
+            <div class="project-detail">
+              This project aims to build a new CODEBASE for Scene Graph Generation (SGG), and it is also a Pytorch
+              implementation of the paper "Unbiased Scene Graph Generation from Biased Training". It is built on top of
+              the well-known maskrcnn-benchmark and defines relationship prediction as an additional roi_head. Moreover,
+              I included all the exsiting metrics: R@K, mR@K, ngR@K, zR@K, to benchmark the SGG.
+            </div>
+          </div>
+        </div>
+
+        <div class="row vspace-top">
+          <div class="col-xs-3 text-center">
+            <img class="project-image" src="./Img_Files/project5.png">
+          </div>
+          <div class="col-xs-9">
+            <div class="project-name">
+              <a href="https://github.com/KaihuaTang/Long-Tailed-Recognition.pytorch" target="_blank">Long-Tailed
+                Recognition in Pytorch</a>
+            </div>
+            <div class="project-detail">
+              This project provides a strong single-stage baseline for Long-Tailed Classification (under ImageNet-LT,
+              Long-Tailed CIFAR-10/-100 datasets), Detection, and Instance Segmentation (under LVIS dataset). It is also
+              a PyTorch implementation of the NeurIPS 2020 paper Long-Tailed Classification by Keeping the Good and
+              Removing the Bad Momentum Causal Effect. This project can be easily generalized to other tasks with unbalanced datasets.
+            </div>
+          </div>
+        </div>
+
+        <div class="row vspace-top">
+          <div class="col-xs-3 text-center">
+            <img class="project-image" src="./Img_Files/vqa.png">
+          </div>
+          <div class="col-xs-9">
+            <div class="project-name">
+              <a href="https://github.com/KaihuaTang/VQA2.0-Recent-Approachs-2018.pytorch" target="_blank">VQA2.0 Recent
+                Approachs 2018 in Pytorch</a>
+            </div>
+            <div class="project-detail">
+              An open-source visual question answering (VQA) CODEBASE built on top of the bottom-up-attention-vqa. It
+              integrates several popular VQA papers published in 2018, which includes: bottom-up top-down, bilinear
+              attention network, learning to count, learning conditioned graph structures, intra- and inter-modality
+              attention.
+            </div>
+          </div>
+        </div>
+
+        <div class="row vspace-top">
+          <div class="col-xs-3 text-center">
+            <img class="project-image" src="./Img_Files/project2.png">
+          </div>
+          <div class="col-xs-9">
+            <div class="project-name">
+              Indie Game Development
+            </div>
+            <div class="project-detail">
+              Out of interest, I independently developed several mobile games on Iphone. They have been downloaded over
+              10k times on Apple store in half a year.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="row vspace-top vspace">
+        <h2>Experience</h2>
+
+        <h4><b>Alibaba, DAMO Academy, Research Intern (2019.7 - Now)</b></h4>
+        Major topic: Robust Machine Learning
+        <br>
+        Mentor: Mingyuan Tao, Chang Zhou, Jianqiang Huang
+        <br><br>
+
+        <h4><b>Tencent, AI Lab, Research Intern (2018.3 - 2018.6)</b></h4>
+        Major topic: Scene Graph Generation
+        <br>
+        Mentor: Wenhan Luo, Baoyuan Wu, Wei Liu
+        <br><br>
+
+        <h4><b>Mihoyo, Software Engineer Intern (2017.4 - 2017.12)</b></h4>
+        Mobile Game Development Using Unity 3D.
+        <br><br>
+
+        <h4><b>Toshiba, Research & Development Intern (2015.8 - 2015.9)</b></h4>
+        Major Project: Scenery Image Stitching and Inpainting.
+        <br>
+        Mentor: Kaoru Matsuoka
+        <br><br>
+
+        <h4><b>
+          <a href="https://speechlab.sjtu.edu.cn/node/7">
+            Speech Lab
+          </a>
+          Intern, SJTU (2014.3 - 2014.9)</b></h4>
+        Major Project: Leading a team to develop an Android App for unlocking the screen by Voice Recognition.
+        <br>
+        Mentor: Kai Yu
+        <br><br>
+
+        <h4><b>28th ACM-MM Volunteer, Seattle, USA (2020.10)</b></h4>
+        Received Volunteer Appreciation Certification in the 2020 ACM Multimedia for joining the organization of online presentation.
+        <br><br>
+
+        <h4><b>YAPM Summer Volunteer, Yunnan Province, China (2014.7 - 2014.8)</b></h4>
+        Youth Ambassador Program for Minorities (TECC Organization) is determined to help the youth generation of
+        minorities in remote area of China to inherit and protect their cultures.
+        <br><br>
+
+        
+
+      </div>
+
+    </div>
+  </div>
+
+  <p align="center"><br>
+    <a href='https://clustrmaps.com/site/1an2z' title='Visit tracker'><img
+        src='//clustrmaps.com/map_v2.png?cl=ffffff&w=250&t=tt&d=jtVx5gGD4Jpkn2bxejPg0-3tz8nkFVX5xQdTG-UF-y8&co=6cb3e6&ct=ffffff' /></a>
+  </p>
+
+  <p align="center"><br>
+    <span class="STYLE6">
+      All rights reserved & Last update on Mar, 2021
+    </span>
+  </p>
+
+
+</body>
+
+</html>
