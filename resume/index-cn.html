@@ -346,7 +346,7 @@
       <img class="portrait" src="../Img_Files/weichi2.jpg" alt="赵伟驰">
       <div>
         <h1>赵伟驰</h1>
-        <div class="role">AI 基础设施工程师 | LLM 推理平台 / MaaS / Kubernetes</div>
+        <div class="role">AI 基础设施 / LLM 推理平台工程师</div>
         <div class="links">
           <span>杭州</span>
           <a href="mailto:stefen11wzhao@gmail.com">stefen11wzhao@gmail.com</a>
@@ -355,7 +355,7 @@
           <a class="no-print" href="../Files/CN_Resume_Weichi_Zhao.pdf">PDF 简历</a>
           <a class="no-print" href="index.html">English</a>
         </div>
-        <div class="target">求职方向：AI Infra、大模型推理平台、云原生模型服务、AI Gateway、异构算力调度与平台工程。</div>
+        <div class="target">求职方向：LLM 推理平台、OpenAI 兼容 MaaS、AI Gateway、Agent Platform、异构 GPU / XPU 调度。</div>
       </div>
     </div>
   </div>
@@ -364,19 +364,29 @@
     <section>
       <h2>个人简介</h2>
       <div class="summary">
-        面向 AI 基础设施与大模型推理服务的平台工程师，长期参与 MaaS、LLM Serving、模型网关、离线批处理、Kubernetes Operator 和国产异构算力环境建设。擅长把模型服务从“能跑起来”推进到“可接入、可观测、可调度、可恢复、可产品化”：明确控制面与数据面边界，建设 OpenAI 兼容入口，治理在线与离线流量，围绕 Router、Worker、网关、存储和 Kubernetes 资源做端到端排障与稳定性优化。
+        面向 AI 基础设施与大模型推理服务的平台工程师，专注生产级 LLM Serving、模型服务控制面和 OpenAI 兼容 MaaS 能力建设。长期参与离线批量推理、模型网关、路由与编排可靠性、Kubernetes 原生推理任务和国产异构 GPU / XPU 环境适配。擅长把科研与模型工作负载沉淀成可复用的平台能力：可观测路由、在线 / 离线流量隔离、灰度与回滚、端到端排障，以及由真实故障驱动的稳定性加固。
       </div>
+    </section>
+
+    <section>
+      <h2>关键成果</h2>
+      <ul>
+        <li>支撑 BatchFlow 生产数据蒸馏：春节期间累计处理 276 万余条请求 / 约 239 亿 tokens；后续支撑日均约 1000 万条请求，成功率超过 99%。</li>
+        <li>验证 BatchFlow -> SGLang Router -> 多 KLX 后端链路：Qwen3 负载下约 30 万请求 / 97.5 亿 tokens，成功率约 99.9%，BatchFlow 与 Router CPU / 内存开销低于 5%。</li>
+        <li>围绕网关、Router、Worker、Service discovery、readiness 与长连接等多类故障模式加固推理链路可靠性，避免只依赖 Pod 级健康状态判断服务可用性。</li>
+      </ul>
     </section>
 
     <section>
       <h2>核心能力</h2>
       <div class="grid">
         <div>
-          <div class="skill-row"><div class="skill-label">LLM 推理</div><div>SGLang、vLLM、OpenAI 兼容 API、流式响应、Embedding、Responses API 兼容性、PD 分离、KV Cache 感知路由。</div></div>
-          <div class="skill-row"><div class="skill-label">平台工程</div><div>Kubernetes、Operator / Controller、CRD、Helm、Kustomize、平滑升级、服务发现、GPU 推理任务生命周期管理。</div></div>
+          <div class="skill-row"><div class="skill-label">LLM 推理</div><div>SGLang、vLLM、OpenAI 兼容 API、流式响应、Embedding、Responses API、PD 分离、KV / Prefix Cache、Cache-aware 与 Bucket 路由。</div></div>
+          <div class="skill-row"><div class="skill-label">控制面</div><div>Kubernetes Operator / Controller、CRD、Helm、Kustomize、readiness、finalizer、服务发现、平滑升级、重试与回滚流程。</div></div>
         </div>
         <div>
-          <div class="skill-row"><div class="skill-label">网关与治理</div><div>Higress、Envoy / WASM 理念、LiteLLM、鉴权、模型映射、Token 级限流、路由同步、指标与可观测性。</div></div>
+          <div class="skill-row"><div class="skill-label">MaaS 网关</div><div>Higress、LiteLLM、AI Gateway、鉴权、模型映射、Token 级限流、路由同步、指标与可观测性。</div></div>
+          <div class="skill-row"><div class="skill-label">Agent 平台</div><div>私有化 Agent 协议接入、工具调用 API 兼容、Claude / OpenAI 风格适配、工作流安全、本地 Agent 治理。</div></div>
           <div class="skill-row"><div class="skill-label">工程基础</div><div>Go、Python、Java、Linux、Prometheus、MySQL / SQLite / Redis、分布式系统排障、性能压测与容量评估。</div></div>
         </div>
       </div>
@@ -392,9 +402,9 @@
         <div class="meta">2024 - 至今</div>
       </div>
       <ul>
-        <li>参与建设和运维面向大模型服务的 MaaS 平台能力，覆盖 CPU ACK 与 GPU ACK 跨集群链路，包括 Higress 私有化部署入口、LiteLLM 公共模型入口、SGLang Router 模型路由、IGD / IGDSA 推理任务编排，以及 BatchFlow 离线批处理。</li>
+        <li>参与建设和运维面向大模型服务的 MaaS 平台能力，覆盖 CPU ACK 与 GPU ACK 跨集群链路，包括 Higress 私有化部署入口、LiteLLM 公共模型入口、SGLang Router 模型路由、IGD / IGDSA 推理任务编排、BatchFlow 离线批处理，以及 Agent 侧 API 兼容。</li>
         <li>负责多条生产推理链路的问题定位与稳定性优化，处理 Router Worker 注册收敛、Service / Endpoint readiness、PD prefill / decode 拓扑、CrashLoop、长连接超时、网关 Header / 模型映射、多集群平滑上线等问题。</li>
-        <li>参与 MaaS-Controller 与 Optimizer 控制面设计，围绕 LiteLLM、Router、IGDSA、BatchFlow、Higress 指标采集与配置下发，设计在线 SLA 优先、离线并发调节、观察窗口、回滚条件等闭环治理机制。</li>
+        <li>参与 MaaS-Controller 与 Optimizer 控制面机制设计，围绕 LiteLLM、Router、IGDSA、BatchFlow、Higress 指标采集与配置下发，设计公共模型限额调整、离线并发调节、观察窗口、回滚条件和在线 SLA 优先等闭环治理机制。</li>
       </ul>
 
       <div class="item-head">
@@ -419,10 +429,10 @@
         </div>
         <div class="tagline">面向数据蒸馏、评测、批量生成等非实时任务的异步推理执行面。</div>
         <ul>
-          <li>设计并实现 OpenAI Batch API 兼容能力，包括文件上传、Batch 创建、状态查询、取消、结果 / 错误文件、流式文件处理、请求级错误隔离和后端并发控制。</li>
-          <li>推动 BatchFlow 从单实例向多副本形态演进，基于 Kubernetes Leader Election 与分片 Worker 改造调度执行链路，优化 Header 透传、上传限制、过期文件清理、Kustomize 平滑升级、监控展示和异常 finalizing / validating 容错逻辑。</li>
+          <li>设计并实现 OpenAI Batch API 兼容能力，包括文件上传、Batch 生命周期、取消、结果 / 错误文件、流式文件处理、请求级错误隔离和后端并发控制。</li>
+          <li>推动 BatchFlow 向多副本演进，基于 Kubernetes Leader Election 与分片 Worker 改造执行链路，优化 Header 透传、上传限制、过期文件清理、Kustomize 升级、监控和异常 finalizing 容错。</li>
           <li>支撑生产数据蒸馏任务，春节期间通过 BatchFlow 离线接口累计稳定处理 276 万余条请求，产出约 239 亿 tokens；后续支撑日均约 1000 万条请求处理能力，成功率超过 99%。</li>
-          <li>完成 BatchFlow -> SGLang Router -> 多 KLX 后端链路压测，在 Qwen3-235B-A22B-Thinking-2507 负载下处理约 30 万请求、约 97.5 亿 tokens，成功率约 99.9%，BatchFlow 与 Router 自身 CPU / 内存占用低于 5%。</li>
+          <li>完成 BatchFlow -> SGLang Router -> 多 KLX 后端链路压测，在 Qwen3-235B-A22B-Thinking-2507 负载下处理约 30 万请求 / 97.5 亿 tokens，成功率约 99.9%，BatchFlow 与 Router CPU / 内存占用低于 5%。</li>
         </ul>
       </div>
 
@@ -433,23 +443,35 @@
         </div>
         <div class="tagline">围绕多 Worker、PD 分离和国产异构环境，提升推理任务从部署到请求可达的端到端可靠性。</div>
         <ul>
-          <li>优化 Router Worker 注册与收敛机制，引入“期望集合 vs 实际 /workers 集合”的对账逻辑，在缺失、冗余或注册失败时持续 requeue，避免部分 Worker 长期未纳管的隐性故障。</li>
-          <li>完善 IGD / ISI 在 Router 启动阶段的 readiness 处理，优先使用 Pod IP 完成注册，为 Service 启用 `publishNotReadyAddresses`，保留 SLB finalizer，并为 Router 指标端口自动生成 Prometheus Service。</li>
-          <li>开发并验证 ISI 级自动重启能力，新增显式开关、重启计数、失败原因、failure fingerprint、重试预算和失败资源清理逻辑，同时兼容存量任务，降低新特性上线风险。</li>
+          <li>优化 Router Worker 注册与收敛机制，引入“期望集合 vs 实际 /workers 集合”的对账逻辑，在缺失、冗余或注册失败时持续 requeue。</li>
+          <li>完善 IGD / ISI 启动与 readiness：Pod IP 早期注册、`publishNotReadyAddresses`、保留 SLB finalizer、Router 指标 Service，以及带重试预算的 ISI 级自动重启。</li>
           <li>主导多类生产问题根因分析，包括节点环境变量累积触发 ARG_MAX 导致 Router Pod 启动失败、Worker Ready 后 Router 未纳管、共享 Service selector 残留、45 分钟长连接超时等问题。</li>
         </ul>
       </div>
 
       <div class="project">
         <div class="project-title">
-          <span>MaaS 网关与控制面集成</span>
-          <span class="meta">Higress / LiteLLM / 指标治理</span>
+          <span>MaaS 网关、控制面与 Agent 兼容接入</span>
+          <span class="meta">Higress / LiteLLM / Agent API</span>
         </div>
-        <div class="tagline">统一私有化部署、公共模型服务与离线推理任务的入口、鉴权、路由和观测能力。</div>
+        <div class="tagline">统一私有化部署、公共模型服务与离线推理任务的入口、鉴权、路由、协议兼容和观测能力。</div>
         <ul>
-          <li>参与平台分层架构设计，将 Higress 私有任务入口、LiteLLM 公共模型入口、SGLang Router 路由层、BatchFlow 离线执行面和 MaaS-Controller 控制面拆分为职责清晰的组件。</li>
-          <li>调研和验证 AI Gateway 能力，包括 Token 级限流、模型映射、路由同步、指标采集、OpenAI 兼容协议处理，以及 Embedding、Responses API 等新接口的兼容边界。</li>
+          <li>参与平台分层架构设计，将 Higress 私有入口、LiteLLM 公共入口、SGLang Router、BatchFlow 离线执行面和 MaaS-Controller 控制面拆分为职责清晰的组件。</li>
+          <li>验证 AI Gateway 能力，包括 Token 级限流、模型映射、路由同步、指标采集、OpenAI 兼容协议，以及 Embedding、Responses API 等接口边界。</li>
+          <li>将私有化与公共模型入口映射到 Agent 客户端可使用的 OpenAI 兼容接口，覆盖 Chat Completions、Responses API、Embedding 与工具调用工作流。</li>
           <li>在用户侧故障处理中从网关、路由、Worker、Service discovery 和模型协议层逐层定位问题，避免只依据顶层 Deployment 或 Pod 状态误判服务健康。</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-title">
+          <span>Kubernetes Device Plugin 与异构加速卡平台</span>
+          <span class="meta">GPU / XPU 调度</span>
+        </div>
+        <div class="tagline">面向国产异构加速环境的云原生资源发现、调度与验证链路。</div>
+        <ul>
+          <li>定制 Device Plugin 与资源管理链路，覆盖加速卡可用性识别、节点资源上报、容器运行时验证、卡级调度和故障隔离。</li>
+          <li>建设 Kubernetes AI / HPC 环境中的部署、升级、回滚和 E2E 验证流程，适配国产操作系统与异构加速卡软件栈。</li>
         </ul>
       </div>
     </section>

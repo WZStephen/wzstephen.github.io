@@ -254,8 +254,8 @@
     @media print {
       body {
         background: #fff;
-        font-size: 11px;
-        line-height: 1.35;
+        font-size: 10px;
+        line-height: 1.26;
       }
 
       .topbar {
@@ -304,34 +304,34 @@
       }
 
       section {
-        padding: 9px 0;
+        padding: 6px 0;
       }
 
       h2 {
-        margin-bottom: 6px;
-        font-size: 13px;
-      }
-
-      h3 {
+        margin-bottom: 4px;
         font-size: 12px;
       }
 
-      .summary {
+      h3 {
         font-size: 11px;
       }
 
+      .summary {
+        font-size: 10px;
+      }
+
       .project {
-        margin-top: 7px;
-        padding: 7px 9px;
+        margin-top: 5px;
+        padding: 5px 7px;
         background: #fff;
       }
 
       ul {
-        margin-top: 4px;
+        margin-top: 3px;
       }
 
       li {
-        margin: 2px 0;
+        margin: 1px 0;
       }
 
       a {
@@ -346,7 +346,7 @@
       <img class="portrait" src="../Img_Files/weichi2.jpg" alt="Weichi Zhao">
       <div>
         <h1>Weichi Zhao</h1>
-        <div class="role">AI Infrastructure Engineer | LLM Serving, MaaS, Kubernetes</div>
+        <div class="role">AI Infrastructure / LLM Serving Platform Engineer</div>
         <div class="links">
           <span>Hangzhou, China</span>
           <a href="mailto:stefen11wzhao@gmail.com">stefen11wzhao@gmail.com</a>
@@ -356,7 +356,7 @@
           <a class="no-print" href="../Files/EN_Resume_Weichi_Zhao.pdf">PDF Resume</a>
           <a class="no-print" href="index-cn.html">中文</a>
         </div>
-        <div class="lang">Target roles: AI infrastructure, LLM serving platform, cloud-native model platform, AI gateway, heterogeneous GPU scheduling.</div>
+        <div class="lang">Target roles: LLM serving platform, OpenAI-compatible MaaS, AI gateway, agent platform, heterogeneous GPU/XPU scheduling.</div>
       </div>
     </div>
   </div>
@@ -365,20 +365,30 @@
     <section>
       <h2>Profile</h2>
       <div class="summary">
-        AI infrastructure engineer with production experience across LLM serving platforms, OpenAI-compatible MaaS, model gateways, offline batch inference, Kubernetes operators, and heterogeneous accelerator environments. I focus on turning model services into reliable platform capabilities: clear control/data-plane boundaries, observable routing, safe rollout, online/offline traffic coordination, and failure recovery that is verified end to end rather than only at the Pod level.
+        AI infrastructure engineer focused on production LLM serving platforms and model-service control planes. I build OpenAI-compatible MaaS capabilities, offline batch inference, model gateways, routing/orchestration reliability, and Kubernetes-native serving on heterogeneous GPU/XPU clusters. My strength is turning research and model workloads into reusable platform primitives with observable routing, online/offline traffic isolation, rollout safety, and incident-driven hardening.
       </div>
+    </section>
+
+    <section>
+      <h2>Impact Highlights</h2>
+      <ul>
+        <li>Scaled BatchFlow for production data distillation: over 2.76M requests / 23.9B tokens in a holiday run; later around 10M requests per day with success rate above 99%.</li>
+        <li>Validated BatchFlow -> SGLang Router -> multi-KLX backend for Qwen3: about 300K requests / 9.75B tokens, about 99.9% success rate, and below 5% BatchFlow/Router CPU and memory overhead.</li>
+        <li>Hardened serving reliability across gateway, Router, Worker, Service discovery, readiness, and long-connection failure modes instead of relying only on Pod-level health.</li>
+      </ul>
     </section>
 
     <section>
       <h2>Core Skills</h2>
       <div class="grid">
         <div>
-          <div class="skill-row"><div class="skill-label">LLM Serving</div><div>SGLang, vLLM, OpenAI-compatible APIs, streaming, embeddings, Responses API compatibility, PD disaggregation, KV-cache-aware routing.</div></div>
-          <div class="skill-row"><div class="skill-label">Platform</div><div>Kubernetes, operators/controllers, CRDs, Helm, Kustomize, rollout safety, service discovery, GPU task lifecycle management.</div></div>
+          <div class="skill-row"><div class="skill-label">LLM Serving</div><div>SGLang, vLLM, OpenAI-compatible APIs, streaming, embeddings, Responses API, PD disaggregation, KV/prefix cache, cache-aware and bucket routing.</div></div>
+          <div class="skill-row"><div class="skill-label">Control Plane</div><div>Kubernetes operators/controllers, CRDs, Helm, Kustomize, readiness, finalizers, service discovery, rollout safety, retry and rollback workflows.</div></div>
         </div>
         <div>
-          <div class="skill-row"><div class="skill-label">Gateway</div><div>Higress, Envoy/WASM concepts, LiteLLM, authentication, model mapping, token-level rate limiting, routing, observability.</div></div>
-          <div class="skill-row"><div class="skill-label">Engineering</div><div>Go, Python, Java, Linux, Prometheus metrics, MySQL/SQLite/Redis, distributed systems debugging, performance testing.</div></div>
+          <div class="skill-row"><div class="skill-label">MaaS Gateway</div><div>Higress, LiteLLM, AI Gateway, authentication, model mapping, token-level rate limiting, route synchronization, observability.</div></div>
+          <div class="skill-row"><div class="skill-label">Agent Platform</div><div>Private-agent protocol integration, tool-calling API compatibility, Claude/OpenAI-style adapters, workflow safety, local agent governance.</div></div>
+          <div class="skill-row"><div class="skill-label">Engineering</div><div>Go, Python, Java, Linux, Prometheus metrics, MySQL/SQLite/Redis, distributed systems debugging, performance and capacity testing.</div></div>
         </div>
       </div>
     </section>
@@ -393,9 +403,9 @@
         <div class="meta">2024 - Present</div>
       </div>
       <ul>
-        <li>Built and operated LLM serving platform capabilities across CPU ACK and GPU ACK clusters, covering private model deployments through Higress, public model services through LiteLLM, SGLang Router based model routing, IGD/IGDSA inference orchestration, and BatchFlow offline inference.</li>
+        <li>Built and operated LLM serving platform capabilities across CPU ACK and GPU ACK clusters, covering private model deployments through Higress, public model services through LiteLLM, SGLang Router based model routing, IGD/IGDSA inference orchestration, BatchFlow offline inference, and Agent-facing API compatibility.</li>
         <li>Owned production troubleshooting and hardening for LLM serving paths, including Router worker registration convergence, Service/Endpoint readiness, PD prefill/decode topology, CrashLoop and long-connection failures, gateway header/model mapping issues, and multi-cluster rollout validation.</li>
-        <li>Designed control-plane ideas for MaaS-Controller and optimizer loops: collect LiteLLM, Router, IGDSA, BatchFlow, and gateway metrics; adjust public model limits and offline concurrency with observation windows, rollback criteria, and online-SLA-first rules.</li>
+        <li>Designed MaaS-Controller and optimizer-loop mechanisms around LiteLLM, Router, IGDSA, BatchFlow, and gateway metrics, with public-model limit adjustment, offline concurrency tuning, observation windows, rollback criteria, and online-SLA-first rules.</li>
       </ul>
 
       <div class="item-head">
@@ -420,10 +430,10 @@
         </div>
         <div class="tagline">Asynchronous JSONL batch execution for large-scale, non-real-time model workloads.</div>
         <ul>
-          <li>Designed and implemented Batch API compatible capabilities: file upload, batch creation, status query, cancellation, result/error files, streaming file processing, request-level error isolation, and backend concurrency control.</li>
-          <li>Refactored BatchFlow toward multi-replica operation with Kubernetes leader election and sharded workers, improved header forwarding, added upload limits, automatic stale-file cleanup, Kustomize-based upgrades, monitoring views, and failure-tolerant finalization logic.</li>
+          <li>Designed Batch API compatible capabilities: file upload, batch lifecycle, cancellation, result/error files, streaming file processing, request-level error isolation, and backend concurrency control.</li>
+          <li>Refactored BatchFlow toward multi-replica operation with Kubernetes leader election, sharded workers, header forwarding, upload limits, stale-file cleanup, Kustomize upgrades, monitoring, and failure-tolerant finalization.</li>
           <li>Supported production data-distillation workloads: over 2.76M requests and about 23.9B tokens processed during a holiday run; later supported daily processing around 10M requests with success rate above 99% under controlled concurrency.</li>
-          <li>Validated a BatchFlow -> SGLang Router -> multi-KLX backend path for Qwen3-235B-A22B-Thinking-2507 at about 300K requests, about 9.75B tokens, and about 99.9% success rate; confirmed BatchFlow and Router overhead stayed below 5% CPU/memory in the test profile.</li>
+          <li>Validated a BatchFlow -> SGLang Router -> multi-KLX path for Qwen3-235B-A22B-Thinking-2507 at about 300K requests, about 9.75B tokens, about 99.9% success rate, and below 5% BatchFlow/Router CPU/memory overhead.</li>
         </ul>
       </div>
 
@@ -434,23 +444,35 @@
         </div>
         <div class="tagline">Reliable worker registration, routing, and recovery for multi-worker and PD-disaggregated inference.</div>
         <ul>
-          <li>Improved Router worker synchronization by reconciling desired workers against live `/workers` state and requeueing on missing, extra, or failed registrations, reducing hidden partial-registration failures.</li>
-          <li>Enhanced IGD/ISI behavior around Router startup and readiness by preferring Pod IPs during early registration, enabling `publishNotReadyAddresses`, preserving Service finalizers, and adding Prometheus Service generation for Router metrics ports.</li>
-          <li>Developed and validated ISI-level auto-restart capabilities with explicit opt-in labels, restart counters, failure fingerprints, retry budget, cleanup of failed resources, and forward compatibility for existing workloads.</li>
-          <li>Led production root-cause analysis for failures such as ARG_MAX overflow from accumulated service-link environment variables, Router not managed after Worker Ready, stale Service selectors, and long-connection timeout behavior.</li>
+          <li>Improved Router worker synchronization by reconciling desired workers against live `/workers` state and requeueing on missing, extra, or failed registrations.</li>
+          <li>Enhanced IGD/ISI startup and readiness with Pod-IP early registration, `publishNotReadyAddresses`, preserved Service finalizers, Router metrics Service generation, and ISI-level auto-restart with retry budgets.</li>
+          <li>Led production RCA for ARG_MAX overflow from service-link environment variables, Router not managed after Worker Ready, stale Service selectors, and long-connection timeout behavior.</li>
         </ul>
       </div>
 
       <div class="project">
         <div class="project-title">
-          <span>MaaS gateway and control-plane integration</span>
-          <span class="meta">Higress, LiteLLM, metrics</span>
+          <span>MaaS gateway, control plane, and agent-compatible access</span>
+          <span class="meta">Higress, LiteLLM, Agent APIs</span>
         </div>
-        <div class="tagline">Unified model access, routing, rate limiting, and observability for private and public model services.</div>
+        <div class="tagline">Unified model access, routing, rate limiting, protocol compatibility, and observability for private and public model services.</div>
         <ul>
-          <li>Participated in the platform architecture that separates Higress private deployment entry, LiteLLM public model entry, SGLang Router model routing, BatchFlow offline execution, and MaaS-Controller control-plane coordination.</li>
-          <li>Investigated and validated AI gateway capabilities including token-level rate limits, model mapping, route synchronization, metrics collection, OpenAI-compatible protocol handling, and compatibility boundaries for embeddings and Responses-style APIs.</li>
+          <li>Participated in the platform architecture that separates Higress private entry, LiteLLM public entry, SGLang Router routing, BatchFlow offline execution, and MaaS-Controller coordination.</li>
+          <li>Validated AI gateway capabilities including token-level rate limits, model mapping, route synchronization, metrics collection, OpenAI-compatible protocols, embeddings, and Responses-style API boundaries.</li>
+          <li>Mapped private and public model entries to OpenAI-compatible surfaces used by agent clients, covering Chat Completions, Responses-style APIs, embeddings, and tool-calling workflows.</li>
           <li>Resolved user-facing integration issues by tracing requests across gateway, router, worker, service discovery, and model protocol layers instead of relying only on top-level deployment health.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-title">
+          <span>Kubernetes device plugin and heterogeneous accelerator platform</span>
+          <span class="meta">GPU/XPU scheduling</span>
+        </div>
+        <div class="tagline">Cloud-native resource discovery, scheduling, and validation for domestic heterogeneous accelerator environments.</div>
+        <ul>
+          <li>Customized device-plugin and resource-management paths for accelerator availability, node resource reporting, container runtime validation, card-level scheduling, and failure isolation.</li>
+          <li>Built deployment, upgrade, rollback, and E2E validation procedures for Kubernetes AI/HPC environments on domestic operating systems and accelerator stacks.</li>
         </ul>
       </div>
     </section>
