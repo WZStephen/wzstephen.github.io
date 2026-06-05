@@ -1,487 +1,494 @@
-<html class="weichi_homepage">
+<!doctype html>
+<html lang="zh-CN">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Weichi Zhao</title>
-  <script async="" src="./JS_CSS_Files/analytics.js"></script>
-  <script src="./JS_CSS_Files/jquery-1.11.2.min.js"></script>
-  <script src="./JS_CSS_Files/bootstrap.min.js"></script>
-  <link href="./JS_CSS_Files/bootstrap.min.css" rel="stylesheet">
-  <link href="./JS_CSS_Files/css" rel="stylesheet" type="text/css">
-  <link rel="shortcut icon" href="./Img_Files/icon_ailurus.ico" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>赵伟驰 - AI 基础设施简历</title>
+  <link rel="shortcut icon" href="./Img_Files/icon_ailurus.ico">
   <style>
+    :root {
+      --ink: #1f2933;
+      --muted: #52616f;
+      --line: #d8dee5;
+      --paper: #fbfaf7;
+      --band: #eef4f1;
+      --accent: #196f6b;
+      --accent-2: #9a5b22;
+      --soft: #f4efe7;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'sans-serif';
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", "Microsoft YaHei", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.62;
       font-size: 16px;
-      background-color: #FFFCF4;
-      color: #4F6071;
     }
 
-    .color1 {
-      background-color: #CCC;
+    a {
+      color: var(--accent);
+      text-decoration: none;
     }
 
-    #header {
-      width: 100%;
-      height: 360px;
-      background-color: #F0EAD6
-        /* background-color: #b30000; */
+    a:hover {
+      text-decoration: underline;
     }
 
-    #header-inner {
-      position: absolute;
-      width: 70%;
-      left: 30%;
-      top: 150px;
+    .topbar {
+      background: var(--band);
+      border-bottom: 1px solid var(--line);
     }
 
-    .img-me {
-      border: 3px solid white;
-      float: left;
-      height: 200px;
+    .wrap {
+      width: min(1080px, calc(100% - 40px));
+      margin: 0 auto;
     }
 
-    .header-text {
-      margin-top: 60px;
-      margin-left: 220px;
+    .header {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 28px;
+      align-items: center;
+      padding: 40px 0 34px;
     }
 
-    .header-text-name {
-      font-weight: bold;
+    .portrait {
+      width: 132px;
+      height: 132px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      box-shadow: 0 8px 24px rgba(31, 41, 51, 0.12);
+    }
+
+    h1 {
+      margin: 0;
       font-size: 40px;
+      line-height: 1.08;
+      letter-spacing: 0;
     }
 
-    .header-text-email {
+    .role {
+      margin: 10px 0 16px;
       font-size: 20px;
-      font-style: italic;
+      color: var(--accent-2);
+      font-weight: 650;
     }
 
-    .header-text-cv {
-      margin-left: 50px;
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      color: var(--muted);
+    }
+
+    .links span,
+    .links a {
+      white-space: nowrap;
+    }
+
+    .target {
+      margin-top: 14px;
+      font-size: 14px;
+    }
+
+    .no-print {
+      display: inline;
+    }
+
+    main {
+      padding: 30px 0 44px;
+    }
+
+    section {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    section:last-child {
+      border-bottom: 0;
+    }
+
+    h2 {
+      margin: 0 0 14px;
       font-size: 20px;
-      font-style: italic;
+      color: var(--accent);
+      letter-spacing: 0;
     }
 
-    .header-text-desc {
-      font-size: 20px;
-    }
-
-    #contact-info {
-      position: absolute;
-      left: 80%;
-      width: 20%;
-      top: 360px;
-      height: 100px;
-      background-color: #EEE;
-    }
-
-    .vspace {
-      margin-bottom: 20px;
-    }
-
-    .vspace-top {
-      margin-top: 30px;
-    }
-
-    .paper-title {
-      margin-left: 20px;
+    h3 {
+      margin: 0;
       font-size: 18px;
-      font-weight: bold;
     }
 
-    .paper-authors {
-      margin-left: 20px;
-      font-style: italic;
+    .item-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 8px;
     }
 
-    .paper-link {
-      margin-left: 20px;
+    .meta {
+      color: var(--muted);
+      font-size: 14px;
+      white-space: nowrap;
     }
 
-    .paper-detail {
-      margin-left: 20px;
+    .summary {
+      font-size: 17px;
+      max-width: 940px;
     }
 
-    .school-image {
-      width: 100px;
+    ul {
+      margin: 8px 0 0 20px;
+      padding: 0;
     }
 
-    .dual-school-image {
-      width: 100px;
+    li {
+      margin: 6px 0;
     }
 
-    .school-name {
-      font-size: 20px;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px 28px;
     }
 
-    .school-time {
-      font-style: italic;
+    .skill-row {
+      display: grid;
+      grid-template-columns: 156px 1fr;
+      gap: 14px;
+      padding: 8px 0;
+      border-top: 1px solid rgba(216, 222, 229, 0.72);
     }
 
-    .school-detail {}
-
-    .project-image {
-      width: 300px;
+    .skill-row:first-child {
+      border-top: 0;
     }
 
-    .project-name {
-      margin-left: 0px;
-      font-size: 20px;
-      font-weight: bold;
+    .skill-label {
+      font-weight: 700;
+      color: var(--accent-2);
     }
 
-    .project-detail {
-      margin-left: 0px;
+    .project {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-left: 4px solid var(--accent);
+      background: rgba(238, 244, 241, 0.72);
     }
 
+    .project:first-of-type {
+      margin-top: 0;
+    }
+
+    .project-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      font-weight: 750;
+    }
+
+    .tagline {
+      color: var(--muted);
+      margin-top: 4px;
+      font-size: 14px;
+    }
+
+    footer {
+      color: var(--muted);
+      font-size: 13px;
+      padding: 18px 0 36px;
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      .wrap {
+        width: min(100% - 24px, 1080px);
+      }
+
+      .header {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 28px 0;
+      }
+
+      .portrait {
+        width: 112px;
+        height: 112px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .role {
+        font-size: 18px;
+      }
+
+      .item-head,
+      .project-title {
+        display: block;
+      }
+
+      .meta {
+        margin-top: 3px;
+        white-space: normal;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skill-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        font-size: 10.5px;
+        line-height: 1.36;
+      }
+
+      .topbar {
+        background: #fff;
+      }
+
+      .wrap {
+        width: 100%;
+        max-width: none;
+      }
+
+      .header {
+        grid-template-columns: 86px 1fr;
+        gap: 16px;
+        padding: 0 0 14px;
+      }
+
+      .portrait {
+        width: 78px;
+        height: 78px;
+        box-shadow: none;
+        border: 1px solid var(--line);
+      }
+
+      h1 {
+        font-size: 25px;
+      }
+
+      .role {
+        margin: 4px 0 8px;
+        font-size: 13px;
+      }
+
+      .links,
+      .target,
+      footer {
+        font-size: 10px;
+      }
+
+      .no-print {
+        display: none;
+      }
+
+      main {
+        padding: 0;
+      }
+
+      section {
+        padding: 9px 0;
+      }
+
+      h2 {
+        margin-bottom: 6px;
+        font-size: 13px;
+      }
+
+      h3 {
+        font-size: 12px;
+      }
+
+      .summary {
+        font-size: 10.8px;
+      }
+
+      .project {
+        margin-top: 7px;
+        padding: 7px 9px;
+        background: #fff;
+      }
+
+      ul {
+        margin-top: 4px;
+      }
+
+      li {
+        margin: 2px 0;
+      }
+
+      a {
+        color: var(--ink);
+      }
+    }
   </style>
-  <!-- <script>
-    (function (i, s, o, g, r, a, m) {
-      i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-        (i[r].q = i[r].q || []).push(arguments)
-      }, i[r].l = 1 * new Date(); a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-    ga('create', 'UA-50623594-1', 'auto');
-    ga('send', 'pageview');
-  </script> -->
 </head>
-
-<body data-gr-c-s-loaded="true">
-  <div id="header">
-    <div id="header-inner">
-      <img src="./Img_Files/weichi2.jpg" class="img-circle img-me">
-      <div class="header-text">
-        <div class="header-text-name">
-          Weichi Zhao (Stephen) <a href="index.html" style="font-size: 50%">[EN]</a>
+<body>
+  <div class="topbar">
+    <div class="wrap header">
+      <img class="portrait" src="./Img_Files/weichi2.jpg" alt="赵伟驰">
+      <div>
+        <h1>赵伟驰</h1>
+        <div class="role">AI 基础设施工程师 | LLM 推理平台 / MaaS / Kubernetes</div>
+        <div class="links">
+          <span>杭州</span>
+          <a href="mailto:stefen11wzhao@gmail.com">stefen11wzhao@gmail.com</a>
+          <a href="https://github.com/WZStephen">GitHub: WZStephen</a>
+          <a class="no-print" href="./Files/CN_Resume_Weichi_Zhao.pdf">PDF 简历</a>
+          <a class="no-print" href="index.html">English</a>
         </div>
-        <div class="header-text-email">
-          stefen11wzhao@gmail.com
+        <div class="target">求职方向：AI Infra、大模型推理平台、云原生模型服务、AI Gateway、异构算力调度与平台工程。</div>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <section>
+      <h2>个人简介</h2>
+      <div class="summary">
+        面向 AI 基础设施与大模型推理服务的平台工程师，长期参与 MaaS、LLM Serving、模型网关、离线批处理、Kubernetes Operator 和国产异构算力环境建设。擅长把模型服务从“能跑起来”推进到“可接入、可观测、可调度、可恢复、可产品化”：明确控制面与数据面边界，建设 OpenAI 兼容入口，治理在线与离线流量，围绕 Router、Worker、网关、存储和 Kubernetes 资源做端到端排障与稳定性优化。
+      </div>
+    </section>
+
+    <section>
+      <h2>核心能力</h2>
+      <div class="grid">
+        <div>
+          <div class="skill-row"><div class="skill-label">LLM 推理</div><div>SGLang、vLLM、OpenAI 兼容 API、流式响应、Embedding、Responses API 兼容性、PD 分离、KV Cache 感知路由。</div></div>
+          <div class="skill-row"><div class="skill-label">平台工程</div><div>Kubernetes、Operator / Controller、CRD、Helm、Kustomize、平滑升级、服务发现、GPU 推理任务生命周期管理。</div></div>
         </div>
         <div>
-          <a href="https://github.com/WZStephen">[Github]</a>
-          <a href="https://wzstephen.github.io">[博客]</a>
-          <a href="./Files/CN_Resume_Weichi_Zhao.pdf">[简历]</a>
+          <div class="skill-row"><div class="skill-label">网关与治理</div><div>Higress、Envoy / WASM 理念、LiteLLM、鉴权、模型映射、Token 级限流、路由同步、指标与可观测性。</div></div>
+          <div class="skill-row"><div class="skill-label">工程基础</div><div>Go、Python、Java、Linux、Prometheus、MySQL / SQLite / Redis、分布式系统排障、性能压测与容量评估。</div></div>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <div class="container">
-    <div class="col-md-11 col-md-offset-1">
-      <div class="row">
-        <h2>About Me</h2>
-        <div class="vspace">
-          Weichi graduated from Arizona State University with a Master of Computer Science degree in December 2020,
-          where he also received a BS degree in May 2019. He is a grounded and solution-oriented engineer with a wide
-          variety of experiences. His current interests are focusing on Software Engineering, Data Structure Design, Machine
-          Learning, and Data Visualization. He is also equipped with well Developed analytical capability and leadership
-          skills across the success of every academic course and event.
+    <section>
+      <h2>工作经历</h2>
+      <div class="item-head">
+        <div>
+          <h3>之江实验室，超算研究中心</h3>
+          <div>工程师，AI 基础设施与 MaaS 平台方向</div>
         </div>
+        <div class="meta">2021.08 - 至今</div>
       </div>
+      <ul>
+        <li>参与建设和运维面向大模型服务的 MaaS 平台能力，覆盖 CPU ACK 与 GPU ACK 跨集群链路，包括 Higress 私有化部署入口、LiteLLM 公共模型入口、SGLang Router 模型路由、IGD / IGDSA 推理任务编排，以及 BatchFlow 离线批处理。</li>
+        <li>负责多条生产推理链路的问题定位与稳定性优化，处理 Router Worker 注册收敛、Service / Endpoint readiness、PD prefill / decode 拓扑、CrashLoop、长连接超时、网关 Header / 模型映射、多集群平滑上线等问题。</li>
+        <li>参与 MaaS-Controller 与 Optimizer 控制面设计，围绕 LiteLLM、Router、IGDSA、BatchFlow、Higress 指标采集与配置下发，设计在线 SLA 优先、离线并发调节、观察窗口、回滚条件等闭环治理机制。</li>
+        <li>早期参与云原生 AI / HPC 平台建设，包括国产操作系统与加速卡上的 Kubernetes 适配、Device Plugin 定制、PyTorch / 模型适配，以及分布式训练框架与并行策略调研。</li>
+      </ul>
+    </section>
 
-
-      <div class="row">
-        <h2>News</h2>
+    <section>
+      <h2>重点项目</h2>
+      <div class="project">
+        <div class="project-title">
+          <span>BatchFlow - OpenAI 兼容离线推理平台</span>
+          <span class="meta">大规模批量推理</span>
+        </div>
+        <div class="tagline">面向数据蒸馏、评测、批量生成等非实时任务的异步推理执行面。</div>
         <ul>
-            <li>08/2021 : Joined Zhejiang Lab, China</li>
-            <li>12/2020 : Graduated from Arizona State University as a master student</li>
-<!--            <li>05/2021 : Received the Silver Award in <a href="http://www.premiasg.org/for-members/premia-best-student-paper-awards/premia-best-student-paper-awards-2021/" target="_blank">2021 PREMIA Best Student Paper Award</a></li>-->
-<!--            <li>03/2021 : Selected as one of the <a href="https://damo.alibaba.com/events/114" target="_blank">2021 Alibaba Outstanding Interns in Academic Cooperation</a></li>-->
-<!--            <li>01/2021 : Two Papers Accepted by CVPR 2021</li>-->
-<!--            <li>01/2021 : One Paper Accepted by TMM 2021</li>-->
-<!--            <li>09/2020 : One Paper Accepted by NeurIPS 2020</li>-->
-<!--            <li>01/2020 : Two Papers (One Oral) Accepted by CVPR 2020</li>-->
-<!--            <li>01/2019 : Two Papers (Both Oral) Accepted by CVPR 2019</li>-->
+          <li>设计并实现 OpenAI Batch API 兼容能力，包括文件上传、Batch 创建、状态查询、取消、结果 / 错误文件、流式文件处理、请求级错误隔离和后端并发控制。</li>
+          <li>推动 BatchFlow 从单实例向多副本形态演进，基于 Kubernetes Leader Election 与分片 Worker 改造调度执行链路，优化 Header 透传、上传限制、过期文件清理、Kustomize 平滑升级、监控展示和异常 finalizing / validating 容错逻辑。</li>
+          <li>支撑生产数据蒸馏任务，春节期间通过 BatchFlow 离线接口累计稳定处理 276 万余条请求，产出约 239 亿 tokens；后续支撑日均约 1000 万条请求处理能力，成功率超过 99%。</li>
+          <li>完成 BatchFlow -> SGLang Router -> 多 KLX 后端链路压测，在 Qwen3-235B-A22B-Thinking-2507 负载下处理约 30 万请求、约 97.5 亿 tokens，成功率约 99.9%，BatchFlow 与 Router 自身 CPU / 内存占用低于 5%。</li>
         </ul>
       </div>
-<!--      <div class="row">-->
-<!--        <h2>Publications</h2>-->
-<!--        <div class="row">-->
-<!--          <div class="paper-title">-->
-<!--            <a href="https://arxiv.org/abs/2106.09534" target="_blank">-->
-<!--              Adversarial Visual Robustness by Causal Intervention-->
-<!--            </a>-->
-<!--          </div>-->
-<!--          <div class="paper-authors">-->
-<!--            <u>Kaihua Tang</u>, Mingyuan Tao, Hanwang Zhang-->
-<!--          </div>-->
-<!--          <div class="paper-detail">-->
-<!--            arXiv preprint 2021</b>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="row vspace-top">-->
-<!--          <div class="paper-title">-->
-<!--            <a href="https://arxiv.org/abs/2103.01737" target="_blank">-->
-<!--              Distilling Causal Effect of Data in Class-Incremental Learning-->
-<!--            </a>-->
-<!--          </div>-->
-<!--          <div class="paper-authors">-->
-<!--            Xinting Hu, <u>Kaihua Tang</u>, Chunyan Miao, Xian-Sheng Hua, Hanwang Zhang-->
-<!--          </div>-->
-<!--          <div class="paper-detail">-->
-<!--            CVPR 2021</b>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="row vspace-top">-->
-<!--          <div class="paper-title">-->
-<!--            <a href="https://arxiv.org/abs/2006.04315" target="_blank">-->
-<!--              Counterfactual VQA: A Cause-Effect Look at Language Bias-->
-<!--            </a>-->
-<!--          </div>-->
-<!--          <div class="paper-authors">-->
-<!--            Yulei Niu, <u>Kaihua Tang</u>, Hanwang Zhang, Zhiwu Lu, Xian-Sheng Hua, Ji-Rong Wen-->
-<!--          </div>-->
-<!--          <div class="paper-detail">-->
-<!--            CVPR 2021</b>-->
-<!--          </div>-->
-<!--        </div>-->
 
-<!--        <div class="row vspace-top">-->
-<!--          <div class="paper-title">-->
-<!--            <a href="https://arxiv.org/abs/2002.11949" target="_blank">-->
-<!--              Unbiased Scene Graph Generation from Biased Training-->
-<!--            </a>-->
-<!--          </div>-->
-<!--          <div class="paper-authors">-->
-<!--            <u>Kaihua Tang</u>, Yulei Niu, Jianqiang Huang, Jiaxin Shi, Hanwang Zhang-->
-<!--          </div>-->
-<!--          <div class="paper-detail">-->
-<!--            CVPR 2020 <b>(oral)</b>-->
-<!--          </div>-->
-<!--        </div>-->
-
-<!--      <div class="row">-->
-<!--        <h2>Publications</h2>-->
-<!--        <div class="row">-->
-<!--          <div class="paper-title">-->
-<!--            <a href="https://arxiv.org/abs/2106.09534" target="_blank">-->
-<!--              Adversarial Visual Robustness by Causal Intervention-->
-<!--            </a>-->
-<!--          </div>-->
-<!--          <div class="paper-authors">-->
-<!--            <u>Kaihua Tang</u>, Mingyuan Tao, Hanwang Zhang-->
-<!--            <u>Kaihua Tang</u>, Mingyuan  Tao, Hanwang Zhang-->
-<!--          </div>-->
-<!--          <div class="paper-detail">-->
-<!--            arXiv preprint 2021</b>-->
-<!--          </div>-->
-<!--        </div>-->
-
-<!--        <div class="row vspace-top">-->
-<!--          <div class="paper-title">-->
-<!--            <a href="https://arxiv.org/abs/2103.01737" target="_blank">-->
-<!--              Distilling Causal Effect of Data in Class-Incremental Learning-->
-<!--            </a>-->
-<!--          </div>-->
-<!--          <div class="paper-authors">-->
-<!--            Xinting Hu, <u>Kaihua Tang</u>, Chunyan Miao, Xian-Sheng Hua, Hanwang Zhang-->
-<!--          </div>-->
-<!--          <div class="paper-detail">-->
-<!--            CVPR 2021</b>-->
-<!--          </div>-->
-<!--        </div>-->
-
-<!--        <div class="row vspace-top">-->
-<!--          <div class="paper-title">-->
-<!--            <a href="./Files/ACCV16.pdf" target="_blank">-->
-<!--              Eigen-Aging Reference Coding for Cross-Age Face Verification and Retrieval-->
-<!--            </a>-->
-<!--          </div>-->
-<!--          <div class="paper-authors">-->
-<!--            <u>Kaihua Tang</u>, Sei-ichiro Kamata, Xiaonan Hou, Shouhong Ding, Lizhuang Ma-->
-<!--          </div>-->
-<!--          <div class="paper-detail">-->
-<!--            ACCV 2016-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--            <a href="https://arxiv.org/abs/2009.12991" target="_blank">-->
-<!--              Long-Tailed Classification by Keeping the Good and Removing the Bad Momentum Causal Effect-->
-<!--            </a>-->
-<!--          </div>-->
-<!--          <div class="paper-authors">-->
-<!--            <u>Kaihua Tang</u>, Jianqiang Huang, Hanwang Zhang-->
-<!--          </div>-->
-<!--          <div class="paper-detail">-->
-<!--            NeurIPS 2020</b>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="row vspace-top">-->
-<!--          <div class="paper-title">-->
-<!--            <a href="https://arxiv.org/abs/2002.11949" target="_blank">-->
-<!--              Unbiased Scene Graph Generation from Biased Training-->
-<!--            </a>-->
-<!--          </div>-->
-<!--          <div class="paper-authors">-->
-<!--            <u>Kaihua Tang</u>, Yulei Niu, Jianqiang Huang, Jiaxin Shi, Hanwang Zhang-->
-<!--          </div>-->
-<!--          <div class="paper-detail">-->
-<!--            CVPR 2020 <b>(oral)</b>-->
-<!--          </div>-->
-<!--        </div>-->
-
-      <div class="row">
-        <h2>Educations</h2>
-        <div class="row">
-          <div class="col-xs-3 text-center">
-            <img class="school-image" src="./Img_Files/asu_logo.png">
-          </div>
-          <div class="col-xs-9">
-            <div class="school-name">
-              <b>Arizona State University</b>, Unite States - GPA: 3.97/4.00
-            </div>
-            <div class="school-time">
-              Master of Computer Science (2019.05 - 2020.12)
-            </div>
-            <div class="school-detail">
-              Focusing on Computer Network, Machine Learning, Data Mining, and Data Visualization
-            </div>
-          </div>
+      <div class="project">
+        <div class="project-title">
+          <span>SGLang Router / IGD 推理链路稳定性建设</span>
+          <span class="meta">路由、编排与生产排障</span>
         </div>
-        <div class="row vspace-top">
-          <div class="col-xs-3 text-center">
-            <img class="dual-school-image" src="./Img_Files/asu_logo.png">
-          </div>
-          <div class="col-xs-9">
-            <div class="school-name">
-              <b>Arizona State University</b>, Unite States - GPA: 3.40/4.00
-            </div>
-            <div class="school-time">
-              Bachelor of Science, Computer Science (2015.08 - 2019.05)
-            </div>
-            <div class="school-detail">
-              Focusing on Software Engineering, Network Programming, Computer Security
-            </div>
-          </div>
-        </div>
+        <div class="tagline">围绕多 Worker、PD 分离和国产异构环境，提升推理任务从部署到请求可达的端到端可靠性。</div>
+        <ul>
+          <li>优化 Router Worker 注册与收敛机制，引入“期望集合 vs 实际 /workers 集合”的对账逻辑，在缺失、冗余或注册失败时持续 requeue，避免部分 Worker 长期未纳管的隐性故障。</li>
+          <li>完善 IGD / ISI 在 Router 启动阶段的 readiness 处理，优先使用 Pod IP 完成注册，为 Service 启用 `publishNotReadyAddresses`，保留 SLB finalizer，并为 Router 指标端口自动生成 Prometheus Service。</li>
+          <li>开发并验证 ISI 级自动重启能力，新增显式开关、重启计数、失败原因、failure fingerprint、重试预算和失败资源清理逻辑，同时兼容存量任务，降低新特性上线风险。</li>
+          <li>主导多类生产问题根因分析，包括节点环境变量累积触发 ARG_MAX 导致 Router Pod 启动失败、Worker Ready 后 Router 未纳管、共享 Service selector 残留、45 分钟长连接超时等问题。</li>
+        </ul>
       </div>
-<!--      <div class="row vspace-top">-->
-<!--        <h2>Awards</h2>-->
-<!--        <li>2021 Alibaba Outstanding Interns in Academic Cooperation, Alibaba Group, 2021</li>-->
-<!--        <li>2021 & 2019 PREMIA Best Student Paper Award, 2nd Place, PREMIA, 2021 & 2019</li>-->
-<!--        <li>CVPR 2019 Best Paper Finalists, 2019</li>-->
-<!--        <li>Honorable Judge Award, The 5th Cloud Programming World Cup, FORUM8 Tokyo, 2017</li>-->
-<!--        <li>Waseda Partial Tuition-Waiver Scholarship for International Students (10/300), Waseda University, 2015</li>-->
-<!--        <li>IPS special scholarship for international students, Waseda University, 2014</li>-->
-<!--        <li>Monbukagakusho Honors Scholarship for International Students, JASSO, 2014</li>-->
-<!--        <li>Emerging Talent Award, The 1st Cloud Programming World Cup, FORUM8 Tokyo, 2013</li>-->
-<!--      </div>-->
-<!--      <div class="row vspace-top">-->
-<!--        <h2>Academic Services</h2>-->
-<!--        <h4><i>Organizing Committees</i></h4>-->
-<!--        <a href="http://www.causalityinvision.com/" target="_blank">Causality in Vision Workshop</a> at CVPR 2021-->
-<!--        <h4><i>Talks and Blogs</i></h4>-->
-<!--        <div>Invited Talk : To <a href="https://www.kuaishou.com/en/" target="_blank">Kuaishou, Recommendation System Group</a>, Beijing, 2021.07</div>-->
-<!--        <div>Invited Talk : To <a href="https://www.fudan.edu.cn/en/2019/0515/c295a96709/page.htm" target="_blank">Fudan University, Department of CS</a>, Hosted by Asso Prof.Jingjing Chen, Shanghai, 2021.07</div>-->
-<!--        <div>Invited Talk : To <a href="https://lms.comp.nus.edu.sg/" target="_blank">The Lab for Media Search (LMS)</a>, NUS, 2021.06</div>-->
-<!--        <div>Invited Talk : To <a href="http://valser.org/webinar/slide/index.php/Home/Index/index/dir/20201202.html" target="_blank">VALSE Webinar (volume 20-29)</a>, Hosted by <a href="http://www.smartllv.com/director.html" target="_blank">Prof.Meng Yang</a>, Online, 2020.12</div>-->
-<!--        <div>Invited Talk : To Causal AI Reading Group, Jointly Hosted by <a href="https://swarma.org/" target="_blank">Swarma Club</a> and <a href="https://hub.baai.ac.cn/" target="_blank">BAAI Hub</a>, 2020.12</div>-->
-<!--        <div>Invited Talk : To <a href="https://www.cvmart.net/" target="_blank">Jishi Community</a>,  Hosted by Jishi Team, BiliBili, 2020.12 </div>-->
-<!--        <div>Invited Talk : To Alibaba Group, Hosted by Tianchi Team from Alibaba Cloud, Hangzhou, China, 2020.11</div>-->
-<!--        <div>Invited Talk : To <a href="https://people.eecs.berkeley.edu/~jiantao/" target="_blank">Jiantao Jiao's Lab</a>,  Hosted by Ph.D. Banghua Zhou, UC Berkeley, 2020.10</div>-->
-<!--        <div>Blogs : Sharing Research Experiences at <a href="https://www.zhihu.com/column/c_1221858687846834176" target="_blank">Zhihu</a>, Language: Chinese</div>  -->
 
-<!--        -->
-<!--        <h4><i>Paper Review</i></h4>-->
-<!--        TPAMI, CVPR (2020-2022), NeurIPS (2020-2021), ICLR (2021-2022), ICCV (2021), AAAI (2021),-->
-<!--          ICML (2021), WACV (2021).-->
-<!--      -->
-<!--      </div>-->
-      <div class="row vspace-top">
-        <h2>Projects</h2>
-        <div class="row">
-          <!-- <div class="col-xs-3 text-center">
-            <img class="project-image" src="./Img_Files/project4.png">
-          </div> -->
-          <div class="col-xs-9">
-            <div class="project-name">
-              <a href="https://github.com/WZStephen/Spatial-Data-Analysis" target="_blank">Geospatial Data Analysis in Map-Reduce</a>
-            </div>
-            <div class="project-detail">
-              Spatial analysis based on a collection of New York City taxi trip records, the purpose of this project is to identify unusual patterns in a statistically
-              significant manner by a distributed in-memory computing frameworks by Apache Spark</li>
-              Training of Distributed Database System and Data Analysis </li>
-            </div>
-          </div>
+      <div class="project">
+        <div class="project-title">
+          <span>MaaS 网关与控制面集成</span>
+          <span class="meta">Higress / LiteLLM / 指标治理</span>
         </div>
-      <div class="row vspace-top">
-<!--          <div class="col-xs-3 text-center">-->
-<!--            <img class="project-image" src="./Img_Files/project5.png">-->
-<!--          </div>-->
-          <div class="col-xs-9">
-            <div class="project-name">
-              <a href="https://github.com/WZStephen/CGN-Data-Mining" target="_blank">Analysis on Continuous Glucose Monitoring Data</a>
-            </div>
-            <div class="project-detail">
-              Analysis of the time series data collected by CGM in order to extract meaningful statistics and other characteristics of the data</li>
-              Training of the Classification and Clustering in Machine Learning techniques</li>
-            </div>
-          </div>
-        </div>
-        <div class="row vspace-top">
-          <div class="col-xs-9">
-            <div class="project-name">
-              <a href="https://github.com/WZStephen/Spark-Bench" target="_blank">Benchmark of Spark for Large Mini-Batch Deep Learning Models</a>
-            </div>
-            <div class="project-detail">
-              Inquiry the traditional optimizer SGD in Spark and benchmark the performance on relatively big data set and DNN model</li>
-              Integrate the LARS-SGD optimizer into Spark, perform the benchmark on same data set and DNN model. The 97.79% of testing accuracy was
-                achieved in batch size of 16384</li>
-              Training of Deep Learning and Data Mining</li>
-            </div>
-          </div>
-        </div>
-        <div class="row vspace-top">
-          <div class="col-xs-9">
-            <div class="project-name">
-              <a href="https://github.com/WZStephen/VAST-Challenge-2015-MC1" target="_blank">Data Visualization for solving the VAST Challenge 2015</a>
-            </div>
-            <div class="project-detail">
-              Analysis of time series data of user movement collected by Dino Fun World park from an event to extract the useful features</li>
-              Design the analytic visualization to showcase the incentive causes the mayhem and demonstrate the valuable findings</li>
-              Training of Data Visualization and Data Analysis</li>
-            </div>
-          </div>
-        </div>
+        <div class="tagline">统一私有化部署、公共模型服务与离线推理任务的入口、鉴权、路由和观测能力。</div>
+        <ul>
+          <li>参与平台分层架构设计，将 Higress 私有任务入口、LiteLLM 公共模型入口、SGLang Router 路由层、BatchFlow 离线执行面和 MaaS-Controller 控制面拆分为职责清晰的组件。</li>
+          <li>调研和验证 AI Gateway 能力，包括 Token 级限流、模型映射、路由同步、指标采集、OpenAI 兼容协议处理，以及 Embedding、Responses API 等新接口的兼容边界。</li>
+          <li>在用户侧故障处理中从网关、路由、Worker、Service discovery 和模型协议层逐层定位问题，避免只依据顶层 Deployment 或 Pod 状态误判服务健康。</li>
+        </ul>
       </div>
-      <div class="row vspace-top vspace">
-        <h2>Experience</h2>
-        <h4><b>
-          <a href="https://en.zhejianglab.com/">
-            Zhejiang Lab
-          </a>
-          , SuperComputer Research Center, Full Time (2021.08 - Now)</b></h4>
-        Major topic: SuperComputer platform development, Performance Optimalization
-        <br>
-        Mentor: Guangwen Yang, Peng Liu, Yi Qin
-        <br><br>
+    </section>
 
-        <h4><b>SNAC, Arizona State University (2020.01 - 2020.05)</b></h4>
-        Assisted to develop an open virtual lab platform(THOTH Lab) for academic research and education purpose
-        <br>Extend the educational modules including Software-defined Networking and OpenFlow Switch Controllers
-        <br>Expand server module utilizes the Boto3 to enable the functionalities of remote controlling in AWS instances
-        <br>Participate in Web Front-end & Back-end development <br>
-        Mentor: Dijiang Huang
-        <br><br>
-
-        <h4><b>SNAC, Arizona State University (2020.05 - 2020.08)</b></h4>
-        Major Project: Scenery Image Stitching and Inpainting.
-        <br>
-        Mentor: Dijiang Huang
-        <br><br>
+    <section>
+      <h2>早期经历</h2>
+      <div class="item-head">
+        <div>
+          <h3>亚利桑那州立大学，SNAC Lab</h3>
+          <div>虚拟平台开发员 / 研究项目助理</div>
+        </div>
+        <div class="meta">2020.01 - 2020.08</div>
       </div>
-    </div>
-  </div>
+      <ul>
+        <li>参与 THOTH Lab 开放式虚拟实验平台开发，扩展 SDN / OpenFlow 教学模块，并基于 Boto3 与 REST API 实现 AWS 实例远程控制能力。</li>
+        <li>基于 IR-CP-ABE 研究论文实现 Android 端网络安全系统原型。</li>
+      </ul>
 
-  <!-- <p align="center"><br>
-    <a href='https://clustrmaps.com/site/1an2z' title='Visit tracker'><img
-        src='https://clustrmaps.com/map_v2.png?cl=ffffff&w=250&t=tt&d=jtVx5gGD4Jpkn2bxejPg0-3tz8nkFVX5xQdTG-UF-y8&co=6cb3e6&ct=ffffff' /></a>
-  </p> -->
+      <div class="item-head" style="margin-top:16px;">
+        <div>
+          <h3>亚利桑那州立大学，CIDSE</h3>
+          <div>研究生服务助理</div>
+        </div>
+        <div class="meta">2019.08 - 2020.12</div>
+      </div>
+      <ul>
+        <li>协助 CSE205 面向对象程序设计、CSE412 数据库管理、CSE434 计算机网络、CSE464 软件 QA 与测试课程的教学答疑。</li>
+      </ul>
+    </section>
 
-  <p align="center"><br>
-    <span class="STYLE6">
-      All rights reserved & Last update on Mar, 2021
-    </span>
-  </p>
+    <section>
+      <h2>教育背景</h2>
+      <div class="item-head">
+        <div>
+          <h3>亚利桑那州立大学</h3>
+          <div>计算机科学硕士，GPA 3.97 / 4.00</div>
+        </div>
+        <div class="meta">2019.05 - 2020.12</div>
+      </div>
+      <div class="item-head" style="margin-top:12px;">
+        <div>
+          <h3>亚利桑那州立大学</h3>
+          <div>计算机科学本科，GPA 3.40 / 4.00</div>
+        </div>
+        <div class="meta">2015.08 - 2019.05</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    最后更新：2026 年 6 月
+  </footer>
 </body>
 </html>

@@ -1,488 +1,495 @@
-<html class="weichi_homepage">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Weichi Zhao</title>
-  <script async="" src="./JS_CSS_Files/analytics.js"></script>
-  <script src="./JS_CSS_Files/jquery-1.11.2.min.js"></script>
-  <script src="./JS_CSS_Files/bootstrap.min.js"></script>
-  <link href="./JS_CSS_Files/bootstrap.min.css" rel="stylesheet">
-  <link href="./JS_CSS_Files/css" rel="stylesheet" type="text/css">
-  <link rel="shortcut icon" href="./Img_Files/icon_ailurus.ico" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weichi Zhao - AI Infrastructure Resume</title>
+  <link rel="shortcut icon" href="./Img_Files/icon_ailurus.ico">
   <style>
+    :root {
+      --ink: #1f2933;
+      --muted: #52616f;
+      --line: #d8dee5;
+      --paper: #fbfaf7;
+      --band: #eef4f1;
+      --accent: #196f6b;
+      --accent-2: #9a5b22;
+      --soft: #f4efe7;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'sans-serif';
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.55;
       font-size: 16px;
-      background-color: #FFFCF4;
-      color: #4F6071;
     }
 
-    .color1 {
-      background-color: #CCC;
+    a {
+      color: var(--accent);
+      text-decoration: none;
     }
 
-    #header {
-      width: 100%;
-      height: 360px;
-      background-color: #F0EAD6
-        /* background-color: #b30000; */
+    a:hover {
+      text-decoration: underline;
     }
 
-    #header-inner {
-      position: absolute;
-      width: 70%;
-      left: 30%;
-      top: 150px;
+    .topbar {
+      background: var(--band);
+      border-bottom: 1px solid var(--line);
     }
 
-    .img-me {
-      border: 3px solid white;
-      float: left;
-      height: 200px;
+    .wrap {
+      width: min(1080px, calc(100% - 40px));
+      margin: 0 auto;
     }
 
-    .header-text {
-      margin-top: 60px;
-      margin-left: 220px;
+    .header {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 28px;
+      align-items: center;
+      padding: 40px 0 34px;
     }
 
-    .header-text-name {
-      font-weight: bold;
+    .portrait {
+      width: 132px;
+      height: 132px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      box-shadow: 0 8px 24px rgba(31, 41, 51, 0.12);
+    }
+
+    h1 {
+      margin: 0;
       font-size: 40px;
+      line-height: 1.08;
+      letter-spacing: 0;
     }
 
-    .header-text-email {
+    .role {
+      margin: 10px 0 16px;
       font-size: 20px;
-      font-style: italic;
+      color: var(--accent-2);
+      font-weight: 650;
     }
 
-    .header-text-cv {
-      margin-left: 50px;
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      color: var(--muted);
+    }
+
+    .links span,
+    .links a {
+      white-space: nowrap;
+    }
+
+    .lang {
+      margin-top: 14px;
+      font-size: 14px;
+    }
+
+    .no-print {
+      display: inline;
+    }
+
+    main {
+      padding: 30px 0 44px;
+    }
+
+    section {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    section:last-child {
+      border-bottom: 0;
+    }
+
+    h2 {
+      margin: 0 0 14px;
       font-size: 20px;
-      font-style: italic;
+      color: var(--accent);
+      letter-spacing: 0;
     }
 
-    .header-text-desc {
-      font-size: 20px;
-    }
-
-    #contact-info {
-      position: absolute;
-      left: 80%;
-      width: 20%;
-      top: 360px;
-      height: 100px;
-      background-color: #EEE;
-    }
-
-    .vspace {
-      margin-bottom: 20px;
-    }
-
-    .vspace-top {
-      margin-top: 30px;
-    }
-
-    .paper-title {
-      margin-left: 20px;
+    h3 {
+      margin: 0;
       font-size: 18px;
-      font-weight: bold;
     }
 
-    .paper-authors {
-      margin-left: 20px;
-      font-style: italic;
+    .item-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 8px;
     }
 
-    .paper-link {
-      margin-left: 20px;
+    .meta {
+      color: var(--muted);
+      font-size: 14px;
+      white-space: nowrap;
     }
 
-    .paper-detail {
-      margin-left: 20px;
+    .summary {
+      font-size: 17px;
+      max-width: 940px;
     }
 
-    .school-image {
-      width: 100px;
+    ul {
+      margin: 8px 0 0 20px;
+      padding: 0;
     }
 
-    .dual-school-image {
-      width: 100px;
+    li {
+      margin: 6px 0;
     }
 
-    .school-name {
-      font-size: 20px;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px 28px;
     }
 
-    .school-time {
-      font-style: italic;
+    .skill-row {
+      display: grid;
+      grid-template-columns: 156px 1fr;
+      gap: 14px;
+      padding: 8px 0;
+      border-top: 1px solid rgba(216, 222, 229, 0.72);
     }
 
-    .school-detail {}
-
-    .project-image {
-      width: 300px;
+    .skill-row:first-child {
+      border-top: 0;
     }
 
-    .project-name {
-      margin-left: 0px;
-      font-size: 20px;
-      font-weight: bold;
+    .skill-label {
+      font-weight: 700;
+      color: var(--accent-2);
     }
 
-    .project-detail {
-      margin-left: 0px;
+    .project {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-left: 4px solid var(--accent);
+      background: rgba(238, 244, 241, 0.72);
     }
 
+    .project:first-of-type {
+      margin-top: 0;
+    }
+
+    .project-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      font-weight: 750;
+    }
+
+    .tagline {
+      color: var(--muted);
+      margin-top: 4px;
+      font-size: 14px;
+    }
+
+    footer {
+      color: var(--muted);
+      font-size: 13px;
+      padding: 18px 0 36px;
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      .wrap {
+        width: min(100% - 24px, 1080px);
+      }
+
+      .header {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 28px 0;
+      }
+
+      .portrait {
+        width: 112px;
+        height: 112px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .role {
+        font-size: 18px;
+      }
+
+      .item-head,
+      .project-title {
+        display: block;
+      }
+
+      .meta {
+        margin-top: 3px;
+        white-space: normal;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skill-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        font-size: 11px;
+        line-height: 1.35;
+      }
+
+      .topbar {
+        background: #fff;
+      }
+
+      .wrap {
+        width: 100%;
+        max-width: none;
+      }
+
+      .header {
+        grid-template-columns: 86px 1fr;
+        gap: 16px;
+        padding: 0 0 14px;
+      }
+
+      .portrait {
+        width: 78px;
+        height: 78px;
+        box-shadow: none;
+        border: 1px solid var(--line);
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+
+      .role {
+        margin: 4px 0 8px;
+        font-size: 14px;
+      }
+
+      .links,
+      .lang,
+      footer {
+        font-size: 10px;
+      }
+
+      .no-print {
+        display: none;
+      }
+
+      main {
+        padding: 0;
+      }
+
+      section {
+        padding: 9px 0;
+      }
+
+      h2 {
+        margin-bottom: 6px;
+        font-size: 13px;
+      }
+
+      h3 {
+        font-size: 12px;
+      }
+
+      .summary {
+        font-size: 11px;
+      }
+
+      .project {
+        margin-top: 7px;
+        padding: 7px 9px;
+        background: #fff;
+      }
+
+      ul {
+        margin-top: 4px;
+      }
+
+      li {
+        margin: 2px 0;
+      }
+
+      a {
+        color: var(--ink);
+      }
+    }
   </style>
-  <!-- <script>
-    (function (i, s, o, g, r, a, m) {
-      i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-        (i[r].q = i[r].q || []).push(arguments)
-      }, i[r].l = 1 * new Date(); a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-    ga('create', 'UA-50623594-1', 'auto');
-    ga('send', 'pageview');
-  </script> -->
 </head>
-
-<body data-gr-c-s-loaded="true">
-  <div id="header">
-    <div id="header-inner">
-      <img src="./Img_Files/weichi2.jpg" class="img-circle img-me">
-      <div class="header-text">
-        <div class="header-text-name">
-          Weichi Zhao (Stephen) <a href="index-cn.html" style="font-size: 50%">[中文]</a>
+<body>
+  <div class="topbar">
+    <div class="wrap header">
+      <img class="portrait" src="./Img_Files/weichi2.jpg" alt="Weichi Zhao">
+      <div>
+        <h1>Weichi Zhao</h1>
+        <div class="role">AI Infrastructure Engineer | LLM Serving, MaaS, Kubernetes</div>
+        <div class="links">
+          <span>Hangzhou, China</span>
+          <a href="mailto:stefen11wzhao@gmail.com">stefen11wzhao@gmail.com</a>
+          <a href="https://github.com/WZStephen">GitHub: WZStephen</a>
+          <a href="https://www.linkedin.com/in/wzhao42/">LinkedIn</a>
+          <a class="no-print" href="./Files/EN_Resume_Weichi_Zhao.pdf">PDF Resume</a>
+          <a class="no-print" href="index-cn.html">中文</a>
         </div>
-        <div class="header-text-email">
-          stefen11wzhao@gmail.com
+        <div class="lang">Target roles: AI infrastructure, LLM serving platform, cloud-native model platform, AI gateway, heterogeneous GPU scheduling.</div>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <section>
+      <h2>Profile</h2>
+      <div class="summary">
+        AI infrastructure engineer with production experience across LLM serving platforms, OpenAI-compatible MaaS, model gateways, offline batch inference, Kubernetes operators, and heterogeneous accelerator environments. I focus on turning model services into reliable platform capabilities: clear control/data-plane boundaries, observable routing, safe rollout, online/offline traffic coordination, and failure recovery that is verified end to end rather than only at the Pod level.
+      </div>
+    </section>
+
+    <section>
+      <h2>Core Skills</h2>
+      <div class="grid">
+        <div>
+          <div class="skill-row"><div class="skill-label">LLM Serving</div><div>SGLang, vLLM, OpenAI-compatible APIs, streaming, embeddings, Responses API compatibility, PD disaggregation, KV-cache-aware routing.</div></div>
+          <div class="skill-row"><div class="skill-label">Platform</div><div>Kubernetes, operators/controllers, CRDs, Helm, Kustomize, rollout safety, service discovery, GPU task lifecycle management.</div></div>
         </div>
         <div>
-          <a href="https://github.com/WZStephen">[Github]</a>
-          <a href="https://wzstephen.github.io">[Blog]</a>
-          <a href="https://www.linkedin.com/in/wzhao42/">[Linkedin]</a>
-          <a href="./Files/EN_Resume_Weichi_Zhao.pdf">[Résumé]</a>
+          <div class="skill-row"><div class="skill-label">Gateway</div><div>Higress, Envoy/WASM concepts, LiteLLM, authentication, model mapping, token-level rate limiting, routing, observability.</div></div>
+          <div class="skill-row"><div class="skill-label">Engineering</div><div>Go, Python, Java, Linux, Prometheus metrics, MySQL/SQLite/Redis, distributed systems debugging, performance testing.</div></div>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <div class="container">
-    <div class="col-md-11 col-md-offset-1">
-      <div class="row">
-        <h2>About Me</h2>
-        <div class="vspace">
-          Weichi graduated from Arizona State University with a Master of Computer Science degree in December 2020,
-          where he also received a BS degree in May 2019. He is a grounded and solution-oriented engineer with a wide
-          variety of experiences. His current interests are focusing on Software Engineering, Data Structure Design, Machine
-          Learning, and Data Visualization. He is also equipped with well Developed analytical capability and leadership
-          skills across the success of every academic course and event.
+    <section>
+      <h2>Experience</h2>
+      <div class="item-head">
+        <div>
+          <h3>Zhejiang Lab, Supercomputing Research Center</h3>
+          <div>Engineer, AI infrastructure and MaaS platform</div>
         </div>
+        <div class="meta">Aug 2021 - Present</div>
       </div>
+      <ul>
+        <li>Built and operated LLM serving platform capabilities across CPU ACK and GPU ACK clusters, covering private model deployments through Higress, public model services through LiteLLM, SGLang Router based model routing, IGD/IGDSA inference orchestration, and BatchFlow offline inference.</li>
+        <li>Owned production troubleshooting and hardening for LLM serving paths, including Router worker registration convergence, Service/Endpoint readiness, PD prefill/decode topology, CrashLoop and long-connection failures, gateway header/model mapping issues, and multi-cluster rollout validation.</li>
+        <li>Designed control-plane ideas for MaaS-Controller and optimizer loops: collect LiteLLM, Router, IGDSA, BatchFlow, and gateway metrics; adjust public model limits and offline concurrency with observation windows, rollback criteria, and online-SLA-first rules.</li>
+        <li>Worked on earlier cloud-native AI/HPC platform projects, including Kubernetes adaptation on domestic OS and accelerators, device plugin customization for accelerator availability, PyTorch/model adaptation, and distributed training framework exploration.</li>
+      </ul>
+    </section>
 
-
-      <div class="row">
-        <h2>News</h2>
+    <section>
+      <h2>Selected AI Infrastructure Projects</h2>
+      <div class="project">
+        <div class="project-title">
+          <span>BatchFlow - OpenAI-compatible offline inference platform</span>
+          <span class="meta">LLM batch inference</span>
+        </div>
+        <div class="tagline">Asynchronous JSONL batch execution for large-scale, non-real-time model workloads.</div>
         <ul>
-            <li>08/2021 : Joined Zhejiang Lab, China</li>
-            <li>12/2020 : Graduated from Arizona State University as a master student</li>
-<!--            <li>05/2021 : Received the Silver Award in <a href="http://www.premiasg.org/for-members/premia-best-student-paper-awards/premia-best-student-paper-awards-2021/" target="_blank">2021 PREMIA Best Student Paper Award</a></li>-->
-<!--            <li>03/2021 : Selected as one of the <a href="https://damo.alibaba.com/events/114" target="_blank">2021 Alibaba Outstanding Interns in Academic Cooperation</a></li>-->
-<!--            <li>01/2021 : Two Papers Accepted by CVPR 2021</li>-->
-<!--            <li>01/2021 : One Paper Accepted by TMM 2021</li>-->
-<!--            <li>09/2020 : One Paper Accepted by NeurIPS 2020</li>-->
-<!--            <li>01/2020 : Two Papers (One Oral) Accepted by CVPR 2020</li>-->
-<!--            <li>01/2019 : Two Papers (Both Oral) Accepted by CVPR 2019</li>-->
+          <li>Designed and implemented Batch API compatible capabilities: file upload, batch creation, status query, cancellation, result/error files, streaming file processing, request-level error isolation, and backend concurrency control.</li>
+          <li>Refactored BatchFlow toward multi-replica operation with Kubernetes leader election and sharded workers, improved header forwarding, added upload limits, automatic stale-file cleanup, Kustomize-based upgrades, monitoring views, and failure-tolerant finalization logic.</li>
+          <li>Supported production data-distillation workloads: over 2.76M requests and about 23.9B tokens processed during a holiday run; later supported daily processing around 10M requests with success rate above 99% under controlled concurrency.</li>
+          <li>Validated a BatchFlow -> SGLang Router -> multi-KLX backend path for Qwen3-235B-A22B-Thinking-2507 at about 300K requests, about 9.75B tokens, and about 99.9% success rate; confirmed BatchFlow and Router overhead stayed below 5% CPU/memory in the test profile.</li>
         </ul>
       </div>
-<!--      <div class="row">-->
-<!--        <h2>Publications</h2>-->
-<!--        <div class="row">-->
-<!--          <div class="paper-title">-->
-<!--            <a href="https://arxiv.org/abs/2106.09534" target="_blank">-->
-<!--              Adversarial Visual Robustness by Causal Intervention-->
-<!--            </a>-->
-<!--          </div>-->
-<!--          <div class="paper-authors">-->
-<!--            <u>Kaihua Tang</u>, Mingyuan Tao, Hanwang Zhang-->
-<!--          </div>-->
-<!--          <div class="paper-detail">-->
-<!--            arXiv preprint 2021</b>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="row vspace-top">-->
-<!--          <div class="paper-title">-->
-<!--            <a href="https://arxiv.org/abs/2103.01737" target="_blank">-->
-<!--              Distilling Causal Effect of Data in Class-Incremental Learning-->
-<!--            </a>-->
-<!--          </div>-->
-<!--          <div class="paper-authors">-->
-<!--            Xinting Hu, <u>Kaihua Tang</u>, Chunyan Miao, Xian-Sheng Hua, Hanwang Zhang-->
-<!--          </div>-->
-<!--          <div class="paper-detail">-->
-<!--            CVPR 2021</b>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="row vspace-top">-->
-<!--          <div class="paper-title">-->
-<!--            <a href="https://arxiv.org/abs/2006.04315" target="_blank">-->
-<!--              Counterfactual VQA: A Cause-Effect Look at Language Bias-->
-<!--            </a>-->
-<!--          </div>-->
-<!--          <div class="paper-authors">-->
-<!--            Yulei Niu, <u>Kaihua Tang</u>, Hanwang Zhang, Zhiwu Lu, Xian-Sheng Hua, Ji-Rong Wen-->
-<!--          </div>-->
-<!--          <div class="paper-detail">-->
-<!--            CVPR 2021</b>-->
-<!--          </div>-->
-<!--        </div>-->
 
-<!--        <div class="row vspace-top">-->
-<!--          <div class="paper-title">-->
-<!--            <a href="https://arxiv.org/abs/2002.11949" target="_blank">-->
-<!--              Unbiased Scene Graph Generation from Biased Training-->
-<!--            </a>-->
-<!--          </div>-->
-<!--          <div class="paper-authors">-->
-<!--            <u>Kaihua Tang</u>, Yulei Niu, Jianqiang Huang, Jiaxin Shi, Hanwang Zhang-->
-<!--          </div>-->
-<!--          <div class="paper-detail">-->
-<!--            CVPR 2020 <b>(oral)</b>-->
-<!--          </div>-->
-<!--        </div>-->
-
-<!--      <div class="row">-->
-<!--        <h2>Publications</h2>-->
-<!--        <div class="row">-->
-<!--          <div class="paper-title">-->
-<!--            <a href="https://arxiv.org/abs/2106.09534" target="_blank">-->
-<!--              Adversarial Visual Robustness by Causal Intervention-->
-<!--            </a>-->
-<!--          </div>-->
-<!--          <div class="paper-authors">-->
-<!--            <u>Kaihua Tang</u>, Mingyuan Tao, Hanwang Zhang-->
-<!--            <u>Kaihua Tang</u>, Mingyuan  Tao, Hanwang Zhang-->
-<!--          </div>-->
-<!--          <div class="paper-detail">-->
-<!--            arXiv preprint 2021</b>-->
-<!--          </div>-->
-<!--        </div>-->
-
-<!--        <div class="row vspace-top">-->
-<!--          <div class="paper-title">-->
-<!--            <a href="https://arxiv.org/abs/2103.01737" target="_blank">-->
-<!--              Distilling Causal Effect of Data in Class-Incremental Learning-->
-<!--            </a>-->
-<!--          </div>-->
-<!--          <div class="paper-authors">-->
-<!--            Xinting Hu, <u>Kaihua Tang</u>, Chunyan Miao, Xian-Sheng Hua, Hanwang Zhang-->
-<!--          </div>-->
-<!--          <div class="paper-detail">-->
-<!--            CVPR 2021</b>-->
-<!--          </div>-->
-<!--        </div>-->
-
-<!--        <div class="row vspace-top">-->
-<!--          <div class="paper-title">-->
-<!--            <a href="./Files/ACCV16.pdf" target="_blank">-->
-<!--              Eigen-Aging Reference Coding for Cross-Age Face Verification and Retrieval-->
-<!--            </a>-->
-<!--          </div>-->
-<!--          <div class="paper-authors">-->
-<!--            <u>Kaihua Tang</u>, Sei-ichiro Kamata, Xiaonan Hou, Shouhong Ding, Lizhuang Ma-->
-<!--          </div>-->
-<!--          <div class="paper-detail">-->
-<!--            ACCV 2016-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--            <a href="https://arxiv.org/abs/2009.12991" target="_blank">-->
-<!--              Long-Tailed Classification by Keeping the Good and Removing the Bad Momentum Causal Effect-->
-<!--            </a>-->
-<!--          </div>-->
-<!--          <div class="paper-authors">-->
-<!--            <u>Kaihua Tang</u>, Jianqiang Huang, Hanwang Zhang-->
-<!--          </div>-->
-<!--          <div class="paper-detail">-->
-<!--            NeurIPS 2020</b>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="row vspace-top">-->
-<!--          <div class="paper-title">-->
-<!--            <a href="https://arxiv.org/abs/2002.11949" target="_blank">-->
-<!--              Unbiased Scene Graph Generation from Biased Training-->
-<!--            </a>-->
-<!--          </div>-->
-<!--          <div class="paper-authors">-->
-<!--            <u>Kaihua Tang</u>, Yulei Niu, Jianqiang Huang, Jiaxin Shi, Hanwang Zhang-->
-<!--          </div>-->
-<!--          <div class="paper-detail">-->
-<!--            CVPR 2020 <b>(oral)</b>-->
-<!--          </div>-->
-<!--        </div>-->
-
-      <div class="row">
-        <h2>Educations</h2>
-        <div class="row">
-          <div class="col-xs-3 text-center">
-            <img class="school-image" src="./Img_Files/asu_logo.png">
-          </div>
-          <div class="col-xs-9">
-            <div class="school-name">
-              <b>Arizona State University</b>, Unite States - GPA: 3.97/4.00
-            </div>
-            <div class="school-time">
-              Master of Computer Science (2019.05 - 2020.12)
-            </div>
-            <div class="school-detail">
-              Focusing on Computer Network, Machine Learning, Data Mining, and Data Visualization
-            </div>
-          </div>
+      <div class="project">
+        <div class="project-title">
+          <span>SGLang Router, IGD, and production serving reliability</span>
+          <span class="meta">Routing and orchestration</span>
         </div>
-        <div class="row vspace-top">
-          <div class="col-xs-3 text-center">
-            <img class="dual-school-image" src="./Img_Files/asu_logo.png">
-          </div>
-          <div class="col-xs-9">
-            <div class="school-name">
-              <b>Arizona State University</b>, Unite States - GPA: 3.40/4.00
-            </div>
-            <div class="school-time">
-              Bachelor of Science, Computer Science (2015.08 - 2019.05)
-            </div>
-            <div class="school-detail">
-              Focusing on Software Engineering, Network Programming, Computer Security
-            </div>
-          </div>
-        </div>
+        <div class="tagline">Reliable worker registration, routing, and recovery for multi-worker and PD-disaggregated inference.</div>
+        <ul>
+          <li>Improved Router worker synchronization by reconciling desired workers against live `/workers` state and requeueing on missing, extra, or failed registrations, reducing hidden partial-registration failures.</li>
+          <li>Enhanced IGD/ISI behavior around Router startup and readiness by preferring Pod IPs during early registration, enabling `publishNotReadyAddresses`, preserving Service finalizers, and adding Prometheus Service generation for Router metrics ports.</li>
+          <li>Developed and validated ISI-level auto-restart capabilities with explicit opt-in labels, restart counters, failure fingerprints, retry budget, cleanup of failed resources, and forward compatibility for existing workloads.</li>
+          <li>Led production root-cause analysis for failures such as ARG_MAX overflow from accumulated service-link environment variables, Router not managed after Worker Ready, stale Service selectors, and long-connection timeout behavior.</li>
+        </ul>
       </div>
-<!--      <div class="row vspace-top">-->
-<!--        <h2>Awards</h2>-->
-<!--        <li>2021 Alibaba Outstanding Interns in Academic Cooperation, Alibaba Group, 2021</li>-->
-<!--        <li>2021 & 2019 PREMIA Best Student Paper Award, 2nd Place, PREMIA, 2021 & 2019</li>-->
-<!--        <li>CVPR 2019 Best Paper Finalists, 2019</li>-->
-<!--        <li>Honorable Judge Award, The 5th Cloud Programming World Cup, FORUM8 Tokyo, 2017</li>-->
-<!--        <li>Waseda Partial Tuition-Waiver Scholarship for International Students (10/300), Waseda University, 2015</li>-->
-<!--        <li>IPS special scholarship for international students, Waseda University, 2014</li>-->
-<!--        <li>Monbukagakusho Honors Scholarship for International Students, JASSO, 2014</li>-->
-<!--        <li>Emerging Talent Award, The 1st Cloud Programming World Cup, FORUM8 Tokyo, 2013</li>-->
-<!--      </div>-->
-<!--      <div class="row vspace-top">-->
-<!--        <h2>Academic Services</h2>-->
-<!--        <h4><i>Organizing Committees</i></h4>-->
-<!--        <a href="http://www.causalityinvision.com/" target="_blank">Causality in Vision Workshop</a> at CVPR 2021-->
-<!--        <h4><i>Talks and Blogs</i></h4>-->
-<!--        <div>Invited Talk : To <a href="https://www.kuaishou.com/en/" target="_blank">Kuaishou, Recommendation System Group</a>, Beijing, 2021.07</div>-->
-<!--        <div>Invited Talk : To <a href="https://www.fudan.edu.cn/en/2019/0515/c295a96709/page.htm" target="_blank">Fudan University, Department of CS</a>, Hosted by Asso Prof.Jingjing Chen, Shanghai, 2021.07</div>-->
-<!--        <div>Invited Talk : To <a href="https://lms.comp.nus.edu.sg/" target="_blank">The Lab for Media Search (LMS)</a>, NUS, 2021.06</div>-->
-<!--        <div>Invited Talk : To <a href="http://valser.org/webinar/slide/index.php/Home/Index/index/dir/20201202.html" target="_blank">VALSE Webinar (volume 20-29)</a>, Hosted by <a href="http://www.smartllv.com/director.html" target="_blank">Prof.Meng Yang</a>, Online, 2020.12</div>-->
-<!--        <div>Invited Talk : To Causal AI Reading Group, Jointly Hosted by <a href="https://swarma.org/" target="_blank">Swarma Club</a> and <a href="https://hub.baai.ac.cn/" target="_blank">BAAI Hub</a>, 2020.12</div>-->
-<!--        <div>Invited Talk : To <a href="https://www.cvmart.net/" target="_blank">Jishi Community</a>,  Hosted by Jishi Team, BiliBili, 2020.12 </div>-->
-<!--        <div>Invited Talk : To Alibaba Group, Hosted by Tianchi Team from Alibaba Cloud, Hangzhou, China, 2020.11</div>-->
-<!--        <div>Invited Talk : To <a href="https://people.eecs.berkeley.edu/~jiantao/" target="_blank">Jiantao Jiao's Lab</a>,  Hosted by Ph.D. Banghua Zhou, UC Berkeley, 2020.10</div>-->
-<!--        <div>Blogs : Sharing Research Experiences at <a href="https://www.zhihu.com/column/c_1221858687846834176" target="_blank">Zhihu</a>, Language: Chinese</div>  -->
 
-<!--        -->
-<!--        <h4><i>Paper Review</i></h4>-->
-<!--        TPAMI, CVPR (2020-2022), NeurIPS (2020-2021), ICLR (2021-2022), ICCV (2021), AAAI (2021),-->
-<!--          ICML (2021), WACV (2021).-->
-<!--      -->
-<!--      </div>-->
-      <div class="row vspace-top">
-        <h2>Projects</h2>
-        <div class="row">
-          <!-- <div class="col-xs-3 text-center">
-            <img class="project-image" src="./Img_Files/project4.png">
-          </div> -->
-          <div class="col-xs-9">
-            <div class="project-name">
-              <a href="https://github.com/WZStephen/Spatial-Data-Analysis" target="_blank">Geospatial Data Analysis in Map-Reduce</a>
-            </div>
-            <div class="project-detail">
-              Spatial analysis based on a collection of New York City taxi trip records, the purpose of this project is to identify unusual patterns in a statistically
-              significant manner by a distributed in-memory computing frameworks by Apache Spark</li>
-              Training of Distributed Database System and Data Analysis </li>
-            </div>
-          </div>
+      <div class="project">
+        <div class="project-title">
+          <span>MaaS gateway and control-plane integration</span>
+          <span class="meta">Higress, LiteLLM, metrics</span>
         </div>
-      <div class="row vspace-top">
-<!--          <div class="col-xs-3 text-center">-->
-<!--            <img class="project-image" src="./Img_Files/project5.png">-->
-<!--          </div>-->
-          <div class="col-xs-9">
-            <div class="project-name">
-              <a href="https://github.com/WZStephen/CGN-Data-Mining" target="_blank">Analysis on Continuous Glucose Monitoring Data</a>
-            </div>
-            <div class="project-detail">
-              Analysis of the time series data collected by CGM in order to extract meaningful statistics and other characteristics of the data</li>
-              Training of the Classification and Clustering in Machine Learning techniques</li>
-            </div>
-          </div>
-        </div>
-        <div class="row vspace-top">
-          <div class="col-xs-9">
-            <div class="project-name">
-              <a href="https://github.com/WZStephen/Spark-Bench" target="_blank">Benchmark of Spark for Large Mini-Batch Deep Learning Models</a>
-            </div>
-            <div class="project-detail">
-              Inquiry the traditional optimizer SGD in Spark and benchmark the performance on relatively big data set and DNN model</li>
-              Integrate the LARS-SGD optimizer into Spark, perform the benchmark on same data set and DNN model. The 97.79% of testing accuracy was
-                achieved in batch size of 16384</li>
-              Training of Deep Learning and Data Mining</li>
-            </div>
-          </div>
-        </div>
-        <div class="row vspace-top">
-          <div class="col-xs-9">
-            <div class="project-name">
-              <a href="https://github.com/WZStephen/VAST-Challenge-2015-MC1" target="_blank">Data Visualization for solving the VAST Challenge 2015</a>
-            </div>
-            <div class="project-detail">
-              Analysis of time series data of user movement collected by Dino Fun World park from an event to extract the useful features</li>
-              Design the analytic visualization to showcase the incentive causes the mayhem and demonstrate the valuable findings</li>
-              Training of Data Visualization and Data Analysis</li>
-            </div>
-          </div>
-        </div>
+        <div class="tagline">Unified model access, routing, rate limiting, and observability for private and public model services.</div>
+        <ul>
+          <li>Participated in the platform architecture that separates Higress private deployment entry, LiteLLM public model entry, SGLang Router model routing, BatchFlow offline execution, and MaaS-Controller control-plane coordination.</li>
+          <li>Investigated and validated AI gateway capabilities including token-level rate limits, model mapping, route synchronization, metrics collection, OpenAI-compatible protocol handling, and compatibility boundaries for embeddings and Responses-style APIs.</li>
+          <li>Resolved user-facing integration issues by tracing requests across gateway, router, worker, service discovery, and model protocol layers instead of relying only on top-level deployment health.</li>
+        </ul>
       </div>
-      <div class="row vspace-top vspace">
-        <h2>Experience</h2>
-        <h4><b>
-          <a href="https://en.zhejianglab.com/">
-            Zhejiang Lab
-          </a>
-          , SuperComputer Research Center, Full Time (2021.08 - Now)</b></h4>
-        Major topic: SuperComputer platform development, Performance Optimalization
-        <br>
-        Mentor: Guangwen Yang, Peng Liu, Yi Qin
-        <br><br>
+    </section>
 
-        <h4><b>SNAC, Arizona State University (2020.01 - 2020.05)</b></h4>
-        Assisted to develop an open virtual lab platform(THOTH Lab) for academic research and education purpose
-        <br>Extend the educational modules including Software-defined Networking and OpenFlow Switch Controllers
-        <br>Expand server module utilizes the Boto3 to enable the functionalities of remote controlling in AWS instances
-        <br>Participate in Web Front-end & Back-end development <br>
-        Mentor: Dijiang Huang
-        <br><br>
-
-        <h4><b>SNAC, Arizona State University (2020.05 - 2020.08)</b></h4>
-        Major Project: Scenery Image Stitching and Inpainting.
-        <br>
-        Mentor: Dijiang Huang
-        <br><br>
+    <section>
+      <h2>Earlier Projects</h2>
+      <div class="item-head">
+        <div>
+          <h3>Arizona State University, SNAC Lab</h3>
+          <div>Virtual platform developer and research assistant</div>
+        </div>
+        <div class="meta">Jan 2020 - Aug 2020</div>
       </div>
-    </div>
-  </div>
+      <ul>
+        <li>Developed modules for THOTH Lab, an open virtual lab platform for education and research, including SDN/OpenFlow lab modules and AWS instance control through Boto3-backed REST APIs.</li>
+        <li>Implemented an Android prototype for an IR-CP-ABE based network security research system using Java.</li>
+      </ul>
 
-  <!-- <p align="center"><br>
-    <a href='https://clustrmaps.com/site/1an2z' title='Visit tracker'><img
-        src='https://clustrmaps.com/map_v2.png?cl=ffffff&w=250&t=tt&d=jtVx5gGD4Jpkn2bxejPg0-3tz8nkFVX5xQdTG-UF-y8&co=6cb3e6&ct=ffffff' /></a>
-  </p> -->
+      <div class="item-head" style="margin-top:16px;">
+        <div>
+          <h3>Arizona State University, CIDSE</h3>
+          <div>Graduate service assistant</div>
+        </div>
+        <div class="meta">Aug 2019 - Dec 2020</div>
+      </div>
+      <ul>
+        <li>Assisted CSE205 Object-Oriented Programming, CSE412 Database Management, CSE434 Computer Networks, and CSE464 Software QA and Testing.</li>
+      </ul>
+    </section>
 
-  <p align="center"><br>
-    <span class="STYLE6">
-      All rights reserved & Last update on Mar, 2021
-    </span>
-  </p>
+    <section>
+      <h2>Education</h2>
+      <div class="item-head">
+        <div>
+          <h3>Arizona State University</h3>
+          <div>Master of Computer Science, GPA 3.97/4.00</div>
+        </div>
+        <div class="meta">May 2019 - Dec 2020</div>
+      </div>
+      <div class="item-head" style="margin-top:12px;">
+        <div>
+          <h3>Arizona State University</h3>
+          <div>Bachelor of Science in Computer Science, GPA 3.40/4.00</div>
+        </div>
+        <div class="meta">Aug 2015 - May 2019</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    Last updated: June 2026
+  </footer>
 </body>
 </html>
