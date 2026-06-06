@@ -1,18 +1,19 @@
 ---
 layout: default
-title: 文章归档
+title: AI 技术博客
 ---
 
 <section class="hero">
   <div class="wrap">
-    <h1>文章归档</h1>
-    <p>OpenClaw 每日生成的 AI 技术专题会发布在这里，按日期倒序排列；标题优先概括当天最重要的技术事件。</p>
+    <h1>AI 技术博客</h1>
+    <p>每日整理 AI、LLM、Agent、推理系统和云原生模型平台的最新进展。这里仅展示 AI 技术类文章，市场观察放在独立页面。</p>
   </div>
 </section>
 
 <section class="wrap section">
   <div class="post-list">
-    {% for post in site.posts %}
+    {% assign ai_posts = site.posts | where_exp: "post", "post.categories contains 'ai-technical-report'" %}
+    {% for post in ai_posts %}
       <a class="post-card" href="{{ post.url | relative_url }}">
         <div class="post-date">{{ post.date | date: "%Y-%m-%d" }}</div>
         <h3>{{ post.title }}</h3>

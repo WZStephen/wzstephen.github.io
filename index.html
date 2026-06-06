@@ -1,28 +1,36 @@
 ---
 layout: default
-title: AI Infra Daily Notes
+title: Weichi Zhao
 ---
 
 <section class="hero">
   <div class="wrap">
-    <h1>AI Infra Daily Notes</h1>
-    <p>每日整理 AI、LLM、Agent、推理系统和云原生模型平台的最新进展。这里是公开发布站点；个人简历和自我介绍保留在子页面。</p>
+    <p class="eyebrow">AI Infrastructure / LLM Serving / Agent Engineering</p>
+    <h1>赵伟驰 / Weichi Zhao</h1>
+    <p>我专注于生产级 LLM 推理平台、OpenAI 兼容 MaaS、AI Gateway、Agent 工具链和异构 GPU / XPU 调度，把模型服务、工程效率和可靠性治理沉淀成可复用的平台能力。</p>
+    <div class="hero-actions">
+      <a href="{{ '/Files/CN_Resume_Weichi_Zhao.pdf' | relative_url }}">中文 PDF 简历</a>
+      <a href="{{ '/Files/EN_Resume_Weichi_Zhao.pdf' | relative_url }}">English PDF Resume</a>
+      <a href="mailto:wzhao4z@outlook.com">wzhao4z@outlook.com</a>
+    </div>
   </div>
 </section>
 
 <section class="wrap section">
   <div class="section-title">
-    <h2>最新文章</h2>
-    <a href="{{ '/blog/' | relative_url }}">查看全部</a>
+    <h2>内容入口</h2>
   </div>
 
-  <div class="post-list">
-    {% for post in site.posts limit: 10 %}
-      <a class="post-card" href="{{ post.url | relative_url }}">
-        <div class="post-date">{{ post.date | date: "%Y-%m-%d" }}</div>
-        <h2>{{ post.title }}</h2>
-        <p>{{ post.excerpt | strip_html | truncate: 150 }}</p>
-      </a>
-    {% endfor %}
+  <div class="feature-grid">
+    <a class="feature-card" href="{{ '/blog/' | relative_url }}">
+      <span>AI 技术博客</span>
+      <h3>LLM、Agent、推理系统和云原生模型平台</h3>
+      <p>每日跟踪 AI 基础设施、开源模型、推理优化、Agent 工具链和平台工程进展。</p>
+    </a>
+    <a class="feature-card" href="{{ '/markets/' | relative_url }}">
+      <span>市场观察</span>
+      <h3>股票、加密货币、黄金、利率与地缘变量</h3>
+      <p>用公开市场信息做长期投资复盘，不披露私人持仓明细，也不构成投资建议。</p>
+    </a>
   </div>
 </section>

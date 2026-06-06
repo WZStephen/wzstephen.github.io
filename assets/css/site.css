@@ -82,6 +82,60 @@ a:hover {
   font-size: 18px;
 }
 
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--accent-2);
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  margin-top: 22px;
+}
+
+.hero-actions a {
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  font-weight: 700;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.feature-card {
+  display: block;
+  min-height: 190px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  background: var(--card);
+}
+
+.feature-card span {
+  color: var(--accent-2);
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.feature-card h3 {
+  margin: 10px 0 8px;
+  color: var(--ink);
+  font-size: 22px;
+  line-height: 1.25;
+}
+
+.feature-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
 .section {
   padding: 34px 0;
 }
@@ -197,5 +251,9 @@ a:hover {
 
   .hero {
     padding: 36px 0 24px;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
   }
 }
