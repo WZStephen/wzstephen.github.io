@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '🔥 AI 技术日报 | 2026年6月2日'
+title: 'Anthropic IPO、DeepSeek V4 补丁与 Codex Computer Use'
 date: 2026-06-02 09:00:00 +0800
 categories: [ai-technical-report]
 ---

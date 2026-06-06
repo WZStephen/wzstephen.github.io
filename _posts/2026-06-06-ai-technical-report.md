@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'AI 技术分享 — 2026 年 6 月 6 日'
+title: 'ChatGPT 记忆升级、Claude 自我改进与 AI 算力争夺'
 date: 2026-06-06 09:00:00 +0800
 categories: [ai-technical-report]
 ---

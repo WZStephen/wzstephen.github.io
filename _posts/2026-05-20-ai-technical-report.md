@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '🔥 AI技术日报 | 2026年5月20日'
+title: 'InferenceX 评测、vLLM 生态与 1-bit Rust 推理'
 date: 2026-05-20 09:00:00 +0800
 categories: [ai-technical-report]
 ---

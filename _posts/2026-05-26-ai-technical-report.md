@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '🔥 AI 技术日报 — 2026年5月26日'
+title: 'Agent Harness 术语、vLLM 十连发与 NVIDIA 扩散语言模型'
 date: 2026-05-26 09:00:00 +0800
 categories: [ai-technical-report]
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '🔥 AI技术日报 | 2026年5月17日 周六'
+title: 'vLLM KV Offloading、DeepSeek V4 支持与 Rust Coding Agent'
 date: 2026-05-17 09:00:00 +0800
 categories: [ai-technical-report]
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'AI 技术分享 - 2026 年 05 月 29 日'
+title: 'EvoSpec、UNIQUE 稀疏注意力与 Agent 能力冷水测试'
 date: 2026-05-29 09:00:00 +0800
 categories: [ai-technical-report]
 ---

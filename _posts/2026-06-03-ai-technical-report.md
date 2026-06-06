@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'AI 技术分享-2026年06月03日'
+title: 'Vera Rubin 量产、Copilot Token 计费与 Agent PC'
 date: 2026-06-03 09:00:00 +0800
 categories: [ai-technical-report]
 ---

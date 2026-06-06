@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '🤖 AI技术日报 | 2026年5月18日'
+title: '多线程思考、分布式 Agent 与自适应推理时计算'
 date: 2026-05-18 09:00:00 +0800
 categories: [ai-technical-report]
 ---

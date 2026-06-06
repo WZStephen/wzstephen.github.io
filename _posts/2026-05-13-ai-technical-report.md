@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '🚀 AI前沿速递 | 2026年5月13日'
+title: 'SGLang 推测解码 V2、MoE LoRA 与 Agent Governance'
 date: 2026-05-13 09:00:00 +0800
 categories: [ai-technical-report]
 ---

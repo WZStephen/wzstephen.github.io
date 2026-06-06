@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '🔥 AI 技术日报 | 2026年5月25日 周一'
+title: 'Thinking Budget 让推理模型投机解码真正可用'
 date: 2026-05-25 09:00:00 +0800
 categories: [ai-technical-report]
 ---

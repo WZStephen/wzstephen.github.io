@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '🔥 AI 技术日报 | 2026年5月19日 — KV Cache 到底是怎么让大模型飞起来的？'
+title: 'KV Cache、统一多模态与本地小模型逆袭'
 date: 2026-05-19 09:00:00 +0800
 categories: [ai-technical-report]
 ---

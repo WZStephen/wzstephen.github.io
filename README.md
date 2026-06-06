@@ -27,11 +27,15 @@ Each post needs front matter:
 ```yaml
 ---
 layout: post
-title: 'AI 技术分享 — YYYY 年 M 月 D 日'
+title: '当天最重要的 2-3 个主题，例如：ChatGPT 记忆升级、Claude 自我改进与 AI 算力争夺'
 date: YYYY-MM-DD 09:00:00 +0800
 categories: [ai-technical-report]
 ---
 ```
+
+Use a topic-first title instead of a generic daily-report title. The filename
+and post date already carry the date, so the title should tell readers what
+happened that day at a glance.
 
 ## Generate PDFs
 

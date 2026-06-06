@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '🔥 AI推理前沿速递 | 2026年5月12日'
+title: 'KV Cache 分离、推测解码与 NVIDIA 下一代架构'
 date: 2026-05-12 09:00:00 +0800
 categories: [ai-technical-report]
 ---

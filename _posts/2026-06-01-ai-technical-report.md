@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'AI 技术分享 - 2026年06月01日'
+title: 'Claude 爆破半径、LLM 数据投毒与运行时分支'
 date: 2026-06-01 09:00:00 +0800
 categories: [ai-technical-report]
 ---

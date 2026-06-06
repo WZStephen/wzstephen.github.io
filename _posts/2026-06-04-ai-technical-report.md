@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '🔥 AI 技术日报 2026.06.04'
+title: '微软 Polaris、Claude Dynamic Workflows 与 2-bit KV Cache'
 date: 2026-06-04 09:00:00 +0800
 categories: [ai-technical-report]
 ---

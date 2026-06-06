@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '🔥 AI 技术日报 | 2026年5月24日 周日'
+title: 'Claude Code 审查模式、Thinking Budget 与 Rust Agent Harness'
 date: 2026-05-24 09:00:00 +0800
 categories: [ai-technical-report]
 ---

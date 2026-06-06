@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '🔥 AI技术速览 | 2026年5月11日 — vLLM狂飙至0.20、DeepSeek-V4推理实战、黄仁勋谈护城河'
+title: 'vLLM 0.20、分布式 KV Cache 与 DeepSeek-V4 推理'
 date: 2026-05-11 09:00:00 +0800
 categories: [ai-technical-report]
 ---

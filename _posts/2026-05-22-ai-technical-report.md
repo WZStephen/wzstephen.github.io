@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '🔥 AI 技术日报 | 2026年5月22日'
+title: 'Codex Goals、Claude Thinking Token 与 TensorRT-LLM FP4'
 date: 2026-05-22 09:00:00 +0800
 categories: [ai-technical-report]
 ---

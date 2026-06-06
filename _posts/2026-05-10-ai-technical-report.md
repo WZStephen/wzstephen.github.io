@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '🔥 AI前沿技术与科技资讯日报 — 2026年5月10日'
+title: 'Kimi 融资、vLLM 升级与开源推理引擎选型'
 date: 2026-05-10 09:00:00 +0800
 categories: [ai-technical-report]
 ---

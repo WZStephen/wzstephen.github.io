@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'AI 技术分享 — 2026 年 6 月 5 日'
+title: 'MiniMax M3、Agent 沙箱与 Claude 自改代码数据'
 date: 2026-06-05 09:00:00 +0800
 categories: [ai-technical-report]
 ---

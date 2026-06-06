@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '🔥 AI 早报 · 2026.05.16 | OpenAI 要让 ChatGPT 管你的银行账户了？'
+title: 'ChatGPT 银行账户、AI 论文治理与深度伪造检测'
 date: 2026-05-16 09:00:00 +0800
 categories: [ai-technical-report]
 ---

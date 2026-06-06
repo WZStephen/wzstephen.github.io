@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '🔥 AI 技术早报 | 2026年5月14日 —— 大模型推理提速的"三板斧"，你的 GPU 还能抢救一下！'
+title: 'PagedAttention、SGLang 与推测解码：大模型推理提速三板斧'
 date: 2026-05-14 09:00:00 +0800
 categories: [ai-technical-report]
 ---

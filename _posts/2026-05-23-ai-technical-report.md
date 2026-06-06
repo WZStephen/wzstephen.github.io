@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '🔥 AI 技术日报 ｜ 2026年5月23日'
+title: '扩散语言模型、KV Offloading 与可自我修复 Agent'
 date: 2026-05-23 09:00:00 +0800
 categories: [ai-technical-report]
 ---
