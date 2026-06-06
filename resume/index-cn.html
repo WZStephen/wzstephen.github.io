@@ -364,7 +364,7 @@
     <section>
       <h2>个人简介</h2>
       <div class="summary">
-        面向 AI 基础设施与大模型推理服务的平台工程师，专注生产级 LLM Serving、模型服务控制面和 OpenAI 兼容 MaaS 能力建设。长期参与公共模型服务、离线批量推理、模型网关、路由与编排可靠性、Agent 客户端接入、Kubernetes 原生推理任务和国产异构 GPU / XPU 环境适配。擅长把科研与模型工作负载沉淀成可复用的平台能力：多租户模型接入、可观测路由、在线 / 离线流量隔离、灰度与回滚、端到端排障，以及由真实故障驱动的稳定性加固。
+        面向 AI 基础设施与大模型推理服务的平台工程师，专注生产级 LLM Serving、模型服务控制面和 OpenAI 兼容 MaaS 能力建设。长期参与公共模型服务、离线批量推理、模型网关、路由与编排可靠性、Agent 客户端接入、Kubernetes 原生推理任务和国产异构 GPU / XPU 环境适配。擅长把科研与模型工作负载沉淀成可复用的平台能力，并将 Claude Code、Codex、OpenCode、OpenClaw 等 Agent 工具链嵌入日常研发、排障和文档流程，提升代码定位、方案整理和验证闭环效率。
       </div>
     </section>
 
@@ -374,6 +374,7 @@
         <li>支撑 BatchFlow 生产数据蒸馏：春节期间累计处理 276 万余条请求 / 约 239 亿 tokens；后续支撑日均约 1000 万条请求，成功率超过 99%。</li>
         <li>验证 BatchFlow -> SGLang Router -> 多 KLX 后端链路：Qwen3 负载下约 30 万请求 / 97.5 亿 tokens，成功率约 99.9%，BatchFlow 与 Router CPU / 内存开销低于 5%。</li>
         <li>建设 OpenAI 兼容 MaaS 公共服务能力，围绕 API key、模型授权、TPM / RPM、token budget、模型映射和 Agent 客户端接入沉淀可复用治理流程。</li>
+        <li>将 Agent 辅助工作流用于代码检索、故障复盘、方案草稿、发布核对和文档沉淀，把多步人工流程模板化、可复用化，显著减少重复检索与初稿整理时间。</li>
         <li>围绕网关、Router、Worker、Service discovery、readiness 与长连接等多类故障模式加固推理链路可靠性，避免只依赖 Pod 级健康状态判断服务可用性。</li>
       </ul>
     </section>
@@ -387,7 +388,7 @@
         </div>
         <div>
           <div class="skill-row"><div class="skill-label">MaaS 公共服务</div><div>Higress、LiteLLM、AI Gateway、API key、team / model access、TPM / RPM、token budget、模型映射、指标与可观测性。</div></div>
-          <div class="skill-row"><div class="skill-label">Agent 平台</div><div>Claude Code / Codex 类客户端接入、工具调用 API 兼容、OpenAI / Anthropic 风格适配、长上下文缓存优化、本地 Agent 治理。</div></div>
+          <div class="skill-row"><div class="skill-label">Agent 平台</div><div>Claude Code / Codex / OpenCode 接入、工具调用 API 兼容、OpenAI / Anthropic 风格适配、长上下文缓存优化、Agent 辅助研发工作流。</div></div>
           <div class="skill-row"><div class="skill-label">工程基础</div><div>Go、Python、Java、Linux、Prometheus、MySQL / SQLite / Redis、分布式系统排障、性能压测与容量评估。</div></div>
         </div>
       </div>
@@ -461,6 +462,7 @@
           <li>参与公共服务治理能力建设，围绕 API key、team、model access、quota、TPM / RPM、token budget、模型映射和成本控制配置模型访问权限与限流策略。</li>
           <li>梳理 Claude Code / Codex 类 Agent 客户端的协议兼容边界，覆盖 system prompt、tools schema、tool_result、streaming event、Responses API 与 OpenAI / Anthropic 风格字段差异。</li>
           <li>定位 Claude Code 长上下文请求下 SGLang prefix / KV cache 命中率低的问题，通过对比渲染 prompt、cached-token 日志和 token longest common prefix，确认动态 attribution 字段污染请求前缀并规避。</li>
+          <li>将 Agent 工具链嵌入日常工程流程，用于跨仓代码定位、日志线索归纳、设计方案草稿、PR / issue 文案、发布核对和知识库沉淀，提升复杂任务的上下文整合与交付效率。</li>
           <li>建立 Agent 接入 MaaS 公共服务的排障流程，从 API key、模型权限、quota、max_tokens、限流、连接超时、网关转发、Router / Worker 状态和模型协议层逐级定位问题。</li>
         </ul>
       </div>

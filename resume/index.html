@@ -365,7 +365,7 @@
     <section>
       <h2>Profile</h2>
       <div class="summary">
-        AI infrastructure engineer focused on production LLM serving platforms and model-service control planes. I build OpenAI-compatible MaaS capabilities, public model services, offline batch inference, model gateways, agent-client integration, routing/orchestration reliability, and Kubernetes-native serving on heterogeneous GPU/XPU clusters. My strength is turning research and model workloads into reusable platform primitives with multi-tenant model access, observable routing, online/offline traffic isolation, rollout safety, and incident-driven hardening.
+        AI infrastructure engineer focused on production LLM serving platforms and model-service control planes. I build OpenAI-compatible MaaS capabilities, public model services, offline batch inference, model gateways, agent-client integration, routing/orchestration reliability, and Kubernetes-native serving on heterogeneous GPU/XPU clusters. I also embed Claude Code, Codex, OpenCode, OpenClaw, and similar agent tools into daily engineering, debugging, and documentation workflows to accelerate code navigation, design drafting, and verification loops.
       </div>
     </section>
 
@@ -375,6 +375,7 @@
         <li>Scaled BatchFlow for production data distillation: over 2.76M requests / 23.9B tokens in a holiday run; later around 10M requests per day with success rate above 99%.</li>
         <li>Validated BatchFlow -> SGLang Router -> multi-KLX backend for Qwen3: about 300K requests / 9.75B tokens, about 99.9% success rate, and below 5% BatchFlow/Router CPU and memory overhead.</li>
         <li>Built OpenAI-compatible MaaS public-service capabilities around API keys, model access, TPM/RPM limits, token budgets, model mapping, and reusable onboarding flows for agent clients.</li>
+        <li>Applied agent-assisted workflows to code search, incident writeups, design drafts, release checks, and knowledge-base updates, turning repeated manual steps into reusable workflows and reducing repetitive lookup and drafting effort.</li>
         <li>Hardened serving reliability across gateway, Router, Worker, Service discovery, readiness, and long-connection failure modes instead of relying only on Pod-level health.</li>
       </ul>
     </section>
@@ -388,7 +389,7 @@
         </div>
         <div>
           <div class="skill-row"><div class="skill-label">MaaS Public Service</div><div>Higress, LiteLLM, AI Gateway, API keys, team/model access, TPM/RPM limits, token budgets, model mapping, observability.</div></div>
-          <div class="skill-row"><div class="skill-label">Agent Platform</div><div>Claude Code / Codex-style client integration, tool-calling API compatibility, OpenAI/Anthropic-style adapters, long-context cache optimization, local agent governance.</div></div>
+          <div class="skill-row"><div class="skill-label">Agent Platform</div><div>Claude Code / Codex / OpenCode integration, tool-calling API compatibility, OpenAI/Anthropic-style adapters, long-context cache optimization, agent-assisted engineering workflows.</div></div>
           <div class="skill-row"><div class="skill-label">Engineering</div><div>Go, Python, Java, Linux, Prometheus metrics, MySQL/SQLite/Redis, distributed systems debugging, performance and capacity testing.</div></div>
         </div>
       </div>
@@ -462,6 +463,7 @@
           <li>Contributed public-service governance around API keys, teams, model access, quotas, TPM/RPM limits, token budgets, model mapping, and cost-control policies for shared model access.</li>
           <li>Analyzed protocol compatibility boundaries for Claude Code / Codex-style agent clients, including system prompts, tool schemas, tool results, streaming events, Responses-style APIs, and OpenAI/Anthropic field differences.</li>
           <li>Diagnosed low SGLang prefix/KV cache hit rates for Claude Code long-context requests by comparing rendered prompts, cached-token logs, and token longest common prefix; identified dynamic attribution fields that polluted request prefixes and mitigated the issue.</li>
+          <li>Embedded agent tools into daily engineering workflows for cross-repository code navigation, log summarization, design drafts, PR/issue writing, release checks, and knowledge-base updates, improving context integration and delivery speed for complex tasks.</li>
           <li>Established an agent-to-MaaS troubleshooting path across API keys, model permissions, quotas, max_tokens, rate limits, connection timeouts, gateway forwarding, Router/Worker state, and model protocol behavior.</li>
         </ul>
       </div>
