@@ -54,7 +54,7 @@ Each post needs front matter:
 ---
 layout: post
 title: '当天最重要的 2-3 个市场主题，例如：美股科技回撤、黄金避险与 BTC 杠杆清算'
-date: YYYY-MM-DD 08:30:00 +0800
+date: YYYY-MM-DD 09:00:00 +0800
 categories: [market-brief, markets]
 ---
 ```
