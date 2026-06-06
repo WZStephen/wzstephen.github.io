@@ -60,9 +60,10 @@ categories: [market-brief, markets]
 ```
 
 Market briefs should use public data and current news, cite sources with links,
-and avoid publishing exact personal holding sizes or account values. They may
-use the private investment notes as a preference and risk-context reference, but
-the public article should be framed as market observation, not investment advice.
+and avoid publishing exact personal holding sizes, account values, cost basis,
+broker details, or recurring investment amounts. They may use the private
+investment notes as a preference and risk-context reference, but the public
+article should be framed as market observation, not investment advice.
 
 ## Generate PDFs
 
