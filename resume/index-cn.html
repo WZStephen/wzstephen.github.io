@@ -3,12 +3,539 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="refresh" content="0; url=../Files/CN_Resume_Weichi_Zhao.pdf">
-  <link rel="canonical" href="../Files/CN_Resume_Weichi_Zhao.pdf">
-  <title>赵伟驰 PDF 简历</title>
+  <title>赵伟驰 - AI 基础设施简历</title>
+  <link rel="shortcut icon" href="../Img_Files/icon_ailurus.ico">
+  <style>
+    :root {
+      --ink: #1f2933;
+      --muted: #52616f;
+      --line: #d8dee5;
+      --paper: #fbfaf7;
+      --band: #eef4f1;
+      --accent: #196f6b;
+      --accent-2: #9a5b22;
+      --soft: #f4efe7;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", "Microsoft YaHei", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.62;
+      font-size: 16px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .topbar {
+      background: var(--band);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .wrap {
+      width: min(1080px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .header {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 28px;
+      align-items: center;
+      padding: 40px 0 34px;
+    }
+
+    .portrait {
+      width: 132px;
+      height: 132px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      box-shadow: 0 8px 24px rgba(31, 41, 51, 0.12);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 40px;
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .role {
+      margin: 10px 0 16px;
+      font-size: 20px;
+      color: var(--accent-2);
+      font-weight: 650;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      color: var(--muted);
+    }
+
+    .links span,
+    .links a {
+      white-space: nowrap;
+    }
+
+    .switch-link {
+      padding: 2px 10px;
+      border: 1px solid rgba(25, 111, 107, 0.34);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.62);
+      font-weight: 650;
+    }
+
+    .target {
+      margin-top: 14px;
+      font-size: 14px;
+    }
+
+    .no-print {
+      display: inline;
+    }
+
+    main {
+      padding: 30px 0 44px;
+    }
+
+    section {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    section:last-child {
+      border-bottom: 0;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 20px;
+      color: var(--accent);
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .item-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 8px;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .summary {
+      font-size: 17px;
+      max-width: 940px;
+    }
+
+    ul {
+      margin: 8px 0 0 20px;
+      padding: 0;
+    }
+
+    li {
+      margin: 6px 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px 28px;
+    }
+
+    .skill-row {
+      display: grid;
+      grid-template-columns: 156px 1fr;
+      gap: 14px;
+      padding: 8px 0;
+      border-top: 1px solid rgba(216, 222, 229, 0.72);
+    }
+
+    .skill-row:first-child {
+      border-top: 0;
+    }
+
+    .skill-label {
+      font-weight: 700;
+      color: var(--accent-2);
+    }
+
+    .project {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-left: 4px solid var(--accent);
+      background: rgba(238, 244, 241, 0.72);
+    }
+
+    .project:first-of-type {
+      margin-top: 0;
+    }
+
+    .project-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      font-weight: 750;
+    }
+
+    .tagline {
+      color: var(--muted);
+      margin-top: 4px;
+      font-size: 14px;
+    }
+
+    footer {
+      color: var(--muted);
+      font-size: 13px;
+      padding: 18px 0 36px;
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      .wrap {
+        width: min(100% - 24px, 1080px);
+      }
+
+      .header {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 28px 0;
+      }
+
+      .portrait {
+        width: 112px;
+        height: 112px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .role {
+        font-size: 18px;
+      }
+
+      .item-head,
+      .project-title {
+        display: block;
+      }
+
+      .meta {
+        margin-top: 3px;
+        white-space: normal;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skill-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        font-size: 10.5px;
+        line-height: 1.36;
+      }
+
+      .topbar {
+        background: #fff;
+      }
+
+      .wrap {
+        width: 100%;
+        max-width: none;
+      }
+
+      .header {
+        grid-template-columns: 86px 1fr;
+        gap: 16px;
+        padding: 0 0 14px;
+      }
+
+      .portrait {
+        width: 78px;
+        height: 78px;
+        box-shadow: none;
+        border: 1px solid var(--line);
+      }
+
+      h1 {
+        font-size: 25px;
+      }
+
+      .role {
+        margin: 4px 0 8px;
+        font-size: 13px;
+      }
+
+      .links,
+      .target,
+      footer {
+        font-size: 10px;
+      }
+
+      .no-print {
+        display: none;
+      }
+
+      main {
+        padding: 0;
+      }
+
+      section {
+        padding: 9px 0;
+      }
+
+      h2 {
+        margin-bottom: 6px;
+        font-size: 13px;
+      }
+
+      h3 {
+        font-size: 12px;
+      }
+
+      .summary {
+        font-size: 10.8px;
+      }
+
+      .project {
+        margin-top: 7px;
+        padding: 7px 9px;
+        background: #fff;
+      }
+
+      ul {
+        margin-top: 4px;
+      }
+
+      li {
+        margin: 2px 0;
+      }
+
+      a {
+        color: var(--ink);
+      }
+    }
+  </style>
 </head>
 <body>
-  <p>简历请查看 PDF：<a href="../Files/CN_Resume_Weichi_Zhao.pdf">CN_Resume_Weichi_Zhao.pdf</a>。</p>
-  <p>英文版：<a href="../Files/EN_Resume_Weichi_Zhao.pdf">EN_Resume_Weichi_Zhao.pdf</a>。</p>
+  <div class="topbar">
+    <div class="wrap header">
+      <img class="portrait" src="../Img_Files/weichi2.jpg" alt="赵伟驰">
+      <div>
+        <h1>赵伟驰</h1>
+        <div class="role">AI 基础设施 / LLM 推理平台工程师</div>
+        <div class="links">
+          <span>杭州</span>
+          <a href="mailto:wzhao4z@outlook.com">wzhao4z@outlook.com</a>
+          <a href="https://github.com/WZStephen">GitHub: WZStephen</a>
+          <a href="https://wzstephen.github.io/">个人主页：wzstephen.github.io</a>
+          <a class="no-print" href="../">博客</a>
+          <a class="no-print" href="../Files/CN_Resume_Weichi_Zhao.pdf">PDF 简历</a>
+          <a class="switch-link no-print" href="index.html">English</a>
+        </div>
+        <div class="target">求职方向：LLM 推理平台、OpenAI 兼容 MaaS、AI Gateway、Agent Platform、异构 GPU / XPU 调度。</div>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <section>
+      <h2>个人简介</h2>
+      <div class="summary">
+        面向 AI 基础设施与大模型推理服务的平台工程师，专注生产级 LLM Serving、模型服务控制面和 OpenAI 兼容 MaaS 能力建设。长期参与公共模型服务、离线批量推理、模型网关、路由与编排可靠性、Agent 客户端接入、Kubernetes 原生推理任务和国产异构 GPU / XPU 环境适配。在当前 MaaS / LLM Serving 工作中，已将 Claude Code、Codex、OpenCode、OpenClaw 等 Agent 工具链嵌入代码检索、排障、文档、发布核对和验证闭环，用更短反馈链路推动复杂平台能力快速迭代。
+      </div>
+    </section>
+
+    <section>
+      <h2>关键成果</h2>
+      <ul>
+        <li>支撑 BatchFlow 生产数据蒸馏和批量生成任务，后续达到日均约 1000 万条请求处理能力，成功率超过 99%。</li>
+        <li>验证 BatchFlow -> SGLang Router -> 多 KLX 后端链路：Qwen3 负载下约 30 万请求 / 97.5 亿 tokens，成功率约 99.9%，BatchFlow 与 Router CPU / 内存开销低于 5%。</li>
+        <li>建设 OpenAI 兼容 MaaS 公共服务能力，围绕 API key、模型授权、TPM / RPM、token budget、模型映射和 Agent 客户端接入沉淀可复用治理流程。</li>
+        <li>在当前 MaaS / LLM Serving 工作中使用 Agent 辅助代码检索、故障复盘、方案草稿、发布核对和文档沉淀，把多步人工流程沉淀为可复用迭代链路。</li>
+        <li>围绕网关、Router、Worker、Service discovery、readiness 与长连接等多类故障模式加固推理链路可靠性，避免只依赖 Pod 级健康状态判断服务可用性。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>核心能力</h2>
+      <div class="grid">
+        <div>
+          <div class="skill-row"><div class="skill-label">LLM 推理</div><div>SGLang、vLLM、OpenAI 兼容 API、流式响应、Embedding、Responses API、PD 分离、KV / Prefix Cache、Cache-aware 与 Bucket 路由。</div></div>
+          <div class="skill-row"><div class="skill-label">控制面</div><div>Kubernetes Operator / Controller、CRD、Helm、Kustomize、readiness、finalizer、服务发现、平滑升级、重试与回滚流程。</div></div>
+        </div>
+        <div>
+          <div class="skill-row"><div class="skill-label">MaaS 公共服务</div><div>Higress、LiteLLM、AI Gateway、API key、team / model access、TPM / RPM、token budget、模型映射、指标与可观测性。</div></div>
+          <div class="skill-row"><div class="skill-label">Agent 平台</div><div>Claude Code / Codex / OpenCode 接入、工具调用 API 兼容、OpenAI / Anthropic 风格适配、长上下文缓存优化、Agent 辅助工程迭代。</div></div>
+          <div class="skill-row"><div class="skill-label">工程基础</div><div>Go、Python、Linux、Prometheus、MySQL / SQLite / Redis、分布式系统排障、性能压测与容量评估。</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>工作经历</h2>
+      <div class="item-head">
+        <div>
+          <h3>之江实验室，高效能计算设施研究中心</h3>
+          <div>高级研究专员，AI 基础设施与 MaaS 平台方向</div>
+        </div>
+        <div class="meta">2024 - 至今</div>
+      </div>
+      <ul>
+        <li>参与建设和运维面向大模型服务的 MaaS 平台能力，覆盖 CPU ACK 与 GPU ACK 跨集群链路，包括公共模型服务入口、OpenAI 兼容 API、Higress / LiteLLM 网关、SGLang Router 模型路由、IGD / IGDSA 推理任务编排、BatchFlow 离线批处理，以及 Agent 侧 API 兼容。</li>
+        <li>负责多条生产推理链路的问题定位与稳定性优化，处理 Router Worker 注册收敛、Service / Endpoint readiness、PD prefill / decode 拓扑、CrashLoop、长连接超时、网关 Header / 模型映射、多集群平滑上线等问题。</li>
+        <li>参与 MaaS-Controller 与 Optimizer 控制面机制设计，围绕 LiteLLM、Router、IGDSA、BatchFlow、Higress 指标采集与配置下发，设计公共模型限额调整、离线并发调节、观察窗口、回滚条件和在线 SLA 优先等闭环治理机制。</li>
+      </ul>
+
+      <div class="item-head">
+        <div>
+          <h3>之江实验室，智能超算研究中心</h3>
+          <div>工程专员，云原生 AI / HPC 平台方向</div>
+        </div>
+        <div class="meta">2021.08 - 2023</div>
+      </div>
+      <ul>
+        <li>参与云原生 AI / HPC 平台建设，包括国产操作系统与加速卡上的 Kubernetes 适配、Device Plugin 定制、PyTorch / 模型适配，以及分布式训练框架与并行策略调研。</li>
+        <li>参与国产异构软硬件环境下的模型训练与推理平台适配，围绕任务提交、资源识别、容器运行环境和基础性能验证，支撑科研项目与平台化能力建设。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>重点项目</h2>
+      <div class="project">
+        <div class="project-title">
+          <span>BatchFlow - OpenAI 兼容离线推理平台</span>
+          <span class="meta">大规模批量推理</span>
+        </div>
+        <div class="tagline">面向数据蒸馏、评测、批量生成等非实时任务的异步推理执行面。</div>
+        <ul>
+          <li>设计并实现 OpenAI Batch API 兼容能力，包括文件上传、Batch 生命周期、取消、结果 / 错误文件、流式文件处理、请求级错误隔离和后端并发控制。</li>
+          <li>推动 BatchFlow 向多副本演进，基于 Kubernetes Leader Election 与分片 Worker 改造执行链路，优化 Header 透传、上传限制、过期文件清理、Kustomize 升级、监控和异常 finalizing 容错。</li>
+          <li>支撑生产数据蒸馏和批量生成任务，后续达到日均约 1000 万条请求处理能力，成功率超过 99%。</li>
+          <li>完成 BatchFlow -> SGLang Router -> 多 KLX 后端链路压测，在 Qwen3-235B-A22B-Thinking-2507 负载下处理约 30 万请求 / 97.5 亿 tokens，成功率约 99.9%，BatchFlow 与 Router CPU / 内存占用低于 5%。</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-title">
+          <span>SGLang Router / IGD 推理链路稳定性建设</span>
+          <span class="meta">路由、编排与生产排障</span>
+        </div>
+        <div class="tagline">围绕多 Worker、PD 分离和国产异构环境，提升推理任务从部署到请求可达的端到端可靠性。</div>
+        <ul>
+          <li>优化 Router Worker 注册与收敛机制，引入“期望集合 vs 实际 /workers 集合”的对账逻辑，在缺失、冗余或注册失败时持续 requeue。</li>
+          <li>完善 IGD / ISI 启动与 readiness：Pod IP 早期注册、`publishNotReadyAddresses`、保留 SLB finalizer、Router 指标 Service，以及带重试预算的 ISI 级自动重启。</li>
+          <li>主导多类生产问题根因分析，包括节点环境变量累积触发 ARG_MAX 导致 Router Pod 启动失败、Worker Ready 后 Router 未纳管、共享 Service selector 残留、45 分钟长连接超时等问题。</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-title">
+          <span>MaaS 公共模型服务与 Agent 接入优化</span>
+          <span class="meta">OpenAI-compatible API / Agent Runtime</span>
+        </div>
+        <div class="tagline">面向内部用户、Agent 客户端和离线任务的统一模型接入、鉴权、限流、协议兼容、成本治理和排障链路。</div>
+        <ul>
+          <li>建设 OpenAI 兼容公共模型服务入口，统一 Chat Completions、Responses API、Embedding、Batch API 与 Agent 客户端接入，屏蔽底层不同模型服务、Router 和异构集群差异。</li>
+          <li>参与公共服务治理能力建设，围绕 API key、team、model access、quota、TPM / RPM、token budget、模型映射和成本控制配置模型访问权限与限流策略。</li>
+          <li>梳理 Claude Code / Codex 类 Agent 客户端的协议兼容边界，覆盖 system prompt、tools schema、tool_result、streaming event、Responses API 与 OpenAI / Anthropic 风格字段差异。</li>
+          <li>定位 Claude Code 长上下文请求下 SGLang prefix / KV cache 命中率低的问题，通过对比渲染 prompt、cached-token 日志和 token longest common prefix，确认动态 attribution 字段污染请求前缀并规避。</li>
+          <li>将 Agent 工具链嵌入当前工程流程，用于跨仓代码定位、日志线索归纳、设计方案草稿、PR / issue 文案、发布核对和知识库沉淀，缩短复杂平台任务的反馈链路。</li>
+          <li>建立 Agent 接入 MaaS 公共服务的排障流程，从 API key、模型权限、quota、max_tokens、限流、连接超时、网关转发、Router / Worker 状态和模型协议层逐级定位问题。</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-title">
+          <span>Kubernetes Device Plugin 与异构加速卡平台</span>
+          <span class="meta">GPU / XPU 调度</span>
+        </div>
+        <div class="tagline">面向国产异构加速环境的云原生资源发现、调度与验证链路。</div>
+        <ul>
+          <li>定制 Device Plugin 与资源管理链路，覆盖加速卡可用性识别、节点资源上报、容器运行时验证、卡级调度和故障隔离。</li>
+          <li>建设 Kubernetes AI / HPC 环境中的部署、升级、回滚和 E2E 验证流程，适配国产操作系统与异构加速卡软件栈。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>早期经历</h2>
+      <div class="item-head">
+        <div>
+          <h3>亚利桑那州立大学，SNAC Lab</h3>
+          <div>虚拟平台开发员 / 研究项目助理</div>
+        </div>
+        <div class="meta">2020.01 - 2020.08</div>
+      </div>
+      <ul>
+        <li>参与 THOTH Lab 开放式虚拟实验平台开发，扩展 SDN / OpenFlow 教学模块，并基于 Boto3 与 REST API 实现 AWS 实例远程控制能力。</li>
+        <li>基于 IR-CP-ABE 研究论文实现 Android 端网络安全系统原型。</li>
+      </ul>
+
+      <div class="item-head" style="margin-top:16px;">
+        <div>
+          <h3>亚利桑那州立大学，CIDSE</h3>
+          <div>研究生服务助理</div>
+        </div>
+        <div class="meta">2019.08 - 2020.12</div>
+      </div>
+      <ul>
+        <li>协助 CSE205 面向对象程序设计、CSE412 数据库管理、CSE434 计算机网络、CSE464 软件 QA 与测试课程的教学答疑。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>教育背景</h2>
+      <div class="item-head">
+        <div>
+          <h3>亚利桑那州立大学</h3>
+          <div>计算机科学硕士，GPA 3.97 / 4.00</div>
+        </div>
+        <div class="meta">2019.05 - 2020.12</div>
+      </div>
+      <div class="item-head" style="margin-top:12px;">
+        <div>
+          <h3>亚利桑那州立大学</h3>
+          <div>计算机科学本科，GPA 3.40 / 4.00</div>
+        </div>
+        <div class="meta">2015.08 - 2019.05</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    最后更新：2026 年 6 月
+  </footer>
 </body>
 </html>
