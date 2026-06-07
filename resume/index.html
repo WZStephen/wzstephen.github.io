@@ -374,7 +374,7 @@
     <section>
       <h2>Profile</h2>
       <div class="summary">
-        AI Infra engineer focused on production LLM serving platforms and model-service control planes. I build OpenAI-compatible MaaS capabilities, public model services, offline batch inference, SGLang/vLLM framework adaptation and lightweight tuning, model gateways, agent-client integration, routing reliability, and Kubernetes-native serving on heterogeneous GPU/XPU clusters. In current work, I embed Claude Code, Codex, OpenCode, OpenClaw, and similar agent tools into code search, debugging, documentation, release checks, and verification loops to iterate faster on complex platform changes.
+        AI Infra engineer focused on production LLM serving platforms and model-service control planes. I build OpenAI-compatible MaaS capabilities, public model services, offline batch inference, IGD/IGDSA model deployment orchestration, SGLang/vLLM framework adaptation and lightweight tuning, model gateways, agent-client integration, and serving reliability on heterogeneous GPU/XPU clusters. In current work, I embed Claude Code, Codex, OpenCode, OpenClaw, and similar agent tools into code search, debugging, documentation, release checks, and verification loops to iterate faster on complex platform changes.
       </div>
     </section>
 
@@ -386,7 +386,7 @@
         <li>Worked on SGLang/vLLM/Dynamo serving tuning across KV/prefix cache, PD disaggregation, cache-aware/bucket routing, and QPS/TTFT/Tok/s validation.</li>
         <li>Built OpenAI-compatible MaaS public-service capabilities around API keys, model access, TPM/RPM limits, token budgets, model mapping, and reusable onboarding flows for agent clients.</li>
         <li>Applied agent-assisted workflows in current MaaS/LLM serving work for code search, incident writeups, design drafts, release checks, and knowledge-base updates, turning repeated manual steps into reusable iteration loops.</li>
-        <li>Hardened serving reliability across gateway, Router, Worker, Service discovery, readiness, and long-connection failure modes instead of relying only on Pod-level health.</li>
+        <li>Expanded IGD/IGDSA model deployment lifecycle coverage across CRDs/controllers, Service/Endpoint readiness, Router discovery, metrics Services, finalizers, multi-cluster rollout, and rollback paths.</li>
       </ul>
     </section>
 
@@ -403,7 +403,7 @@
       <div class="grid">
         <div>
           <div class="skill-row"><div class="skill-label">LLM Serving</div><div>SGLang, vLLM, OpenAI-compatible APIs, streaming, embeddings, Responses API, PD disaggregation, KV/prefix cache, cache-aware and bucket routing.</div></div>
-          <div class="skill-row"><div class="skill-label">Control Plane</div><div>Kubernetes operators/controllers, CRDs, Helm, Kustomize, readiness, finalizers, service discovery, rollout safety, retry and rollback workflows.</div></div>
+          <div class="skill-row"><div class="skill-label">Model Deployment</div><div>IGD/IGDSA, Kubernetes operators/controllers, CRDs, Helm, Kustomize, Service/Endpoint readiness, finalizers, rollout safety, retry and rollback workflows.</div></div>
         </div>
         <div>
           <div class="skill-row"><div class="skill-label">MaaS Public Service</div><div>Higress, LiteLLM, AI Gateway, API keys, team/model access, TPM/RPM limits, token budgets, model mapping, observability.</div></div>
@@ -423,8 +423,8 @@
         <div class="meta">2024 - Present</div>
       </div>
       <ul>
-        <li>Built and operated LLM serving platform capabilities covering public model-service entrypoints, OpenAI-compatible APIs, Higress/LiteLLM gateways, SGLang/vLLM framework adaptation, SGLang Router, IGD/IGDSA, BatchFlow offline inference, and Agent-facing API compatibility.</li>
-        <li>Owned production troubleshooting and hardening for LLM serving paths, including Router worker registration convergence, Service/Endpoint readiness, PD prefill/decode topology, CrashLoop and long-connection failures, gateway header/model mapping issues, and multi-cluster rollout validation.</li>
+        <li>Built and operated LLM serving platform capabilities covering public model-service entrypoints, OpenAI-compatible APIs, Higress/LiteLLM gateways, SGLang/vLLM framework adaptation, IGD/IGDSA model deployment orchestration, SGLang Router, BatchFlow offline inference, and Agent-facing API compatibility.</li>
+        <li>Owned production troubleshooting and hardening for IGD/IGDSA deployment lifecycle, Router worker registration convergence, Service/Endpoint readiness, PD prefill/decode topology, CrashLoop and long-connection failures, gateway header/model mapping issues, and multi-cluster rollout validation.</li>
         <li>Designed MaaS-Controller and optimizer-loop mechanisms around LiteLLM, Router, IGDSA, BatchFlow, and gateway metrics, with public-model limit adjustment, offline concurrency tuning, observation windows, rollback criteria, and online-SLA-first rules.</li>
       </ul>
 
@@ -459,11 +459,12 @@
 
       <div class="project">
         <div class="project-title">
-          <span>SGLang/vLLM framework tuning and serving reliability</span>
-          <span class="meta">Model tuning, routing, and orchestration</span>
+          <span>IGD/IGDSA model deployment orchestration and serving reliability</span>
+          <span class="meta">Model deployment, tuning, routing, and orchestration</span>
         </div>
-        <div class="tagline">Model deployment, routing, and recovery across SGLang/vLLM, PD disaggregation, KV/prefix cache, and heterogeneous GPU/XPU environments.</div>
+        <div class="tagline">End-to-end reliability from model deployment to request reachability across IGD/IGDSA, SGLang/vLLM, PD disaggregation, KV/prefix cache, and heterogeneous GPU/XPU environments.</div>
         <ul>
+          <li>Worked on IGD/IGDSA inference-task lifecycle orchestration across model images, launch parameters, resource specs, replica topology, Service/Endpoint readiness, Router discovery, metrics Services, finalizers, and rollback paths.</li>
           <li>Participated in SGLang/vLLM/Dynamo research and adaptation validation, mapping PagedAttention/RadixAttention, KV cache, prefix cache, PD disaggregation, multi-level cache reuse, context length, concurrency, batching, and cache-hit-rate tuning boundaries.</li>
           <li>Improved Router worker synchronization by reconciling desired workers against live `/workers` state and requeueing on missing, extra, or failed registrations.</li>
           <li>Enhanced IGD/ISI startup and readiness with Pod-IP early registration, `publishNotReadyAddresses`, preserved Service finalizers, Router metrics Service generation, and ISI-level auto-restart with retry budgets.</li>

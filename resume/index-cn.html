@@ -262,8 +262,8 @@
     @media print {
       body {
         background: #fff;
-        font-size: 10.5px;
-        line-height: 1.36;
+        font-size: 10.2px;
+        line-height: 1.31;
       }
 
       .topbar {
@@ -315,7 +315,7 @@
       }
 
       section {
-        padding: 9px 0;
+        padding: 7px 0;
       }
 
       h2 {
@@ -332,8 +332,8 @@
       }
 
       .project {
-        margin-top: 7px;
-        padding: 7px 9px;
+        margin-top: 6px;
+        padding: 6px 8px;
         background: #fff;
       }
 
@@ -342,7 +342,7 @@
       }
 
       li {
-        margin: 2px 0;
+        margin: 1px 0;
       }
 
       a {
@@ -376,7 +376,7 @@
     <section>
       <h2>个人简介</h2>
       <div class="summary">
-        面向 AI Infra 与大模型推理服务的平台工程师，专注生产级 LLM Serving、模型服务控制面和 OpenAI 兼容 MaaS 能力建设。长期参与公共模型服务、离线批量推理、SGLang / vLLM 框架适配与轻量调优、模型网关、路由可靠性、Agent 客户端接入、Kubernetes 原生推理任务和国产 GPU / XPU 环境适配。在当前工作中将 Claude Code、Codex、OpenCode、OpenClaw 等 Agent 工具链嵌入代码检索、排障、文档、发布核对和验证闭环，推动复杂平台能力快速迭代。
+        面向 AI Infra 与大模型推理服务的平台工程师，专注生产级 LLM Serving、模型服务控制面和 OpenAI 兼容 MaaS 能力建设。长期参与公共模型服务、离线批量推理、IGD / IGDSA 模型部署编排、SGLang / vLLM 框架适配与轻量调优、模型网关、路由可靠性、Agent 客户端接入和国产 GPU / XPU 环境适配。在当前工作中将 Claude Code、Codex、OpenCode、OpenClaw 等 Agent 工具链嵌入代码检索、排障、文档、发布核对和验证闭环，推动复杂平台能力快速迭代。
       </div>
     </section>
 
@@ -388,7 +388,7 @@
         <li>参与 SGLang / vLLM / Dynamo 推理框架调优：覆盖 KV / Prefix Cache、PD 分离、Cache-aware / Bucket 路由和 QPS / TTFT / Tok/s 验证。</li>
         <li>建设 OpenAI 兼容 MaaS 公共服务能力，围绕 API key、模型授权、TPM / RPM、token budget、模型映射和 Agent 客户端接入沉淀可复用治理流程。</li>
         <li>在当前 MaaS / LLM Serving 工作中使用 Agent 辅助代码检索、故障复盘、方案草稿、发布核对和文档沉淀，把多步人工流程沉淀为可复用迭代链路。</li>
-        <li>围绕网关、Router、Worker、Service discovery、readiness 与长连接等多类故障模式加固推理链路可靠性，避免只依赖 Pod 级健康状态判断服务可用性。</li>
+        <li>围绕 IGD / IGDSA 完善模型部署生命周期，覆盖 CRD / Controller、Service / Endpoint、readiness、Router 发现、指标 Service、finalizer、多集群上线和回滚。</li>
       </ul>
     </section>
 
@@ -404,7 +404,7 @@
       <div class="grid">
         <div>
           <div class="skill-row"><div class="skill-label">LLM 推理</div><div>SGLang、vLLM、OpenAI 兼容 API、流式响应、Embedding、Responses API、PD 分离、KV / Prefix Cache、Cache-aware 与 Bucket 路由。</div></div>
-          <div class="skill-row"><div class="skill-label">控制面</div><div>Kubernetes Operator / Controller、CRD、Helm、Kustomize、readiness、finalizer、服务发现、平滑升级、重试与回滚流程。</div></div>
+          <div class="skill-row"><div class="skill-label">模型部署</div><div>IGD / IGDSA、Kubernetes Operator / Controller、CRD、Helm、Kustomize、Service / Endpoint、readiness、finalizer、平滑升级与回滚。</div></div>
         </div>
         <div>
           <div class="skill-row"><div class="skill-label">MaaS 公共服务</div><div>Higress、LiteLLM、AI Gateway、API key、team / model access、TPM / RPM、token budget、模型映射、指标与可观测性。</div></div>
@@ -424,8 +424,8 @@
         <div class="meta">2024 - 至今</div>
       </div>
       <ul>
-        <li>参与建设和运维面向大模型服务的 MaaS 平台能力，覆盖公共模型服务入口、OpenAI 兼容 API、Higress / LiteLLM 网关、SGLang / vLLM 框架适配、SGLang Router、IGD / IGDSA、BatchFlow 离线批处理和 Agent 侧 API 兼容。</li>
-        <li>负责多条生产推理链路的问题定位与稳定性优化，处理 Router Worker 注册收敛、Service / Endpoint readiness、PD prefill / decode 拓扑、CrashLoop、长连接超时、网关 Header / 模型映射、多集群平滑上线等问题。</li>
+        <li>参与建设和运维面向大模型服务的 MaaS 平台能力，覆盖公共模型服务入口、OpenAI 兼容 API、Higress / LiteLLM 网关、SGLang / vLLM 框架适配、IGD / IGDSA 模型部署编排、SGLang Router、BatchFlow 离线批处理和 Agent 侧 API 兼容。</li>
+        <li>负责多条生产推理链路的问题定位与稳定性优化，处理 IGD / IGDSA 部署生命周期、Router Worker 注册收敛、Service / Endpoint readiness、PD prefill / decode 拓扑、CrashLoop、长连接超时、网关 Header / 模型映射和多集群上线等问题。</li>
         <li>参与 MaaS-Controller 与 Optimizer 控制面机制设计，围绕 LiteLLM、Router、IGDSA、BatchFlow、Higress 指标采集与配置下发，设计公共模型限额调整、离线并发调节、观察窗口、回滚条件和在线 SLA 优先等闭环治理机制。</li>
       </ul>
 
@@ -460,11 +460,12 @@
 
       <div class="project">
         <div class="project-title">
-          <span>SGLang / vLLM 框架调优与推理链路稳定性建设</span>
-          <span class="meta">模型调优、路由与生产排障</span>
+          <span>IGD / IGDSA 模型部署编排与推理链路稳定性建设</span>
+          <span class="meta">模型部署、调优、路由与生产排障</span>
         </div>
-        <div class="tagline">围绕 SGLang / vLLM、PD 分离、KV / Prefix Cache 和国产异构环境，提升模型部署、路由调度和请求可达性。</div>
+        <div class="tagline">围绕 IGD / IGDSA、SGLang / vLLM、PD 分离、KV / Prefix Cache 和国产异构环境，提升模型从部署到请求可达的端到端可靠性。</div>
         <ul>
+          <li>参与 IGD / IGDSA 推理任务生命周期编排，覆盖模型镜像、启动参数、资源规格、多副本拓扑、Service / Endpoint、readiness、Router 发现、指标 Service、finalizer 和回滚路径。</li>
           <li>参与 SGLang / vLLM / Dynamo 调研与适配验证，梳理 PagedAttention / RadixAttention、KV Cache、Prefix Cache、PD 分离、多级缓存复用、上下文长度、并发、batch 和 cache 命中率等调优边界。</li>
           <li>优化 Router Worker 注册与收敛机制，引入“期望集合 vs 实际 /workers 集合”的对账逻辑，在缺失、冗余或注册失败时持续 requeue。</li>
           <li>完善 IGD / ISI 启动与 readiness：Pod IP 早期注册、`publishNotReadyAddresses`、保留 SLB finalizer、Router 指标 Service，以及带重试预算的 ISI 级自动重启。</li>
