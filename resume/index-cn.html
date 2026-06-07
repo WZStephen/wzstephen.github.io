@@ -376,7 +376,7 @@
     <section>
       <h2>个人简介</h2>
       <div class="summary">
-        面向 AI Infra 与大模型推理服务的平台工程师，专注生产级 LLM Serving、模型服务控制面和 OpenAI 兼容 MaaS 能力建设。长期参与公共模型服务、离线批量推理、模型网关、路由与编排可靠性、Agent 客户端接入、Kubernetes 原生推理任务和国产异构 GPU / XPU 环境适配。在当前 MaaS / LLM Serving 工作中，已将 Claude Code、Codex、OpenCode、OpenClaw 等 Agent 工具链嵌入代码检索、排障、文档、发布核对和验证闭环，用更短反馈链路推动复杂平台能力快速迭代。
+        面向 AI Infra 与大模型推理服务的平台工程师，专注生产级 LLM Serving、模型服务控制面和 OpenAI 兼容 MaaS 能力建设。长期参与公共模型服务、离线批量推理、SGLang / vLLM 框架适配与轻量调优、模型网关、路由可靠性、Agent 客户端接入、Kubernetes 原生推理任务和国产 GPU / XPU 环境适配。在当前工作中将 Claude Code、Codex、OpenCode、OpenClaw 等 Agent 工具链嵌入代码检索、排障、文档、发布核对和验证闭环，推动复杂平台能力快速迭代。
       </div>
     </section>
 
@@ -385,6 +385,7 @@
       <ul>
         <li>支撑 BatchFlow 生产数据蒸馏和批量生成任务，后续达到日均约 1000 万条请求处理能力，成功率超过 99%。</li>
         <li>验证 BatchFlow -> SGLang Router -> 多 KLX 后端链路：Qwen3 负载下约 30 万请求 / 97.5 亿 tokens，成功率约 99.9%，BatchFlow 与 Router CPU / 内存开销低于 5%。</li>
+        <li>参与 SGLang / vLLM / Dynamo 推理框架调优：覆盖 KV / Prefix Cache、PD 分离、Cache-aware / Bucket 路由和 QPS / TTFT / Tok/s 验证。</li>
         <li>建设 OpenAI 兼容 MaaS 公共服务能力，围绕 API key、模型授权、TPM / RPM、token budget、模型映射和 Agent 客户端接入沉淀可复用治理流程。</li>
         <li>在当前 MaaS / LLM Serving 工作中使用 Agent 辅助代码检索、故障复盘、方案草稿、发布核对和文档沉淀，把多步人工流程沉淀为可复用迭代链路。</li>
         <li>围绕网关、Router、Worker、Service discovery、readiness 与长连接等多类故障模式加固推理链路可靠性，避免只依赖 Pod 级健康状态判断服务可用性。</li>
@@ -423,7 +424,7 @@
         <div class="meta">2024 - 至今</div>
       </div>
       <ul>
-        <li>参与建设和运维面向大模型服务的 MaaS 平台能力，覆盖 CPU ACK 与 GPU ACK 跨集群链路，包括公共模型服务入口、OpenAI 兼容 API、Higress / LiteLLM 网关、SGLang Router 模型路由、IGD / IGDSA 推理任务编排、BatchFlow 离线批处理，以及 Agent 侧 API 兼容。</li>
+        <li>参与建设和运维面向大模型服务的 MaaS 平台能力，覆盖公共模型服务入口、OpenAI 兼容 API、Higress / LiteLLM 网关、SGLang / vLLM 框架适配、SGLang Router、IGD / IGDSA、BatchFlow 离线批处理和 Agent 侧 API 兼容。</li>
         <li>负责多条生产推理链路的问题定位与稳定性优化，处理 Router Worker 注册收敛、Service / Endpoint readiness、PD prefill / decode 拓扑、CrashLoop、长连接超时、网关 Header / 模型映射、多集群平滑上线等问题。</li>
         <li>参与 MaaS-Controller 与 Optimizer 控制面机制设计，围绕 LiteLLM、Router、IGDSA、BatchFlow、Higress 指标采集与配置下发，设计公共模型限额调整、离线并发调节、观察窗口、回滚条件和在线 SLA 优先等闭环治理机制。</li>
       </ul>
@@ -459,14 +460,15 @@
 
       <div class="project">
         <div class="project-title">
-          <span>SGLang Router / IGD 推理链路稳定性建设</span>
-          <span class="meta">路由、编排与生产排障</span>
+          <span>SGLang / vLLM 框架调优与推理链路稳定性建设</span>
+          <span class="meta">模型调优、路由与生产排障</span>
         </div>
-        <div class="tagline">围绕多 Worker、PD 分离和国产异构环境，提升推理任务从部署到请求可达的端到端可靠性。</div>
+        <div class="tagline">围绕 SGLang / vLLM、PD 分离、KV / Prefix Cache 和国产异构环境，提升模型部署、路由调度和请求可达性。</div>
         <ul>
+          <li>参与 SGLang / vLLM / Dynamo 调研与适配验证，梳理 PagedAttention / RadixAttention、KV Cache、Prefix Cache、PD 分离、多级缓存复用、上下文长度、并发、batch 和 cache 命中率等调优边界。</li>
           <li>优化 Router Worker 注册与收敛机制，引入“期望集合 vs 实际 /workers 集合”的对账逻辑，在缺失、冗余或注册失败时持续 requeue。</li>
           <li>完善 IGD / ISI 启动与 readiness：Pod IP 早期注册、`publishNotReadyAddresses`、保留 SLB finalizer、Router 指标 Service，以及带重试预算的 ISI 级自动重启。</li>
-          <li>主导多类生产问题根因分析，包括节点环境变量累积触发 ARG_MAX 导致 Router Pod 启动失败、Worker Ready 后 Router 未纳管、共享 Service selector 残留、45 分钟长连接超时等问题。</li>
+          <li>参与 Cache-aware / Bucket 等调度策略验证，并定位节点环境变量累积、Worker Ready 后 Router 未纳管、共享 Service selector 残留、长连接超时等生产问题。</li>
         </ul>
       </div>
 
@@ -479,10 +481,9 @@
         <ul>
           <li>建设 OpenAI 兼容公共模型服务入口，统一 Chat Completions、Responses API、Embedding、Batch API 与 Agent 客户端接入，屏蔽底层不同模型服务、Router 和异构集群差异。</li>
           <li>参与公共服务治理能力建设，围绕 API key、team、model access、quota、TPM / RPM、token budget、模型映射和成本控制配置模型访问权限与限流策略。</li>
-          <li>梳理 Claude Code / Codex 类 Agent 客户端的协议兼容边界，覆盖 system prompt、tools schema、tool_result、streaming event、Responses API 与 OpenAI / Anthropic 风格字段差异。</li>
-          <li>定位 Claude Code 长上下文请求下 SGLang prefix / KV cache 命中率低的问题，通过对比渲染 prompt、cached-token 日志和 token longest common prefix，确认动态 attribution 字段污染请求前缀并规避。</li>
-          <li>将 Agent 工具链嵌入当前工程流程，用于跨仓代码定位、日志线索归纳、设计方案草稿、PR / issue 文案、发布核对和知识库沉淀，缩短复杂平台任务的反馈链路。</li>
-          <li>建立 Agent 接入 MaaS 公共服务的排障流程，从 API key、模型权限、quota、max_tokens、限流、连接超时、网关转发、Router / Worker 状态和模型协议层逐级定位问题。</li>
+          <li>梳理 Claude Code / Codex 类 Agent 客户端协议兼容边界，覆盖 system prompt、tools schema、tool_result、streaming event、Responses API 与 OpenAI / Anthropic 字段差异。</li>
+          <li>定位 Claude Code 长上下文请求下 SGLang prefix / KV cache 命中率低的问题，通过对比渲染 prompt、cached-token 日志和 token LCP，确认动态 attribution 字段污染请求前缀并规避。</li>
+          <li>将 Agent 工具链嵌入跨仓代码定位、日志归纳、方案草稿、PR / issue 文案、发布核对、知识库沉淀和 MaaS 接入排障，缩短复杂平台任务反馈链路。</li>
         </ul>
       </div>
 
@@ -509,8 +510,7 @@
         <div class="meta">2020.01 - 2020.08</div>
       </div>
       <ul>
-        <li>参与 THOTH Lab 开放式虚拟实验平台开发，扩展 SDN / OpenFlow 教学模块，并基于 Boto3 与 REST API 实现 AWS 实例远程控制能力。</li>
-        <li>基于 IR-CP-ABE 研究论文实现 Android 端网络安全系统原型。</li>
+        <li>参与 THOTH Lab 开放式虚拟实验平台开发，扩展 SDN / OpenFlow 教学模块，并基于 Boto3 / REST API 实现 AWS 实例远程控制；曾实现 Android 端网络安全系统原型。</li>
       </ul>
 
       <div class="item-head" style="margin-top:16px;">
@@ -521,7 +521,7 @@
         <div class="meta">2019.08 - 2020.12</div>
       </div>
       <ul>
-        <li>协助 CSE205 面向对象程序设计、CSE412 数据库管理、CSE434 计算机网络、CSE464 软件 QA 与测试课程的教学答疑。</li>
+        <li>协助 CSE205、CSE412、CSE434、CSE464 等课程教学答疑。</li>
       </ul>
     </section>
 

@@ -374,7 +374,7 @@
     <section>
       <h2>Profile</h2>
       <div class="summary">
-        AI Infra engineer focused on production LLM serving platforms and model-service control planes. I build OpenAI-compatible MaaS capabilities, public model services, offline batch inference, model gateways, agent-client integration, routing/orchestration reliability, and Kubernetes-native serving on heterogeneous GPU/XPU clusters. In current MaaS and LLM serving work, I embed Claude Code, Codex, OpenCode, OpenClaw, and similar agent tools into code search, debugging, documentation, release checks, and verification loops to iterate faster on complex platform changes.
+        AI Infra engineer focused on production LLM serving platforms and model-service control planes. I build OpenAI-compatible MaaS capabilities, public model services, offline batch inference, SGLang/vLLM framework adaptation and lightweight tuning, model gateways, agent-client integration, routing reliability, and Kubernetes-native serving on heterogeneous GPU/XPU clusters. In current work, I embed Claude Code, Codex, OpenCode, OpenClaw, and similar agent tools into code search, debugging, documentation, release checks, and verification loops to iterate faster on complex platform changes.
       </div>
     </section>
 
@@ -383,6 +383,7 @@
       <ul>
         <li>Scaled BatchFlow for production data distillation and batch generation workloads, later supporting around 10M requests per day with success rate above 99%.</li>
         <li>Validated BatchFlow -> SGLang Router -> multi-KLX backend for Qwen3: about 300K requests / 9.75B tokens, about 99.9% success rate, and below 5% BatchFlow/Router CPU and memory overhead.</li>
+        <li>Worked on SGLang/vLLM/Dynamo serving tuning across KV/prefix cache, PD disaggregation, cache-aware/bucket routing, and QPS/TTFT/Tok/s validation.</li>
         <li>Built OpenAI-compatible MaaS public-service capabilities around API keys, model access, TPM/RPM limits, token budgets, model mapping, and reusable onboarding flows for agent clients.</li>
         <li>Applied agent-assisted workflows in current MaaS/LLM serving work for code search, incident writeups, design drafts, release checks, and knowledge-base updates, turning repeated manual steps into reusable iteration loops.</li>
         <li>Hardened serving reliability across gateway, Router, Worker, Service discovery, readiness, and long-connection failure modes instead of relying only on Pod-level health.</li>
@@ -422,7 +423,7 @@
         <div class="meta">2024 - Present</div>
       </div>
       <ul>
-        <li>Built and operated LLM serving platform capabilities across CPU ACK and GPU ACK clusters, covering public model-service entrypoints, OpenAI-compatible APIs, Higress/LiteLLM gateways, SGLang Router based model routing, IGD/IGDSA inference orchestration, BatchFlow offline inference, and Agent-facing API compatibility.</li>
+        <li>Built and operated LLM serving platform capabilities covering public model-service entrypoints, OpenAI-compatible APIs, Higress/LiteLLM gateways, SGLang/vLLM framework adaptation, SGLang Router, IGD/IGDSA, BatchFlow offline inference, and Agent-facing API compatibility.</li>
         <li>Owned production troubleshooting and hardening for LLM serving paths, including Router worker registration convergence, Service/Endpoint readiness, PD prefill/decode topology, CrashLoop and long-connection failures, gateway header/model mapping issues, and multi-cluster rollout validation.</li>
         <li>Designed MaaS-Controller and optimizer-loop mechanisms around LiteLLM, Router, IGDSA, BatchFlow, and gateway metrics, with public-model limit adjustment, offline concurrency tuning, observation windows, rollback criteria, and online-SLA-first rules.</li>
       </ul>
@@ -458,14 +459,15 @@
 
       <div class="project">
         <div class="project-title">
-          <span>SGLang Router, IGD, and production serving reliability</span>
-          <span class="meta">Routing and orchestration</span>
+          <span>SGLang/vLLM framework tuning and serving reliability</span>
+          <span class="meta">Model tuning, routing, and orchestration</span>
         </div>
-        <div class="tagline">Reliable worker registration, routing, and recovery for multi-worker and PD-disaggregated inference.</div>
+        <div class="tagline">Model deployment, routing, and recovery across SGLang/vLLM, PD disaggregation, KV/prefix cache, and heterogeneous GPU/XPU environments.</div>
         <ul>
+          <li>Participated in SGLang/vLLM/Dynamo research and adaptation validation, mapping PagedAttention/RadixAttention, KV cache, prefix cache, PD disaggregation, multi-level cache reuse, context length, concurrency, batching, and cache-hit-rate tuning boundaries.</li>
           <li>Improved Router worker synchronization by reconciling desired workers against live `/workers` state and requeueing on missing, extra, or failed registrations.</li>
           <li>Enhanced IGD/ISI startup and readiness with Pod-IP early registration, `publishNotReadyAddresses`, preserved Service finalizers, Router metrics Service generation, and ISI-level auto-restart with retry budgets.</li>
-          <li>Led production RCA for ARG_MAX overflow from service-link environment variables, Router not managed after Worker Ready, stale Service selectors, and long-connection timeout behavior.</li>
+          <li>Validated cache-aware/bucket scheduling strategies and diagnosed ARG_MAX overflow, Router not managed after Worker Ready, stale Service selectors, and long-connection timeout behavior.</li>
         </ul>
       </div>
 
@@ -478,10 +480,9 @@
         <ul>
           <li>Built OpenAI-compatible public model-service entrypoints covering Chat Completions, Responses-style APIs, embeddings, Batch API, and agent-client access while hiding differences across model backends, routers, and heterogeneous clusters.</li>
           <li>Contributed public-service governance around API keys, teams, model access, quotas, TPM/RPM limits, token budgets, model mapping, and cost-control policies for shared model access.</li>
-          <li>Analyzed protocol compatibility boundaries for Claude Code / Codex-style agent clients, including system prompts, tool schemas, tool results, streaming events, Responses-style APIs, and OpenAI/Anthropic field differences.</li>
-          <li>Diagnosed low SGLang prefix/KV cache hit rates for Claude Code long-context requests by comparing rendered prompts, cached-token logs, and token longest common prefix; identified dynamic attribution fields that polluted request prefixes and mitigated the issue.</li>
-          <li>Embedded agent tools into current engineering workflows for cross-repository code navigation, log summarization, design drafts, PR/issue writing, release checks, and knowledge-base updates, shortening feedback loops for complex platform tasks.</li>
-          <li>Established an agent-to-MaaS troubleshooting path across API keys, model permissions, quotas, max_tokens, rate limits, connection timeouts, gateway forwarding, Router/Worker state, and model protocol behavior.</li>
+          <li>Analyzed protocol compatibility boundaries for Claude Code / Codex-style clients, including system prompts, tool schemas, tool results, streaming events, Responses-style APIs, and OpenAI/Anthropic field differences.</li>
+          <li>Diagnosed low SGLang prefix/KV cache hit rates for Claude Code long-context requests by comparing rendered prompts, cached-token logs, and token LCP; identified dynamic attribution fields that polluted request prefixes and mitigated the issue.</li>
+          <li>Embedded agent tools into cross-repository navigation, log summarization, design drafts, PR/issue writing, release checks, knowledge-base updates, and MaaS onboarding troubleshooting.</li>
         </ul>
       </div>
 
@@ -508,8 +509,7 @@
         <div class="meta">Jan 2020 - Aug 2020</div>
       </div>
       <ul>
-        <li>Developed modules for THOTH Lab, an open virtual lab platform for education and research, including SDN/OpenFlow lab modules and AWS instance control through Boto3-backed REST APIs.</li>
-        <li>Implemented an Android prototype for an IR-CP-ABE based network security research system.</li>
+        <li>Developed THOTH Lab modules for SDN/OpenFlow labs, Boto3-backed AWS control, and an Android cybersecurity research prototype.</li>
       </ul>
 
       <div class="item-head" style="margin-top:16px;">
@@ -520,7 +520,7 @@
         <div class="meta">Aug 2019 - Dec 2020</div>
       </div>
       <ul>
-        <li>Assisted CSE205 Object-Oriented Programming, CSE412 Database Management, CSE434 Computer Networks, and CSE464 Software QA and Testing.</li>
+        <li>Assisted CSE205, CSE412, CSE434, and CSE464.</li>
       </ul>
     </section>
 
