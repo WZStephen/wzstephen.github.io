@@ -374,19 +374,19 @@
     <section>
       <h2>Profile</h2>
       <div class="summary">
-        AI Infra engineer focused on production LLM serving platforms and model-service control planes. I build OpenAI-compatible MaaS capabilities, public model services, offline batch inference, IGD/IGDSA model deployment orchestration, SGLang/vLLM framework adaptation and lightweight tuning, model gateways, agent-client integration, and serving reliability on heterogeneous GPU/XPU clusters. In current work, I embed Claude Code, Codex, OpenCode, OpenClaw, and similar agent tools into code search, debugging, documentation, release checks, and verification loops to iterate faster on complex platform changes.
+        AI Infra engineer focused on production LLM serving platforms and model-service control planes. I build OpenAI-compatible MaaS capabilities, public model services, offline batch inference, Kubernetes-native model deployment orchestration, SGLang/vLLM framework adaptation and lightweight tuning, model gateways, agent-client integration, and serving reliability on heterogeneous GPU/XPU clusters. In current work, I embed Claude Code, Codex, OpenCode, OpenClaw, and similar agent tools into code search, debugging, documentation, release checks, and verification loops to iterate faster on complex platform changes.
       </div>
     </section>
 
     <section>
       <h2>Impact Highlights</h2>
       <ul>
-        <li>Scaled BatchFlow for production data distillation and batch generation workloads, later supporting around 10M requests per day with success rate above 99%.</li>
-        <li>Validated BatchFlow -> SGLang Router -> multi-KLX backend for Qwen3: about 300K requests / 9.75B tokens, about 99.9% success rate, and below 5% BatchFlow/Router CPU and memory overhead.</li>
+        <li>Scaled an OpenAI-compatible offline batch inference platform for production data distillation and batch generation workloads, later supporting around 10M requests per day with success rate above 99%.</li>
+        <li>Validated an offline batch inference -> SGLang Router -> multi-backend serving path for Qwen3: about 300K requests / 9.75B tokens, about 99.9% success rate, and below 5% platform/Router CPU and memory overhead.</li>
         <li>Worked on SGLang/vLLM/Dynamo serving tuning across KV/prefix cache, PD disaggregation, cache-aware/bucket routing, and QPS/TTFT/Tok/s validation.</li>
         <li>Built OpenAI-compatible MaaS public-service capabilities around API keys, model access, TPM/RPM limits, token budgets, model mapping, and reusable onboarding flows for agent clients.</li>
         <li>Applied agent-assisted workflows in current MaaS/LLM serving work for code search, incident writeups, design drafts, release checks, and knowledge-base updates, turning repeated manual steps into reusable iteration loops.</li>
-        <li>Expanded IGD/IGDSA model deployment lifecycle coverage across CRDs/controllers, Service/Endpoint readiness, Router discovery, metrics Services, finalizers, multi-cluster rollout, and rollback paths.</li>
+        <li>Expanded Kubernetes-native model deployment lifecycle coverage across CRDs/controllers, Service/Endpoint readiness, Router discovery, metrics Services, finalizers, multi-cluster rollout, and rollback paths.</li>
       </ul>
     </section>
 
@@ -403,7 +403,7 @@
       <div class="grid">
         <div>
           <div class="skill-row"><div class="skill-label">LLM Serving</div><div>SGLang, vLLM, OpenAI-compatible APIs, streaming, embeddings, Responses API, PD disaggregation, KV/prefix cache, cache-aware and bucket routing.</div></div>
-          <div class="skill-row"><div class="skill-label">Model Deployment</div><div>IGD/IGDSA, Kubernetes operators/controllers, CRDs, Helm, Kustomize, Service/Endpoint readiness, finalizers, rollout safety, retry and rollback workflows.</div></div>
+          <div class="skill-row"><div class="skill-label">Model Deployment</div><div>Kubernetes-native inference workloads, operators/controllers, CRDs, Helm, Kustomize, Service/Endpoint readiness, finalizers, rollout safety, retry and rollback workflows.</div></div>
         </div>
         <div>
           <div class="skill-row"><div class="skill-label">MaaS Public Service</div><div>Higress, LiteLLM, AI Gateway, API keys, team/model access, TPM/RPM limits, token budgets, model mapping, observability.</div></div>
@@ -423,9 +423,9 @@
         <div class="meta">2024 - Present</div>
       </div>
       <ul>
-        <li>Built and operated LLM serving platform capabilities covering public model-service entrypoints, OpenAI-compatible APIs, Higress/LiteLLM gateways, SGLang/vLLM framework adaptation, IGD/IGDSA model deployment orchestration, SGLang Router, BatchFlow offline inference, and Agent-facing API compatibility.</li>
-        <li>Owned production troubleshooting and hardening for IGD/IGDSA deployment lifecycle, Router worker registration convergence, Service/Endpoint readiness, PD prefill/decode topology, CrashLoop and long-connection failures, gateway header/model mapping issues, and multi-cluster rollout validation.</li>
-        <li>Designed MaaS-Controller and optimizer-loop mechanisms around LiteLLM, Router, IGDSA, BatchFlow, and gateway metrics, with public-model limit adjustment, offline concurrency tuning, observation windows, rollback criteria, and online-SLA-first rules.</li>
+        <li>Built and operated LLM serving platform capabilities covering public model-service entrypoints, OpenAI-compatible APIs, Higress/LiteLLM gateways, SGLang/vLLM framework adaptation, Kubernetes-native model deployment orchestration, SGLang Router, offline batch inference, and Agent-facing API compatibility.</li>
+        <li>Owned production troubleshooting and hardening for model deployment lifecycle, Router worker registration convergence, Service/Endpoint readiness, PD prefill/decode topology, CrashLoop and long-connection failures, gateway header/model mapping issues, and multi-cluster rollout validation.</li>
+        <li>Designed MaaS control-plane and optimizer-loop mechanisms around LiteLLM, Router, offline batch inference, and gateway metrics, with public-model limit adjustment, offline concurrency tuning, observation windows, rollback criteria, and online-SLA-first rules.</li>
       </ul>
 
       <div class="item-head">
@@ -445,29 +445,29 @@
       <h2>Selected AI Infra Projects</h2>
       <div class="project">
         <div class="project-title">
-          <span>BatchFlow - OpenAI-compatible offline inference platform</span>
+          <span>OpenAI-compatible offline batch inference platform</span>
           <span class="meta">LLM batch inference</span>
         </div>
         <div class="tagline">Asynchronous JSONL batch execution for large-scale, non-real-time model workloads.</div>
         <ul>
           <li>Designed Batch API compatible capabilities: file upload, batch lifecycle, cancellation, result/error files, streaming file processing, request-level error isolation, and backend concurrency control.</li>
-          <li>Refactored BatchFlow toward multi-replica operation with Kubernetes leader election, sharded workers, header forwarding, upload limits, stale-file cleanup, Kustomize upgrades, monitoring, and failure-tolerant finalization.</li>
+          <li>Refactored the platform toward multi-replica operation with Kubernetes leader election, sharded workers, header forwarding, upload limits, stale-file cleanup, Kustomize upgrades, monitoring, and failure-tolerant finalization.</li>
           <li>Supported production data-distillation and batch-generation workloads, later reaching daily processing around 10M requests with success rate above 99% under controlled concurrency.</li>
-          <li>Validated a BatchFlow -> SGLang Router -> multi-KLX path for Qwen3-235B-A22B-Thinking-2507 at about 300K requests, about 9.75B tokens, about 99.9% success rate, and below 5% BatchFlow/Router CPU/memory overhead.</li>
+          <li>Validated an offline batch inference -> SGLang Router -> multi-backend path for Qwen3-235B-A22B-Thinking-2507 at about 300K requests, about 9.75B tokens, about 99.9% success rate, and below 5% platform/Router CPU/memory overhead.</li>
         </ul>
       </div>
 
       <div class="project">
         <div class="project-title">
-          <span>IGD/IGDSA model deployment orchestration and serving reliability</span>
+          <span>Kubernetes-native model deployment orchestration and serving reliability</span>
           <span class="meta">Model deployment, tuning, routing, and orchestration</span>
         </div>
-        <div class="tagline">End-to-end reliability from model deployment to request reachability across IGD/IGDSA, SGLang/vLLM, PD disaggregation, KV/prefix cache, and heterogeneous GPU/XPU environments.</div>
+        <div class="tagline">End-to-end reliability from model deployment to request reachability across Kubernetes-native inference workloads, SGLang/vLLM, PD disaggregation, KV/prefix cache, and heterogeneous GPU/XPU environments.</div>
         <ul>
-          <li>Worked on IGD/IGDSA inference-task lifecycle orchestration across model images, launch parameters, resource specs, replica topology, Service/Endpoint readiness, Router discovery, metrics Services, finalizers, and rollback paths.</li>
+          <li>Worked on Kubernetes-native inference-task lifecycle orchestration across model images, launch parameters, resource specs, replica topology, Service/Endpoint readiness, Router discovery, metrics Services, finalizers, and rollback paths.</li>
           <li>Participated in SGLang/vLLM/Dynamo research and adaptation validation, mapping PagedAttention/RadixAttention, KV cache, prefix cache, PD disaggregation, multi-level cache reuse, context length, concurrency, batching, and cache-hit-rate tuning boundaries.</li>
           <li>Improved Router worker synchronization by reconciling desired workers against live `/workers` state and requeueing on missing, extra, or failed registrations.</li>
-          <li>Enhanced IGD/ISI startup and readiness with Pod-IP early registration, `publishNotReadyAddresses`, preserved Service finalizers, Router metrics Service generation, and ISI-level auto-restart with retry budgets.</li>
+          <li>Enhanced inference-instance startup and readiness with Pod-IP early registration, `publishNotReadyAddresses`, preserved Service finalizers, Router metrics Service generation, and instance-level auto-restart with retry budgets.</li>
           <li>Validated cache-aware/bucket scheduling strategies and diagnosed ARG_MAX overflow, Router not managed after Worker Ready, stale Service selectors, and long-connection timeout behavior.</li>
         </ul>
       </div>
