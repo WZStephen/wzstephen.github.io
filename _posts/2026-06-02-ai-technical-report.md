@@ -181,6 +181,6 @@ categories: [ai-technical-report]
 
 ## 四、💬 结语
 
-6 月初的 AI 圈正在经历一场"从技术突破到商业变现"的集体冲刺。Anthropic 敲响了 IPO 的大门，vLLM 把推理优化推到了 P/D 分离和 spec decode 的新高度，Codex 把 Agent 的能力从代码编辑器扩展到了整个桌面——**2026 年的 AI 基础设施，正在从"能不能跑"进化到"怎么跑得更聪明"**。
+6 月初的 AI 圈正在经历一场"从技术突破到商业变现"的集体冲刺。Anthropic 敲响了 IPO 的大门，vLLM 把推理优化推到了 P/D 分离和 spec decode 的新高度，Codex 把 Agent 的能力从代码编辑器扩展到了整个桌面——**2026 年的 AI Infra，正在从"能不能跑"进化到"怎么跑得更聪明"**。
 
 你觉得下一个半年 AI 推理的最大瓶颈会在哪里？GPU 显存？KV Cache？还是 Agent 的可靠性？欢迎聊聊 👇

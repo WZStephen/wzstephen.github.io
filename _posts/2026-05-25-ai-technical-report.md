@@ -6,7 +6,7 @@ categories: [ai-technical-report]
 ---
 
 
-> 每天 5 分钟，掌握 AI 基础设施和 Agent 生态最新动态
+> 每天 5 分钟，掌握 AI Infra 和 Agent 生态最新动态
 
 ---
 

@@ -1,6 +1,6 @@
 # wzstephen.github.io
 
-Personal GitHub Pages site for AI infrastructure daily notes, technical blog
+Personal GitHub Pages site for AI Infra daily notes, technical blog
 archives, and bilingual resume pages.
 
 ## Files

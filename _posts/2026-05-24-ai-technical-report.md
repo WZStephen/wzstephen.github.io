@@ -190,7 +190,7 @@ categories: [ai-technical-report]
 
 ## 💬 互动
 
-今天的 AI 基础设施正在从"能用"向"好用"快速演进——Claude Code 的用量可视化、vLLM 对推理模型的 spec decode 支持、Rust 重写 agent runtime，都在解决真实场景中的痛点。**你最希望哪个工具加上用量分析功能？欢迎在评论区聊聊 👇**
+今天的 AI Infra 正在从"能用"向"好用"快速演进——Claude Code 的用量可视化、vLLM 对推理模型的 spec decode 支持、Rust 重写 agent runtime，都在解决真实场景中的痛点。**你最希望哪个工具加上用量分析功能？欢迎在评论区聊聊 👇**
 
 ---
 

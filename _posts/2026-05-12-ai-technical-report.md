@@ -110,7 +110,7 @@ v0.6.7 在前缀缓存（Prefix Caching）上又做了增强：
 **黄仁勋（Jensen Huang）** 近期在多个场合表达了几个核心观点：
 
 1. **"推理将成为比训练更大的市场"**——NVIDIA 正在大力投入推理优化，从硬件（Tensor Core 的 INT4/FP4 支持）到软件（TensorRT-LLM）全面布局推理场景
-2. **"主权 AI（Sovereign AI）是下一个十年最大的机会"**——各国都在建设自己的 AI 基础设施，NVIDIA 的目标是让每个国家都能拥有自己的 AI 算力
+2. **"主权 AI（Sovereign AI）是下一个十年最大的机会"**——各国都在建设自己的 AI Infra，NVIDIA 的目标是让每个国家都能拥有自己的 AI 算力
 3. **关于 Blackwell Ultra 和 Vera Rubin**：Blackwell Ultra 是当下的主力，Vera Rubin 将是"又一个十年"的起点，架构设计将全面围绕 **推理优先** 的理念展开
 
 ---

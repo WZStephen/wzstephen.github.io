@@ -5,7 +5,7 @@ date: 2026-06-05 09:00:00 +0800
 categories: [ai-technical-report]
 ---
 
-> 本周是 AI 基础设施从云端走向本地的分水岭。MiniMax M3 以不到 GPT-5.5 十分之一的成本在关键 benchmark 上超越它；NVIDIA RTX Spark 把 1 PetaFLOPS + 128GB 统一内存塞进桌面设备；微软 Build 2026 推出 MXC 操作系统级 Agent 沙箱和 Surface RTX Spark Dev Box；Perplexity 发布全球首个本地-云端混合推理编排器。Anthropic 研究院用内部数据论证"递归自我改进可能比大多数机构准备好的来得更早"。ChatGPT 以约 3 年突破 10 亿月活，记忆系统全面升级。美国两党推出 269 页联邦 AI 监管框架。下面逐一拆解。
+> 本周是 AI Infra 从云端走向本地的分水岭。MiniMax M3 以不到 GPT-5.5 十分之一的成本在关键 benchmark 上超越它；NVIDIA RTX Spark 把 1 PetaFLOPS + 128GB 统一内存塞进桌面设备；微软 Build 2026 推出 MXC 操作系统级 Agent 沙箱和 Surface RTX Spark Dev Box；Perplexity 发布全球首个本地-云端混合推理编排器。Anthropic 研究院用内部数据论证"递归自我改进可能比大多数机构准备好的来得更早"。ChatGPT 以约 3 年突破 10 亿月活，记忆系统全面升级。美国两党推出 269 页联邦 AI 监管框架。下面逐一拆解。
 
 ---
 
@@ -165,7 +165,7 @@ Anthropic Institute 6 月 4 日发布的递归自我改进分析报告包含了�
 Anthropic 明确表示："我们还没到那个阶段，递归自我改进也不是不可避免的。但它可能比大多数机构准备好的来得更早。" 能力缺口主要集中在"自主选择研究方向和工程目标"这个层面——执行指定实验已经 superhuman，但决定"下一个季度应该解决什么问题"仍然需要人类判断。
 
 **工程启示：**
-对做 AI 基础设施的工程师来说，这意味着：① Agent 代码质量正在快速接近甚至可能超越人类水平，代码 review 流程需要考虑 AI 作为第一作者的场景；② 自动化实验和优化的速度已经是人类的一个数量级以上，推理框架的 benchmarking 和性能调优工作可以越来越多地交给 Agent；③ 安全框架和监控机制的设计需要面向"Agent 可能自主设计其后续版本"这一可能性。
+对做 AI Infra 的工程师来说，这意味着：① Agent 代码质量正在快速接近甚至可能超越人类水平，代码 review 流程需要考虑 AI 作为第一作者的场景；② 自动化实验和优化的速度已经是人类的一个数量级以上，推理框架的 benchmarking 和性能调优工作可以越来越多地交给 Agent；③ 安全框架和监控机制的设计需要面向"Agent 可能自主设计其后续版本"这一可能性。
 
 来源：
 - [Anthropic Institute: Recursive Self-Improvement](https://www.anthropic.com/institute/recursive-self-improvement)
@@ -267,7 +267,7 @@ AI 生成内容的商业模式正在从"纯技术驱动"转向"产业合作"路�
 
 ## 📝 结语
 
-本周最值得关注的趋势是 **AI 基础设施正在从"云端集中式"向"本地-云端混合式"演进**。三条线索正在汇合：NVIDIA RTX Spark 把 1 PetaFLOPS + 128GB 统一内存装进消费级设备，让 120B 参数 + 1M 上下文的本地推理成为现实；微软 MXC 提供 OS 级 Agent 沙箱，解决了本地 Agent 安全执行的核心障碍；Perplexity 的混合推理编排器则提供了在两者之间智能调度的软件层。这三者共同构成了"个人 AI 电脑"的完整技术栈。
+本周最值得关注的趋势是 **AI Infra 正在从"云端集中式"向"本地-云端混合式"演进**。三条线索正在汇合：NVIDIA RTX Spark 把 1 PetaFLOPS + 128GB 统一内存装进消费级设备，让 120B 参数 + 1M 上下文的本地推理成为现实；微软 MXC 提供 OS 级 Agent 沙箱，解决了本地 Agent 安全执行的核心障碍；Perplexity 的混合推理编排器则提供了在两者之间智能调度的软件层。这三者共同构成了"个人 AI 电脑"的完整技术栈。
 
 MiniMax M3 的发布验证了另一条路线：**用架构创新（稀疏注意力）大幅降低推理成本**，同时保持前沿模型竞争力。MSA 的 KV 分块预过滤思路不仅是一个模型特性，更是一个可以迁移到推理框架的优化模式。当 open weights 模型的成本降至闭源模型的 5-10% 时，自建推理集群的经济模型将发生根本变化。
 
