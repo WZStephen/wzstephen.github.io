@@ -182,6 +182,15 @@ a:hover {
   color: var(--muted);
 }
 
+.evidence-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-top: 8px !important;
+  font-size: 14px;
+  font-weight: 700;
+}
+
 .section {
   padding: 34px 0;
 }
