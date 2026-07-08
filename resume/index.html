@@ -262,8 +262,8 @@
     @media print {
       body {
         background: #fff;
-        font-size: 10px;
-        line-height: 1.26;
+        font-size: 9.4px;
+        line-height: 1.22;
       }
 
       .topbar {
@@ -278,7 +278,7 @@
       .header {
         grid-template-columns: 86px 1fr;
         gap: 16px;
-        padding: 0 0 14px;
+        padding: 0 0 10px;
       }
 
       .portrait {
@@ -312,11 +312,11 @@
       }
 
       section {
-        padding: 6px 0;
+        padding: 4px 0;
       }
 
       h2 {
-        margin-bottom: 4px;
+        margin-bottom: 3px;
         font-size: 12px;
       }
 
@@ -325,21 +325,21 @@
       }
 
       .summary {
-        font-size: 10px;
+        font-size: 9.6px;
       }
 
       .project {
-        margin-top: 5px;
-        padding: 5px 7px;
+        margin-top: 4px;
+        padding: 4px 6px;
         background: #fff;
       }
 
       ul {
-        margin-top: 3px;
+        margin-top: 2px;
       }
 
       li {
-        margin: 1px 0;
+        margin: 0;
       }
 
       a {
@@ -354,7 +354,7 @@
       <img class="portrait" src="../Img_Files/wz_white_background.jpg" alt="Weichi Zhao">
       <div>
         <h1>Weichi Zhao</h1>
-        <div class="role">AI Infra / LLM Serving Platform Engineer</div>
+        <div class="role">AI Infra / MaaS / LLM Serving Platform Engineer</div>
         <div class="links">
           <span>Hangzhou, China</span>
           <a href="mailto:wzhao4z@outlook.com">wzhao4z@outlook.com</a>
@@ -365,7 +365,7 @@
           <a class="no-print" href="../Files/EN_Resume_Weichi_Zhao.pdf">PDF Resume</a>
           <a class="switch-link no-print" href="index-cn.html">中文</a>
         </div>
-        <div class="lang">Target roles: LLM serving platform, OpenAI-compatible MaaS, AI gateway, agent platform, heterogeneous GPU/XPU scheduling.</div>
+        <div class="lang">Target roles: LLM serving, OpenAI-compatible MaaS, AI gateway, Kubernetes model deployment, offline inference and data distillation.</div>
       </div>
     </div>
   </div>
@@ -374,19 +374,19 @@
     <section>
       <h2>Profile</h2>
       <div class="summary">
-        AI Infra engineer focused on production LLM serving platforms and model-service control planes. I build OpenAI-compatible MaaS capabilities, public model services, offline batch inference, Kubernetes-native model deployment orchestration, SGLang/vLLM framework adaptation and lightweight tuning, model gateways, agent-client integration, and serving reliability on heterogeneous GPU/XPU clusters. In current work, I embed Claude Code, Codex, OpenCode, OpenClaw, and similar agent tools into code search, debugging, documentation, release checks, and verification loops to iterate faster on complex platform changes.
+        AI Infra engineer focused on productionizing LLM serving end to end, from Kubernetes one-click model deployment to OpenAI-compatible MaaS, LiteLLM/Higress gateways, SGLang Router, offline inference, and data distillation. I work on public model services, serving-framework adaptation, model gateways, routing reliability, agent-client integration, and heterogeneous GPU/XPU environments, with a focus on turning runnable models into deliverable, governable, observable, and recoverable platform capabilities.
       </div>
     </section>
 
     <section>
       <h2>Impact Highlights</h2>
       <ul>
-        <li>Scaled an OpenAI-compatible offline batch inference platform for production data distillation and batch generation workloads, later supporting around 10M requests per day with success rate above 99%.</li>
+        <li>Supported a production data-distillation path at around 10M requests per day with success rate above 99%, covering task sharding, concurrency control, failure recovery, and result writeback.</li>
         <li>Validated an offline batch inference -> SGLang Router -> multi-backend serving path for Qwen3: about 300K requests / 9.75B tokens, about 99.9% success rate, and below 5% platform/Router CPU and memory overhead.</li>
         <li>Worked on SGLang/vLLM/Dynamo serving tuning across KV/prefix cache, PD disaggregation, cache-aware/bucket routing, and QPS/TTFT/Tok/s validation.</li>
-        <li>Built OpenAI-compatible MaaS public-service capabilities around API keys, model access, TPM/RPM limits, token budgets, model mapping, and reusable onboarding flows for agent clients.</li>
+        <li>Built OpenAI-compatible MaaS public-service capabilities on top of LiteLLM/Higress-style open-source gateway components, covering multi-model access, authentication, rate limiting, model permissions, usage tracking, and troubleshooting.</li>
         <li>Applied agent-assisted workflows in current MaaS/LLM serving work for code search, incident writeups, design drafts, release checks, and knowledge-base updates, turning repeated manual steps into reusable iteration loops.</li>
-        <li>Expanded Kubernetes-native model deployment lifecycle coverage across CRDs/controllers, Service/Endpoint readiness, Router discovery, metrics Services, finalizers, multi-cluster rollout, and rollback paths.</li>
+        <li>Expanded Kubernetes-native one-click model deployment lifecycle coverage across CRDs/controllers, Service/Endpoint readiness, Router discovery, metrics Services, finalizers, multi-cluster rollout, and rollback paths.</li>
       </ul>
     </section>
 
@@ -423,7 +423,7 @@
         <div class="meta">2024 - Present</div>
       </div>
       <ul>
-        <li>Built and operated LLM serving platform capabilities covering public model-service entrypoints, OpenAI-compatible APIs, Higress/LiteLLM gateways, SGLang/vLLM framework adaptation, Kubernetes-native model deployment orchestration, SGLang Router, offline batch inference, and Agent-facing API compatibility.</li>
+        <li>Built and operated LLM serving platform capabilities covering public model-service entrypoints, OpenAI-compatible APIs, Higress/LiteLLM gateway integration, SGLang/vLLM framework adaptation, Kubernetes-native one-click model deployment, SGLang Router, offline batch inference, and Agent-facing API compatibility.</li>
         <li>Owned production troubleshooting and hardening for model deployment lifecycle, Router worker registration convergence, Service/Endpoint readiness, PD prefill/decode topology, CrashLoop and long-connection failures, gateway header/model mapping issues, and multi-cluster rollout validation.</li>
         <li>Designed MaaS control-plane and optimizer-loop mechanisms around LiteLLM, Router, offline batch inference, and gateway metrics, with public-model limit adjustment, offline concurrency tuning, observation windows, rollback criteria, and online-SLA-first rules.</li>
       </ul>
@@ -459,12 +459,12 @@
 
       <div class="project">
         <div class="project-title">
-          <span>Kubernetes-native model deployment orchestration and serving reliability</span>
+          <span>Kubernetes-native one-click model deployment and serving reliability</span>
           <span class="meta">Model deployment, tuning, routing, and orchestration</span>
         </div>
-        <div class="tagline">End-to-end reliability from model deployment to request reachability across Kubernetes-native inference workloads, SGLang/vLLM, PD disaggregation, KV/prefix cache, and heterogeneous GPU/XPU environments.</div>
+        <div class="tagline">Standardized model images, launch parameters, resources, ports, health checks, Services, worker registration, and API validation so models move from configuration to request reachability with less manual YAML work.</div>
         <ul>
-          <li>Worked on Kubernetes-native inference-task lifecycle orchestration across model images, launch parameters, resource specs, replica topology, Service/Endpoint readiness, Router discovery, metrics Services, finalizers, and rollback paths.</li>
+          <li>Worked on Kubernetes-native inference-task lifecycle orchestration across model images, launch parameters, resource specs, replica topology, Service/Endpoint readiness, Router discovery, metrics Services, finalizers, and rollback paths, reducing manual deployment and troubleshooting cost.</li>
           <li>Participated in SGLang/vLLM/Dynamo research and adaptation validation, mapping PagedAttention/RadixAttention, KV cache, prefix cache, PD disaggregation, multi-level cache reuse, context length, concurrency, batching, and cache-hit-rate tuning boundaries.</li>
           <li>Improved Router worker synchronization by reconciling desired workers against live `/workers` state and requeueing on missing, extra, or failed registrations.</li>
           <li>Enhanced inference-instance startup and readiness with Pod-IP early registration, `publishNotReadyAddresses`, preserved Service finalizers, Router metrics Service generation, and instance-level auto-restart with retry budgets.</li>
@@ -477,9 +477,9 @@
           <span>MaaS public model service and agent integration optimization</span>
           <span class="meta">OpenAI-compatible API / Agent runtime</span>
         </div>
-        <div class="tagline">Unified model access, authentication, rate limiting, protocol compatibility, cost governance, and troubleshooting for internal users, agent clients, and offline workloads.</div>
+        <div class="tagline">Unified model access, authentication, rate limiting, protocol compatibility, cost governance, and troubleshooting for internal users, agent clients, and offline workloads on top of LiteLLM/Higress-style gateway capabilities.</div>
         <ul>
-          <li>Built OpenAI-compatible public model-service entrypoints covering Chat Completions, Responses-style APIs, embeddings, Batch API, and agent-client access while hiding differences across model backends, routers, and heterogeneous clusters.</li>
+          <li>Built OpenAI-compatible public model-service entrypoints covering Chat Completions, Responses-style APIs, embeddings, Batch API, and agent-client access while hiding differences across model backends, routers, and heterogeneous clusters from business callers.</li>
           <li>Contributed public-service governance around API keys, teams, model access, quotas, TPM/RPM limits, token budgets, model mapping, and cost-control policies for shared model access.</li>
           <li>Analyzed protocol compatibility boundaries for Claude Code / Codex-style clients, including system prompts, tool schemas, tool results, streaming events, Responses-style APIs, and OpenAI/Anthropic field differences.</li>
           <li>Diagnosed low SGLang prefix/KV cache hit rates for Claude Code long-context requests by comparing rendered prompts, cached-token logs, and token LCP; identified dynamic attribution fields that polluted request prefixes and mitigated the issue.</li>
@@ -545,7 +545,7 @@
   </main>
 
   <footer class="wrap">
-    Last updated: June 2026
+    Last updated: July 2026
   </footer>
 </body>
 </html>

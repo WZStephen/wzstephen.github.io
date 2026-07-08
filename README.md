@@ -108,4 +108,4 @@ google-chrome --headless --disable-gpu --no-sandbox --no-pdf-header-footer --pri
 google-chrome --headless --disable-gpu --no-sandbox --no-pdf-header-footer --print-to-pdf=Files/CN_Resume_Weichi_Zhao.pdf resume/index-cn.html
 ```
 
-Updated by Weichi Zhao, 2026.06.
+Updated by Weichi Zhao, 2026.07.

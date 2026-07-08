@@ -357,7 +357,7 @@
       <img class="portrait" src="../Img_Files/wz_white_background.jpg" alt="赵伟驰">
       <div>
         <h1>赵伟驰</h1>
-        <div class="role">AI Infra / LLM 推理平台工程师</div>
+        <div class="role">AI Infra / MaaS / LLM Serving 平台工程师</div>
         <div class="links">
           <span>杭州</span>
           <a href="mailto:wzhao4z@outlook.com">wzhao4z@outlook.com</a>
@@ -367,7 +367,7 @@
           <a class="no-print" href="../Files/CN_Resume_Weichi_Zhao.pdf">PDF 简历</a>
           <a class="switch-link no-print" href="index.html">English</a>
         </div>
-        <div class="target">求职方向：LLM 推理平台、OpenAI 兼容 MaaS、AI Gateway、Agent Platform、异构 GPU / XPU 调度。</div>
+        <div class="target">求职方向：LLM Serving、OpenAI 兼容 MaaS、AI Gateway、Kubernetes 模型部署、离线推理与数据蒸馏。</div>
       </div>
     </div>
   </div>
@@ -376,19 +376,19 @@
     <section>
       <h2>个人简介</h2>
       <div class="summary">
-        面向 AI Infra 与大模型推理服务的平台工程师，专注生产级 LLM Serving、模型服务控制面和 OpenAI 兼容 MaaS 能力建设。长期参与公共模型服务、离线批量推理、Kubernetes 原生模型部署编排、SGLang / vLLM 框架适配与轻量调优、模型网关、路由可靠性、Agent 客户端接入和国产 GPU / XPU 环境适配。在当前工作中将 Claude Code、Codex、OpenCode、OpenClaw 等 Agent 工具链嵌入代码检索、排障、文档、发布核对和验证闭环，推动复杂平台能力快速迭代。
+        聚焦大模型服务生产化链路，覆盖 Kubernetes 一键部署、OpenAI 兼容 MaaS、LiteLLM / Higress 网关、SGLang Router、离线推理和数据蒸馏。长期参与公共模型服务、推理框架适配、模型网关、路由可靠性、Agent 客户端接入和国产 GPU / XPU 环境适配，关注模型能力如何从“能跑起来”变成“可交付、可治理、可观测、可恢复”的平台能力。
       </div>
     </section>
 
     <section>
       <h2>关键成果</h2>
       <ul>
-        <li>支撑 OpenAI 兼容离线批量推理平台承接生产数据蒸馏和批量生成任务，后续达到日均约 1000 万条请求处理能力，成功率超过 99%。</li>
+        <li>支撑生产数据蒸馏链路，日均约 1000 万条请求，成功率超过 99%，沉淀任务切分、并发控制、失败恢复和结果回写机制。</li>
         <li>验证离线批量推理 -> SGLang Router -> 多异构后端链路：Qwen3 负载下约 30 万请求 / 97.5 亿 tokens，成功率约 99.9%，平台与 Router CPU / 内存开销低于 5%。</li>
         <li>参与 SGLang / vLLM / Dynamo 推理框架调优：覆盖 KV / Prefix Cache、PD 分离、Cache-aware / Bucket 路由和 QPS / TTFT / Tok/s 验证。</li>
-        <li>建设 OpenAI 兼容 MaaS 公共服务能力，围绕 API key、模型授权、TPM / RPM、token budget、模型映射和 Agent 客户端接入沉淀可复用治理流程。</li>
+        <li>基于 LiteLLM / Higress 等开源网关能力建设 OpenAI 兼容 MaaS 公共服务，解决多模型接入、鉴权限流、模型权限、用量统计和故障定位问题。</li>
         <li>在当前 MaaS / LLM Serving 工作中使用 Agent 辅助代码检索、故障复盘、方案草稿、发布核对和文档沉淀，把多步人工流程沉淀为可复用迭代链路。</li>
-        <li>围绕 Kubernetes 原生模型部署控制面完善推理任务生命周期，覆盖 CRD / Controller、Service / Endpoint、readiness、Router 发现、指标 Service、finalizer、多集群上线和回滚。</li>
+        <li>围绕 Kubernetes 原生一键部署完善推理任务生命周期，覆盖 CRD / Controller、Service / Endpoint、readiness、Router 发现、指标 Service、finalizer、多集群上线和回滚。</li>
       </ul>
     </section>
 
@@ -424,7 +424,7 @@
         <div class="meta">2024 - 至今</div>
       </div>
       <ul>
-        <li>参与建设和运维面向大模型服务的 MaaS 平台能力，覆盖公共模型服务入口、OpenAI 兼容 API、Higress / LiteLLM 网关、SGLang / vLLM 框架适配、Kubernetes 原生模型部署编排、SGLang Router、离线批量推理和 Agent 侧 API 兼容。</li>
+        <li>参与建设和运维面向大模型服务的 MaaS 平台能力，覆盖公共模型服务入口、OpenAI 兼容 API、Higress / LiteLLM 开源网关接入、SGLang / vLLM 框架适配、Kubernetes 原生一键部署、SGLang Router、离线批量推理和 Agent 侧 API 兼容。</li>
         <li>负责多条生产推理链路的问题定位与稳定性优化，处理模型部署生命周期、Router Worker 注册收敛、Service / Endpoint readiness、PD prefill / decode 拓扑、CrashLoop、长连接超时、网关 Header / 模型映射和多集群上线等问题。</li>
         <li>参与 MaaS 控制面与优化闭环机制设计，围绕 LiteLLM、Router、离线批量推理、Higress 指标采集与配置下发，设计公共模型限额调整、离线并发调节、观察窗口、回滚条件和在线 SLA 优先等治理机制。</li>
       </ul>
@@ -460,12 +460,12 @@
 
       <div class="project">
         <div class="project-title">
-          <span>Kubernetes 原生模型部署编排与推理链路稳定性建设</span>
+          <span>Kubernetes 原生一键部署与推理链路稳定性建设</span>
           <span class="meta">模型部署、调优、路由与生产排障</span>
         </div>
-        <div class="tagline">围绕 Kubernetes 原生推理任务、SGLang / vLLM、PD 分离、KV / Prefix Cache 和国产异构环境，提升模型从部署到请求可达的端到端可靠性。</div>
+        <div class="tagline">把模型、镜像、资源、端口、健康检查、Service、worker 注册和接口验证标准化，提升模型从配置到请求可达的端到端可靠性。</div>
         <ul>
-          <li>参与 Kubernetes 原生推理任务生命周期编排，覆盖模型镜像、启动参数、资源规格、多副本拓扑、Service / Endpoint、readiness、Router 发现、指标 Service、finalizer 和回滚路径。</li>
+          <li>参与 Kubernetes 原生推理任务生命周期编排，覆盖模型镜像、启动参数、资源规格、多副本拓扑、Service / Endpoint、readiness、Router 发现、指标 Service、finalizer 和回滚路径，减少人工拼 YAML 带来的交付和排障成本。</li>
           <li>参与 SGLang / vLLM / Dynamo 调研与适配验证，梳理 PagedAttention / RadixAttention、KV Cache、Prefix Cache、PD 分离、多级缓存复用、上下文长度、并发、batch 和 cache 命中率等调优边界。</li>
           <li>优化 Router Worker 注册与收敛机制，引入“期望集合 vs 实际 /workers 集合”的对账逻辑，在缺失、冗余或注册失败时持续 requeue。</li>
           <li>完善推理实例启动与 readiness：Pod IP 早期注册、`publishNotReadyAddresses`、保留 Service finalizer、Router 指标 Service，以及带重试预算的实例级自动重启。</li>
@@ -478,9 +478,9 @@
           <span>MaaS 公共模型服务与 Agent 接入优化</span>
           <span class="meta">OpenAI-compatible API / Agent Runtime</span>
         </div>
-        <div class="tagline">面向内部用户、Agent 客户端和离线任务的统一模型接入、鉴权、限流、协议兼容、成本治理和排障链路。</div>
+        <div class="tagline">基于 LiteLLM / Higress 等开源网关能力，面向内部用户、Agent 客户端和离线任务提供统一模型接入、鉴权、限流、协议兼容、成本治理和排障链路。</div>
         <ul>
-          <li>建设 OpenAI 兼容公共模型服务入口，统一 Chat Completions、Responses API、Embedding、Batch API 与 Agent 客户端接入，屏蔽底层不同模型服务、Router 和异构集群差异。</li>
+          <li>建设 OpenAI 兼容公共模型服务入口，统一 Chat Completions、Responses API、Embedding、Batch API 与 Agent 客户端接入，屏蔽底层不同模型服务、Router 和异构集群差异，避免业务直接感知后端实例。</li>
           <li>参与公共服务治理能力建设，围绕 API key、team、model access、quota、TPM / RPM、token budget、模型映射和成本控制配置模型访问权限与限流策略。</li>
           <li>梳理 Claude Code / Codex 类 Agent 客户端协议兼容边界，覆盖 system prompt、tools schema、tool_result、streaming event、Responses API 与 OpenAI / Anthropic 字段差异。</li>
           <li>定位 Claude Code 长上下文请求下 SGLang prefix / KV cache 命中率低的问题，通过对比渲染 prompt、cached-token 日志和 token LCP，确认动态 attribution 字段污染请求前缀并规避。</li>
@@ -546,7 +546,7 @@
   </main>
 
   <footer class="wrap">
-    最后更新：2026 年 6 月
+    最后更新：2026 年 7 月
   </footer>
 </body>
 </html>
