@@ -18,6 +18,25 @@ title: Weichi Zhao
   </div>
 </section>
 
+{% assign essay_posts = site.posts | where_exp: "post", "post.categories contains 'personal-essay'" %}
+{% if essay_posts.size > 0 %}
+<section class="wrap section">
+  <div class="section-title">
+    <h2>随笔与感想</h2>
+  </div>
+
+  <div class="post-list">
+    {% for post in essay_posts limit: 3 %}
+      <a class="post-card" href="{{ post.url | relative_url }}">
+        <div class="post-date">{{ post.date | date: "%Y-%m-%d" }}</div>
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.excerpt | strip_html | truncate: 180 }}</p>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
 <section class="wrap section">
   <div class="section-title">
     <h2>最新 AI 技术分享</h2>
