@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '当写代码不再是瓶颈，我更应该练什么'
+title: '写代码不再是瓶颈之后，真正该练什么'
 date: 2026-07-08 09:00:00 +0800
 categories: [personal-essay]
 ---
