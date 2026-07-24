@@ -437,6 +437,21 @@
       </div>
     </section>
 
+    <section>
+      <h2>重点系统经历</h2>
+      <div class="system">
+        <div class="system-head">
+          <h3>Kubernetes 原生模型服务控制面</h3>
+          <div class="system-tag">Lifecycle · Reconciliation · Readiness</div>
+        </div>
+        <ul>
+          <li>围绕声明式期望状态组织模型服务生命周期：Controller 生成并维护工作负载、Service、路由注册与状态；用 owner / finalizer、健康检查和重试预算保证更新及清理顺序。</li>
+          <li>把“实例已启动”和“服务可接流量”分开验证，联合检查 Pod、Endpoint、模型接口与 Router Worker 集合，并针对注册失败、旧 selector、长连接超时等问题建立恢复路径。</li>
+          <li>参与服务级弹性治理，围绕资源快照、readiness、in-flight 与 cooldown 设计扩缩容门禁；在一项拟议的控制面演进方案中，进一步明确 Planner 容量意图、组件副本执行、集群资源约束和 Router 就绪边界。</li>
+        </ul>
+      </div>
+    </section>
+
     <div class="page-footer">赵伟驰 · 中文简历 · 1 / 2</div>
   </article>
 
@@ -452,19 +467,7 @@
     </header>
 
     <section>
-      <h2>重点系统经历</h2>
-      <div class="system">
-        <div class="system-head">
-          <h3>Kubernetes 原生模型服务控制面</h3>
-          <div class="system-tag">Lifecycle · Reconciliation · Readiness</div>
-        </div>
-        <ul>
-          <li>围绕声明式期望状态组织模型服务生命周期：Controller 生成并维护工作负载、Service、路由注册与状态；用 owner / finalizer、健康检查和重试预算保证更新及清理顺序。</li>
-          <li>把“实例已启动”和“服务可接流量”分开验证，联合检查 Pod、Endpoint、模型接口与 Router Worker 集合，并针对注册失败、旧 selector、长连接超时等问题建立恢复路径。</li>
-          <li>参与服务级弹性治理，围绕资源快照、readiness、in-flight 与 cooldown 设计扩缩容门禁；在一项拟议的控制面演进方案中，进一步明确 Planner 容量意图、组件副本执行、集群资源约束和 Router 就绪边界。</li>
-        </ul>
-      </div>
-
+      <h2>重点系统经历（续）</h2>
       <div class="system">
         <div class="system-head">
           <h3>多租户离线批量推理平台</h3>

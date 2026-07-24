@@ -95,11 +95,11 @@ AI technical sharing section.
 
 ## Resume Publishing
 
-The public homepage and About page link directly to the Chinese and English PDF
-files. The HTML files under `resume/` are generation sources only and are
-excluded from the published Jekyll site. Edit those sources first, regenerate
-both PDFs with headless Chrome, and visually verify every page before
-publishing.
+The public homepage routes resume traffic through the About page, which links
+directly to the Chinese and English PDF files. The HTML files under `resume/`
+are generation sources only and are excluded from the published Jekyll site.
+Edit those sources first, regenerate both PDFs with headless Chrome, and
+visually verify every page before publishing.
 
 ## Generate PDFs
 

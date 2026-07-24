@@ -438,6 +438,21 @@
       </div>
     </section>
 
+    <section>
+      <h2>Selected Systems</h2>
+      <div class="system">
+        <div class="system-head">
+          <h3>Kubernetes-Native Model Serving Control Plane</h3>
+          <div class="system-tag">Lifecycle · Reconciliation · Readiness</div>
+        </div>
+        <ul>
+          <li>Built declarative lifecycle reconciliation for workloads, Services, Router registration, and status; used ownership/finalizers, health checks, and retry budgets to protect updates and cleanup.</li>
+          <li>Separated instance startup from traffic readiness by validating Pods, Endpoints, model APIs, and Router worker state; added recovery for failed registration, stale selectors, and long-lived connections.</li>
+          <li>Designed per-service scaling guardrails around resource snapshots, readiness, in-flight work, and cooldown; in a proposed evolution, separated capacity intent, replica execution, cluster constraints, and Router readiness.</li>
+        </ul>
+      </div>
+    </section>
+
     <div class="page-footer">Weichi Zhao · English Resume · 1 / 2</div>
   </article>
 
@@ -453,19 +468,7 @@
     </header>
 
     <section>
-      <h2>Selected Systems</h2>
-      <div class="system">
-        <div class="system-head">
-          <h3>Kubernetes-Native Model Serving Control Plane</h3>
-          <div class="system-tag">Lifecycle · Reconciliation · Readiness</div>
-        </div>
-        <ul>
-          <li>Organized the model-service lifecycle around declarative desired state: controllers render and maintain workloads, Services, Router registration, and status, while ownership/finalizers, health checks, and retry budgets protect updates and cleanup.</li>
-          <li>Separated instance startup from traffic readiness by jointly validating Pods, Endpoints, model APIs, and Router worker state; established recovery paths for failed registration, stale selectors, and long-lived connection failures.</li>
-          <li>Worked on per-service scaling guardrails around resource snapshots, readiness, in-flight work, and cooldown; further separated Planner capacity intent, replica execution, cluster constraints, and Router readiness in a proposed control-plane evolution.</li>
-        </ul>
-      </div>
-
+      <h2>Selected Systems (Continued)</h2>
       <div class="system">
         <div class="system-head">
           <h3>Multi-Tenant Batch Inference Platform</h3>
