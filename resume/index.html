@@ -3,549 +3,545 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Weichi Zhao - AI Infra Resume</title>
+  <meta name="robots" content="noindex, nofollow">
+  <title>Weichi Zhao | LLM Serving Control Plane Engineer</title>
   <link rel="shortcut icon" href="../Img_Files/icon_ailurus.ico">
   <style>
     :root {
-      --ink: #1f2933;
-      --muted: #52616f;
-      --line: #d8dee5;
-      --paper: #fbfaf7;
-      --band: #eef4f1;
-      --accent: #196f6b;
-      --accent-2: #9a5b22;
-      --soft: #f4efe7;
+      --ink: #17242d;
+      --muted: #52616b;
+      --accent: #0f5f68;
+      --accent-strong: #12394a;
+      --line: #d9e0e4;
+      --soft: #eef5f4;
+      --paper: #ffffff;
     }
 
     * {
       box-sizing: border-box;
     }
 
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    html,
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      padding: 0;
+    }
+
+    body {
+      background: #e8ecef;
       color: var(--ink);
-      background: var(--paper);
-      line-height: 1.55;
-      font-size: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      font-size: 10pt;
+      line-height: 1.38;
     }
 
     a {
-      color: var(--accent);
+      color: inherit;
       text-decoration: none;
     }
 
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .topbar {
-      background: var(--band);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .wrap {
-      width: min(1080px, calc(100% - 40px));
-      margin: 0 auto;
+    .page {
+      position: relative;
+      width: 210mm;
+      min-height: 297mm;
+      margin: 18px auto;
+      padding: 13mm 15mm 15mm;
+      overflow: hidden;
+      background: var(--paper);
+      box-shadow: 0 12px 36px rgba(23, 36, 45, 0.12);
     }
 
     .header {
-      display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 28px;
-      align-items: center;
-      padding: 40px 0 34px;
+      padding-bottom: 9px;
+      border-bottom: 2px solid var(--accent-strong);
     }
 
-    .portrait {
-      width: 132px;
-      height: 132px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 4px solid #fff;
-      box-shadow: 0 8px 24px rgba(31, 41, 51, 0.12);
+    .name-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 20px;
     }
 
     h1 {
       margin: 0;
-      font-size: 40px;
-      line-height: 1.08;
-      letter-spacing: 0;
+      color: var(--accent-strong);
+      font-size: 26pt;
+      line-height: 1;
+      letter-spacing: 0.01em;
+    }
+
+    .role-block {
+      text-align: right;
     }
 
     .role {
-      margin: 10px 0 16px;
-      font-size: 20px;
-      color: var(--accent-2);
-      font-weight: 650;
+      color: var(--accent);
+      font-size: 13.2pt;
+      font-weight: 750;
     }
 
-    .links {
+    .focus {
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 8.5pt;
+      font-weight: 650;
+      letter-spacing: 0.02em;
+    }
+
+    .contact {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px 18px;
+      gap: 3px 14px;
+      margin-top: 8px;
       color: var(--muted);
-    }
-
-    .links span,
-    .links a {
-      white-space: nowrap;
-    }
-
-    .switch-link {
-      padding: 2px 10px;
-      border: 1px solid rgba(25, 111, 107, 0.34);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.62);
-      font-weight: 650;
-    }
-
-    .lang {
-      margin-top: 14px;
-      font-size: 14px;
-    }
-
-    .no-print {
-      display: inline;
-    }
-
-    main {
-      padding: 30px 0 44px;
+      font-size: 8.4pt;
     }
 
     section {
-      padding: 22px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    section:last-child {
-      border-bottom: 0;
+      margin-top: 11px;
     }
 
     h2 {
-      margin: 0 0 14px;
-      font-size: 20px;
-      color: var(--accent);
-      letter-spacing: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 6px;
+      color: var(--accent-strong);
+      font-size: 10.3pt;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    h2::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--line);
     }
 
     h3 {
       margin: 0;
-      font-size: 18px;
-    }
-
-    .item-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      margin-bottom: 8px;
-    }
-
-    .meta {
-      color: var(--muted);
-      font-size: 14px;
-      white-space: nowrap;
+      color: var(--ink);
+      font-size: 10pt;
+      line-height: 1.28;
     }
 
     .summary {
-      font-size: 17px;
-      max-width: 940px;
+      margin: 0;
+      color: #25353f;
+      font-size: 9.4pt;
+      line-height: 1.45;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .metric {
+      min-height: 57px;
+      padding: 7px 9px;
+      border: 1px solid var(--line);
+      border-top: 3px solid var(--accent);
+      background: var(--soft);
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--accent-strong);
+      font-size: 10.7pt;
+      line-height: 1.2;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 7.9pt;
+      line-height: 1.3;
+    }
+
+    .item {
+      margin-top: 9px;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .item:first-of-type {
+      margin-top: 0;
+    }
+
+    .item-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .position {
+      margin-top: 1px;
+      color: var(--muted);
+      font-size: 8.5pt;
+    }
+
+    .date {
+      color: var(--muted);
+      font-size: 8.4pt;
+      white-space: nowrap;
     }
 
     ul {
-      margin: 8px 0 0 20px;
+      margin: 5px 0 0 17px;
       padding: 0;
     }
 
     li {
-      margin: 6px 0;
+      margin: 2.5px 0;
+      padding-left: 1px;
     }
 
-    .grid {
+    li::marker {
+      color: var(--accent);
+    }
+
+    .system {
+      margin-top: 8px;
+      padding: 8px 10px 7px;
+      border-left: 3px solid var(--accent);
+      background: #f7f9fa;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .system:first-of-type {
+      margin-top: 0;
+    }
+
+    .system-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: baseline;
+    }
+
+    .system-tag {
+      color: var(--accent);
+      font-size: 7.8pt;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .system ul {
+      margin-top: 3px;
+    }
+
+    .skills {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px 28px;
+      gap: 4px;
     }
 
     .skill-row {
       display: grid;
-      grid-template-columns: 156px 1fr;
-      gap: 14px;
-      padding: 8px 0;
-      border-top: 1px solid rgba(216, 222, 229, 0.72);
+      grid-template-columns: 120px minmax(0, 1fr);
+      gap: 8px;
+      padding-bottom: 3px;
+      border-bottom: 1px dotted var(--line);
     }
 
-    .skill-row:first-child {
-      border-top: 0;
+    .skill-row:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
     }
 
     .skill-label {
-      font-weight: 700;
-      color: var(--accent-2);
-    }
-
-    .project {
-      margin-top: 14px;
-      padding: 14px 16px;
-      border-left: 4px solid var(--accent);
-      background: rgba(238, 244, 241, 0.72);
-    }
-
-    .project:first-of-type {
-      margin-top: 0;
-    }
-
-    .project-title {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
+      color: var(--accent-strong);
       font-weight: 750;
     }
 
-    .tagline {
-      color: var(--muted);
-      margin-top: 4px;
-      font-size: 14px;
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 22px;
     }
 
-    footer {
-      color: var(--muted);
-      font-size: 13px;
-      padding: 18px 0 36px;
-      text-align: center;
+    .compact-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      margin-top: 5px;
     }
 
-    @media (max-width: 720px) {
-      .wrap {
-        width: min(100% - 24px, 1080px);
-      }
+    .compact-row:first-child {
+      margin-top: 0;
+    }
 
-      .header {
-        grid-template-columns: 1fr;
-        gap: 18px;
-        padding: 28px 0;
-      }
+    .compact-row strong {
+      display: block;
+      font-size: 9.2pt;
+    }
 
-      .portrait {
-        width: 112px;
-        height: 112px;
-      }
+    .compact-row span {
+      color: var(--muted);
+      font-size: 8.3pt;
+    }
 
-      h1 {
-        font-size: 32px;
-      }
+    .ip {
+      margin: 0;
+      color: #25353f;
+    }
 
-      .role {
-        font-size: 18px;
-      }
-
-      .item-head,
-      .project-title {
-        display: block;
-      }
-
-      .meta {
-        margin-top: 3px;
-        white-space: normal;
-      }
-
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .skill-row {
-        grid-template-columns: 1fr;
-        gap: 4px;
-      }
+    .page-footer {
+      position: absolute;
+      right: 15mm;
+      bottom: 7mm;
+      color: #87939a;
+      font-size: 7.3pt;
     }
 
     @media print {
       body {
         background: #fff;
-        font-size: 9.4px;
-        line-height: 1.22;
       }
 
-      .topbar {
-        background: #fff;
-      }
-
-      .wrap {
-        width: 100%;
-        max-width: none;
-      }
-
-      .header {
-        grid-template-columns: 86px 1fr;
-        gap: 16px;
-        padding: 0 0 10px;
-      }
-
-      .portrait {
-        width: 78px;
-        height: 78px;
-        box-shadow: none;
-        border: 1px solid var(--line);
-      }
-
-      h1 {
-        font-size: 26px;
-      }
-
-      .role {
-        margin: 4px 0 8px;
-        font-size: 14px;
-      }
-
-      .links,
-      .lang,
-      footer {
-        font-size: 10px;
-      }
-
-      .no-print {
-        display: none;
-      }
-
-      main {
-        padding: 0;
-      }
-
-      section {
-        padding: 4px 0;
-      }
-
-      h2 {
-        margin-bottom: 3px;
-        font-size: 12px;
-      }
-
-      h3 {
-        font-size: 11px;
-      }
-
-      .summary {
-        font-size: 9.6px;
-      }
-
-      .project {
-        margin-top: 4px;
-        padding: 4px 6px;
-        background: #fff;
-      }
-
-      ul {
-        margin-top: 2px;
-      }
-
-      li {
+      .page {
         margin: 0;
+        box-shadow: none;
+        page-break-after: always;
       }
 
-      a {
-        color: var(--ink);
+      .page:last-child {
+        page-break-after: auto;
+      }
+    }
+
+    @media screen and (max-width: 820px) {
+      .page {
+        width: 100%;
+        min-height: auto;
+        margin: 0;
+        padding: 24px 20px 44px;
+        box-shadow: none;
+      }
+
+      .name-row,
+      .system-head {
+        display: block;
+      }
+
+      .role-block {
+        margin-top: 10px;
+        text-align: left;
+      }
+
+      .metrics,
+      .bottom-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skill-row {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+
+      .page-footer {
+        right: 20px;
+        bottom: 18px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="topbar">
-    <div class="wrap header">
-      <img class="portrait" src="../Img_Files/wz_white_background.jpg" alt="Weichi Zhao">
-      <div>
+  <article class="page">
+    <header class="header">
+      <div class="name-row">
         <h1>Weichi Zhao</h1>
-        <div class="role">AI Infra / MaaS / LLM Serving Platform Engineer</div>
-        <div class="links">
-          <span>Hangzhou, China</span>
-          <a href="mailto:wzhao4z@outlook.com">wzhao4z@outlook.com</a>
-          <a href="https://github.com/WZStephen">GitHub: WZStephen</a>
-          <a href="https://www.linkedin.com/in/wzhao42/">LinkedIn</a>
-          <a href="https://wzstephen.github.io/">Homepage: wzstephen.github.io</a>
-          <a class="no-print" href="../">Blog</a>
-          <a class="no-print" href="../Files/EN_Resume_Weichi_Zhao.pdf">PDF Resume</a>
-          <a class="switch-link no-print" href="index-cn.html">中文</a>
+        <div class="role-block">
+          <div class="role">LLM Serving Control Plane Engineer</div>
+          <div class="focus">Kubernetes · Inference Scheduling · Batch Inference</div>
         </div>
-        <div class="lang">Target roles: LLM serving, OpenAI-compatible MaaS, AI gateway, Kubernetes model deployment, offline inference and data distillation.</div>
       </div>
-    </div>
-  </div>
-
-  <main class="wrap">
-    <section>
-      <h2>Profile</h2>
-      <div class="summary">
-        AI Infra engineer focused on productionizing LLM serving end to end, from Kubernetes one-click model deployment to OpenAI-compatible MaaS, LiteLLM/Higress gateways, SGLang Router, offline inference, and data distillation. I work on public model services, serving-framework adaptation, model gateways, routing reliability, agent-client integration, and heterogeneous GPU/XPU environments, with a focus on turning runnable models into deliverable, governable, observable, and recoverable platform capabilities.
+      <div class="contact">
+        <span>Hangzhou, China</span>
+        <a href="mailto:wzhao4z@outlook.com">wzhao4z@outlook.com</a>
+        <a href="https://github.com/WZStephen">github.com/WZStephen</a>
+        <a href="https://www.linkedin.com/in/wzhao42/">linkedin.com/in/wzhao42</a>
+        <a href="https://wzstephen.github.io/">wzstephen.github.io</a>
       </div>
+    </header>
+
+    <section>
+      <h2>Professional Summary</h2>
+      <p class="summary">
+        LLM serving control-plane engineer with five years of cloud-native AI/HPC experience and nearly three years focused on
+        production model serving. Specializes in the layer between inference runtimes and production traffic:
+        Kubernetes-native service lifecycle and Router/Worker readiness, OpenAI-compatible batch execution,
+        gateway governance, observability, and failure recovery. Primary languages: Go and Python.
+      </p>
     </section>
 
     <section>
-      <h2>Impact Highlights</h2>
-      <ul>
-        <li>Supported a production data-distillation path at around 10M requests per day with success rate above 99%, covering task sharding, concurrency control, failure recovery, and result writeback.</li>
-        <li>Validated an offline batch inference -> SGLang Router -> multi-backend serving path for Qwen3: about 300K requests / 9.75B tokens, about 99.9% success rate, and below 5% platform/Router CPU and memory overhead.</li>
-        <li>Worked on SGLang/vLLM/Dynamo serving tuning across KV/prefix cache, PD disaggregation, cache-aware/bucket routing, and QPS/TTFT/Tok/s validation.</li>
-        <li>Built OpenAI-compatible MaaS public-service capabilities on top of LiteLLM/Higress-style open-source gateway components, covering multi-model access, authentication, rate limiting, model permissions, usage tracking, and troubleshooting.</li>
-        <li>Applied agent-assisted workflows in current MaaS/LLM serving work for code search, incident writeups, design drafts, release checks, and knowledge-base updates, turning repeated manual steps into reusable iteration loops.</li>
-        <li>Expanded Kubernetes-native one-click model deployment lifecycle coverage across CRDs/controllers, Service/Endpoint readiness, Router discovery, metrics Services, finalizers, multi-cluster rollout, and rollback paths.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Selected IP & Honors</h2>
-      <ul>
-        <li>Co-inventor on granted invention patents for elastic model inference serving and cache-aware deep-learning training.</li>
-        <li>Contributor to authorized software copyrights for cloud/HPC workflow platforms; team-related honors include China Youth May Fourth Medal collective honor, National Worker Pioneer recognition, and Gordon Bell Prize team context.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Core Skills</h2>
-      <div class="grid">
-        <div>
-          <div class="skill-row"><div class="skill-label">LLM Serving</div><div>SGLang, vLLM, OpenAI-compatible APIs, streaming, embeddings, Responses API, PD disaggregation, KV/prefix cache, cache-aware and bucket routing.</div></div>
-          <div class="skill-row"><div class="skill-label">Model Deployment</div><div>Kubernetes-native inference workloads, operators/controllers, CRDs, Helm, Kustomize, Service/Endpoint readiness, finalizers, rollout safety, retry and rollback workflows.</div></div>
+      <h2>Selected Impact</h2>
+      <div class="metrics">
+        <div class="metric">
+          <strong>~10M requests / day</strong>
+          <span>Production data-distillation and batch-generation path at &gt;99% request success</span>
         </div>
-        <div>
-          <div class="skill-row"><div class="skill-label">MaaS Public Service</div><div>Higress, LiteLLM, AI Gateway, API keys, team/model access, TPM/RPM limits, token budgets, model mapping, observability.</div></div>
-          <div class="skill-row"><div class="skill-label">Agent Platform</div><div>Claude Code / Codex / OpenCode integration, tool-calling API compatibility, OpenAI/Anthropic-style adapters, long-context cache optimization, agent-assisted engineering iteration.</div></div>
-          <div class="skill-row"><div class="skill-label">Engineering</div><div>Go, Python, Linux, Prometheus metrics, MySQL/SQLite/Redis, distributed systems debugging, performance and capacity testing.</div></div>
+        <div class="metric">
+          <strong>300K requests / 9.75B tokens</strong>
+          <span>~99.9% success in SGLang Router multi-backend testing</span>
+        </div>
+        <div class="metric">
+          <strong>Ready → Routeable</strong>
+          <span>Desired-state reconciliation and readiness gates for Router worker convergence</span>
         </div>
       </div>
     </section>
 
     <section>
       <h2>Experience</h2>
-      <div class="item-head">
-        <div>
-          <h3>Zhejiang Lab, High-Performance Computing Facility Research Center</h3>
-          <div>Senior Research Specialist, AI Infra and MaaS platform</div>
+      <div class="item">
+        <div class="item-head">
+          <div>
+            <h3>Zhejiang Lab · High-Performance Computing Facility Research Center</h3>
+            <div class="position">Senior Research Specialist｜LLM Serving / MaaS Platform</div>
+          </div>
+          <div class="date">2024 - Present</div>
         </div>
-        <div class="meta">2024 - Present</div>
+        <ul>
+          <li>Developed a Kubernetes-native model-serving control path that maps model images, resource profiles, replica / prefill-decode (P/D) topology, and service exposure into CRDs and controllers; hardened Service/Endpoint readiness, finalizers, multi-cluster rollout, and rollback.</li>
+          <li>Improved Router worker management by continuously reconciling desired workers against live <code>/workers</code> state and requeueing on missing, extra, or failed registrations, preventing “Pod Ready but traffic unreachable” failures.</li>
+          <li>Designed and implemented an OpenAI Batch API-compatible execution platform with file and batch lifecycles, task sharding, sharded worker execution, Kubernetes Lease-based leader election, tenant concurrency, recovery, and result/error writeback.</li>
+          <li>Supported a production data-distillation path at ~10M requests/day and &gt;99% success; validated a SGLang Router multi-backend path at ~300K requests / 9.75B tokens and ~99.9% success.</li>
+          <li>Built and operated unified model access with LiteLLM/Higress and SGLang/vLLM, covering authentication, rate limits, model access, streaming protocols, and incident diagnosis across request ID → Gateway → Router → Worker → Kubernetes.</li>
+        </ul>
       </div>
-      <ul>
-        <li>Built and operated LLM serving platform capabilities covering public model-service entrypoints, OpenAI-compatible APIs, Higress/LiteLLM gateway integration, SGLang/vLLM framework adaptation, Kubernetes-native one-click model deployment, SGLang Router, offline batch inference, and Agent-facing API compatibility.</li>
-        <li>Owned production troubleshooting and hardening for model deployment lifecycle, Router worker registration convergence, Service/Endpoint readiness, PD prefill/decode topology, CrashLoop and long-connection failures, gateway header/model mapping issues, and multi-cluster rollout validation.</li>
-        <li>Designed MaaS control-plane and optimizer-loop mechanisms around LiteLLM, Router, offline batch inference, and gateway metrics, with public-model limit adjustment, offline concurrency tuning, observation windows, rollback criteria, and online-SLA-first rules.</li>
-      </ul>
 
-      <div class="item-head">
-        <div>
-          <h3>Zhejiang Lab, Intelligent Supercomputing Research Center</h3>
-          <div>Engineering Specialist, cloud-native AI and HPC platforms</div>
+      <div class="item">
+        <div class="item-head">
+          <div>
+            <h3>Zhejiang Lab · Intelligent Supercomputing Research Center</h3>
+            <div class="position">Engineering Specialist｜Cloud-Native AI / HPC Platform</div>
+          </div>
+          <div class="date">Aug 2021 - 2023</div>
         </div>
-        <div class="meta">Aug 2021 - 2023</div>
+        <ul>
+          <li>Customized Kubernetes device-plugin and resource-management paths for heterogeneous accelerator discovery, node resource reporting, container-runtime validation, device-level allocation, and fault isolation.</li>
+          <li>Adapted PyTorch/models and distributed job environments to Linux distributions and heterogeneous accelerator stacks, establishing the platform foundation for later GPU/XPU serving and scheduling work.</li>
+        </ul>
       </div>
-      <ul>
-        <li>Worked on cloud-native AI/HPC platform projects, including Kubernetes adaptation on domestic OS and accelerators, device plugin customization for accelerator availability, PyTorch/model adaptation, and distributed training framework exploration.</li>
-        <li>Supported model training and inference platform adaptation in domestic heterogeneous hardware/software environments, covering job submission, resource discovery, container runtime validation, and baseline performance verification.</li>
-      </ul>
+    </section>
+
+    <div class="page-footer">Weichi Zhao · English Resume · 1 / 2</div>
+  </article>
+
+  <article class="page">
+    <header class="header">
+      <div class="name-row">
+        <h1>Weichi Zhao</h1>
+        <div class="role-block">
+          <div class="role">LLM Serving Control Plane Engineer</div>
+          <div class="focus">Kubernetes · Inference Scheduling · Batch Inference</div>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <h2>Selected Systems</h2>
+      <div class="system">
+        <div class="system-head">
+          <h3>Kubernetes-Native Model Serving Control Plane</h3>
+          <div class="system-tag">Lifecycle · Reconciliation · Readiness</div>
+        </div>
+        <ul>
+          <li>Organized the model-service lifecycle around declarative desired state: controllers render and maintain workloads, Services, Router registration, and status, while ownership/finalizers, health checks, and retry budgets protect updates and cleanup.</li>
+          <li>Separated instance startup from traffic readiness by jointly validating Pods, Endpoints, model APIs, and Router worker state; established recovery paths for failed registration, stale selectors, and long-lived connection failures.</li>
+          <li>Worked on per-service scaling guardrails around resource snapshots, readiness, in-flight work, and cooldown; further separated Planner capacity intent, replica execution, cluster constraints, and Router readiness in a proposed control-plane evolution.</li>
+        </ul>
+      </div>
+
+      <div class="system">
+        <div class="system-head">
+          <h3>Multi-Tenant Batch Inference Platform</h3>
+          <div class="system-tag">OpenAI Batch API · Scheduling · Recovery</div>
+        </div>
+        <ul>
+          <li>Modeled batches as durable, recoverable asynchronous jobs rather than bulk request scripts: the database owns task truth while schedulers/workers claim, shard, execute, renew, and finalize work.</li>
+          <li>Enabled multi-replica operation with Kubernetes Lease leadership, database-level claims, tenant/model concurrency budgets, and request-level error isolation, preventing duplicate execution and limiting offline impact on online serving.</li>
+          <li>Implemented streaming JSONL processing, cancellation, expiry cleanup, output/error files, and failure-tolerant finalization from API contract through production monitoring.</li>
+        </ul>
+      </div>
+
+      <div class="system">
+        <div class="system-head">
+          <h3>Model Gateway, Routing, and Serving Reliability</h3>
+          <div class="system-tag">Gateway · Router · Observability</div>
+        </div>
+        <ul>
+          <li>Provided OpenAI-compatible access through LiteLLM/Higress with API keys, team/model access, TPM/RPM limits, token budgets, model mapping, and request auditability.</li>
+          <li>Benchmarked SGLang/vLLM P/D topology and cache-aware routing with QPS, TTFT, and TPOT; traced cache-hit degradation to dynamic fields breaking shared prompt prefixes.</li>
+          <li>Handled production troubleshooting and release verification for Router registration, Service/Endpoint readiness, CrashLoops, streaming connections, multi-cluster configuration, and rollback.</li>
+        </ul>
+      </div>
     </section>
 
     <section>
-      <h2>Selected AI Infra Projects</h2>
-      <div class="project">
-        <div class="project-title">
-          <span>OpenAI-compatible offline batch inference platform</span>
-          <span class="meta">LLM batch inference</span>
+      <h2>Core Technologies</h2>
+      <div class="skills">
+        <div class="skill-row">
+          <div class="skill-label">Serving Control Plane</div>
+          <div>Go, Kubernetes, CRDs/controllers, reconciliation, Service/EndpointSlice, readiness, finalizers, leader election, Helm, Kustomize, ArgoCD</div>
         </div>
-        <div class="tagline">Asynchronous JSONL batch execution for large-scale, non-real-time model workloads.</div>
-        <ul>
-          <li>Designed Batch API compatible capabilities: file upload, batch lifecycle, cancellation, result/error files, streaming file processing, request-level error isolation, and backend concurrency control.</li>
-          <li>Refactored the platform toward multi-replica operation with Kubernetes leader election, sharded workers, header forwarding, upload limits, stale-file cleanup, Kustomize upgrades, monitoring, and failure-tolerant finalization.</li>
-          <li>Supported production data-distillation and batch-generation workloads, later reaching daily processing around 10M requests with success rate above 99% under controlled concurrency.</li>
-          <li>Validated an offline batch inference -> SGLang Router -> multi-backend path for Qwen3-235B-A22B-Thinking-2507 at about 300K requests, about 9.75B tokens, about 99.9% success rate, and below 5% platform/Router CPU/memory overhead.</li>
-        </ul>
-      </div>
-
-      <div class="project">
-        <div class="project-title">
-          <span>Kubernetes-native one-click model deployment and serving reliability</span>
-          <span class="meta">Model deployment, tuning, routing, and orchestration</span>
+        <div class="skill-row">
+          <div class="skill-label">Inference &amp; Routing</div>
+          <div>SGLang, vLLM, Router, P/D disaggregation, KV/prefix cache, inference performance metrics</div>
         </div>
-        <div class="tagline">Standardized model images, launch parameters, resources, ports, health checks, Services, worker registration, and API validation so models move from configuration to request reachability with less manual YAML work.</div>
-        <ul>
-          <li>Worked on Kubernetes-native inference-task lifecycle orchestration across model images, launch parameters, resource specs, replica topology, Service/Endpoint readiness, Router discovery, metrics Services, finalizers, and rollback paths, reducing manual deployment and troubleshooting cost.</li>
-          <li>Participated in SGLang/vLLM/Dynamo research and adaptation validation, mapping PagedAttention/RadixAttention, KV cache, prefix cache, PD disaggregation, multi-level cache reuse, context length, concurrency, batching, and cache-hit-rate tuning boundaries.</li>
-          <li>Improved Router worker synchronization by reconciling desired workers against live `/workers` state and requeueing on missing, extra, or failed registrations.</li>
-          <li>Enhanced inference-instance startup and readiness with Pod-IP early registration, `publishNotReadyAddresses`, preserved Service finalizers, Router metrics Service generation, and instance-level auto-restart with retry budgets.</li>
-          <li>Validated cache-aware/bucket scheduling strategies and diagnosed ARG_MAX overflow, Router not managed after Worker Ready, stale Service selectors, and long-connection timeout behavior.</li>
-        </ul>
-      </div>
-
-      <div class="project">
-        <div class="project-title">
-          <span>MaaS public model service and agent integration optimization</span>
-          <span class="meta">OpenAI-compatible API / Agent runtime</span>
+        <div class="skill-row">
+          <div class="skill-label">Platform &amp; Data Path</div>
+          <div>Python, Linux, OpenAI-compatible APIs, LiteLLM, Higress, Prometheus, Redis, MySQL, request tracing, distributed-systems debugging</div>
         </div>
-        <div class="tagline">Unified model access, authentication, rate limiting, protocol compatibility, cost governance, and troubleshooting for internal users, agent clients, and offline workloads on top of LiteLLM/Higress-style gateway capabilities.</div>
-        <ul>
-          <li>Built OpenAI-compatible public model-service entrypoints covering Chat Completions, Responses-style APIs, embeddings, Batch API, and agent-client access while hiding differences across model backends, routers, and heterogeneous clusters from business callers.</li>
-          <li>Contributed public-service governance around API keys, teams, model access, quotas, TPM/RPM limits, token budgets, model mapping, and cost-control policies for shared model access.</li>
-          <li>Analyzed protocol compatibility boundaries for Claude Code / Codex-style clients, including system prompts, tool schemas, tool results, streaming events, Responses-style APIs, and OpenAI/Anthropic field differences.</li>
-          <li>Diagnosed low SGLang prefix/KV cache hit rates for Claude Code long-context requests by comparing rendered prompts, cached-token logs, and token LCP; identified dynamic attribution fields that polluted request prefixes and mitigated the issue.</li>
-          <li>Embedded agent tools into cross-repository navigation, log summarization, design drafts, PR/issue writing, release checks, knowledge-base updates, and MaaS onboarding troubleshooting.</li>
-        </ul>
-      </div>
-
-      <div class="project">
-        <div class="project-title">
-          <span>Kubernetes device plugin and heterogeneous accelerator platform</span>
-          <span class="meta">GPU/XPU scheduling</span>
+        <div class="skill-row">
+          <div class="skill-label">Upstream Architecture</div>
+          <div>NVIDIA Dynamo, AIBrix, llm-d: capacity intent, replica execution, routing readiness, and cluster-constraint boundaries (source-level evaluation)</div>
         </div>
-        <div class="tagline">Cloud-native resource discovery, scheduling, and validation for domestic heterogeneous accelerator environments.</div>
-        <ul>
-          <li>Customized device-plugin and resource-management paths for accelerator availability, node resource reporting, container runtime validation, card-level scheduling, and failure isolation.</li>
-          <li>Built deployment, upgrade, rollback, and E2E validation procedures for Kubernetes AI/HPC environments on domestic operating systems and accelerator stacks.</li>
-        </ul>
       </div>
     </section>
 
-    <section>
-      <h2>Earlier Projects</h2>
-      <div class="item-head">
-        <div>
-          <h3>Arizona State University, SNAC Lab</h3>
-          <div>Virtual platform developer and research assistant</div>
+    <div class="bottom-grid">
+      <section>
+        <h2>Education</h2>
+        <div class="compact-row">
+          <div>
+            <strong>Arizona State University</strong>
+            <span>Master of Computer Science, GPA 3.97 / 4.00</span>
+          </div>
+          <div class="date">May 2019 - Dec 2020</div>
         </div>
-        <div class="meta">Jan 2020 - Aug 2020</div>
-      </div>
-      <ul>
-        <li>Developed THOTH Lab modules for SDN/OpenFlow labs, Boto3-backed AWS control, and an Android cybersecurity research prototype.</li>
-      </ul>
+        <div class="compact-row">
+          <div>
+            <strong>Arizona State University</strong>
+            <span>B.S. in Computer Science</span>
+          </div>
+          <div class="date">Aug 2015 - May 2019</div>
+        </div>
+      </section>
 
-      <div class="item-head" style="margin-top:16px;">
-        <div>
-          <h3>Arizona State University, CIDSE</h3>
-          <div>Graduate service assistant</div>
-        </div>
-        <div class="meta">Aug 2019 - Dec 2020</div>
-      </div>
-      <ul>
-        <li>Assisted CSE205, CSE412, CSE434, and CSE464.</li>
-      </ul>
-    </section>
+      <section>
+        <h2>Intellectual Property</h2>
+        <p class="ip">
+          Co-inventor on two granted invention patents, including an elastic cloud model-inference serving system;
+          contributor to two authorized software copyrights.
+        </p>
+      </section>
+    </div>
 
-    <section>
-      <h2>Education</h2>
-      <div class="item-head">
-        <div>
-          <h3>Arizona State University</h3>
-          <div>Master of Computer Science, GPA 3.97/4.00</div>
-        </div>
-        <div class="meta">May 2019 - Dec 2020</div>
-      </div>
-      <div class="item-head" style="margin-top:12px;">
-        <div>
-          <h3>Arizona State University</h3>
-          <div>Bachelor of Science in Computer Science, GPA 3.40/4.00</div>
-        </div>
-        <div class="meta">Aug 2015 - May 2019</div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="wrap">
-    Last updated: July 2026
-  </footer>
+    <div class="page-footer">Last updated: July 24, 2026 · 2 / 2</div>
+  </article>
 </body>
 </html>

@@ -6,16 +6,40 @@ title: Weichi Zhao
 <section class="hero">
   <div class="wrap hero-inner">
     <div>
-      <p class="eyebrow">AI Infra / MaaS / LLM Serving</p>
+      <p class="eyebrow">LLM Serving Control Plane / Inference Scheduling</p>
       <h1>赵伟驰 / Weichi Zhao</h1>
-      <p>聚焦大模型服务生产化链路：Kubernetes 一键部署、OpenAI-compatible MaaS、LiteLLM / Higress 网关、SGLang Router、离线推理与数据蒸馏。</p>
+      <p>专注 Kubernetes 原生的大模型推理平台：把模型服务生命周期、Router / Worker 收敛、批量推理与流量治理连接成可上线、可观测、可恢复的生产链路。</p>
       <div class="hero-actions">
-        <a href="{{ '/resume/index-cn.html' | relative_url }}">中文简历</a>
-        <a href="{{ '/resume/' | relative_url }}">English Resume</a>
+        <a href="{{ '/Files/CN_Resume_Weichi_Zhao.pdf' | relative_url }}">中文简历 PDF</a>
+        <a href="{{ '/Files/EN_Resume_Weichi_Zhao.pdf' | relative_url }}">English Resume PDF</a>
         <a href="{{ '/about/' | relative_url }}">关于我</a>
       </div>
     </div>
     <img class="hero-photo" src="{{ '/Img_Files/weichi2.jpg' | relative_url }}" alt="Weichi Zhao">
+  </div>
+</section>
+
+<section class="wrap section">
+  <div class="section-title">
+    <h2>专业方向</h2>
+  </div>
+
+  <div class="feature-grid focus-grid">
+    <div class="feature-card">
+      <span>Serving Control Plane</span>
+      <h3>模型服务生命周期与就绪收敛</h3>
+      <p>用 Kubernetes CRD / Controller 管理模型工作负载、Service / Endpoint、Router Worker 注册、健康状态、发布与回滚。</p>
+    </div>
+    <div class="feature-card">
+      <span>Batch Inference</span>
+      <h3>高吞吐、可恢复的离线推理</h3>
+      <p>围绕 OpenAI Batch API、任务分片、多副本协调、租户并发和失败恢复，支撑日均约千万级请求的数据生产链路。</p>
+    </div>
+    <div class="feature-card">
+      <span>Routing &amp; Reliability</span>
+      <h3>网关、Router 与生产可观测性</h3>
+      <p>连接 LiteLLM / Higress、SGLang / vLLM 与 Kubernetes，关注流量治理、推理指标、缓存效率和全链路故障定位。</p>
+    </div>
   </div>
 </section>
 
@@ -75,7 +99,7 @@ title: Weichi Zhao
     <div class="achievement-item">
       <span>团队荣誉</span>
       <h3>五四青年集体、全国工人先锋号与 Gordon Bell 相关团队荣誉</h3>
-      <p>完整自我介绍、简历和联系方式集中放在 <a href="{{ '/about/' | relative_url }}">关于我</a>。</p>
+      <p>方向介绍、成果证明和联系方式集中放在 <a href="{{ '/about/' | relative_url }}">关于我</a>。</p>
       <p class="evidence-links">
         <a href="{{ '/Files/evidence/china-youth-may-fourth-medal-certificate.pdf' | relative_url }}">五四青年集体证明</a>
         <a href="{{ '/Files/evidence/national-worker-pioneer-certificate.jpg' | relative_url }}">全国工人先锋号证明</a>
@@ -98,8 +122,8 @@ title: Weichi Zhao
     </a>
     <a class="feature-card" href="{{ '/about/' | relative_url }}">
       <span>关于我</span>
-      <h3>个人介绍、简历和联系方式</h3>
-      <p>AI Infra / MaaS / LLM Serving 方向的公开介绍入口。</p>
+      <h3>个人介绍、成果证明和联系方式</h3>
+      <p>LLM Serving Control Plane / Inference Scheduling 方向的公开介绍入口。</p>
     </a>
   </div>
 </section>

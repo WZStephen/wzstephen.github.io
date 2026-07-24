@@ -125,6 +125,10 @@ a:hover {
   gap: 18px;
 }
 
+.focus-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .feature-card {
   display: block;
   min-height: 190px;

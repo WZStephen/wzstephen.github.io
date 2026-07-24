@@ -1,10 +1,12 @@
 title: Weichi Zhao
-description: AI Infra notes, LLM serving updates, and personal resume.
+description: LLM serving platform, Kubernetes control plane, batch inference, and systems notes.
 url: "https://wzstephen.github.io"
 baseurl: ""
 timezone: Asia/Shanghai
 permalink: /blog/:year/:month/:day/:title/
 markdown: kramdown
+exclude:
+  - resume
 
 defaults:
   - scope:
