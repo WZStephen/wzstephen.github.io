@@ -13,7 +13,6 @@
       --accent: #0f5f68;
       --accent-strong: #12394a;
       --line: #d9e0e4;
-      --soft: #eef5f4;
       --paper: #ffffff;
     }
 
@@ -137,35 +136,6 @@
       color: #25353f;
       font-size: 9.7pt;
       line-height: 1.5;
-    }
-
-    .metrics {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 7px;
-    }
-
-    .metric {
-      min-height: 57px;
-      padding: 7px 9px;
-      border: 1px solid var(--line);
-      border-top: 3px solid var(--accent);
-      background: var(--soft);
-    }
-
-    .metric strong {
-      display: block;
-      color: var(--accent-strong);
-      font-size: 11.2pt;
-      line-height: 1.2;
-    }
-
-    .metric span {
-      display: block;
-      margin-top: 3px;
-      color: var(--muted);
-      font-size: 8.2pt;
-      line-height: 1.35;
     }
 
     .item {
@@ -350,7 +320,6 @@
         text-align: left;
       }
 
-      .metrics,
       .bottom-grid {
         grid-template-columns: 1fr;
       }
@@ -389,28 +358,10 @@
     <section>
       <h2>职业概述</h2>
       <p class="summary">
-        5 年云原生 AI / HPC 平台经验，近 3 年专注大模型推理系统。围绕 Dynamo / AIBrix 技术范式，
-        构建从 Worker Bootstrap、ModelExpress 快速加载、KV Block Event 与 KV-aware Routing，
-        到 P/D 容量规划和 Kubernetes 声明式编排的完整链路；并交付生产级 Batch 推理与模型网关。主要使用 Go / Python，具备 Rust 路由开发经验。
+        5 年云原生 AI / HPC 平台经验，近 3 年聚焦生产级大模型推理系统与调度。主导构建 Kubernetes 原生
+        LLM Serving Runtime / Control Plane，覆盖 Worker 生命周期与模型加载、KV 事件与请求路由、P/D 容量规划与扩缩容保护机制；
+        并交付 Batch 推理和模型网关。主要使用 Go / Python，具备 Rust 路由开发经验。
       </p>
-    </section>
-
-    <section>
-      <h2>代表性成果</h2>
-      <div class="metrics">
-        <div class="metric">
-          <strong>自适应 P/D Planner</strong>
-          <span>Request Shape + KV Hit + Capacity Profile → ScaleIntent</span>
-        </div>
-        <div class="metric">
-          <strong>约 1000 万请求 / 日</strong>
-          <span>生产数据蒸馏与批量生成链路，请求成功率超过 99%</span>
-        </div>
-        <div class="metric">
-          <strong>30 万请求 / 97.5 亿 Tokens</strong>
-          <span>SGLang Router 多异构后端压测成功率约 99.9%</span>
-        </div>
-      </div>
     </section>
 
     <section>
@@ -419,15 +370,15 @@
         <div class="item-head">
           <div>
             <h3>之江实验室 · 高效能计算设施研究中心</h3>
-            <div class="position">高级研究专员｜LLM Serving / MaaS 平台</div>
+            <div class="position">高级研究专员 | LLM Serving / MaaS 平台</div>
           </div>
           <div class="date">2024 - 至今</div>
         </div>
         <ul>
           <li>主导分布式推理 Runtime / Control Plane，贯通 Worker Bootstrap、模型快速加载、KV Block 事件、KV-aware Routing、P/D 自适应容量规划和 Kubernetes 生命周期；将“进程已启动”与“模型可服务、事件可观测、流量可达”分层建模。</li>
-          <li>设计并实现自适应推理 Planner：融合 request rate、ISL / OSL、Prefill cached / compute tokens、KV hit、queue / running 与 TTFT / TPOT，结合 Profiler Capacity Profile 分别计算 Prefill / Decode 容量目标，并以瓶颈侧生成可审计 ScaleIntent。</li>
-          <li>设计并实现 OpenAI Batch API 兼容执行平台，覆盖文件与 Batch 生命周期、任务切分、分片 Worker 执行、基于 Kubernetes Lease 的选主、租户并发、失败恢复及结果 / 错误回写。</li>
-          <li>支撑日均约 1000 万请求的数据蒸馏链路，成功率超过 99%；完成约 30 万请求、97.5 亿 Tokens 的 SGLang Router 多后端压测，成功率约 99.9%，并沿 request_id → Gateway → Router → Worker 定位生产问题。</li>
+          <li>设计并实现可审计的自适应 P/D Planner：融合 request rate、ISL / OSL、Prefill cached / compute tokens、KV hit、queue / running 与 TTFT / TPOT，将实时请求 shape 映射到 Profiler Capacity Profile，分别生成 Prefill / Decode 容量目标和瓶颈侧 ScaleIntent。</li>
+          <li>设计并实现 OpenAI Batch API 兼容执行平台，覆盖文件与 Batch 生命周期、任务切分、分片 Worker 执行、Kubernetes Lease 选主、租户并发、失败恢复及结果 / 错误回写；支撑生产数据蒸馏与批量生成链路日均约 1000 万请求，请求成功率超过 99%。</li>
+          <li>整合 SGLang HTTP / gRPC P/D 路由、多租户准入与链路追踪；对多个异构后端的 SGLang Router 路径完成约 30 万请求、97.5 亿 Tokens 压测，请求成功率约 99.9%，并沿 request_id → Gateway → Router → Worker 定位生产问题。</li>
         </ul>
       </div>
 
@@ -435,9 +386,9 @@
         <div class="item-head">
           <div>
             <h3>之江实验室 · 智能超算研究中心</h3>
-            <div class="position">工程专员｜云原生 AI / HPC 平台</div>
+            <div class="position">工程专员 | 云原生 AI / HPC 平台</div>
           </div>
-          <div class="date">2021.08 - 2023</div>
+          <div class="date">2021 - 2023</div>
         </div>
         <ul>
           <li>定制 Kubernetes Device Plugin 与资源管理链路，完成异构加速卡发现、节点资源上报、容器运行时验证、卡级分配和故障隔离。</li>
@@ -454,7 +405,7 @@
           <div class="system-tag">Worker Bootstrap · ModelExpress · Event Plane</div>
         </div>
         <ul>
-          <li>将 Worker 启动从“拉起引擎进程”扩展为 Runtime 初始化协议：把引擎生命周期接入 DistributedRuntime，分别注册 request-plane Endpoint 与 Model Deployment Card，发布 WorkerType、依赖 DNF、KV 容量和拓扑元数据；集成 ModelExpress loader，以 P2P / NIXL-RDMA 权重分发缩短扩容冷启动。</li>
+          <li>将 Worker 启动从“拉起引擎进程”扩展为 Runtime 初始化协议：把引擎生命周期接入 DistributedRuntime，分别注册 request-plane Endpoint 与 Model Deployment Card，发布 WorkerType、依赖 DNF、KV 容量和拓扑元数据；集成 ModelExpress loader，支持扩容阶段的 P2P / NIXL-RDMA 权重分发。</li>
           <li>在 Bootstrap 阶段为各 DP rank 初始化 KvEventPublisher，将 SGLang / vLLM 原生 <code>BlockStored</code>、<code>BlockRemoved</code>、<code>AllBlocksCleared</code> 事件经 ZMQ 归一化并发布到 Event Plane，维护 Worker KV Block 索引。</li>
           <li>以请求前缀的 KV overlap、Worker 负载和拓扑约束联合评分；KV 事件不可用时回退到 Token 级近似索引，并通过 Controller 协调 Pod、Endpoint、模型、Event Plane 与 Router readiness。</li>
         </ul>
@@ -479,7 +430,7 @@
       <h2>重点系统经历（续）</h2>
       <div class="system">
         <div class="system-head">
-          <h3>自适应 P/D Planner 与弹性执行</h3>
+          <h3>自适应 P/D Planner 与扩缩容保护机制</h3>
           <div class="system-tag">Capacity Profile · ScaleIntent · Guardrails</div>
         </div>
         <ul>
@@ -507,7 +458,7 @@
           <div class="system-tag">P/D Routing · Priority Admission · Tracing</div>
         </div>
         <ul>
-          <li>使用 Rust 实现 P0–P3 分级准入：通过全局 / 优先级 semaphore、严格优先调度、租户内轮转、队列上限与等待超时控制并发，并将 permit 保持到流式 Response Body 结束，避免提前释放容量。</li>
+          <li>使用 Rust 实现 P0-P3 分级准入：通过全局 / 优先级 semaphore、严格优先调度、租户内轮转、队列上限与等待超时控制并发，并将 permit 保持到流式 Response Body 结束，避免提前释放容量。</li>
           <li>整合 SGLang HTTP / gRPC P/D 路由、Prefill / Decode bootstrap 与 transfer context，补齐 request ID 和 trace context 透传；以 QPS、TTFT、TPOT 和 KV 命中验证多后端链路。</li>
         </ul>
       </div>

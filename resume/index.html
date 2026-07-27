@@ -13,7 +13,6 @@
       --accent: #0f5f68;
       --accent-strong: #12394a;
       --line: #d9e0e4;
-      --soft: #eef5f4;
       --paper: #ffffff;
     }
 
@@ -137,35 +136,6 @@
       color: #25353f;
       font-size: 9.4pt;
       line-height: 1.45;
-    }
-
-    .metrics {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 7px;
-    }
-
-    .metric {
-      min-height: 57px;
-      padding: 7px 9px;
-      border: 1px solid var(--line);
-      border-top: 3px solid var(--accent);
-      background: var(--soft);
-    }
-
-    .metric strong {
-      display: block;
-      color: var(--accent-strong);
-      font-size: 10.7pt;
-      line-height: 1.2;
-    }
-
-    .metric span {
-      display: block;
-      margin-top: 3px;
-      color: var(--muted);
-      font-size: 7.9pt;
-      line-height: 1.3;
     }
 
     .item {
@@ -350,7 +320,6 @@
         text-align: left;
       }
 
-      .metrics,
       .bottom-grid {
         grid-template-columns: 1fr;
       }
@@ -389,29 +358,11 @@
     <section>
       <h2>Professional Summary</h2>
       <p class="summary">
-        Distributed LLM inference engineer with five years of cloud-native AI/HPC experience and nearly three years focused on
-        production serving. Builds Dynamo/AIBrix-style systems spanning worker bootstrap, ModelExpress model loading,
-        KV-block event propagation and KV-aware routing, P/D capacity planning, and Kubernetes-native orchestration;
-        also delivered production batch inference and model gateway paths. Primary languages: Go and Python, with Rust routing experience.
+        Distributed LLM inference and scheduling engineer with five years of cloud-native AI/HPC experience and nearly three years in
+        production serving. Leads Kubernetes-native runtime/control-plane work across worker lifecycle and model loading,
+        KV-event propagation and routing, P/D capacity planning, and scaling guardrails; also delivered production batch inference and model gateway systems.
+        Primary languages: Go and Python, with Rust routing experience.
       </p>
-    </section>
-
-    <section>
-      <h2>Selected Impact</h2>
-      <div class="metrics">
-        <div class="metric">
-          <strong>Adaptive P/D Planner</strong>
-          <span>Request shape + KV hit + capacity profiles → auditable scale intent</span>
-        </div>
-        <div class="metric">
-          <strong>~10M requests / day</strong>
-          <span>Production data-distillation and batch-generation path at &gt;99% request success</span>
-        </div>
-        <div class="metric">
-          <strong>300K requests / 9.75B tokens</strong>
-          <span>~99.9% success in SGLang Router multi-backend testing</span>
-        </div>
-      </div>
     </section>
 
     <section>
@@ -420,15 +371,15 @@
         <div class="item-head">
           <div>
             <h3>Zhejiang Lab · High-Performance Computing Facility Research Center</h3>
-            <div class="position">Senior Research Specialist｜LLM Serving / MaaS Platform</div>
+            <div class="position">Senior Research Specialist | LLM Serving / Model-as-a-Service (MaaS) Platform</div>
           </div>
           <div class="date">2024 - Present</div>
         </div>
         <ul>
           <li>Led a distributed inference runtime/control plane spanning worker bootstrap, fast model loading, KV-block events, KV-aware routing, adaptive P/D capacity planning, and Kubernetes lifecycle orchestration; modeled process, model, event-plane, and traffic readiness as distinct states.</li>
-          <li>Designed and implemented an adaptive inference Planner combining request rate, ISL/OSL, prefill cached/compute tokens, KV hit rate, queue/running state, and TTFT/TPOT with Profiler capacity profiles to compute separate prefill/decode targets and emit auditable scale intents from the bottleneck phase.</li>
-          <li>Designed and implemented an OpenAI Batch API-compatible execution platform with file and batch lifecycles, task sharding, sharded worker execution, Kubernetes Lease-based leader election, tenant concurrency, recovery, and result/error writeback.</li>
-          <li>Supported a production data-distillation path at ~10M requests/day and &gt;99% success; validated a SGLang Router multi-backend path at ~300K requests / 9.75B tokens and ~99.9% success, and traced production failures across request ID → Gateway → Router → Worker.</li>
+          <li>Designed and implemented an auditable adaptive P/D Planner that combines request rate, ISL/OSL, prefill cached/compute tokens, KV hit rate, queue/running state, and TTFT/TPOT; mapped live request shapes to Profiler capacity profiles to produce separate prefill/decode targets and a bottleneck-driven scale intent.</li>
+          <li>Designed and implemented an OpenAI Batch API-compatible execution platform covering file and batch lifecycles, task sharding, worker execution, Kubernetes Lease-based leader election, tenant concurrency, recovery, and result/error writeback; supported production data-distillation and batch-generation workloads at ~10M requests/day with a &gt;99% request success rate.</li>
+          <li>Integrated SGLang HTTP/gRPC P/D routing, multi-tenant admission, and end-to-end tracing; load-tested a heterogeneous multi-backend SGLang routing path with ~300K requests and 9.75B tokens, achieving a ~99.9% request success rate; traced production failures across request ID → Gateway → Router → Worker.</li>
         </ul>
       </div>
 
@@ -436,9 +387,9 @@
         <div class="item-head">
           <div>
             <h3>Zhejiang Lab · Intelligent Supercomputing Research Center</h3>
-            <div class="position">Engineering Specialist｜Cloud-Native AI / HPC Platform</div>
+            <div class="position">Engineering Specialist | Cloud-Native AI / HPC Platform</div>
           </div>
-          <div class="date">Aug 2021 - 2023</div>
+          <div class="date">2021 - 2023</div>
         </div>
         <ul>
           <li>Customized Kubernetes device-plugin and resource-management paths for heterogeneous accelerator discovery, node resource reporting, container-runtime validation, device-level allocation, and fault isolation.</li>
@@ -480,7 +431,7 @@
       <h2>Selected Systems (Continued)</h2>
       <div class="system">
         <div class="system-head">
-          <h3>Adaptive P/D Planner and Safe Scaling</h3>
+          <h3>Adaptive P/D Planner and Scaling Guardrails</h3>
           <div class="system-tag">Capacity Profile · ScaleIntent · Guardrails</div>
         </div>
         <ul>
@@ -497,7 +448,7 @@
         </div>
         <ul>
           <li>Modeled batches as durable, recoverable asynchronous jobs rather than bulk request scripts: the database owns task truth while schedulers/workers claim, shard, execute, renew, and finalize work.</li>
-          <li>Enabled multi-replica operation with Kubernetes Lease leadership, database-level claims, tenant/model concurrency budgets, and request-level error isolation, preventing duplicate execution and limiting offline impact on online serving.</li>
+          <li>Enabled multi-replica operation with Kubernetes Lease-based leader election, database-level claims, tenant/model concurrency budgets, and request-level error isolation, preventing duplicate execution and limiting offline impact on online serving.</li>
           <li>Implemented streaming JSONL processing, cancellation, expiry cleanup, output/error files, and failure-tolerant finalization from API contract through production monitoring.</li>
         </ul>
       </div>
@@ -508,7 +459,7 @@
           <div class="system-tag">P/D Routing · Priority Admission · Tracing</div>
         </div>
         <ul>
-          <li>Implemented P0–P3 admission in Rust with global/tier semaphores, strict priority scheduling, per-tenant round-robin, bounded queues, and wait timeouts; held permits through streaming response-body completion to avoid releasing capacity early.</li>
+          <li>Implemented P0-P3 admission in Rust with global/tier semaphores, strict priority scheduling, per-tenant round-robin, bounded queues, and wait timeouts; held permits through streaming response-body completion to avoid releasing capacity early.</li>
           <li>Integrated SGLang HTTP/gRPC P/D routing, prefill/decode bootstrap and transfer context, plus request-ID and trace-context propagation; validated the multi-backend path with QPS, TTFT, TPOT, and KV-hit telemetry.</li>
         </ul>
       </div>
