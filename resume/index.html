@@ -343,7 +343,7 @@
         <h1>Weichi Zhao</h1>
         <div class="role-block">
           <div class="role">Distributed LLM Inference &amp; Scheduling Engineer</div>
-          <div class="focus">Runtime · KV-Aware Routing · P/D Autoscaling</div>
+          <div class="focus">Heterogeneous Runtime · KV-Aware Routing · P/D Autoscaling</div>
         </div>
       </div>
       <div class="contact">
@@ -359,8 +359,8 @@
       <h2>Professional Summary</h2>
       <p class="summary">
         Distributed LLM inference and scheduling engineer with five years of cloud-native AI/HPC experience and nearly three years in
-        production serving. Leads Kubernetes-native runtime/control-plane work across worker lifecycle and model loading,
-        KV-event propagation and routing, P/D capacity planning, and scaling guardrails; also delivered production batch inference and model gateway systems.
+        production serving. Leads Kubernetes-native runtime/control-plane work for heterogeneous non-NVIDIA accelerators across worker lifecycle,
+        Mooncake/RoCE KV transfer, KV-aware routing, P/D capacity planning, and autoscaling; also delivered multi-tenant batch inference and model gateway systems.
         Primary languages: Go and Python, with Rust routing experience.
       </p>
     </section>
@@ -376,10 +376,10 @@
           <div class="date">2024 - Present</div>
         </div>
         <ul>
-          <li>Led a distributed inference runtime/control plane spanning worker bootstrap, fast model loading, KV-block events, KV-aware routing, adaptive P/D capacity planning, and Kubernetes lifecycle orchestration; modeled process, model, event-plane, and traffic readiness as distinct states.</li>
-          <li>Designed and implemented an auditable adaptive P/D Planner that combines request rate, ISL/OSL, prefill cached/compute tokens, KV hit rate, queue/running state, and TTFT/TPOT; mapped live request shapes to Profiler capacity profiles to produce separate prefill/decode targets and a bottleneck-driven scale intent.</li>
-          <li>Designed and implemented an OpenAI Batch API-compatible execution platform covering file and batch lifecycles, task sharding, worker execution, Kubernetes Lease-based leader election, tenant concurrency, recovery, and result/error writeback; supported production data-distillation and batch-generation workloads at ~10M requests/day with a &gt;99% request success rate.</li>
-          <li>Integrated SGLang HTTP/gRPC P/D routing, multi-tenant admission, and end-to-end tracing; load-tested a heterogeneous multi-backend SGLang routing path with ~300K requests and 9.75B tokens, achieving a ~99.9% request success rate; traced production failures across request ID → Gateway → Router → Worker.</li>
+          <li>Led a distributed inference runtime/control plane for heterogeneous non-NVIDIA accelerators spanning worker bootstrap, model loading, the KV event plane, Mooncake/RoCE KV transfer, KV-aware routing, adaptive P/D capacity planning, and Kubernetes lifecycle orchestration; modeled process, model, event, data-plane, and traffic readiness as distinct states.</li>
+          <li>Designed and productionized an auditable adaptive P/D Planner combining request rate, ISL/OSL, prefill cached/compute tokens, KV hit rate, queue/running state, and TTFT/TPOT; selected capacity profiles by model, accelerator, quantization, and parallelism to produce separate prefill/decode targets and scale intents.</li>
+          <li>Designed and implemented an OpenAI Batch API-compatible execution platform covering file and batch lifecycles, task sharding, worker execution, Kubernetes Lease-based leader election, tenant concurrency, recovery, and result/error writeback; continuously supports production data-distillation and batch-generation workloads.</li>
+          <li>Integrated SGLang HTTP/gRPC P/D routing, multi-tenant admission, and end-to-end tracing across heterogeneous non-NVIDIA backends; traced production failures across request ID → Gateway → Router → Worker with KV-transfer, queue, and worker-state telemetry.</li>
         </ul>
       </div>
 
@@ -393,7 +393,7 @@
         </div>
         <ul>
           <li>Customized Kubernetes device-plugin and resource-management paths for heterogeneous accelerator discovery, node resource reporting, container-runtime validation, device-level allocation, and fault isolation.</li>
-          <li>Adapted PyTorch/models and distributed job environments to Linux distributions and heterogeneous accelerator stacks, establishing the platform foundation for later GPU/XPU serving and scheduling work.</li>
+          <li>Adapted PyTorch/models and distributed job environments to Linux distributions and heterogeneous accelerator stacks, establishing the platform foundation for production serving and scheduling across non-NVIDIA accelerators.</li>
         </ul>
       </div>
     </section>
@@ -402,13 +402,13 @@
       <h2>Selected Systems</h2>
       <div class="system">
         <div class="system-head">
-          <h3>Distributed Inference Runtime &amp; KV-Aware Routing</h3>
-          <div class="system-tag">Worker Bootstrap · ModelExpress · Event Plane</div>
+          <h3>Heterogeneous Runtime &amp; KV-Aware Routing</h3>
+          <div class="system-tag">Worker Bootstrap · KV Event · Mooncake / RoCE</div>
         </div>
         <ul>
-          <li>Extended worker startup from process launch into a runtime initialization contract: attached engine lifecycle to DistributedRuntime; registered request-plane endpoints and Model Deployment Cards separately with WorkerType, dependency DNF, KV capacity, and topology metadata; integrated the ModelExpress loader for P2P/NIXL-RDMA weight distribution during scale-out.</li>
-          <li>Initialized a KvEventPublisher per DP rank during bootstrap, normalized native SGLang/vLLM <code>BlockStored</code>, <code>BlockRemoved</code>, and <code>AllBlocksCleared</code> events from ZMQ, and published them to the event plane for the worker KV-block index.</li>
-          <li>Combined prefix KV overlap, worker load, and topology constraints for routing; fell back to a token-level approximate index when events were unavailable, while controllers coordinated Pod, Endpoint, model, event-plane, and Router readiness.</li>
+          <li>Extended worker startup from process launch into a runtime initialization contract: attached engine lifecycle to DistributedRuntime; registered request-plane endpoints and Model Deployment Cards with accelerator type, WorkerType, P/D role, dependency DNF, KV capacity, and RoCE topology metadata.</li>
+          <li>Initialized a KvEventPublisher per DP rank and normalized native SGLang/vLLM <code>BlockStored</code>, <code>BlockRemoved</code>, and <code>AllBlocksCleared</code> events into the event plane; transferred the actual KV tensors between prefill and decode through Mooncake Transfer Engine over RoCE.</li>
+          <li>Combined prefix KV overlap, worker load, accelerator compatibility, and network topology for routing; fell back to a token-level approximate index when events were unavailable, while controllers coordinated model, event-plane, Mooncake/RoCE channel, and Router readiness.</li>
         </ul>
       </div>
     </section>
@@ -422,7 +422,7 @@
         <h1>Weichi Zhao</h1>
         <div class="role-block">
           <div class="role">Distributed LLM Inference &amp; Scheduling Engineer</div>
-          <div class="focus">Runtime · KV-Aware Routing · P/D Autoscaling</div>
+          <div class="focus">Heterogeneous Runtime · KV-Aware Routing · P/D Autoscaling</div>
         </div>
       </div>
     </header>
@@ -435,8 +435,8 @@
           <div class="system-tag">Capacity Profile · ScaleIntent · Guardrails</div>
         </div>
         <ul>
-          <li>Derived request rate, input/output tokens, prefill compute/cached tokens, and KV hit rate from rolling windows; mapped live request shapes onto profiled prefill/decode capacity curves with interpolation and conservative fallback.</li>
-          <li>Computed prefill/decode token demand, safe per-worker throughput, and phase targets independently, then used the bottleneck as the aggregate target; preserved request shape, selected profile points, utilization, and blockers for shadow validation and decision audit.</li>
+          <li>Derived request rate, input/output tokens, prefill compute/cached tokens, and KV hit rate from rolling windows; selected profiled prefill/decode capacity curves by model, accelerator, quantization, TP/DP, and engine version with interpolation and conservative fallback.</li>
+          <li>Computed prefill/decode token demand, safe per-worker throughput, and phase targets independently, then used the bottleneck as the aggregate target; continuously emitted production scale intents while preserving request shape, selected profile points, utilization, and blockers for decision audit.</li>
           <li>Decoupled Planner, ScaleIntent Controller, ScalingAdapter, IGD/ISI, and Scheduler; applied desired-vs-ready pending gates, one-step scaling, stable scale-down windows, cooldown, and stale-intent checks to prevent oscillation and concurrent writes.</li>
         </ul>
       </div>
@@ -460,7 +460,7 @@
         </div>
         <ul>
           <li>Implemented P0-P3 admission in Rust with global/tier semaphores, strict priority scheduling, per-tenant round-robin, bounded queues, and wait timeouts; held permits through streaming response-body completion to avoid releasing capacity early.</li>
-          <li>Integrated SGLang HTTP/gRPC P/D routing, prefill/decode bootstrap and transfer context, plus request-ID and trace-context propagation; validated the multi-backend path with QPS, TTFT, TPOT, and KV-hit telemetry.</li>
+          <li>Integrated SGLang HTTP/gRPC P/D routing, selected compatible prefill/decode workers, and propagated bootstrap/transfer context; moved KV data directly through Mooncake/RoCE while preserving request-ID, trace-context, and transfer telemetry.</li>
         </ul>
       </div>
 
@@ -471,11 +471,11 @@
       <div class="skills">
         <div class="skill-row">
           <div class="skill-label">Inference Runtime &amp; Routing</div>
-          <div>SGLang, vLLM, NVIDIA Dynamo, AIBrix, ModelExpress, NIXL/RDMA, KV event plane, KV-aware routing, P/D disaggregation</div>
+          <div>SGLang, vLLM, Mooncake Transfer Engine, RoCE/RDMA, KV event plane, KV-aware routing, P/D disaggregation, Dynamo/AIBrix architecture</div>
         </div>
         <div class="skill-row">
           <div class="skill-label">Scheduling &amp; Control Plane</div>
-          <div>Go, Kubernetes, CRDs/controllers, capacity profiles, scale intents, reconciliation, readiness, finalizers, leader election, Helm, ArgoCD</div>
+          <div>Go, Kubernetes, CRDs/controllers, capability/capacity profiles, scale intents, reconciliation, readiness, finalizers, leader election, Helm, ArgoCD</div>
         </div>
         <div class="skill-row">
           <div class="skill-label">Gateway &amp; Async Serving</div>
@@ -483,7 +483,7 @@
         </div>
         <div class="skill-row">
           <div class="skill-label">Observability &amp; Performance</div>
-          <div>Prometheus, request tracing, QPS/TTFT/TPOT, ISL/OSL, KV hit rate, throughput curves, distributed-systems debugging</div>
+          <div>Prometheus, request tracing, QPS/TTFT/TPOT, ISL/OSL, KV hit rate, KV transfer, throughput curves, distributed-systems debugging</div>
         </div>
       </div>
     </section>
@@ -516,7 +516,7 @@
       </section>
     </div>
 
-    <div class="page-footer">Last updated: July 27, 2026 · 2 / 2</div>
+    <div class="page-footer">Last updated: July 28, 2026 · 2 / 2</div>
   </article>
 </body>
 </html>
