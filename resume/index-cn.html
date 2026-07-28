@@ -342,7 +342,7 @@
       <h2>职业概述</h2>
       <p class="summary">
         近 5 年云原生 AI / HPC 平台经验，自 2024 年起聚焦生产级 LLM Serving。主导国产异构加速卡环境的 Kubernetes 原生 MaaS
-        控制面，落地 Dynamo Runtime、P/D Planner、KV Event Plane、Mooncake / RoCE KV 传输、KV-aware Router 与模型快速加载；
+        控制面，落地 Dynamo Runtime、P/D Planner、KV Event Plane、Mooncake RDMA KV 传输、KV-aware Router 与模型快速加载；
         同时建设 BatchFlow、LiteLLM / Higress 模型网关、弹性伸缩、故障恢复和可观测性。主要使用 Go、Python，具备 Rust 工程经验。
       </p>
     </section>
@@ -366,7 +366,7 @@
           </div>
           <ul>
             <li>主导生产级 LLM Serving 平台与 Kubernetes Operator 控制面，将国产异构加速卡上的 SGLang / vLLM Worker 接入 Dynamo DistributedRuntime，统一模型服务声明、Worker 生命周期、P/D 拓扑、分层就绪与故障隔离。</li>
-            <li>贯通 Worker Bootstrap、KV Event Plane、Mooncake / RoCE 数据面和 KV-aware Router，并落地 ModelExpress 分层模型快载，使请求路由、KV 复用与弹性扩容形成完整 Runtime 链路。</li>
+            <li>贯通 Worker Bootstrap、KV Event Plane、Mooncake KV 数据面和 KV-aware Router，并落地 ModelExpress 分层模型快载，使请求路由、KV 复用与弹性扩容形成完整 Runtime 链路。</li>
             <li>建设生产级 P/D Planner，基于请求形状、KV 命中与 Capacity Profile 计算 Prefill / Decode 副本目标，通过 ScaleIntent、就绪门禁、稳定窗口、cooldown 和回滚保护闭环执行。</li>
             <li>交付 BatchFlow 多租户离线推理、LiteLLM / Higress 模型网关与 Rust Router；负责发布回滚和生产故障定位，以 request ID、Prometheus 指标及 Kubernetes 状态贯通排队、路由、传输和模型加载观测。</li>
           </ul>
@@ -403,12 +403,12 @@
 
       <div class="system">
         <div class="system-head">
-          <h3>KV Event Plane 与 Mooncake / RoCE KV 数据面</h3>
-          <div class="system-tag">KV-aware Routing · RoCE/RDMA · Fallback</div>
+          <h3>KV Event Plane 与 Mooncake KV 数据面</h3>
+          <div class="system-tag">KV-aware Routing · RDMA KV Transfer · Fallback</div>
         </div>
         <ul>
           <li>按 DP rank 消费 SGLang / vLLM 的 BlockStored、BlockRemoved、AllBlocksCleared 事件并归一化到 Event Plane，维护 Worker / Rank / Storage Tier 维度的 Prefix Radix Index。</li>
-          <li>Router 综合 prefix KV overlap、Worker 负载、卡型 / KV 布局兼容性和网络拓扑选择 P/D Worker；Mooncake Transfer Engine 经 RoCE/RDMA 批量传输 KV Tensor，事件异常时降级到负载策略，传输异常时执行超时摘除、重选和重试。</li>
+          <li>Router 综合 prefix KV overlap、Worker 负载、卡型 / KV 布局兼容性和网络拓扑选择 P/D Worker；Mooncake Transfer Engine 基于高性能网络通过 RDMA 批量传输 KV Tensor，事件异常时降级到负载策略，传输异常时执行超时摘除、重选和重试。</li>
         </ul>
       </div>
     </section>
@@ -447,7 +447,7 @@
           <div class="system-tag">P/D Routing · Priority Admission · Tracing</div>
         </div>
         <ul>
-          <li>整合 SGLang HTTP / gRPC P/D 路由，基于 KV overlap、Worker 负载、兼容性和 RoCE 拓扑选择 Prefill / Decode Worker，透传 request ID、Bootstrap / Transfer Context 与 KV telemetry，用于跨组件故障定位。</li>
+          <li>整合 SGLang HTTP / gRPC P/D 路由，基于 KV overlap、Worker 负载、兼容性和网络拓扑选择 Prefill / Decode Worker，透传 request ID、Bootstrap / Transfer Context 与 KV telemetry，用于跨组件故障定位。</li>
           <li>使用 Rust 实现 P0-P3 分级准入，通过全局 / 优先级 semaphore、有界队列、严格优先、租户内轮转与等待超时控制并发，并将 permit 保持到流式 Response Body 结束，避免容量提前释放。</li>
         </ul>
       </div>
@@ -467,7 +467,7 @@
     <section>
       <h2>核心技术</h2>
       <div class="skills">
-        <div class="skill-row"><span class="skill-label">Runtime &amp; Data Plane:</span> <span>Dynamo Runtime / DistributedRuntime、SGLang、vLLM、KV Event Plane、Mooncake Transfer Engine、RoCE/RDMA、P/D 分离</span></div>
+        <div class="skill-row"><span class="skill-label">Runtime &amp; Data Plane:</span> <span>Dynamo Runtime / DistributedRuntime、SGLang、vLLM、KV Event Plane、Mooncake Transfer Engine、RDMA KV 传输、P/D 分离</span></div>
         <div class="skill-row"><span class="skill-label">Control Plane &amp; Scheduling:</span> <span>Go、Kubernetes Operator、CRD / Controller、Capability / Capacity Profile、ScaleIntent、P/D Autoscaling、Device Plugin、Helm、ArgoCD</span></div>
         <div class="skill-row"><span class="skill-label">Model Loading &amp; Routing:</span> <span>ModelExpress、CPFS / NFS、node-local NVMe、pre-sharded checkpoint、cache-aware scheduling、KV-aware Routing、Rust</span></div>
         <div class="skill-row"><span class="skill-label">Serving &amp; Observability:</span> <span>Python、OpenAI-compatible API、Batch API、LiteLLM、Higress、Redis、MySQL、Prometheus、QPS / TTFT / TPOT、request tracing</span></div>

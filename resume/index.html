@@ -344,7 +344,7 @@
       <p class="summary">
         AI infrastructure engineer with nearly five years of cloud-native AI/HPC experience, focused on production LLM serving since 2024.
         Leads a Kubernetes-native MaaS control plane for heterogeneous non-NVIDIA accelerators, delivering Dynamo Runtime, a P/D Planner,
-        the KV Event Plane, Mooncake/RoCE KV transfer, KV-aware routing, and production model fast loading; also builds BatchFlow,
+        the KV Event Plane, Mooncake-based RDMA KV transfer, KV-aware routing, and production model fast loading; also builds BatchFlow,
         LiteLLM/Higress gateways, autoscaling, failure recovery, and observability. Strong in Go and Python, with Rust engineering experience.
       </p>
     </section>
@@ -368,7 +368,7 @@
           </div>
           <ul>
             <li>Led a production LLM-serving platform and Kubernetes Operator control plane, integrating SGLang/vLLM workers on heterogeneous non-NVIDIA accelerators with Dynamo DistributedRuntime and standardizing model declarations, worker lifecycle, P/D topology, layered readiness, and failure isolation.</li>
-            <li>Connected worker bootstrap, the KV Event Plane, the Mooncake/RoCE data plane, and a KV-aware Router; productionized ModelExpress-based tiered model loading so request routing, KV reuse, and elastic scale-out operate as one runtime path.</li>
+            <li>Connected worker bootstrap, the KV Event Plane, the Mooncake KV data plane, and a KV-aware Router; productionized ModelExpress-based tiered model loading so request routing, KV reuse, and elastic scale-out operate as one runtime path.</li>
             <li>Built a production P/D Planner that derives prefill/decode replica targets from request shapes, KV hits, and Capacity Profiles, then executes auditable ScaleIntents with readiness gates, stabilization windows, cooldowns, and rollback protection.</li>
             <li>Delivered BatchFlow multi-tenant offline inference, LiteLLM/Higress gateways, and a Rust Router; owned releases, rollbacks, and production diagnosis across queueing, routing, transfer, and model loading using request IDs, Prometheus metrics, and Kubernetes state.</li>
           </ul>
@@ -405,12 +405,12 @@
 
       <div class="system">
         <div class="system-head">
-          <h3>KV Event Plane and Mooncake/RoCE KV Data Plane</h3>
-          <div class="system-tag">KV-aware Routing · RoCE/RDMA · Fallback</div>
+          <h3>KV Event Plane and Mooncake KV Data Plane</h3>
+          <div class="system-tag">KV-aware Routing · RDMA KV Transfer · Fallback</div>
         </div>
         <ul>
           <li>Consumed per-DP-rank SGLang/vLLM BlockStored, BlockRemoved, and AllBlocksCleared events into the Event Plane and maintained a Worker/Rank/Storage-Tier prefix radix index.</li>
-          <li>The Router selects P/D workers from prefix KV overlap, load, accelerator/KV-layout compatibility, and network topology; Mooncake Transfer Engine performs batched KV tensor transfers over RoCE/RDMA, degrading to load-based routing on event anomalies and isolating failed pairs before reselection and retry.</li>
+          <li>The Router selects P/D workers from prefix KV overlap, load, accelerator/KV-layout compatibility, and network topology; Mooncake Transfer Engine performs batched KV tensor transfers through the high-performance RDMA fabric, degrading to load-based routing on event anomalies and isolating failed pairs before reselection and retry.</li>
         </ul>
       </div>
     </section>
@@ -449,7 +449,7 @@
           <div class="system-tag">P/D Routing · Priority Admission · Tracing</div>
         </div>
         <ul>
-          <li>Integrated SGLang HTTP/gRPC P/D routing and selects compatible prefill/decode workers from KV overlap, worker load, and RoCE topology; propagates request IDs, bootstrap/transfer context, and KV telemetry for cross-component diagnosis.</li>
+          <li>Integrated SGLang HTTP/gRPC P/D routing and selects compatible prefill/decode workers from KV overlap, worker load, and network topology; propagates request IDs, bootstrap/transfer context, and KV telemetry for cross-component diagnosis.</li>
           <li>Implemented P0-P3 priority admission in Rust with global/per-priority semaphores, bounded queues, strict priority, tenant round-robin, and wait timeouts; holds permits until streaming response bodies complete so capacity is not released early.</li>
         </ul>
       </div>
@@ -469,7 +469,7 @@
     <section>
       <h2>Core Technologies</h2>
       <div class="skills">
-        <div class="skill-row"><span class="skill-label">Runtime &amp; Data Plane:</span> <span>Dynamo Runtime / DistributedRuntime, SGLang, vLLM, KV Event Plane, Mooncake Transfer Engine, RoCE/RDMA, P/D disaggregation</span></div>
+        <div class="skill-row"><span class="skill-label">Runtime &amp; Data Plane:</span> <span>Dynamo Runtime / DistributedRuntime, SGLang, vLLM, KV Event Plane, Mooncake Transfer Engine, RDMA KV transfer, P/D disaggregation</span></div>
         <div class="skill-row"><span class="skill-label">Control Plane &amp; Scheduling:</span> <span>Go, Kubernetes Operator, CRD/controller, Capability/Capacity Profiles, ScaleIntent, P/D autoscaling, Device Plugin, Helm, ArgoCD</span></div>
         <div class="skill-row"><span class="skill-label">Model Loading &amp; Routing:</span> <span>ModelExpress, CPFS/NFS, node-local NVMe, pre-sharded checkpoints, cache-aware scheduling, KV-aware routing, Rust</span></div>
         <div class="skill-row"><span class="skill-label">Serving &amp; Observability:</span> <span>Python, OpenAI-compatible API, Batch API, LiteLLM, Higress, Redis, MySQL, Prometheus, QPS/TTFT/TPOT, request tracing</span></div>
