@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <title>赵伟驰｜大模型推理系统与调度工程师</title>
+  <title>赵伟驰｜大模型推理平台与资源调度工程师</title>
   <link rel="shortcut icon" href="../Img_Files/icon_ailurus.ico">
   <style>
     :root {
@@ -237,7 +237,7 @@
 
     .bottom-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 0.9fr 1.1fr;
       gap: 22px;
     }
 
@@ -342,8 +342,8 @@
       <div class="name-row">
         <h1>赵伟驰</h1>
         <div class="role-block">
-          <div class="role">大模型推理系统与调度工程师</div>
-          <div class="focus">Heterogeneous Runtime · KV-aware Routing · P/D Autoscaling</div>
+          <div class="role">大模型推理平台与资源调度工程师</div>
+          <div class="focus">Kubernetes Control Plane · Heterogeneous Serving · P/D Autoscaling</div>
         </div>
       </div>
       <div class="contact">
@@ -358,9 +358,9 @@
     <section>
       <h2>职业概述</h2>
       <p class="summary">
-        5 年云原生 AI / HPC 平台经验，近 3 年聚焦生产级大模型推理系统与调度。主导在国产异构加速卡环境构建 Kubernetes 原生
-        LLM Serving Runtime / Control Plane，覆盖 Worker 生命周期、Mooncake / RoCE KV 数据面、KV-aware Routing、P/D 容量规划与扩缩容；
-        并交付多租户 Batch 推理和模型网关。主要使用 Go / Python，具备 Rust 路由开发经验。
+        5 年云原生 AI / HPC 平台经验，近 3 年聚焦生产级 LLM Serving。负责国产异构加速卡环境的 Kubernetes 原生控制面，
+        覆盖模型服务生命周期、P/D 拓扑与容量治理、Mooncake / RoCE KV 传输和 KV-aware Routing；同时交付多租户 Batch 推理、
+        模型网关与生产可观测性。主要使用 Go / Python，具备 Rust 路由开发经验。
       </p>
     </section>
 
@@ -375,10 +375,9 @@
           <div class="date">2024 - 至今</div>
         </div>
         <ul>
-          <li>主导国产异构卡分布式推理 Runtime / Control Plane，贯通 Worker Bootstrap、模型加载、KV Event Plane、Mooncake / RoCE KV 传输、KV-aware Routing、P/D 自适应容量规划和 Kubernetes 生命周期；将进程、模型、事件、数据通道和流量就绪分层建模。</li>
-          <li>设计并落地可审计的生产 P/D Planner：融合 request rate、ISL / OSL、Prefill cached / compute tokens、KV hit、queue / running 与 TTFT / TPOT，按模型、卡型、量化方式和并行策略选择 Capacity Profile，分别生成 Prefill / Decode 容量目标和 ScaleIntent。</li>
-          <li>设计并实现 OpenAI Batch API 兼容执行平台，覆盖文件与 Batch 生命周期、任务切分、分片 Worker 执行、Kubernetes Lease 选主、租户并发、失败恢复及结果 / 错误回写；长期支撑生产数据蒸馏与批量生成任务。</li>
-          <li>整合 SGLang HTTP / gRPC P/D 路由、多租户准入与链路追踪，在多个国产异构后端稳定运行；贯通 request_id → Gateway → Router → Worker，并围绕 KV 传输、排队与 Worker 状态定位生产问题。</li>
+          <li>负责国产异构加速卡推理平台控制面，统一模型服务声明、Worker 生命周期、P/D 拓扑、分层就绪与故障隔离，使不同卡型及 SGLang / vLLM 后端通过同一 MaaS 接口稳定交付。</li>
+          <li>建设基于 Capacity Profile 的生产容量治理，将实时请求形状映射为 Prefill / Decode 独立容量目标，并通过就绪门禁、稳定窗口与冷却机制形成可审计的扩缩容闭环。</li>
+          <li>交付 OpenAI-compatible Batch 与模型网关，覆盖任务持久化、分片执行、多租户准入、失败恢复和全链路追踪，长期支撑生产数据蒸馏与批量生成任务。</li>
         </ul>
       </div>
 
@@ -405,9 +404,9 @@
           <div class="system-tag">Worker Bootstrap · KV Event · Mooncake / RoCE</div>
         </div>
         <ul>
-          <li>将 Worker 启动从进程拉起扩展为 Runtime 初始化协议：把引擎生命周期接入 DistributedRuntime，分别注册 request-plane Endpoint 与 Model Deployment Card，并发布卡型、WorkerType、P/D 角色、依赖 DNF、KV 容量和 RoCE 拓扑元数据。</li>
-          <li>在各 DP rank 初始化 KvEventPublisher，将 SGLang / vLLM 原生 <code>BlockStored</code>、<code>BlockRemoved</code>、<code>AllBlocksCleared</code> 事件归一化到 Event Plane；实际 KV Tensor 由 Mooncake Transfer Engine 通过 RoCE 在 Prefill / Decode 间传输。</li>
-          <li>综合请求前缀 KV overlap、Worker 负载、卡型兼容性和网络拓扑评分；事件不可用时回退到 Token 级近似索引，并由 Controller 协调模型、Event Plane、Mooncake / RoCE 通道与 Router readiness。</li>
+          <li>将进程、模型、KV 事件、Mooncake / RoCE 数据通道和流量就绪拆成独立状态；只有模型加载、P/D Bootstrap、传输通道和 Router 注册全部完成后，Worker 才进入可服务集合。</li>
+          <li>由 KV Event Plane 维护缓存位置元数据，Mooncake Transfer Engine 通过 RoCE 搬运实际 KV Tensor，避免让 Router 承载 KV 数据传输。</li>
+          <li>Router 综合前缀重叠、Worker 负载、卡型兼容性与网络拓扑选路；事件过期或传输异常时摘除不可用 P/D Pair，并回退到健康链路。</li>
         </ul>
       </div>
     </section>
@@ -420,8 +419,8 @@
       <div class="name-row">
         <h1>赵伟驰</h1>
         <div class="role-block">
-          <div class="role">大模型推理系统与调度工程师</div>
-          <div class="focus">Heterogeneous Runtime · KV-aware Routing · P/D Autoscaling</div>
+          <div class="role">大模型推理平台与资源调度工程师</div>
+          <div class="focus">Kubernetes Control Plane · Heterogeneous Serving · P/D Autoscaling</div>
         </div>
       </div>
     </header>
@@ -434,9 +433,8 @@
           <div class="system-tag">Capacity Profile · ScaleIntent · Guardrails</div>
         </div>
         <ul>
-          <li>以滑动窗口计算 request rate、输入 / 输出 Token、Prefill compute / cached token 和 KV hit；按模型、卡型、量化方式、TP / DP 与引擎版本选择 Prefill / Decode Capacity Profile，使用区间插值与安全回退避免高估。</li>
-          <li>分别计算 Prefill / Decode token demand、单 Worker 安全吞吐和目标副本，以瓶颈阶段形成 aggregate target；持续输出生产 ScaleIntent，并完整保存输入 shape、容量测点、利用率与阻塞原因用于决策审计。</li>
-          <li>将 Planner、ScaleIntent Controller、ScalingAdapter 与 IGD / ISI / Scheduler 解耦；通过 desired &gt; ready pending gate、单步扩缩、稳定窗口、cooldown 和 stale-intent 校验抑制震荡与并发写入。</li>
+          <li>从滑动窗口提取 request rate、输入 / 输出 Token、Prefill compute / cached token、KV hit 与队列状态，按模型、卡型、量化方式、TP / DP 和引擎版本选择独立 Capacity Profile。</li>
+          <li>分别计算 Prefill / Decode 需求与安全副本目标，以瓶颈阶段形成扩缩意图；保存请求形状、容量测点与阻塞原因，并通过 pending gate、单步扩缩、稳定窗口、cooldown 和过期校验抑制振荡。</li>
         </ul>
       </div>
 
@@ -446,9 +444,8 @@
           <div class="system-tag">OpenAI Batch API · Scheduling · Recovery</div>
         </div>
         <ul>
-          <li>将 Batch 定义为可持久化、可恢复的异步任务，而非批量请求脚本：数据库保存任务真相，Scheduler / Worker 负责 claim、分片、执行、续租和 finalize。</li>
-          <li>通过 Kubernetes Lease、数据库级 claim、租户 / 模型级并发预算和请求级错误隔离支持多副本运行，避免重复执行并降低离线任务对在线服务的冲击。</li>
-          <li>覆盖 JSONL 流式处理、取消、过期清理、output / error 文件和异常 finalizing，形成从 API 契约到生产监控的完整批量执行链路。</li>
+          <li>以数据库保存任务真相，Scheduler / Worker 负责 claim、分片、执行、续租和 finalize；通过 Kubernetes Lease、请求级错误隔离与异常 finalizing 支持多副本恢复，避免重复执行。</li>
+          <li>覆盖 JSONL 流式处理、租户 / 模型并发预算、取消、过期清理及 output / error 回写，形成从 OpenAI Batch API 契约到生产监控的完整链路，并降低离线任务对在线服务的影响。</li>
         </ul>
       </div>
 
@@ -458,8 +455,8 @@
           <div class="system-tag">P/D Routing · Priority Admission · Tracing</div>
         </div>
         <ul>
-          <li>使用 Rust 实现 P0-P3 分级准入：通过全局 / 优先级 semaphore、严格优先调度、租户内轮转、队列上限与等待超时控制并发，并将 permit 保持到流式 Response Body 结束，避免提前释放容量。</li>
-          <li>整合 SGLang HTTP / gRPC P/D 路由，选择兼容的 Prefill / Decode Worker 并传递 bootstrap / transfer context；KV 数据由 Mooncake / RoCE 直传，同时贯通 request ID、trace context 与传输可观测性。</li>
+          <li>使用 Rust 实现 P0-P3 分级准入，通过全局 / 优先级 semaphore、有界队列、严格优先和租户内轮转控制并发；将 permit 保持到流式响应结束，避免提前释放容量。</li>
+          <li>整合 SGLang HTTP / gRPC P/D 路由并传递 bootstrap / transfer context；KV 数据由 Mooncake / RoCE 直传，同时贯通 request ID、trace context、队列与 KV 传输指标。</li>
         </ul>
       </div>
 
@@ -470,11 +467,11 @@
       <div class="skills">
         <div class="skill-row">
           <div class="skill-label">Inference Runtime &amp; Routing</div>
-          <div>SGLang、vLLM、Mooncake Transfer Engine、RoCE / RDMA、KV Event Plane、KV-aware Routing、P/D 分离、Dynamo / AIBrix 架构</div>
+          <div>SGLang、vLLM、Mooncake Transfer Engine、RoCE / RDMA、KV Event Plane、KV-aware Routing、P/D 分离</div>
         </div>
         <div class="skill-row">
           <div class="skill-label">Scheduling &amp; Control Plane</div>
-          <div>Go、Kubernetes、CRD / Controller、Capability / Capacity Profile、ScaleIntent、reconcile、readiness、finalizer、Leader Election、Helm、ArgoCD</div>
+          <div>Go、Kubernetes、CRD / Controller、Capacity Profile、P/D Autoscaling、reconcile、readiness、Leader Election、Helm、ArgoCD</div>
         </div>
         <div class="skill-row">
           <div class="skill-label">Gateway &amp; Async Serving</div>
@@ -482,7 +479,7 @@
         </div>
         <div class="skill-row">
           <div class="skill-label">Observability &amp; Performance</div>
-          <div>Prometheus、request tracing、QPS / TTFT / TPOT、ISL / OSL、KV hit、KV transfer、吞吐曲线、分布式系统排障</div>
+          <div>Prometheus、request tracing、QPS / TTFT / TPOT、ISL / OSL、KV hit / transfer、吞吐曲线、分布式系统排障</div>
         </div>
       </div>
     </section>
@@ -507,9 +504,9 @@
       </section>
 
       <section>
-        <h2>知识产权</h2>
+        <h2>论文与知识产权</h2>
         <p class="ip">
-          授权发明专利 2 项，其中包括“基于云服务的按需扩缩容的模型推理服务系统、方法”；授权软件著作权 2 项。
+          <a href="https://ieeexplore.ieee.org/document/11290434"><strong>Prompt2Length: A Lightweight Model for Predicting Output Length in LLM Inference</strong></a>，IEEE AIAHPC 2025，第三作者；授权发明专利 2 项、软件著作权 2 项。
         </p>
       </section>
     </div>

@@ -14,30 +14,6 @@ title: Weichi Zhao
   </div>
 </section>
 
-<section class="wrap section">
-  <div class="section-title">
-    <h2>专业方向</h2>
-  </div>
-
-  <div class="feature-grid focus-grid">
-    <div class="feature-card">
-      <span>Serving Control Plane</span>
-      <h3>模型服务生命周期与就绪收敛</h3>
-      <p>用 Kubernetes CRD / Controller 管理模型工作负载、Service / Endpoint、Router Worker 注册、健康状态、发布与回滚。</p>
-    </div>
-    <div class="feature-card">
-      <span>Batch Inference</span>
-      <h3>高吞吐、可恢复的离线推理</h3>
-      <p>围绕 OpenAI Batch API、任务分片、多副本协调、租户并发和失败恢复，长期支撑生产数据蒸馏与批量生成任务。</p>
-    </div>
-    <div class="feature-card">
-      <span>Routing &amp; Reliability</span>
-      <h3>网关、Router 与生产可观测性</h3>
-      <p>连接 LiteLLM / Higress、SGLang / vLLM 与 Kubernetes，关注流量治理、推理指标、缓存效率和全链路故障定位。</p>
-    </div>
-  </div>
-</section>
-
 {% assign essay_posts = site.posts | where_exp: "post", "post.categories contains 'personal-essay'" %}
 {% if essay_posts.size > 0 %}
 <section class="wrap section">
