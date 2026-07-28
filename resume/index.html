@@ -327,7 +327,7 @@
         <h1>Weichi Zhao</h1>
         <div class="role-block">
           <div class="role">Distributed LLM Inference &amp; Scheduling Engineer</div>
-          <div class="focus">IGD Control Plane · Dynamo Runtime · KV-aware Routing · P/D Autoscaling</div>
+          <div class="focus">Model Serving Control Plane · Dynamo Runtime · KV-aware Routing · P/D Autoscaling</div>
         </div>
       </div>
       <div class="contact">
@@ -343,7 +343,7 @@
       <h2>Professional Summary</h2>
       <p class="summary">
         AI infrastructure engineer with nearly five years of cloud-native AI/HPC experience, focused on production LLM serving since 2024.
-        Leads a Kubernetes-native MaaS control plane for heterogeneous non-NVIDIA accelerators, delivering InferGraphDeployment (IGD), Dynamo Runtime, a P/D Planner,
+        Leads a Kubernetes-native MaaS control plane for heterogeneous non-NVIDIA accelerators, delivering declarative model-service orchestration, Dynamo Runtime, a P/D Planner,
         the KV Event Plane, Mooncake-based RDMA KV transfer, and KV-aware routing; also builds BatchFlow,
         LiteLLM/Higress gateways, autoscaling, failure recovery, and observability. Strong in Go and Python, with Rust engineering experience.
       </p>
@@ -367,9 +367,9 @@
             <div class="date">2024 - Present</div>
           </div>
           <ul>
-            <li>Designed and productionized InferGraphDeployment (IGD), a Kubernetes-native CRD/controller for the MaaS control plane, modeling co-located and P/D-disaggregated inference on heterogeneous non-NVIDIA accelerators as declarative topologies and reconciling ISI, worker, Router, Service, and Ingress resources through unified lifecycle management, failure isolation, and scaling entry points.</li>
-            <li>Integrated IGD-managed SGLang/vLLM workers with Dynamo DistributedRuntime, connecting worker bootstrap, the KV Event Plane, the Mooncake KV data plane, and a KV-aware Router into one service-discovery, request-routing, KV-reuse, and P/D-transfer path.</li>
-            <li>Built a production P/D Planner that derives prefill/decode replica targets from request shapes, KV hits, and Capacity Profiles, then executes auditable ScaleIntents with readiness gates, stabilization windows, cooldowns, and rollback protection.</li>
+            <li>Designed and productionized a Kubernetes-native model-serving control plane for the MaaS platform, expressing co-located and P/D-disaggregated inference on heterogeneous non-NVIDIA accelerators as declarative services; controllers orchestrate workers, Routers, Services, and Ingresses under unified lifecycle management, failure isolation, and scaling entry points.</li>
+            <li>Integrated SGLang/vLLM workers with Dynamo DistributedRuntime, connecting worker bootstrap, the KV Event Plane, the Mooncake KV data plane, and a KV-aware Router into one service-discovery, request-routing, KV-reuse, and P/D-transfer path.</li>
+            <li>Built a production P/D Planner that derives prefill/decode replica targets from request shapes, KV hits, and hardware-specific capacity profiles, then applies auditable scaling decisions with readiness gates, stabilization windows, cooldowns, and rollback protection.</li>
             <li>Delivered BatchFlow multi-tenant offline inference, LiteLLM/Higress gateways, and a Rust Router; owned releases, rollbacks, and production diagnosis across queueing, routing, transfer, and service readiness using request IDs, Prometheus metrics, and Kubernetes state.</li>
           </ul>
         </div>
@@ -393,12 +393,12 @@
       <h2>Selected Production Systems</h2>
       <div class="system">
         <div class="system-head">
-          <h3>IGD Model-Service Control Plane and Dynamo Runtime</h3>
-          <div class="system-tag">Declarative Serving · DistributedRuntime · Readiness</div>
+          <h3>Model-Serving Control Plane and Dynamo Runtime</h3>
+          <div class="system-tag">Declarative Serving · Service Discovery · Readiness</div>
         </div>
         <ul>
-          <li>Uses InferGraphDeployment (IGD) as the model-service lifecycle object for co-located or P/D-disaggregated topology, component specifications, runtime policy, and network exposure; the controller continuously reconciles ISI, worker, Router, Service, and Ingress resources and aggregates status and entry points, replacing per-model multi-resource assembly with one declarative delivery interface.</li>
-          <li>Integrates IGD-managed workers with Dynamo DistributedRuntime for Namespace/Component/Endpoint discovery, actual ModelRuntimeConfig/ModelDeploymentCard capability publication, and P/D bootstrap; the control plane owns desired state without rewriting worker-owned runtime facts.</li>
+          <li>Uses a unified model-service CRD as the lifecycle entry point for co-located or P/D-disaggregated topology, component specifications, runtime policy, and network exposure; controllers continuously orchestrate workers, Routers, Services, and Ingresses and aggregate service status and endpoints, replacing per-model resource assembly with one declarative delivery interface.</li>
+          <li>Integrates workers with Dynamo DistributedRuntime for service discovery, actual engine-capability publication, and P/D bootstrap; the control plane owns desired state while workers publish roles, concurrency, KV layout, and service endpoints, preventing static configuration from overwriting runtime facts.</li>
           <li>Admits traffic only after model health, KV events, the Mooncake transfer channel, P/D bootstrap, and Router registration are ready; on scale-in, stops new admission before draining in-flight requests and unregistering endpoints to protect streaming responses.</li>
         </ul>
       </div>
@@ -424,7 +424,7 @@
         <h1>Weichi Zhao</h1>
         <div class="role-block">
           <div class="role">Distributed LLM Inference &amp; Scheduling Engineer</div>
-          <div class="focus">IGD Control Plane · Dynamo Runtime · KV-aware Routing · P/D Autoscaling</div>
+          <div class="focus">Model Serving Control Plane · Dynamo Runtime · KV-aware Routing · P/D Autoscaling</div>
         </div>
       </div>
     </header>
@@ -434,12 +434,12 @@
       <div class="system">
         <div class="system-head">
           <h3>Adaptive P/D Planner and Autoscaling Guardrails</h3>
-          <div class="system-tag">Capacity Profile · ScaleIntent · Guardrails</div>
+          <div class="system-tag">Capacity Modeling · P/D Autoscaling · Guardrails</div>
         </div>
         <ul>
           <li>Aggregates request rate, ISL/OSL, prefill compute tokens and cached tokens, KV hits, queue depth, and running state over rolling windows; selects Capacity Profiles by model, accelerator, quantization, TP/DP, and engine version, using interpolation and conservative fallback for safe capacity estimates.</li>
-          <li>Computes prefill/decode token demand, safe per-worker throughput, and independent replica targets, then derives an aggregate target from the bottleneck stage; continuously emits auditable ScaleIntents with request shape, capacity samples, utilization, and blocking reasons.</li>
-          <li>Decouples the Planner, ScaleIntent Controller, ScalingAdapter, and IGD/ISI/Scheduler; applies desired &gt; ready pending gates, one-step changes, stabilization windows, cooldowns, stale-intent rejection, and rollback to suppress oscillation and concurrent writes.</li>
+          <li>Computes prefill/decode token demand, safe per-worker throughput, and independent replica targets, then derives an aggregate target from the bottleneck stage; continuously records auditable scaling decisions with request shape, capacity samples, utilization, and blocking reasons.</li>
+          <li>Decouples capacity planning, scaling execution, model-service reconciliation, and Kubernetes scheduling; applies desired &gt; ready pending gates, one-step changes, stabilization windows, cooldowns, stale-decision rejection, and rollback to suppress oscillation and concurrent writes.</li>
         </ul>
       </div>
 
@@ -470,7 +470,7 @@
       <h2>Core Technologies</h2>
       <div class="skills">
         <div class="skill-row"><span class="skill-label">Runtime &amp; Data Plane:</span> <span>Dynamo Runtime / DistributedRuntime, SGLang, vLLM, KV Event Plane, Mooncake Transfer Engine, RDMA KV transfer, P/D disaggregation</span></div>
-        <div class="skill-row"><span class="skill-label">Control Plane &amp; Scheduling:</span> <span>InferGraphDeployment (IGD), Go, Kubernetes Operator, CRD/controller, Capability/Capacity Profiles, ScaleIntent, P/D autoscaling, Device Plugin, Helm, ArgoCD</span></div>
+        <div class="skill-row"><span class="skill-label">Control Plane &amp; Scheduling:</span> <span>Go, Kubernetes Operator, CRD/controller, declarative model-service orchestration, capacity modeling, P/D autoscaling, Device Plugin, Helm, ArgoCD</span></div>
         <div class="skill-row"><span class="skill-label">Routing &amp; Admission:</span> <span>KV-aware routing, Rust, HTTP/gRPC P/D routing, prefix radix index, P0-P3 admission, streaming-request lifecycle</span></div>
         <div class="skill-row"><span class="skill-label">Serving &amp; Observability:</span> <span>Python, OpenAI-compatible API, Batch API, LiteLLM, Higress, Redis, MySQL, Prometheus, QPS/TTFT/TPOT, request tracing</span></div>
       </div>

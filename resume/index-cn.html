@@ -326,7 +326,7 @@
         <h1>赵伟驰</h1>
         <div class="role-block">
           <div class="role">大模型推理平台与资源调度工程师</div>
-          <div class="focus">IGD Control Plane · Dynamo Runtime · KV-aware Routing · P/D Autoscaling</div>
+          <div class="focus">Model Serving Control Plane · Dynamo Runtime · KV-aware Routing · P/D Autoscaling</div>
         </div>
       </div>
       <div class="contact">
@@ -342,7 +342,7 @@
       <h2>职业概述</h2>
       <p class="summary">
         近 5 年云原生 AI / HPC 平台经验，自 2024 年起聚焦生产级 LLM Serving。主导国产异构加速卡环境的 Kubernetes 原生 MaaS
-        控制面，落地 InferGraphDeployment（IGD）、Dynamo Runtime、P/D Planner、KV Event Plane、Mooncake RDMA KV 传输与 KV-aware Router；
+        控制面，落地声明式模型服务编排、Dynamo Runtime、P/D Planner、KV Event Plane、Mooncake RDMA KV 传输与 KV-aware Router；
         同时建设 BatchFlow、LiteLLM / Higress 模型网关、弹性伸缩、故障恢复和可观测性。主要使用 Go、Python，具备 Rust 工程经验。
       </p>
     </section>
@@ -365,9 +365,9 @@
             <div class="date">2024 - 至今</div>
           </div>
           <ul>
-            <li>主导生产级 Kubernetes 原生 MaaS 控制面，设计并落地 InferGraphDeployment（IGD）CRD / Controller，将国产异构加速卡上的聚合与 P/D 分离服务抽象为声明式拓扑，统一编排 ISI、Worker、Router、Service 与 Ingress，收敛生命周期、故障隔离和扩缩入口。</li>
-            <li>将 IGD 管理的 SGLang / vLLM Worker 接入 Dynamo DistributedRuntime，贯通 Worker Bootstrap、KV Event Plane、Mooncake KV 数据面和 KV-aware Router，使服务发现、请求路由、KV 复用与 P/D 传输形成完整 Runtime 链路。</li>
-            <li>建设生产级 P/D Planner，基于请求形状、KV 命中与 Capacity Profile 计算 Prefill / Decode 副本目标，通过 ScaleIntent、就绪门禁、稳定窗口、cooldown 和回滚保护闭环执行。</li>
+            <li>主导生产级 Kubernetes 原生 MaaS 控制面，将国产异构加速卡上的聚合与 P/D 分离服务抽象为声明式模型服务，由 Controller 自动编排 Worker、Router、Service 与 Ingress，统一生命周期、故障隔离和扩缩入口，降低多组件手工部署与适配复杂度。</li>
+            <li>将 SGLang / vLLM Worker 接入 Dynamo DistributedRuntime，贯通 Worker Bootstrap、KV Event Plane、Mooncake KV 数据面和 KV-aware Router，使服务发现、请求路由、KV 复用与 P/D 传输形成完整 Runtime 链路。</li>
+            <li>建设生产级 P/D Planner，基于请求形状、KV 命中与容量画像计算 Prefill / Decode 副本目标，通过可审计扩缩决策、就绪门禁、稳定窗口、cooldown 和回滚保护闭环执行。</li>
             <li>交付 BatchFlow 多租户离线推理、LiteLLM / Higress 模型网关与 Rust Router；负责发布回滚和生产故障定位，以 request ID、Prometheus 指标及 Kubernetes 状态贯通排队、路由、传输和服务就绪观测。</li>
           </ul>
         </div>
@@ -391,12 +391,12 @@
       <h2>重点生产系统</h2>
       <div class="system">
         <div class="system-head">
-          <h3>IGD 模型服务控制面与 Dynamo Runtime</h3>
-          <div class="system-tag">Declarative Serving · DistributedRuntime · Readiness</div>
+          <h3>模型服务控制面与 Dynamo Runtime</h3>
+          <div class="system-tag">Declarative Serving · Service Discovery · Readiness</div>
         </div>
         <ul>
-          <li>以 InferGraphDeployment（IGD）作为模型服务生命周期对象，声明聚合 / P/D 分离拓扑、组件规格、运行策略与网络入口；Controller 持续 reconcile 为 ISI、Worker、Router、Service 与 Ingress，并聚合 status 与入口，将多资源手工配置收敛为一个声明式交付入口。</li>
-          <li>将 IGD 管理的 Worker 接入 Dynamo DistributedRuntime，统一 Namespace / Component / Endpoint 服务发现、ModelRuntimeConfig / ModelDeploymentCard 实际能力发布与 P/D Bootstrap；控制面维护期望状态，不改写 Worker 拥有的运行事实。</li>
+          <li>以统一模型服务 CRD 作为生命周期入口，声明聚合 / P/D 分离拓扑、组件规格、运行策略与网络入口；Controller 持续编排 Worker、Router、Service 与 Ingress，并聚合服务状态和访问入口，将多资源手工配置收敛为一个声明式交付入口。</li>
+          <li>将 Worker 接入 Dynamo DistributedRuntime，统一服务发现、实际引擎能力发布与 P/D Bootstrap；控制面维护期望状态，Worker 发布角色、并发能力、KV 布局和服务 Endpoint，避免静态配置覆盖运行时事实。</li>
           <li>只有模型健康、KV Event、Mooncake 传输通道、P/D Bootstrap 和 Router 注册全部就绪才接收流量；缩容时先停止新准入，再等待在途请求完成并注销 Endpoint，避免流式请求被直接切断。</li>
         </ul>
       </div>
@@ -422,7 +422,7 @@
         <h1>赵伟驰</h1>
         <div class="role-block">
           <div class="role">大模型推理平台与资源调度工程师</div>
-          <div class="focus">IGD Control Plane · Dynamo Runtime · KV-aware Routing · P/D Autoscaling</div>
+          <div class="focus">Model Serving Control Plane · Dynamo Runtime · KV-aware Routing · P/D Autoscaling</div>
         </div>
       </div>
     </header>
@@ -432,12 +432,12 @@
       <div class="system">
         <div class="system-head">
           <h3>自适应 P/D Planner 与扩缩容保护机制</h3>
-          <div class="system-tag">Capacity Profile · ScaleIntent · Guardrails</div>
+          <div class="system-tag">Capacity Modeling · P/D Autoscaling · Guardrails</div>
         </div>
         <ul>
           <li>以滑动窗口聚合 request rate、ISL / OSL、Prefill 计算 Token / 缓存 Token、KV hit、队列和运行状态，并按模型、卡型、量化方式、TP / DP 及引擎版本选择 Capacity Profile，以插值和保守回退计算安全容量。</li>
-          <li>分别计算 Prefill / Decode token demand、单 Worker 安全吞吐和副本目标，以瓶颈阶段形成 aggregate target；持续输出可审计 ScaleIntent，保存输入 shape、容量测点、利用率和阻塞原因。</li>
-          <li>解耦 Planner、ScaleIntent Controller、ScalingAdapter 与 IGD / ISI / Scheduler；通过 desired &gt; ready pending gate、单步扩缩、稳定窗口、cooldown、stale-intent 校验和失败回滚抑制震荡及并发写入。</li>
+          <li>分别计算 Prefill / Decode token demand、单 Worker 安全吞吐和副本目标，以瓶颈阶段形成 aggregate target；持续输出可审计扩缩决策，保存输入 shape、容量测点、利用率和阻塞原因。</li>
+          <li>解耦容量决策、扩缩执行、模型服务 Controller 与 Kubernetes Scheduler；通过 desired &gt; ready pending gate、单步扩缩、稳定窗口、cooldown、过期决策校验和失败回滚抑制震荡及并发写入。</li>
         </ul>
       </div>
 
@@ -468,7 +468,7 @@
       <h2>核心技术</h2>
       <div class="skills">
         <div class="skill-row"><span class="skill-label">Runtime &amp; Data Plane:</span> <span>Dynamo Runtime / DistributedRuntime、SGLang、vLLM、KV Event Plane、Mooncake Transfer Engine、RDMA KV 传输、P/D 分离</span></div>
-        <div class="skill-row"><span class="skill-label">Control Plane &amp; Scheduling:</span> <span>InferGraphDeployment（IGD）、Go、Kubernetes Operator、CRD / Controller、Capability / Capacity Profile、ScaleIntent、P/D Autoscaling、Device Plugin、Helm、ArgoCD</span></div>
+        <div class="skill-row"><span class="skill-label">Control Plane &amp; Scheduling:</span> <span>Go、Kubernetes Operator、CRD / Controller、声明式模型服务编排、容量画像、P/D Autoscaling、Device Plugin、Helm、ArgoCD</span></div>
         <div class="skill-row"><span class="skill-label">Routing &amp; Admission:</span> <span>KV-aware Routing、Rust、HTTP / gRPC P/D 路由、Prefix Radix Index、P0-P3 准入、流式请求生命周期</span></div>
         <div class="skill-row"><span class="skill-label">Serving &amp; Observability:</span> <span>Python、OpenAI-compatible API、Batch API、LiteLLM、Higress、Redis、MySQL、Prometheus、QPS / TTFT / TPOT、request tracing</span></div>
       </div>
