@@ -327,7 +327,7 @@
         <h1>Weichi Zhao</h1>
         <div class="role-block">
           <div class="role">Distributed LLM Inference &amp; Scheduling Engineer</div>
-          <div class="focus">Dynamo Runtime · KV Event Plane · Model Fast Loading · P/D Autoscaling</div>
+          <div class="focus">Dynamo Runtime · KV Event Plane · KV-aware Routing · P/D Autoscaling</div>
         </div>
       </div>
       <div class="contact">
@@ -344,7 +344,7 @@
       <p class="summary">
         AI infrastructure engineer with nearly five years of cloud-native AI/HPC experience, focused on production LLM serving since 2024.
         Leads a Kubernetes-native MaaS control plane for heterogeneous non-NVIDIA accelerators, delivering Dynamo Runtime, a P/D Planner,
-        the KV Event Plane, Mooncake-based RDMA KV transfer, KV-aware routing, and production model fast loading; also builds BatchFlow,
+        the KV Event Plane, Mooncake-based RDMA KV transfer, and KV-aware routing; also builds BatchFlow,
         LiteLLM/Higress gateways, autoscaling, failure recovery, and observability. Strong in Go and Python, with Rust engineering experience.
       </p>
     </section>
@@ -368,9 +368,9 @@
           </div>
           <ul>
             <li>Led a production LLM-serving platform and Kubernetes Operator control plane, integrating SGLang/vLLM workers on heterogeneous non-NVIDIA accelerators with Dynamo DistributedRuntime and standardizing model declarations, worker lifecycle, P/D topology, layered readiness, and failure isolation.</li>
-            <li>Connected worker bootstrap, the KV Event Plane, the Mooncake KV data plane, and a KV-aware Router; productionized ModelExpress-based tiered model loading so request routing, KV reuse, and elastic scale-out operate as one runtime path.</li>
+            <li>Connected worker bootstrap, the KV Event Plane, the Mooncake KV data plane, and a KV-aware Router so service discovery, request routing, KV reuse, and P/D transfer operate as one runtime path.</li>
             <li>Built a production P/D Planner that derives prefill/decode replica targets from request shapes, KV hits, and Capacity Profiles, then executes auditable ScaleIntents with readiness gates, stabilization windows, cooldowns, and rollback protection.</li>
-            <li>Delivered BatchFlow multi-tenant offline inference, LiteLLM/Higress gateways, and a Rust Router; owned releases, rollbacks, and production diagnosis across queueing, routing, transfer, and model loading using request IDs, Prometheus metrics, and Kubernetes state.</li>
+            <li>Delivered BatchFlow multi-tenant offline inference, LiteLLM/Higress gateways, and a Rust Router; owned releases, rollbacks, and production diagnosis across queueing, routing, transfer, and service readiness using request IDs, Prometheus metrics, and Kubernetes state.</li>
           </ul>
         </div>
         <div class="role-entry">
@@ -393,13 +393,13 @@
       <h2>Selected Production Systems</h2>
       <div class="system">
         <div class="system-head">
-          <h3>Dynamo Runtime and ModelExpress-based Tiered Model Loading</h3>
-          <div class="system-tag">DistributedRuntime · Tiered Cache · Readiness</div>
+          <h3>Dynamo Runtime and Layered Readiness</h3>
+          <div class="system-tag">DistributedRuntime · Service Discovery · Readiness</div>
         </div>
         <ul>
           <li>Productionized SGLang/vLLM runtimes on Dynamo DistributedRuntime, unifying worker lifecycle, Namespace/Component/Endpoint discovery, ModelRuntimeConfig/ModelDeploymentCard registration, P/D bootstrap, and graceful drain; enforced layered readiness across process, model, KV events, transport, and Router registration.</li>
-          <li>Productionized ModelExpress-based tiered loading with immutable compatibility keys spanning model revision, dtype, quantization, TP/EP topology, and vendor runtime; selects compatible READY worker device memory, node-local NVMe, or CPFS/NFS and combines prefetch, pre-sharded checkpoints, parallel loading, and cache-aware placement to reduce scale-out cold-start overhead.</li>
-          <li>Enforced lease-based de-duplication, checksum-gated atomic publication, and vendor JIT/operator/graph cache reuse; admitted traffic only after weight validation, warmup, health checks, KV events, and Router registration, with fallback to NVMe, shared storage, or the native loader.</li>
+          <li>The model-service CRD/IGD owns desired state, while each worker derives ModelRuntimeConfig from actual engine capabilities and publishes an instance-scoped ModelDeploymentCard; controllers observe endpoints, roles, and capabilities without rewriting worker-owned facts as desired state.</li>
+          <li>Admits traffic only after model health, KV events, the Mooncake transfer channel, P/D bootstrap, and Router registration are ready; on scale-in, stops new admission before draining in-flight requests and unregistering endpoints to protect streaming responses.</li>
         </ul>
       </div>
 
@@ -424,7 +424,7 @@
         <h1>Weichi Zhao</h1>
         <div class="role-block">
           <div class="role">Distributed LLM Inference &amp; Scheduling Engineer</div>
-          <div class="focus">Dynamo Runtime · KV Event Plane · Model Fast Loading · P/D Autoscaling</div>
+          <div class="focus">Dynamo Runtime · KV Event Plane · KV-aware Routing · P/D Autoscaling</div>
         </div>
       </div>
     </header>
@@ -471,7 +471,7 @@
       <div class="skills">
         <div class="skill-row"><span class="skill-label">Runtime &amp; Data Plane:</span> <span>Dynamo Runtime / DistributedRuntime, SGLang, vLLM, KV Event Plane, Mooncake Transfer Engine, RDMA KV transfer, P/D disaggregation</span></div>
         <div class="skill-row"><span class="skill-label">Control Plane &amp; Scheduling:</span> <span>Go, Kubernetes Operator, CRD/controller, Capability/Capacity Profiles, ScaleIntent, P/D autoscaling, Device Plugin, Helm, ArgoCD</span></div>
-        <div class="skill-row"><span class="skill-label">Model Loading &amp; Routing:</span> <span>ModelExpress, CPFS/NFS, node-local NVMe, pre-sharded checkpoints, cache-aware scheduling, KV-aware routing, Rust</span></div>
+        <div class="skill-row"><span class="skill-label">Routing &amp; Admission:</span> <span>KV-aware routing, Rust, HTTP/gRPC P/D routing, prefix radix index, P0-P3 admission, streaming-request lifecycle</span></div>
         <div class="skill-row"><span class="skill-label">Serving &amp; Observability:</span> <span>Python, OpenAI-compatible API, Batch API, LiteLLM, Higress, Redis, MySQL, Prometheus, QPS/TTFT/TPOT, request tracing</span></div>
       </div>
     </section>

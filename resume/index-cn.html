@@ -326,7 +326,7 @@
         <h1>赵伟驰</h1>
         <div class="role-block">
           <div class="role">大模型推理平台与资源调度工程师</div>
-          <div class="focus">Dynamo Runtime · KV Event Plane · Model Fast Loading · P/D Autoscaling</div>
+          <div class="focus">Dynamo Runtime · KV Event Plane · KV-aware Routing · P/D Autoscaling</div>
         </div>
       </div>
       <div class="contact">
@@ -342,7 +342,7 @@
       <h2>职业概述</h2>
       <p class="summary">
         近 5 年云原生 AI / HPC 平台经验，自 2024 年起聚焦生产级 LLM Serving。主导国产异构加速卡环境的 Kubernetes 原生 MaaS
-        控制面，落地 Dynamo Runtime、P/D Planner、KV Event Plane、Mooncake RDMA KV 传输、KV-aware Router 与模型快速加载；
+        控制面，落地 Dynamo Runtime、P/D Planner、KV Event Plane、Mooncake RDMA KV 传输与 KV-aware Router；
         同时建设 BatchFlow、LiteLLM / Higress 模型网关、弹性伸缩、故障恢复和可观测性。主要使用 Go、Python，具备 Rust 工程经验。
       </p>
     </section>
@@ -366,9 +366,9 @@
           </div>
           <ul>
             <li>主导生产级 LLM Serving 平台与 Kubernetes Operator 控制面，将国产异构加速卡上的 SGLang / vLLM Worker 接入 Dynamo DistributedRuntime，统一模型服务声明、Worker 生命周期、P/D 拓扑、分层就绪与故障隔离。</li>
-            <li>贯通 Worker Bootstrap、KV Event Plane、Mooncake KV 数据面和 KV-aware Router，并落地 ModelExpress 分层模型快载，使请求路由、KV 复用与弹性扩容形成完整 Runtime 链路。</li>
+            <li>贯通 Worker Bootstrap、KV Event Plane、Mooncake KV 数据面和 KV-aware Router，使服务发现、请求路由、KV 复用与 P/D 传输形成完整 Runtime 链路。</li>
             <li>建设生产级 P/D Planner，基于请求形状、KV 命中与 Capacity Profile 计算 Prefill / Decode 副本目标，通过 ScaleIntent、就绪门禁、稳定窗口、cooldown 和回滚保护闭环执行。</li>
-            <li>交付 BatchFlow 多租户离线推理、LiteLLM / Higress 模型网关与 Rust Router；负责发布回滚和生产故障定位，以 request ID、Prometheus 指标及 Kubernetes 状态贯通排队、路由、传输和模型加载观测。</li>
+            <li>交付 BatchFlow 多租户离线推理、LiteLLM / Higress 模型网关与 Rust Router；负责发布回滚和生产故障定位，以 request ID、Prometheus 指标及 Kubernetes 状态贯通排队、路由、传输和服务就绪观测。</li>
           </ul>
         </div>
         <div class="role-entry">
@@ -391,13 +391,13 @@
       <h2>重点生产系统</h2>
       <div class="system">
         <div class="system-head">
-          <h3>Dynamo Runtime 与 ModelExpress 分层模型快速加载</h3>
-          <div class="system-tag">DistributedRuntime · Tiered Cache · Readiness</div>
+          <h3>Dynamo Runtime 与分层就绪治理</h3>
+          <div class="system-tag">DistributedRuntime · Service Discovery · Readiness</div>
         </div>
         <ul>
           <li>在生产环境落地基于 Dynamo DistributedRuntime 的 SGLang / vLLM Runtime，统一 Worker 生命周期、Namespace / Component / Endpoint 服务发现、ModelRuntimeConfig / ModelDeploymentCard 注册、P/D Bootstrap 与优雅摘流；以进程、模型、KV Event、传输通道和 Router 注册组成分层 Ready Gate。</li>
-          <li>生产落地 ModelExpress 分层快载：以 model revision、dtype、量化方式、TP / EP 拓扑和厂商 Runtime 构成不可变兼容键，按兼容 READY Worker 设备内存、节点 NVMe、CPFS / NFS 选择加载源，结合预取、预分片、并行加载与 cache-aware 调度降低扩容冷启动开销。</li>
-          <li>通过 Lease 去重、checksum 校验、原子发布及厂商 JIT / 算子 / 图缓存复用保障一致性；完成权重校验、warmup、健康检查、KV Event 和 Router 注册后才接流量，异常时回退至 NVMe、共享存储或 native loader。</li>
+          <li>模型服务 CRD / IGD 维护期望状态，Worker 根据实际引擎能力生成 ModelRuntimeConfig 并按实例发布 ModelDeploymentCard；Controller 观察 Endpoint、角色与实际能力，不把 Worker 事实当成自身持续改写的 desired state。</li>
+          <li>只有模型健康、KV Event、Mooncake 传输通道、P/D Bootstrap 和 Router 注册全部就绪才接收流量；缩容时先停止新准入，再等待在途请求完成并注销 Endpoint，避免流式请求被直接切断。</li>
         </ul>
       </div>
 
@@ -422,7 +422,7 @@
         <h1>赵伟驰</h1>
         <div class="role-block">
           <div class="role">大模型推理平台与资源调度工程师</div>
-          <div class="focus">Dynamo Runtime · KV Event Plane · Model Fast Loading · P/D Autoscaling</div>
+          <div class="focus">Dynamo Runtime · KV Event Plane · KV-aware Routing · P/D Autoscaling</div>
         </div>
       </div>
     </header>
@@ -469,7 +469,7 @@
       <div class="skills">
         <div class="skill-row"><span class="skill-label">Runtime &amp; Data Plane:</span> <span>Dynamo Runtime / DistributedRuntime、SGLang、vLLM、KV Event Plane、Mooncake Transfer Engine、RDMA KV 传输、P/D 分离</span></div>
         <div class="skill-row"><span class="skill-label">Control Plane &amp; Scheduling:</span> <span>Go、Kubernetes Operator、CRD / Controller、Capability / Capacity Profile、ScaleIntent、P/D Autoscaling、Device Plugin、Helm、ArgoCD</span></div>
-        <div class="skill-row"><span class="skill-label">Model Loading &amp; Routing:</span> <span>ModelExpress、CPFS / NFS、node-local NVMe、pre-sharded checkpoint、cache-aware scheduling、KV-aware Routing、Rust</span></div>
+        <div class="skill-row"><span class="skill-label">Routing &amp; Admission:</span> <span>KV-aware Routing、Rust、HTTP / gRPC P/D 路由、Prefix Radix Index、P0-P3 准入、流式请求生命周期</span></div>
         <div class="skill-row"><span class="skill-label">Serving &amp; Observability:</span> <span>Python、OpenAI-compatible API、Batch API、LiteLLM、Higress、Redis、MySQL、Prometheus、QPS / TTFT / TPOT、request tracing</span></div>
       </div>
     </section>
