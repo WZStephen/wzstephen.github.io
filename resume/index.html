@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <title>Weichi Zhao | LLM Serving Control Plane &amp; Scheduling Engineer</title>
+  <title>Weichi Zhao | AI Infrastructure Engineer | LLM Serving Control Plane</title>
   <link rel="shortcut icon" href="../Img_Files/icon_ailurus.ico">
   <style>
     :root {
@@ -14,6 +14,11 @@
       --accent-strong: #12394a;
       --line: #d9e0e4;
       --paper: #ffffff;
+    }
+
+    @font-face {
+      font-family: "Resume Unicode";
+      src: local("Arial Unicode MS");
     }
 
     * {
@@ -34,7 +39,7 @@
     body {
       background: #e8ecef;
       color: var(--ink);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      font-family: "Resume Unicode", Arial, sans-serif;
       font-size: 10pt;
       line-height: 1.38;
     }
@@ -148,6 +153,16 @@
       margin-top: 0;
     }
 
+    .role-entry {
+      margin-top: 8px;
+      padding-left: 10px;
+      border-left: 2px solid var(--line);
+    }
+
+    .role-entry h3 {
+      font-size: 9.8pt;
+    }
+
     .item-head {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
@@ -212,16 +227,8 @@
       margin-top: 3px;
     }
 
-    .skills {
-      display: grid;
-      gap: 4px;
-    }
-
     .skill-row {
-      display: grid;
-      grid-template-columns: 120px minmax(0, 1fr);
-      gap: 8px;
-      padding-bottom: 3px;
+      padding: 3px 0;
       border-bottom: 1px dotted var(--line);
     }
 
@@ -236,30 +243,16 @@
     }
 
     .bottom-grid {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 22px;
-    }
-
-    .compact-row {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 12px;
-      margin-top: 5px;
-    }
-
-    .compact-row:first-child {
-      margin-top: 0;
-    }
-
-    .compact-row strong {
       display: block;
-      font-size: 9.2pt;
     }
 
-    .compact-row span {
-      color: var(--muted);
-      font-size: 8.3pt;
+    .education-row {
+      margin-top: 4px;
+      color: #25353f;
+    }
+
+    .education-row:first-of-type {
+      margin-top: 0;
     }
 
     .ip {
@@ -320,15 +313,6 @@
         text-align: left;
       }
 
-      .bottom-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .skill-row {
-        grid-template-columns: 1fr;
-        gap: 2px;
-      }
-
       .page-footer {
         right: 20px;
         bottom: 18px;
@@ -342,8 +326,8 @@
       <div class="name-row">
         <h1>Weichi Zhao</h1>
         <div class="role-block">
-          <div class="role">LLM Serving Control Plane &amp; Scheduling Engineer</div>
-          <div class="focus">Kubernetes Control Plane · Heterogeneous Serving · P/D Autoscaling</div>
+          <div class="role">AI Infrastructure Engineer | LLM Serving Control Plane</div>
+          <div class="focus">Kubernetes Operators · Heterogeneous Serving · P/D Capacity Planning</div>
         </div>
       </div>
       <div class="contact">
@@ -358,11 +342,22 @@
     <section>
       <h2>Professional Summary</h2>
       <p class="summary">
-        LLM serving control-plane engineer with five years of cloud-native AI/HPC experience and nearly three years in production serving.
-        Owns Kubernetes-native platform work for heterogeneous accelerator fleets across model lifecycle, P/D topology and capacity governance,
-        Mooncake/RoCE KV transfer, and KV-aware routing; also delivered multi-tenant batch inference, model gateways, and production observability.
-        Primary languages: Go and Python, with Rust routing experience.
+        AI infrastructure engineer with nearly five years of cloud-native AI/HPC experience, focused on LLM serving since 2024.
+        Builds Kubernetes Operator-based model-serving control planes for heterogeneous accelerator fleets across service lifecycle,
+        P/D topology and capacity planning, request routing, and failure recovery; also delivers production multi-tenant batch inference,
+        LiteLLM/Higress model gateways, and observability. Strong in Go and Python, with Rust experience.
       </p>
+    </section>
+
+    <section>
+      <h2>Core Technologies</h2>
+      <div class="skills">
+        <div class="skill-row"><span class="skill-label">Programming:</span> <span>Go, Python, Rust</span></div>
+        <div class="skill-row"><span class="skill-label">Control Plane &amp; Scheduling:</span> <span>Kubernetes Operator, CRD / Controller, reconciliation, Service / Endpoint, finalizers, leader election, heterogeneous accelerator resource management, capacity planning and autoscaling candidates, Helm, ArgoCD</span></div>
+        <div class="skill-row"><span class="skill-label">LLM Serving &amp; Routing:</span> <span>SGLang, vLLM, prefill/decode disaggregation, KV cache, prefix routing, load-aware routing, Mooncake, RoCE/RDMA</span></div>
+        <div class="skill-row"><span class="skill-label">Gateway &amp; Batch:</span> <span>OpenAI-compatible API, Batch API, LiteLLM, Higress, Redis, MySQL, multi-tenant admission, offline concurrency budgets, shared-backend pressure control</span></div>
+        <div class="skill-row"><span class="skill-label">Reliability &amp; Observability:</span> <span>Linux, Prometheus, request tracing, QPS / TTFT / TPOT, release and rollback, failure recovery, distributed systems root cause analysis</span></div>
+      </div>
     </section>
 
     <section>
@@ -370,45 +365,38 @@
       <div class="item">
         <div class="item-head">
           <div>
-            <h3>Zhejiang Lab · High-Performance Computing Facility Research Center</h3>
-            <div class="position">Senior Research Specialist | LLM Serving / Model-as-a-Service (MaaS) Platform</div>
+            <h3>Zhejiang Lab</h3>
           </div>
-          <div class="date">2024 - Present</div>
+          <div class="date">Aug 2021 - Present</div>
         </div>
-        <ul>
-          <li>Owned the Kubernetes-native serving control plane for heterogeneous accelerator fleets, standardizing model-service declarations, worker lifecycle, P/D topology, layered readiness, and failure isolation across SGLang and vLLM backends.</li>
-          <li>Productionized capacity governance around profiled serving curves, converting live request shapes into independent prefill/decode targets with auditable readiness gates, stabilization windows, and cooldown controls.</li>
-          <li>Delivered OpenAI-compatible batch inference and model gateways with durable sharding, multi-tenant admission, recovery, and end-to-end tracing for production data-distillation and batch-generation workloads.</li>
-        </ul>
-      </div>
-
-      <div class="item">
-        <div class="item-head">
-          <div>
-            <h3>Zhejiang Lab · Intelligent Supercomputing Research Center</h3>
-            <div class="position">Engineering Specialist | Cloud-Native AI / HPC Platform</div>
+        <div class="role-entry">
+          <div class="item-head">
+            <div>
+              <h3>Senior Research Specialist · High-Performance Computing Facility Research Center</h3>
+              <div class="position">LLM Serving / Model-as-a-Service (MaaS) Platform</div>
+            </div>
+            <div class="date">2024 - Present</div>
           </div>
-          <div class="date">2021 - 2023</div>
+          <ul>
+            <li>Own a production LLM-serving control plane built with Kubernetes Operators (CRDs/controllers), standardizing model-service declarations, worker lifecycle, Service/Endpoint readiness, P/D topology, and failure isolation for SGLang and vLLM on heterogeneous accelerators developed in China.</li>
+            <li>Designed and validated a P/D capacity-planning and autoscaling candidate based on request shapes and Capacity Profiles, completing shadow evaluation and end-to-end scaling on an isolated service with readiness gates, stabilization windows, cooldowns, and stale-intent checks.</li>
+            <li>Delivered production OpenAI-compatible multi-tenant batch inference and LiteLLM/Higress model gateways with durable sharding, concurrency budgets, and recovery, using tenant/model budgets to bound offline pressure on shared model backends.</li>
+            <li>Own releases, rollbacks, and root cause analysis for production incidents using request IDs, logs, Prometheus metrics, and Kubernetes state across model loading, queueing, gateway routing, and accelerator failures.</li>
+          </ul>
         </div>
-        <ul>
-          <li>Customized Kubernetes device-plugin and resource-management paths for heterogeneous accelerator discovery, node resource reporting, container-runtime validation, device-level allocation, and fault isolation.</li>
-          <li>Adapted PyTorch/models and distributed job environments to Linux distributions and heterogeneous accelerator stacks, establishing the platform foundation for production serving and scheduling.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section>
-      <h2>Selected Systems</h2>
-      <div class="system">
-        <div class="system-head">
-          <h3>Heterogeneous Runtime &amp; KV-Aware Routing</h3>
-          <div class="system-tag">Worker Bootstrap · KV Event · Mooncake / RoCE</div>
+        <div class="role-entry">
+          <div class="item-head">
+            <div>
+              <h3>Engineering Specialist · Intelligent Supercomputing Research Center</h3>
+              <div class="position">Cloud-Native AI / HPC Platform</div>
+            </div>
+            <div class="date">Aug 2021 - 2023</div>
+          </div>
+          <ul>
+            <li>Customized Kubernetes Device Plugin and resource-management paths for heterogeneous accelerator discovery, node resource reporting, container-runtime validation, device-level allocation, and fault isolation.</li>
+            <li>Adapted PyTorch workloads, models, and distributed job environments to Linux distributions developed in China and heterogeneous accelerator stacks, establishing the platform foundation for later serving and scheduling work.</li>
+          </ul>
         </div>
-        <ul>
-          <li>Separated process, model, KV-event, Mooncake/RoCE data-channel, and traffic readiness; admitted workers only after model loading, P/D bootstrap, transfer setup, and Router registration all converged.</li>
-          <li>Used the KV event plane for cache-location metadata and Mooncake Transfer Engine over RoCE for KV-tensor movement, keeping KV data transfer out of the Router.</li>
-          <li>Routed on prefix overlap, worker load, accelerator compatibility, and topology; removed unavailable P/D pairs and fell back to healthy paths on stale events or transfer failures.</li>
-        </ul>
       </div>
     </section>
 
@@ -420,95 +408,77 @@
       <div class="name-row">
         <h1>Weichi Zhao</h1>
         <div class="role-block">
-          <div class="role">LLM Serving Control Plane &amp; Scheduling Engineer</div>
-          <div class="focus">Kubernetes Control Plane · Heterogeneous Serving · P/D Autoscaling</div>
+          <div class="role">AI Infrastructure Engineer | LLM Serving Control Plane</div>
+          <div class="focus">Kubernetes Operators · Heterogeneous Serving · P/D Capacity Planning</div>
         </div>
       </div>
     </header>
 
     <section>
-      <h2>Selected Systems (Continued)</h2>
+      <h2>Selected Engineering Work</h2>
       <div class="system">
         <div class="system-head">
-          <h3>Adaptive P/D Planner and Scaling Guardrails</h3>
-          <div class="system-tag">Capacity Profile · ScaleIntent · Guardrails</div>
+          <h3>Candidate P/D Capacity-Planning and Autoscaling Design</h3>
+          <div class="system-tag">Shadow · Isolated E2E · Guardrails</div>
         </div>
         <ul>
-          <li>Derived request rate, input/output tokens, prefill compute/cached tokens, KV hit rate, and queue state from rolling windows; selected independent capacity profiles by model, accelerator, quantization, TP/DP, and engine version.</li>
-          <li>Computed prefill/decode demand and safe replica targets independently, using the bottleneck as the scaling intent; retained request shape, selected profile points, and blockers for audit, with pending gates, one-step scaling, stabilization windows, cooldown, and stale-intent checks.</li>
+          <li>Designed a candidate approach that derives request rate, input/output tokens, prefill compute/cached tokens, KV hit signals, and queue state from rolling windows, then selects Capacity Profiles by model, accelerator, quantization, TP/DP, and engine version.</li>
+          <li>Validated independent prefill/decode demand and safe replica targets in shadow mode and through end-to-end scaling on an isolated service; added pending gates, one-step changes, stabilization windows, cooldowns, and stale-intent rejection to control execution risk.</li>
         </ul>
       </div>
 
       <div class="system">
         <div class="system-head">
-          <h3>Multi-Tenant Batch Inference Platform</h3>
-          <div class="system-tag">OpenAI Batch API · Scheduling · Recovery</div>
+          <h3>Heterogeneous P/D Transfer and Routing</h3>
+          <div class="system-tag">P/D Validation · RoCE/RDMA · Routing Design</div>
         </div>
         <ul>
-          <li>Kept task truth in the database while schedulers/workers claimed, sharded, executed, renewed, and finalized work; combined Kubernetes Lease, request-level isolation, and failure-tolerant finalization for multi-replica recovery without duplicate execution.</li>
-          <li>Covered streaming JSONL, tenant/model concurrency budgets, cancellation, expiry cleanup, and output/error writeback from the OpenAI Batch API contract through production monitoring while limiting offline impact on online serving.</li>
+          <li>Validated the P/D functional path and high-speed network transfer configuration on accelerators developed in China: the Router selects workers and passes bootstrap/transfer context, while a transfer backend moves KV tensors over the RoCE/RDMA data plane.</li>
+          <li>Implemented and validated routing based on request-prefix similarity and worker load, switching to least-loaded workers under imbalance and removing stale mappings when the associated worker was missing or unhealthy; evaluated Mooncake as a KV-transfer backend and designed a candidate for block routing driven by KV events.</li>
         </ul>
       </div>
 
       <div class="system">
         <div class="system-head">
-          <h3>Inference Router and Multi-Tenant Admission</h3>
-          <div class="system-tag">P/D Routing · Priority Admission · Tracing</div>
+          <h3>Multi-Tenant Offline Batch Inference</h3>
+          <div class="system-tag">Production · OpenAI Batch API · Recovery</div>
         </div>
         <ul>
-          <li>Implemented P0-P3 admission in Rust with global/tier semaphores, bounded queues, strict priority, and per-tenant round-robin; held permits through streaming-response completion to avoid releasing capacity early.</li>
-          <li>Integrated SGLang HTTP/gRPC P/D routing and propagated bootstrap/transfer context; moved KV data directly through Mooncake/RoCE while correlating request IDs, trace context, queue state, and KV-transfer telemetry.</li>
+          <li>Used the database as the system of record, with Kubernetes Lease-based leader election, transactional claims, shard recovery, and custom_id deduplication to reduce duplicate-processing risk and verify final result completeness.</li>
+          <li>Delivered an OpenAI Batch API-compatible workflow with streaming JSONL, tenant/model concurrency budgets, cancellation, expiry cleanup, output/error writeback, and request-level error isolation, using concurrency budgets to bound offline pressure on shared model backends.</li>
         </ul>
       </div>
 
-    </section>
-
-    <section>
-      <h2>Core Technologies</h2>
-      <div class="skills">
-        <div class="skill-row">
-          <div class="skill-label">Inference Runtime &amp; Routing</div>
-          <div>SGLang, vLLM, Mooncake Transfer Engine, RoCE/RDMA, KV event plane, KV-aware routing, P/D disaggregation</div>
+      <div class="system">
+        <div class="system-head">
+          <h3>Rust Router Priority Admission and Tracing</h3>
+          <div class="system-tag">Independent Branch · Priority Admission · Tracing</div>
         </div>
-        <div class="skill-row">
-          <div class="skill-label">Scheduling &amp; Control Plane</div>
-          <div>Go, Kubernetes, CRDs/controllers, capacity profiles, P/D autoscaling, reconciliation, readiness, leader election, Helm, ArgoCD</div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-label">Gateway &amp; Async Serving</div>
-          <div>Python, Rust, OpenAI-compatible APIs, Batch API, LiteLLM, Higress, Redis, MySQL, multi-tenant concurrency, failure recovery</div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-label">Observability &amp; Performance</div>
-          <div>Prometheus, request tracing, QPS/TTFT/TPOT, ISL/OSL, KV hit/transfer, throughput curves, distributed-systems debugging</div>
-        </div>
+        <ul>
+          <li>Implemented and tested P0-P3 admission in an independent Rust branch using global/per-priority semaphores, bounded queues, strict priority, and tenant round-robin; held permits until streaming responses completed.</li>
+          <li>Integrated SGLang HTTP/gRPC P/D routing and bootstrap/transfer context; implemented and validated request-ID and trace-context passthrough in a dedicated branch for cross-component diagnosis.</li>
+        </ul>
       </div>
+
     </section>
 
     <div class="bottom-grid">
       <section>
         <h2>Education</h2>
-        <div class="compact-row">
-          <div>
-            <strong>Arizona State University</strong>
-            <span>Master of Computer Science, GPA 3.97 / 4.00</span>
-          </div>
-          <div class="date">May 2019 - Dec 2020</div>
-        </div>
-        <div class="compact-row">
-          <div>
-            <strong>Arizona State University</strong>
-            <span>B.S. in Computer Science</span>
-          </div>
-          <div class="date">Aug 2015 - May 2019</div>
-        </div>
+        <div class="education-row"><strong>Arizona State University</strong> - M.S. in Computer Science, GPA 3.97 / 4.00, May 2019 - Dec 2020</div>
+        <div class="education-row"><strong>Arizona State University</strong> - B.S. in Computer Science, Aug 2015 - May 2019</div>
       </section>
 
       <section>
-        <h2>Publication &amp; IP</h2>
+        <h2>Publication &amp; Intellectual Property</h2>
         <p class="ip">
-          Third author, <a href="https://ieeexplore.ieee.org/document/11290434"><strong>Prompt2Length: A Lightweight Model for Predicting Output Length in LLM Inference</strong></a>, IEEE AIAHPC 2025; co-inventor on two granted invention patents and contributor to two authorized software copyrights.
+          Third author, <a href="https://ieeexplore.ieee.org/document/11290434"><strong>Prompt2Length: A Lightweight Model for Predicting Output Length in LLM Inference</strong></a>, IEEE AIAHPC 2025; co-inventor on two granted invention patents and named contributor on two registered software copyrights.
         </p>
+      </section>
+
+      <section>
+        <h2>Languages</h2>
+        <p class="ip">Mandarin Chinese (native); English (full professional proficiency).</p>
       </section>
     </div>
 

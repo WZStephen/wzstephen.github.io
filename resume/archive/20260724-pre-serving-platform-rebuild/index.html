@@ -381,8 +381,8 @@
     <section>
       <h2>Impact Highlights</h2>
       <ul>
-        <li>Supported a production data-distillation path at around 10M requests per day with success rate above 99%, covering task sharding, concurrency control, failure recovery, and result writeback.</li>
-        <li>Validated an offline batch inference -> SGLang Router -> multi-backend serving path for Qwen3: about 300K requests / 9.75B tokens, about 99.9% success rate, and below 5% platform/Router CPU and memory overhead.</li>
+        <li>Provided long-term support for production data-distillation and batch-generation workloads, covering task sharding, concurrency control, failure recovery, and result writeback.</li>
+        <li>Completed large-scale offline batch inference -> SGLang Router -> multi-backend load and stability testing.</li>
         <li>Worked on SGLang/vLLM/Dynamo serving tuning across KV/prefix cache, PD disaggregation, cache-aware/bucket routing, and QPS/TTFT/Tok/s validation.</li>
         <li>Built OpenAI-compatible MaaS public-service capabilities on top of LiteLLM/Higress-style open-source gateway components, covering multi-model access, authentication, rate limiting, model permissions, usage tracking, and troubleshooting.</li>
         <li>Applied agent-assisted workflows in current MaaS/LLM serving work for code search, incident writeups, design drafts, release checks, and knowledge-base updates, turning repeated manual steps into reusable iteration loops.</li>
@@ -452,8 +452,8 @@
         <ul>
           <li>Designed Batch API compatible capabilities: file upload, batch lifecycle, cancellation, result/error files, streaming file processing, request-level error isolation, and backend concurrency control.</li>
           <li>Refactored the platform toward multi-replica operation with Kubernetes leader election, sharded workers, header forwarding, upload limits, stale-file cleanup, Kustomize upgrades, monitoring, and failure-tolerant finalization.</li>
-          <li>Supported production data-distillation and batch-generation workloads, later reaching daily processing around 10M requests with success rate above 99% under controlled concurrency.</li>
-          <li>Validated an offline batch inference -> SGLang Router -> multi-backend path for Qwen3-235B-A22B-Thinking-2507 at about 300K requests, about 9.75B tokens, about 99.9% success rate, and below 5% platform/Router CPU/memory overhead.</li>
+          <li>Provided long-term support for production data-distillation and batch-generation workloads with concurrency governance and failure recovery.</li>
+          <li>Completed large-scale offline batch inference -> SGLang Router -> multi-backend load and stability testing.</li>
         </ul>
       </div>
 

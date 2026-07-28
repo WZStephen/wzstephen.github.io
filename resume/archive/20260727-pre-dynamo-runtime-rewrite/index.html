@@ -390,12 +390,12 @@
       <h2>Selected Impact</h2>
       <div class="metrics">
         <div class="metric">
-          <strong>~10M requests / day</strong>
-          <span>Production data-distillation and batch-generation path at &gt;99% request success</span>
+          <strong>Production batch workloads</strong>
+          <span>Long-term support for data-distillation and batch-generation paths</span>
         </div>
         <div class="metric">
-          <strong>300K requests / 9.75B tokens</strong>
-          <span>~99.9% success in SGLang Router multi-backend testing</span>
+          <strong>Multi-backend validation</strong>
+          <span>Large-scale SGLang Router load and stability testing</span>
         </div>
         <div class="metric">
           <strong>Ready → Routeable</strong>
@@ -418,7 +418,7 @@
           <li>Developed a Kubernetes-native model-serving control path that maps model images, resource profiles, replica / prefill-decode (P/D) topology, and service exposure into CRDs and controllers; hardened Service/Endpoint readiness, finalizers, multi-cluster rollout, and rollback.</li>
           <li>Improved Router worker management by continuously reconciling desired workers against live <code>/workers</code> state and requeueing on missing, extra, or failed registrations, preventing “Pod Ready but traffic unreachable” failures.</li>
           <li>Designed and implemented an OpenAI Batch API-compatible execution platform with file and batch lifecycles, task sharding, sharded worker execution, Kubernetes Lease-based leader election, tenant concurrency, recovery, and result/error writeback.</li>
-          <li>Supported a production data-distillation path at ~10M requests/day and &gt;99% success; validated a SGLang Router multi-backend path at ~300K requests / 9.75B tokens and ~99.9% success.</li>
+          <li>Provided long-term support for production data-distillation and batch-generation workloads, and completed large-scale SGLang Router multi-backend load and stability testing.</li>
           <li>Built and operated unified model access with LiteLLM/Higress and SGLang/vLLM, covering authentication, rate limits, model access, streaming protocols, and incident diagnosis across request ID → Gateway → Router → Worker → Kubernetes.</li>
         </ul>
       </div>

@@ -383,8 +383,8 @@
     <section>
       <h2>关键成果</h2>
       <ul>
-        <li>支撑生产数据蒸馏链路，日均约 1000 万条请求，成功率超过 99%，沉淀任务切分、并发控制、失败恢复和结果回写机制。</li>
-        <li>验证离线批量推理 -> SGLang Router -> 多异构后端链路：Qwen3 负载下约 30 万请求 / 97.5 亿 tokens，成功率约 99.9%，平台与 Router CPU / 内存开销低于 5%。</li>
+        <li>长期支撑生产数据蒸馏与批量生成链路，沉淀任务切分、并发控制、失败恢复和结果回写机制。</li>
+        <li>完成离线批量推理 -> SGLang Router -> 多异构后端的大规模链路压测与稳定性验证。</li>
         <li>参与 SGLang / vLLM / Dynamo 推理框架调优：覆盖 KV / Prefix Cache、PD 分离、Cache-aware / Bucket 路由和 QPS / TTFT / Tok/s 验证。</li>
         <li>基于 LiteLLM / Higress 等开源网关能力建设 OpenAI 兼容 MaaS 公共服务，解决多模型接入、鉴权限流、模型权限、用量统计和故障定位问题。</li>
         <li>在当前 MaaS / LLM Serving 工作中使用 Agent 辅助代码检索、故障复盘、方案草稿、发布核对和文档沉淀，把多步人工流程沉淀为可复用迭代链路。</li>
@@ -453,8 +453,8 @@
         <ul>
           <li>设计并实现 OpenAI Batch API 兼容能力，包括文件上传、Batch 生命周期、取消、结果 / 错误文件、流式文件处理、请求级错误隔离和后端并发控制。</li>
           <li>推动平台向多副本演进，基于 Kubernetes Leader Election 与分片 Worker 改造执行链路，优化 Header 透传、上传限制、过期文件清理、Kustomize 升级、监控和异常 finalizing 容错。</li>
-          <li>支撑生产数据蒸馏和批量生成任务，后续达到日均约 1000 万条请求处理能力，成功率超过 99%。</li>
-          <li>完成离线批量推理 -> SGLang Router -> 多异构后端链路压测，在 Qwen3-235B-A22B-Thinking-2507 负载下处理约 30 万请求 / 97.5 亿 tokens，成功率约 99.9%，平台与 Router CPU / 内存占用低于 5%。</li>
+          <li>长期支撑生产数据蒸馏与批量生成任务，并通过并发治理与失败恢复保障任务执行。</li>
+          <li>完成离线批量推理 -> SGLang Router -> 多异构后端的大规模链路压测与稳定性验证。</li>
         </ul>
       </div>
 

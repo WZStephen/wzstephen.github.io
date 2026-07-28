@@ -389,12 +389,12 @@
       <h2>代表性成果</h2>
       <div class="metrics">
         <div class="metric">
-          <strong>约 1000 万请求 / 日</strong>
-          <span>生产数据蒸馏与批量生成链路，请求成功率超过 99%</span>
+          <strong>生产批量任务</strong>
+          <span>长期支撑生产数据蒸馏与批量生成链路</span>
         </div>
         <div class="metric">
-          <strong>30 万请求 / 97.5 亿 Tokens</strong>
-          <span>SGLang Router 多异构后端压测成功率约 99.9%</span>
+          <strong>多后端链路验证</strong>
+          <span>完成 SGLang Router 多异构后端大规模压测</span>
         </div>
         <div class="metric">
           <strong>从 Pod Ready 到流量可达</strong>
@@ -417,7 +417,7 @@
           <li>开发 Kubernetes 原生模型服务控制链路，将模型镜像、资源规格、多副本 / P/D 拓扑和服务暴露收敛到 CRD / Controller；完善 Service / Endpoint readiness、finalizer、多集群发布与回滚。</li>
           <li>改进 Router Worker 管理，以“期望集合 vs. 实际 <code>/workers</code> 集合”持续对账；在缺失、冗余或注册失败时 requeue，避免 Pod Ready 但流量不可达。</li>
           <li>设计并实现 OpenAI Batch API 兼容执行平台，覆盖文件与 Batch 生命周期、任务切分、分片 Worker 执行、基于 Kubernetes Lease 的选主、租户并发、失败恢复及结果 / 错误回写。</li>
-          <li>支撑日均约 1000 万请求的数据蒸馏链路，成功率超过 99%；完成约 30 万请求、97.5 亿 Tokens 的 SGLang Router 多后端压测，成功率约 99.9%。</li>
+          <li>长期支撑生产数据蒸馏与批量生成任务，并完成 SGLang Router 多异构后端的大规模链路压测与稳定性验证。</li>
           <li>建设并运营 LiteLLM / Higress 统一模型入口，结合 SGLang / vLLM 处理鉴权限流、模型权限、流式协议与生产故障；沿 request_id → Gateway → Router → Worker → Kubernetes 完成链路定位。</li>
         </ul>
       </div>
