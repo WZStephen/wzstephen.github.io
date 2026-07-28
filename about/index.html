@@ -8,7 +8,7 @@ title: 关于我
     <div>
       <p class="eyebrow">LLM Serving Control Plane / Inference Scheduling</p>
       <h1>赵伟驰 / Weichi Zhao</h1>
-      <p>我专注位于推理引擎与业务流量之间的平台控制层：用 Kubernetes 管理模型服务生命周期与 Router / Worker 就绪，用 Batch 系统承载高吞吐离线推理，并通过网关、指标和故障恢复保障生产链路。</p>
+      <p>我专注位于推理引擎与业务流量之间的平台控制层：在国产异构加速卡环境用 Kubernetes 管理模型服务生命周期与 P/D 拓扑，以 Mooncake / RoCE 承载 KV 数据面，并通过 Router、Batch 系统和网关保障生产链路。</p>
       <div class="hero-actions">
         <a href="{{ '/Files/CN_Resume_Weichi_Zhao.pdf' | relative_url }}">中文简历 PDF</a>
         <a href="{{ '/Files/EN_Resume_Weichi_Zhao.pdf' | relative_url }}">English Resume PDF</a>
@@ -21,29 +21,16 @@ title: 关于我
 
 <section class="wrap section">
   <div class="section-title">
-    <h2>方向</h2>
-  </div>
-
-  <div class="feature-grid">
-    <div class="feature-card">
-      <span>Serving Control Plane</span>
-      <h3>模型服务控制面与资源治理</h3>
-      <p>Kubernetes CRD / Controller、服务生命周期、Router Worker 收敛、readiness、P/D 拓扑，以及容量意图与执行边界。</p>
-    </div>
-    <div class="feature-card">
-      <span>Batch Inference &amp; Routing</span>
-      <h3>批量推理、网关与生产可靠性</h3>
-      <p>OpenAI Batch API、任务分片与恢复、LiteLLM / Higress、SGLang / vLLM、推理指标和跨层故障定位。</p>
-    </div>
-  </div>
-</section>
-
-<section class="wrap section">
-  <div class="section-title">
     <h2>成果与荣誉</h2>
   </div>
 
   <div class="achievement-list">
+    <div class="achievement-item">
+      <span>IEEE 会议论文</span>
+      <h3>Prompt2Length: A Lightweight Model for Predicting Output Length in LLM Inference</h3>
+      <p>第三作者；发表于 2025 5th International Conference on Artificial Intelligence, Automation and High Performance Computing（AIAHPC），论文页码 483–488。</p>
+      <p class="evidence-links"><a href="https://ieeexplore.ieee.org/document/11290434">IEEE Xplore · DOI 10.1109/AIAHPC66801.2025.11290434</a></p>
+    </div>
     <div class="achievement-item">
       <span>授权发明专利</span>
       <h3>基于云服务的按需扩缩容的模型推理服务系统、方法</h3>
