@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <title>Weichi Zhao | AI Infrastructure Engineer | LLM Serving Control Plane</title>
+  <title>Weichi Zhao | AI Infrastructure Engineer | LLM Serving Runtime and Control Plane</title>
   <link rel="shortcut icon" href="../Img_Files/icon_ailurus.ico">
   <style>
     :root {
@@ -40,8 +40,8 @@
       background: #e8ecef;
       color: var(--ink);
       font-family: "Resume Unicode", Arial, sans-serif;
-      font-size: 10pt;
-      line-height: 1.38;
+      font-size: 9.35pt;
+      line-height: 1.32;
     }
 
     a {
@@ -61,7 +61,7 @@
     }
 
     .header {
-      padding-bottom: 9px;
+      padding-bottom: 8px;
       border-bottom: 2px solid var(--accent-strong);
     }
 
@@ -75,7 +75,7 @@
     h1 {
       margin: 0;
       color: var(--accent-strong);
-      font-size: 26pt;
+      font-size: 25pt;
       line-height: 1;
       letter-spacing: 0.01em;
     }
@@ -86,14 +86,14 @@
 
     .role {
       color: var(--accent);
-      font-size: 13.2pt;
+      font-size: 12.2pt;
       font-weight: 750;
     }
 
     .focus {
       margin-top: 2px;
       color: var(--muted);
-      font-size: 8.5pt;
+      font-size: 8.2pt;
       font-weight: 650;
       letter-spacing: 0.02em;
     }
@@ -104,20 +104,20 @@
       gap: 3px 14px;
       margin-top: 8px;
       color: var(--muted);
-      font-size: 8.4pt;
+      font-size: 8.1pt;
     }
 
     section {
-      margin-top: 11px;
+      margin-top: 9px;
     }
 
     h2 {
       display: flex;
       align-items: center;
       gap: 8px;
-      margin: 0 0 6px;
+      margin: 0 0 5px;
       color: var(--accent-strong);
-      font-size: 10.3pt;
+      font-size: 10pt;
       letter-spacing: 0.1em;
       text-transform: uppercase;
     }
@@ -132,19 +132,19 @@
     h3 {
       margin: 0;
       color: var(--ink);
-      font-size: 10pt;
+      font-size: 9.7pt;
       line-height: 1.28;
     }
 
     .summary {
       margin: 0;
       color: #25353f;
-      font-size: 9.4pt;
-      line-height: 1.45;
+      font-size: 9.15pt;
+      line-height: 1.4;
     }
 
     .item {
-      margin-top: 9px;
+      margin-top: 7px;
       break-inside: avoid;
       page-break-inside: avoid;
     }
@@ -154,13 +154,13 @@
     }
 
     .role-entry {
-      margin-top: 8px;
+      margin-top: 6px;
       padding-left: 10px;
       border-left: 2px solid var(--line);
     }
 
     .role-entry h3 {
-      font-size: 9.8pt;
+      font-size: 9.55pt;
     }
 
     .item-head {
@@ -183,12 +183,12 @@
     }
 
     ul {
-      margin: 5px 0 0 17px;
+      margin: 4px 0 0 17px;
       padding: 0;
     }
 
     li {
-      margin: 2.5px 0;
+      margin: 2px 0;
       padding-left: 1px;
     }
 
@@ -197,8 +197,8 @@
     }
 
     .system {
-      margin-top: 8px;
-      padding: 8px 10px 7px;
+      margin-top: 7px;
+      padding: 7px 9px 6px;
       border-left: 3px solid var(--accent);
       background: #f7f9fa;
       break-inside: avoid;
@@ -228,7 +228,7 @@
     }
 
     .skill-row {
-      padding: 3px 0;
+      padding: 2.5px 0;
       border-bottom: 1px dotted var(--line);
     }
 
@@ -326,8 +326,8 @@
       <div class="name-row">
         <h1>Weichi Zhao</h1>
         <div class="role-block">
-          <div class="role">AI Infrastructure Engineer | LLM Serving Control Plane</div>
-          <div class="focus">Kubernetes Operators · Heterogeneous Serving · P/D Capacity Planning</div>
+          <div class="role">Distributed LLM Inference &amp; Scheduling Engineer</div>
+          <div class="focus">Dynamo Runtime · KV Event Plane · Model Fast Loading · P/D Autoscaling</div>
         </div>
       </div>
       <div class="contact">
@@ -342,22 +342,11 @@
     <section>
       <h2>Professional Summary</h2>
       <p class="summary">
-        AI infrastructure engineer with nearly five years of cloud-native AI/HPC experience, focused on LLM serving since 2024.
-        Builds Kubernetes Operator-based model-serving control planes for heterogeneous accelerator fleets across service lifecycle,
-        P/D topology and capacity planning, request routing, and failure recovery; also delivers production multi-tenant batch inference,
-        LiteLLM/Higress model gateways, and observability. Strong in Go and Python, with Rust experience.
+        AI infrastructure engineer with nearly five years of cloud-native AI/HPC experience, focused on production LLM serving since 2024.
+        Leads a Kubernetes-native MaaS control plane for heterogeneous non-NVIDIA accelerators, delivering Dynamo Runtime, a P/D Planner,
+        the KV Event Plane, Mooncake/RoCE KV transfer, KV-aware routing, and production model fast loading; also builds BatchFlow,
+        LiteLLM/Higress gateways, autoscaling, failure recovery, and observability. Strong in Go and Python, with Rust engineering experience.
       </p>
-    </section>
-
-    <section>
-      <h2>Core Technologies</h2>
-      <div class="skills">
-        <div class="skill-row"><span class="skill-label">Programming:</span> <span>Go, Python, Rust</span></div>
-        <div class="skill-row"><span class="skill-label">Control Plane &amp; Scheduling:</span> <span>Kubernetes Operator, CRD / Controller, reconciliation, Service / Endpoint, finalizers, leader election, heterogeneous accelerator resource management, capacity planning and autoscaling candidates, Helm, ArgoCD</span></div>
-        <div class="skill-row"><span class="skill-label">LLM Serving &amp; Routing:</span> <span>SGLang, vLLM, prefill/decode disaggregation, KV cache, prefix routing, load-aware routing, Mooncake, RoCE/RDMA</span></div>
-        <div class="skill-row"><span class="skill-label">Gateway &amp; Batch:</span> <span>OpenAI-compatible API, Batch API, LiteLLM, Higress, Redis, MySQL, multi-tenant admission, offline concurrency budgets, shared-backend pressure control</span></div>
-        <div class="skill-row"><span class="skill-label">Reliability &amp; Observability:</span> <span>Linux, Prometheus, request tracing, QPS / TTFT / TPOT, release and rollback, failure recovery, distributed systems root cause analysis</span></div>
-      </div>
     </section>
 
     <section>
@@ -378,10 +367,10 @@
             <div class="date">2024 - Present</div>
           </div>
           <ul>
-            <li>Own a production LLM-serving control plane built with Kubernetes Operators (CRDs/controllers), standardizing model-service declarations, worker lifecycle, Service/Endpoint readiness, P/D topology, and failure isolation for SGLang and vLLM on heterogeneous accelerators developed in China.</li>
-            <li>Designed and validated a P/D capacity-planning and autoscaling candidate based on request shapes and Capacity Profiles, completing shadow evaluation and end-to-end scaling on an isolated service with readiness gates, stabilization windows, cooldowns, and stale-intent checks.</li>
-            <li>Delivered production OpenAI-compatible multi-tenant batch inference and LiteLLM/Higress model gateways with durable sharding, concurrency budgets, and recovery, using tenant/model budgets to bound offline pressure on shared model backends.</li>
-            <li>Own releases, rollbacks, and root cause analysis for production incidents using request IDs, logs, Prometheus metrics, and Kubernetes state across model loading, queueing, gateway routing, and accelerator failures.</li>
+            <li>Led a production LLM-serving platform and Kubernetes Operator control plane, integrating SGLang/vLLM workers on heterogeneous non-NVIDIA accelerators with Dynamo DistributedRuntime and standardizing model declarations, worker lifecycle, P/D topology, layered readiness, and failure isolation.</li>
+            <li>Connected worker bootstrap, the KV Event Plane, the Mooncake/RoCE data plane, and a KV-aware Router; productionized ModelExpress-based tiered model loading so request routing, KV reuse, and elastic scale-out operate as one runtime path.</li>
+            <li>Built a production P/D Planner that derives prefill/decode replica targets from request shapes, KV hits, and Capacity Profiles, then executes auditable ScaleIntents with readiness gates, stabilization windows, cooldowns, and rollback protection.</li>
+            <li>Delivered BatchFlow multi-tenant offline inference, LiteLLM/Higress gateways, and a Rust Router; owned releases, rollbacks, and production diagnosis across queueing, routing, transfer, and model loading using request IDs, Prometheus metrics, and Kubernetes state.</li>
           </ul>
         </div>
         <div class="role-entry">
@@ -400,6 +389,32 @@
       </div>
     </section>
 
+    <section>
+      <h2>Selected Production Systems</h2>
+      <div class="system">
+        <div class="system-head">
+          <h3>Dynamo Runtime and ModelExpress-based Tiered Model Loading</h3>
+          <div class="system-tag">DistributedRuntime · Tiered Cache · Readiness</div>
+        </div>
+        <ul>
+          <li>Productionized SGLang/vLLM runtimes on Dynamo DistributedRuntime, unifying worker lifecycle, Namespace/Component/Endpoint discovery, ModelRuntimeConfig/ModelDeploymentCard registration, P/D bootstrap, and graceful drain; enforced layered readiness across process, model, KV events, transport, and Router registration.</li>
+          <li>Productionized ModelExpress-based tiered loading with immutable compatibility keys spanning model revision, dtype, quantization, TP/EP topology, and vendor runtime; selects compatible READY worker device memory, node-local NVMe, or CPFS/NFS and combines prefetch, pre-sharded checkpoints, parallel loading, and cache-aware placement to reduce scale-out cold-start overhead.</li>
+          <li>Enforced lease-based de-duplication, checksum-gated atomic publication, and vendor JIT/operator/graph cache reuse; admitted traffic only after weight validation, warmup, health checks, KV events, and Router registration, with fallback to NVMe, shared storage, or the native loader.</li>
+        </ul>
+      </div>
+
+      <div class="system">
+        <div class="system-head">
+          <h3>KV Event Plane and Mooncake/RoCE KV Data Plane</h3>
+          <div class="system-tag">KV-aware Routing · RoCE/RDMA · Fallback</div>
+        </div>
+        <ul>
+          <li>Consumed per-DP-rank SGLang/vLLM BlockStored, BlockRemoved, and AllBlocksCleared events into the Event Plane and maintained a Worker/Rank/Storage-Tier prefix radix index.</li>
+          <li>The Router selects P/D workers from prefix KV overlap, load, accelerator/KV-layout compatibility, and network topology; Mooncake Transfer Engine performs batched KV tensor transfers over RoCE/RDMA, degrading to load-based routing on event anomalies and isolating failed pairs before reselection and retry.</li>
+        </ul>
+      </div>
+    </section>
+
     <div class="page-footer">Weichi Zhao · English Resume · 1 / 2</div>
   </article>
 
@@ -408,58 +423,57 @@
       <div class="name-row">
         <h1>Weichi Zhao</h1>
         <div class="role-block">
-          <div class="role">AI Infrastructure Engineer | LLM Serving Control Plane</div>
-          <div class="focus">Kubernetes Operators · Heterogeneous Serving · P/D Capacity Planning</div>
+          <div class="role">Distributed LLM Inference &amp; Scheduling Engineer</div>
+          <div class="focus">Dynamo Runtime · KV Event Plane · Model Fast Loading · P/D Autoscaling</div>
         </div>
       </div>
     </header>
 
     <section>
-      <h2>Selected Engineering Work</h2>
+      <h2>Selected Production Systems (Continued)</h2>
       <div class="system">
         <div class="system-head">
-          <h3>Candidate P/D Capacity-Planning and Autoscaling Design</h3>
-          <div class="system-tag">Shadow · Isolated E2E · Guardrails</div>
+          <h3>Adaptive P/D Planner and Autoscaling Guardrails</h3>
+          <div class="system-tag">Capacity Profile · ScaleIntent · Guardrails</div>
         </div>
         <ul>
-          <li>Designed a candidate approach that derives request rate, input/output tokens, prefill compute/cached tokens, KV hit signals, and queue state from rolling windows, then selects Capacity Profiles by model, accelerator, quantization, TP/DP, and engine version.</li>
-          <li>Validated independent prefill/decode demand and safe replica targets in shadow mode and through end-to-end scaling on an isolated service; added pending gates, one-step changes, stabilization windows, cooldowns, and stale-intent rejection to control execution risk.</li>
+          <li>Aggregates request rate, ISL/OSL, prefill compute tokens and cached tokens, KV hits, queue depth, and running state over rolling windows; selects Capacity Profiles by model, accelerator, quantization, TP/DP, and engine version, using interpolation and conservative fallback for safe capacity estimates.</li>
+          <li>Computes prefill/decode token demand, safe per-worker throughput, and independent replica targets, then derives an aggregate target from the bottleneck stage; continuously emits auditable ScaleIntents with request shape, capacity samples, utilization, and blocking reasons.</li>
+          <li>Decouples the Planner, ScaleIntent Controller, ScalingAdapter, and IGD/ISI/Scheduler; applies desired &gt; ready pending gates, one-step changes, stabilization windows, cooldowns, stale-intent rejection, and rollback to suppress oscillation and concurrent writes.</li>
         </ul>
       </div>
 
       <div class="system">
         <div class="system-head">
-          <h3>Heterogeneous P/D Transfer and Routing</h3>
-          <div class="system-tag">P/D Validation · RoCE/RDMA · Routing Design</div>
+          <h3>KV-aware Router, Multi-Tenant Admission, and Tracing</h3>
+          <div class="system-tag">P/D Routing · Priority Admission · Tracing</div>
         </div>
         <ul>
-          <li>Validated the P/D functional path and high-speed network transfer configuration on accelerators developed in China: the Router selects workers and passes bootstrap/transfer context, while a transfer backend moves KV tensors over the RoCE/RDMA data plane.</li>
-          <li>Implemented and validated routing based on request-prefix similarity and worker load, switching to least-loaded workers under imbalance and removing stale mappings when the associated worker was missing or unhealthy; evaluated Mooncake as a KV-transfer backend and designed a candidate for block routing driven by KV events.</li>
+          <li>Integrated SGLang HTTP/gRPC P/D routing and selects compatible prefill/decode workers from KV overlap, worker load, and RoCE topology; propagates request IDs, bootstrap/transfer context, and KV telemetry for cross-component diagnosis.</li>
+          <li>Implemented P0-P3 priority admission in Rust with global/per-priority semaphores, bounded queues, strict priority, tenant round-robin, and wait timeouts; holds permits until streaming response bodies complete so capacity is not released early.</li>
         </ul>
       </div>
 
       <div class="system">
         <div class="system-head">
-          <h3>Multi-Tenant Offline Batch Inference</h3>
-          <div class="system-tag">Production · OpenAI Batch API · Recovery</div>
+          <h3>BatchFlow Multi-Tenant Offline Batch Inference</h3>
+          <div class="system-tag">OpenAI Batch API · Scheduling · Recovery</div>
         </div>
         <ul>
-          <li>Used the database as the system of record, with Kubernetes Lease-based leader election, transactional claims, shard recovery, and custom_id deduplication to reduce duplicate-processing risk and verify final result completeness.</li>
-          <li>Delivered an OpenAI Batch API-compatible workflow with streaming JSONL, tenant/model concurrency budgets, cancellation, expiry cleanup, output/error writeback, and request-level error isolation, using concurrency budgets to bound offline pressure on shared model backends.</li>
+          <li>Models each batch as a durable, recoverable asynchronous job: the database is the system of record, while schedulers/workers handle transactional claims, sharding, lease renewal, and finalization; Kubernetes Leases, custom_id de-duplication, and shard recovery support multiple replicas.</li>
+          <li>Delivered OpenAI Batch API-compatible streaming JSONL, tenant/model concurrency budgets, cancellation, expiry cleanup, output/error writeback, and request-level error isolation to bound offline pressure on shared online model backends.</li>
         </ul>
       </div>
+    </section>
 
-      <div class="system">
-        <div class="system-head">
-          <h3>Rust Router Priority Admission and Tracing</h3>
-          <div class="system-tag">Independent Branch · Priority Admission · Tracing</div>
-        </div>
-        <ul>
-          <li>Implemented and tested P0-P3 admission in an independent Rust branch using global/per-priority semaphores, bounded queues, strict priority, and tenant round-robin; held permits until streaming responses completed.</li>
-          <li>Integrated SGLang HTTP/gRPC P/D routing and bootstrap/transfer context; implemented and validated request-ID and trace-context passthrough in a dedicated branch for cross-component diagnosis.</li>
-        </ul>
+    <section>
+      <h2>Core Technologies</h2>
+      <div class="skills">
+        <div class="skill-row"><span class="skill-label">Runtime &amp; Data Plane:</span> <span>Dynamo Runtime / DistributedRuntime, SGLang, vLLM, KV Event Plane, Mooncake Transfer Engine, RoCE/RDMA, P/D disaggregation</span></div>
+        <div class="skill-row"><span class="skill-label">Control Plane &amp; Scheduling:</span> <span>Go, Kubernetes Operator, CRD/controller, Capability/Capacity Profiles, ScaleIntent, P/D autoscaling, Device Plugin, Helm, ArgoCD</span></div>
+        <div class="skill-row"><span class="skill-label">Model Loading &amp; Routing:</span> <span>ModelExpress, CPFS/NFS, node-local NVMe, pre-sharded checkpoints, cache-aware scheduling, KV-aware routing, Rust</span></div>
+        <div class="skill-row"><span class="skill-label">Serving &amp; Observability:</span> <span>Python, OpenAI-compatible API, Batch API, LiteLLM, Higress, Redis, MySQL, Prometheus, QPS/TTFT/TPOT, request tracing</span></div>
       </div>
-
     </section>
 
     <div class="bottom-grid">
@@ -472,7 +486,7 @@
       <section>
         <h2>Publication &amp; Intellectual Property</h2>
         <p class="ip">
-          Third author, <a href="https://ieeexplore.ieee.org/document/11290434"><strong>Prompt2Length: A Lightweight Model for Predicting Output Length in LLM Inference</strong></a>, IEEE AIAHPC 2025; co-inventor on two granted invention patents and named contributor on two registered software copyrights.
+          <a href="https://ieeexplore.ieee.org/document/11290434"><strong>Prompt2Length: A Lightweight Model for Predicting Output Length in LLM Inference</strong></a> - third author, IEEE AIAHPC 2025; co-inventor on two granted invention patents and named contributor on two registered software copyrights.
         </p>
       </section>
 
@@ -482,7 +496,7 @@
       </section>
     </div>
 
-    <div class="page-footer">Last updated: July 28, 2026 · 2 / 2</div>
+    <div class="page-footer">Weichi Zhao · Last updated: July 28, 2026 · 2 / 2</div>
   </article>
 </body>
 </html>

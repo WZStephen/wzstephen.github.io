@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <title>赵伟驰｜大模型推理控制面与资源调度工程师</title>
+  <title>赵伟驰｜大模型推理平台与资源调度工程师</title>
   <link rel="shortcut icon" href="../Img_Files/icon_ailurus.ico">
   <style>
     :root {
@@ -325,8 +325,8 @@
       <div class="name-row">
         <h1>赵伟驰</h1>
         <div class="role-block">
-          <div class="role">大模型推理控制面与资源调度工程师</div>
-          <div class="focus">Kubernetes Operator · Heterogeneous Serving · P/D Capacity Planning</div>
+          <div class="role">大模型推理平台与资源调度工程师</div>
+          <div class="focus">Dynamo Runtime · KV Event Plane · Model Fast Loading · P/D Autoscaling</div>
         </div>
       </div>
       <div class="contact">
@@ -341,21 +341,10 @@
     <section>
       <h2>职业概述</h2>
       <p class="summary">
-        近 5 年云原生 AI / HPC 平台经验，自 2024 年起聚焦 LLM Serving。负责基于 Kubernetes Operator（CRD / Controller 模式）的
-        模型服务控制面，覆盖国产异构加速卡上的服务生命周期、P/D 拓扑与容量规划、请求路由和故障恢复；同时交付生产级多租户
-        Batch 推理、LiteLLM / Higress 模型网关与可观测性。主要使用 Go、Python，具备 Rust 开发经验。
+        近 5 年云原生 AI / HPC 平台经验，自 2024 年起聚焦生产级 LLM Serving。主导国产异构加速卡环境的 Kubernetes 原生 MaaS
+        控制面，落地 Dynamo Runtime、P/D Planner、KV Event Plane、Mooncake / RoCE KV 传输、KV-aware Router 与模型快速加载；
+        同时建设 BatchFlow、LiteLLM / Higress 模型网关、弹性伸缩、故障恢复和可观测性。主要使用 Go、Python，具备 Rust 工程经验。
       </p>
-    </section>
-
-    <section>
-      <h2>核心技术</h2>
-      <div class="skills">
-        <div class="skill-row"><span class="skill-label">Programming:</span> <span>Go、Python、Rust</span></div>
-        <div class="skill-row"><span class="skill-label">Control Plane &amp; Scheduling:</span> <span>Kubernetes Operator、CRD / Controller、reconcile、Service / Endpoint、finalizer、Leader Election、异构加速卡资源管理、容量规划与自动扩缩容候选方案、Helm、ArgoCD</span></div>
-        <div class="skill-row"><span class="skill-label">LLM Serving &amp; Routing:</span> <span>SGLang、vLLM、P/D 分离、KV Cache、前缀 / 负载感知路由、Mooncake、RoCE/RDMA</span></div>
-        <div class="skill-row"><span class="skill-label">Gateway &amp; Batch:</span> <span>OpenAI-compatible API、Batch API、LiteLLM、Higress、Redis、MySQL、多租户准入、离线并发预算与共享后端压力控制</span></div>
-        <div class="skill-row"><span class="skill-label">Reliability &amp; Observability:</span> <span>Linux、Prometheus、request tracing、QPS / TTFT / TPOT、发布回滚、故障恢复、分布式系统根因分析</span></div>
-      </div>
     </section>
 
     <section>
@@ -376,10 +365,10 @@
             <div class="date">2024 - 至今</div>
           </div>
           <ul>
-            <li>负责生产级 LLM Serving 控制面，基于 Kubernetes Operator（CRD / Controller）统一模型服务声明、Worker 生命周期、Service / Endpoint 就绪检查、P/D 拓扑和故障隔离，纳管国产异构加速卡上的 SGLang / vLLM 服务。</li>
-            <li>设计并验证基于请求形状与 Capacity Profile 的 P/D 容量规划与自动扩缩容候选方案，完成 Shadow 与隔离服务扩缩 E2E，并以就绪门禁、稳定窗口、cooldown 和过期校验控制执行风险。</li>
-            <li>交付生产级 OpenAI-compatible 多租户 Batch 推理与 LiteLLM / Higress 模型网关，覆盖持久化分片、并发预算和失败恢复，并通过租户 / 模型并发预算约束离线请求对共享模型后端的压力。</li>
-            <li>负责发布、回滚与生产故障定位，结合 request ID、日志、Prometheus 指标和 Kubernetes 状态排查模型加载、排队、网关路由及异构设备异常。</li>
+            <li>主导生产级 LLM Serving 平台与 Kubernetes Operator 控制面，将国产异构加速卡上的 SGLang / vLLM Worker 接入 Dynamo DistributedRuntime，统一模型服务声明、Worker 生命周期、P/D 拓扑、分层就绪与故障隔离。</li>
+            <li>贯通 Worker Bootstrap、KV Event Plane、Mooncake / RoCE 数据面和 KV-aware Router，并落地 ModelExpress 分层模型快载，使请求路由、KV 复用与弹性扩容形成完整 Runtime 链路。</li>
+            <li>建设生产级 P/D Planner，基于请求形状、KV 命中与 Capacity Profile 计算 Prefill / Decode 副本目标，通过 ScaleIntent、就绪门禁、稳定窗口、cooldown 和回滚保护闭环执行。</li>
+            <li>交付 BatchFlow 多租户离线推理、LiteLLM / Higress 模型网关与 Rust Router；负责发布回滚和生产故障定位，以 request ID、Prometheus 指标及 Kubernetes 状态贯通排队、路由、传输和模型加载观测。</li>
           </ul>
         </div>
         <div class="role-entry">
@@ -398,6 +387,32 @@
       </div>
     </section>
 
+    <section>
+      <h2>重点生产系统</h2>
+      <div class="system">
+        <div class="system-head">
+          <h3>Dynamo Runtime 与 ModelExpress 分层模型快速加载</h3>
+          <div class="system-tag">DistributedRuntime · Tiered Cache · Readiness</div>
+        </div>
+        <ul>
+          <li>在生产环境落地基于 Dynamo DistributedRuntime 的 SGLang / vLLM Runtime，统一 Worker 生命周期、Namespace / Component / Endpoint 服务发现、ModelRuntimeConfig / ModelDeploymentCard 注册、P/D Bootstrap 与优雅摘流；以进程、模型、KV Event、传输通道和 Router 注册组成分层 Ready Gate。</li>
+          <li>生产落地 ModelExpress 分层快载：以 model revision、dtype、量化方式、TP / EP 拓扑和厂商 Runtime 构成不可变兼容键，按兼容 READY Worker 设备内存、节点 NVMe、CPFS / NFS 选择加载源，结合预取、预分片、并行加载与 cache-aware 调度降低扩容冷启动开销。</li>
+          <li>通过 Lease 去重、checksum 校验、原子发布及厂商 JIT / 算子 / 图缓存复用保障一致性；完成权重校验、warmup、健康检查、KV Event 和 Router 注册后才接流量，异常时回退至 NVMe、共享存储或 native loader。</li>
+        </ul>
+      </div>
+
+      <div class="system">
+        <div class="system-head">
+          <h3>KV Event Plane 与 Mooncake / RoCE KV 数据面</h3>
+          <div class="system-tag">KV-aware Routing · RoCE/RDMA · Fallback</div>
+        </div>
+        <ul>
+          <li>按 DP rank 消费 SGLang / vLLM 的 BlockStored、BlockRemoved、AllBlocksCleared 事件并归一化到 Event Plane，维护 Worker / Rank / Storage Tier 维度的 Prefix Radix Index。</li>
+          <li>Router 综合 prefix KV overlap、Worker 负载、卡型 / KV 布局兼容性和网络拓扑选择 P/D Worker；Mooncake Transfer Engine 经 RoCE/RDMA 批量传输 KV Tensor，事件异常时降级到负载策略，传输异常时执行超时摘除、重选和重试。</li>
+        </ul>
+      </div>
+    </section>
+
     <div class="page-footer">赵伟驰 · 中文简历 · 1 / 2</div>
   </article>
 
@@ -406,56 +421,56 @@
       <div class="name-row">
         <h1>赵伟驰</h1>
         <div class="role-block">
-          <div class="role">大模型推理控制面与资源调度工程师</div>
-          <div class="focus">Kubernetes Operator · Heterogeneous Serving · P/D Capacity Planning</div>
+          <div class="role">大模型推理平台与资源调度工程师</div>
+          <div class="focus">Dynamo Runtime · KV Event Plane · Model Fast Loading · P/D Autoscaling</div>
         </div>
       </div>
     </header>
 
     <section>
-      <h2>重点工程经历</h2>
+      <h2>重点生产系统（续）</h2>
       <div class="system">
         <div class="system-head">
-          <h3>P/D 容量规划与自动扩缩容候选方案</h3>
-          <div class="system-tag">Shadow · Isolated E2E · Guardrails</div>
+          <h3>自适应 P/D Planner 与扩缩容保护机制</h3>
+          <div class="system-tag">Capacity Profile · ScaleIntent · Guardrails</div>
         </div>
         <ul>
-          <li>设计基于滑动窗口的候选方案，提取 request rate、输入 / 输出 Token、Prefill compute / cached token、KV hit 信号与队列状态，并按模型、卡型、量化方式、TP / DP 和引擎版本选择 Capacity Profile。</li>
-          <li>在 Shadow 与隔离服务扩缩 E2E 中验证 Prefill / Decode 独立需求和安全副本目标，通过 pending gate、单步变更、稳定窗口、cooldown 与过期校验控制执行风险。</li>
+          <li>以滑动窗口聚合 request rate、ISL / OSL、Prefill 计算 Token / 缓存 Token、KV hit、队列和运行状态，并按模型、卡型、量化方式、TP / DP 及引擎版本选择 Capacity Profile，以插值和保守回退计算安全容量。</li>
+          <li>分别计算 Prefill / Decode token demand、单 Worker 安全吞吐和副本目标，以瓶颈阶段形成 aggregate target；持续输出可审计 ScaleIntent，保存输入 shape、容量测点、利用率和阻塞原因。</li>
+          <li>解耦 Planner、ScaleIntent Controller、ScalingAdapter 与 IGD / ISI / Scheduler；通过 desired &gt; ready pending gate、单步扩缩、稳定窗口、cooldown、stale-intent 校验和失败回滚抑制震荡及并发写入。</li>
         </ul>
       </div>
 
       <div class="system">
         <div class="system-head">
-          <h3>国产异构卡 P/D 传输与请求路由</h3>
-          <div class="system-tag">P/D Validation · RoCE/RDMA · Routing Design</div>
+          <h3>KV-aware Router、多租户准入与链路追踪</h3>
+          <div class="system-tag">P/D Routing · Priority Admission · Tracing</div>
         </div>
         <ul>
-          <li>完成国产异构卡 P/D 功能链路与高速网络传输配置验证：Router 负责 Worker 选择和 Bootstrap / 传输上下文传递，KV Tensor 由传输后端通过 RoCE/RDMA 数据面搬运。</li>
-          <li>实现并验证基于请求前缀相似度与 Worker 负载的选路；负载失衡时切换到最小负载策略，并在关联 Worker 不存在或不健康时清理旧映射；评估 Mooncake 作为 KV 传输后端，并设计 KV-event 驱动的块级路由候选方案。</li>
+          <li>整合 SGLang HTTP / gRPC P/D 路由，基于 KV overlap、Worker 负载、兼容性和 RoCE 拓扑选择 Prefill / Decode Worker，透传 request ID、Bootstrap / Transfer Context 与 KV telemetry，用于跨组件故障定位。</li>
+          <li>使用 Rust 实现 P0-P3 分级准入，通过全局 / 优先级 semaphore、有界队列、严格优先、租户内轮转与等待超时控制并发，并将 permit 保持到流式 Response Body 结束，避免容量提前释放。</li>
         </ul>
       </div>
 
       <div class="system">
         <div class="system-head">
-          <h3>多租户离线批量推理平台</h3>
-          <div class="system-tag">Production · OpenAI Batch API · Recovery</div>
+          <h3>BatchFlow 多租户离线批量推理平台</h3>
+          <div class="system-tag">OpenAI Batch API · Scheduling · Recovery</div>
         </div>
         <ul>
-          <li>以数据库作为任务状态的权威数据源，使用 Kubernetes Lease 选主、事务 claim、分片恢复与 custom_id 去重降低重复处理风险，并校验最终结果完整性。</li>
-          <li>交付 OpenAI Batch API 兼容的 JSONL 流式处理、租户 / 模型并发预算、取消、过期清理、output / error 回写和请求级错误隔离，通过并发预算约束离线请求对共享模型后端的压力。</li>
+          <li>将 Batch 定义为可持久化、可恢复的异步任务：数据库作为任务状态权威源，Scheduler / Worker 负责事务 claim、分片、续租和 finalize，并通过 Kubernetes Lease、custom_id 去重和分片恢复支撑多副本运行。</li>
+          <li>交付 OpenAI Batch API 兼容的 JSONL 流式处理、租户 / 模型并发预算、取消、过期清理、output / error 回写及请求级错误隔离，限制离线任务对共享在线模型后端的压力。</li>
         </ul>
       </div>
+    </section>
 
-      <div class="system">
-        <div class="system-head">
-          <h3>Rust Router 分级准入与链路追踪</h3>
-          <div class="system-tag">Independent Branch · Priority Admission · Tracing</div>
-        </div>
-        <ul>
-          <li>在独立 Rust 分支实现并测试 P0-P3 分级准入，通过全局 / 优先级 semaphore、有界队列、严格优先和租户内轮转控制并发，并将 permit 保持到流式响应结束。</li>
-          <li>整合 SGLang HTTP / gRPC P/D 路由与 Bootstrap / 传输上下文；在专用分支实现并验证 request ID 与 trace context 透传，用于跨组件故障定位。</li>
-        </ul>
+    <section>
+      <h2>核心技术</h2>
+      <div class="skills">
+        <div class="skill-row"><span class="skill-label">Runtime &amp; Data Plane:</span> <span>Dynamo Runtime / DistributedRuntime、SGLang、vLLM、KV Event Plane、Mooncake Transfer Engine、RoCE/RDMA、P/D 分离</span></div>
+        <div class="skill-row"><span class="skill-label">Control Plane &amp; Scheduling:</span> <span>Go、Kubernetes Operator、CRD / Controller、Capability / Capacity Profile、ScaleIntent、P/D Autoscaling、Device Plugin、Helm、ArgoCD</span></div>
+        <div class="skill-row"><span class="skill-label">Model Loading &amp; Routing:</span> <span>ModelExpress、CPFS / NFS、node-local NVMe、pre-sharded checkpoint、cache-aware scheduling、KV-aware Routing、Rust</span></div>
+        <div class="skill-row"><span class="skill-label">Serving &amp; Observability:</span> <span>Python、OpenAI-compatible API、Batch API、LiteLLM、Higress、Redis、MySQL、Prometheus、QPS / TTFT / TPOT、request tracing</span></div>
       </div>
     </section>
 
@@ -479,7 +494,7 @@
       </section>
     </div>
 
-    <div class="page-footer">最后更新：2026 年 7 月 28 日 · 2 / 2</div>
+    <div class="page-footer">赵伟驰 · 最后更新：2026 年 7 月 28 日 · 2 / 2</div>
   </article>
 </body>
 </html>
