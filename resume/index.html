@@ -327,7 +327,7 @@
         <h1>Weichi Zhao</h1>
         <div class="role-block">
           <div class="role">Distributed LLM Inference &amp; Scheduling Engineer</div>
-          <div class="focus">Model Serving Control Plane · Dynamo Runtime · KV-aware Routing · P/D Autoscaling</div>
+          <div class="focus">Model Serving Control Plane · Distributed Inference Runtime · KV-aware Routing · P/D Autoscaling</div>
         </div>
       </div>
       <div class="contact">
@@ -343,9 +343,9 @@
       <h2>Professional Summary</h2>
       <p class="summary">
         AI infrastructure engineer with nearly five years of cloud-native AI/HPC experience, focused on production LLM serving since 2024.
-        Leads a Kubernetes-native MaaS control plane for heterogeneous non-NVIDIA accelerators, delivering declarative model-service orchestration, Dynamo Runtime, a P/D Planner,
-        the KV Event Plane, Mooncake-based RDMA KV transfer, and KV-aware routing; also builds BatchFlow,
-        LiteLLM/Higress gateways, autoscaling, failure recovery, and observability. Strong in Go and Python, with Rust engineering experience.
+        Owns a distributed inference runtime for heterogeneous accelerator platforms, a Rust KV-aware Router, a P/D Planner, and BatchFlow;
+        contributes to a Kubernetes-native MaaS control plane, the KV Event/Mooncake transfer path, and a LiteLLM gateway.
+        Strong in Go and Python, with Rust engineering experience across model lifecycle, request routing, capacity management, and recovery.
       </p>
     </section>
 
@@ -367,10 +367,10 @@
             <div class="date">2024 - Present</div>
           </div>
           <ul>
-            <li>Designed and productionized a Kubernetes-native model-serving control plane for the MaaS platform, expressing co-located and P/D-disaggregated inference on heterogeneous non-NVIDIA accelerators as declarative services; controllers orchestrate workers, Routers, Services, and Ingresses under unified lifecycle management, failure isolation, and scaling entry points.</li>
-            <li>Integrated SGLang/vLLM workers with Dynamo DistributedRuntime, connecting worker bootstrap, the KV Event Plane, the Mooncake KV data plane, and a KV-aware Router into one service-discovery, request-routing, KV-reuse, and P/D-transfer path.</li>
-            <li>Built a production P/D Planner that derives prefill/decode replica targets from request shapes, KV hits, and hardware-specific capacity profiles, then applies auditable scaling decisions with readiness gates, stabilization windows, cooldowns, and rollback protection.</li>
-            <li>Delivered BatchFlow multi-tenant offline inference, LiteLLM/Higress gateways, and a Rust Router; owned releases, rollbacks, and production diagnosis across queueing, routing, transfer, and service readiness using request IDs, Prometheus metrics, and Kubernetes state.</li>
+            <li>Contributed to the architecture and model-service CRDs of a Kubernetes-native MaaS control plane; implemented controller paths for P/D-disaggregated deployment, prefill/decode worker pools, worker status, and endpoint aggregation, and supported production releases and diagnosis.</li>
+            <li>Owned an in-house distributed inference runtime inspired by Dynamo's service-discovery and P/D architecture, implementing SGLang/vLLM engine adapters, worker registration and discovery, and drain-before-scale-in semantics while unifying model publication, P/D bootstrap, and layered readiness.</li>
+            <li>Owned a P/D Planner and Rust KV-aware Router: combined multi-cluster load, queue, KV state, and offline capacity profiles for replica planning, then selected P/D workers from prefix KV overlap, real-time load, and health.</li>
+            <li>Independently designed and implemented BatchFlow for offline batch inference; contributed to the KV Event/Mooncake path and LiteLLM gateway setup, including unified APIs, authentication, rate limits, monitoring, and cross-component production diagnosis.</li>
           </ul>
         </div>
         <div class="role-entry">
@@ -383,7 +383,7 @@
           </div>
           <ul>
             <li>Customized Kubernetes Device Plugin and resource-management paths for heterogeneous accelerator discovery, node resource reporting, container-runtime validation, device-level allocation, and fault isolation.</li>
-            <li>Adapted PyTorch workloads, models, and distributed job environments to Linux distributions developed in China and heterogeneous accelerator stacks, establishing the platform foundation for later serving and scheduling work.</li>
+            <li>Adapted PyTorch workloads, models, and distributed job environments across enterprise Linux distributions and heterogeneous accelerator stacks, establishing the platform foundation for later serving and scheduling work.</li>
           </ul>
         </div>
       </div>
@@ -393,24 +393,25 @@
       <h2>Selected Production Systems</h2>
       <div class="system">
         <div class="system-head">
-          <h3>Model-Serving Control Plane and Dynamo Runtime</h3>
-          <div class="system-tag">Declarative Serving · Service Discovery · Readiness</div>
+          <h3>Model-Serving Control Plane and Distributed Inference Runtime</h3>
+          <div class="system-tag">Declarative Serving · Runtime · Readiness</div>
         </div>
         <ul>
-          <li>Uses a unified model-service CRD as the lifecycle entry point for co-located or P/D-disaggregated topology, component specifications, runtime policy, and network exposure; controllers continuously orchestrate workers, Routers, Services, and Ingresses and aggregate service status and endpoints, replacing per-model resource assembly with one declarative delivery interface.</li>
-          <li>Integrates workers with Dynamo DistributedRuntime for service discovery, actual engine-capability publication, and P/D bootstrap; the control plane owns desired state while workers publish roles, concurrency, KV layout, and service endpoints, preventing static configuration from overwriting runtime facts.</li>
-          <li>Admits traffic only after model health, KV events, the Mooncake transfer channel, P/D bootstrap, and Router registration are ready; on scale-in, stops new admission before draining in-flight requests and unregistering endpoints to protect streaming responses.</li>
+          <li>Contributed to a unified model-service CRD and controllers that express co-located or P/D-disaggregated topology, worker pools, Services, and Ingresses as one declarative delivery interface; the control plane owns desired state, the runtime publishes actual capability, and the Planner computes replica targets.</li>
+          <li>Owned SGLang/vLLM engine adapters, worker registration and discovery, and model publication; used Dynamo as an architectural reference for P/D bootstrap and layered readiness without depending on or modifying Dynamo Runtime.</li>
+          <li>Admits newly scaled workers only after complete readiness and registration; on scale-in, drains new traffic before in-flight completion and endpoint unregistration, while isolating failed workers and reducing manual configuration and cross-component diagnosis.</li>
         </ul>
       </div>
 
       <div class="system">
         <div class="system-head">
-          <h3>KV Event Plane and Mooncake KV Data Plane</h3>
-          <div class="system-tag">KV-aware Routing · RDMA KV Transfer · Fallback</div>
+          <h3>KV-aware Router and KV Event/Mooncake Path</h3>
+          <div class="system-tag">Rust Routing · KV Event · Mooncake Transfer</div>
         </div>
         <ul>
-          <li>Consumed per-DP-rank SGLang/vLLM BlockStored, BlockRemoved, and AllBlocksCleared events into the Event Plane and maintained a Worker/Rank/Storage-Tier prefix radix index.</li>
-          <li>The Router selects P/D workers from prefix KV overlap, load, accelerator/KV-layout compatibility, and network topology; Mooncake Transfer Engine performs batched KV tensor transfers through the high-performance RDMA fabric, degrading to load-based routing on event anomalies and isolating failed pairs before reselection and retry.</li>
+          <li>Implemented a Rust KV-aware Router that selects prefill/decode workers within a single-model, single-accelerator routing domain from prefix KV overlap, real-time worker load, queue state, and health, with SGLang/vLLM HTTP and gRPC integration.</li>
+          <li>Owned the KV Event adapter, ZMQ-to-NATS bridge, Router event consumption, and prefix index, normalizing BlockStored, BlockRemoved, and AllBlocksCleared into Stored, Removed, and Cleared RouterEvents.</li>
+          <li>The Router passes bootstrap/transfer context while Mooncake Transfer Engine moves KV tensors directly between P/D workers; the production path supports failed-worker isolation, reselection after transfer anomalies, and stable request completion.</li>
         </ul>
       </div>
     </section>
@@ -424,7 +425,7 @@
         <h1>Weichi Zhao</h1>
         <div class="role-block">
           <div class="role">Distributed LLM Inference &amp; Scheduling Engineer</div>
-          <div class="focus">Model Serving Control Plane · Dynamo Runtime · KV-aware Routing · P/D Autoscaling</div>
+          <div class="focus">Model Serving Control Plane · Distributed Inference Runtime · KV-aware Routing · P/D Autoscaling</div>
         </div>
       </div>
     </header>
@@ -433,24 +434,13 @@
       <h2>Selected Production Systems (Continued)</h2>
       <div class="system">
         <div class="system-head">
-          <h3>Adaptive P/D Planner and Autoscaling Guardrails</h3>
-          <div class="system-tag">Capacity Modeling · P/D Autoscaling · Guardrails</div>
+          <h3>Multi-Cluster Load-Aware P/D Planner</h3>
+          <div class="system-tag">Capacity Modeling · Replica Autoscaling · Observability</div>
         </div>
         <ul>
-          <li>Aggregates request rate, ISL/OSL, prefill compute tokens and cached tokens, KV hits, queue depth, and running state over rolling windows; selects Capacity Profiles by model, accelerator, quantization, TP/DP, and engine version, using interpolation and conservative fallback for safe capacity estimates.</li>
-          <li>Computes prefill/decode token demand, safe per-worker throughput, and independent replica targets, then derives an aggregate target from the bottleneck stage; continuously records auditable scaling decisions with request shape, capacity samples, utilization, and blocking reasons.</li>
-          <li>Decouples capacity planning, scaling execution, model-service reconciliation, and Kubernetes scheduling; applies desired &gt; ready pending gates, one-step changes, stabilization windows, cooldowns, stale-decision rejection, and rollback to suppress oscillation and concurrent writes.</li>
-        </ul>
-      </div>
-
-      <div class="system">
-        <div class="system-head">
-          <h3>KV-aware Router, Multi-Tenant Admission, and Tracing</h3>
-          <div class="system-tag">P/D Routing · Priority Admission · Tracing</div>
-        </div>
-        <ul>
-          <li>Integrated SGLang HTTP/gRPC P/D routing and selects compatible prefill/decode workers from KV overlap, worker load, and network topology; propagates request IDs, bootstrap/transfer context, and KV telemetry for cross-component diagnosis.</li>
-          <li>Implemented P0-P3 priority admission in Rust with global/per-priority semaphores, bounded queues, strict priority, tenant round-robin, and wait timeouts; holds permits until streaming response bodies complete so capacity is not released early.</li>
+          <li>Aggregates Router, worker, and Prometheus signals across clusters, combining request load, queue depth, KV state, and offline capacity profiles to continuously compute service replica targets.</li>
+          <li>Plans prefill and decode replicas independently for P/D-disaggregated services and a unified replica target for co-located services; the Planner owns capacity decisions while the control plane and Kubernetes create and place resources.</li>
+          <li>In production, scales successfully under pressure to reduce queue backlog and restore stable requests, then reclaims idle replicas as load falls to improve cluster utilization.</li>
         </ul>
       </div>
 
@@ -460,8 +450,9 @@
           <div class="system-tag">OpenAI Batch API · Scheduling · Recovery</div>
         </div>
         <ul>
-          <li>Models each batch as a durable, recoverable asynchronous job: the database is the system of record, while schedulers/workers handle transactional claims, sharding, lease renewal, and finalization; Kubernetes Leases, custom_id de-duplication, and shard recovery support multiple replicas.</li>
-          <li>Delivered OpenAI Batch API-compatible streaming JSONL, tenant/model concurrency budgets, cancellation, expiry cleanup, output/error writeback, and request-level error isolation to bound offline pressure on shared online model backends.</li>
+          <li>Independently implemented the OpenAI Batch API, durable task state machine, schedulers/workers, streaming JSONL, sharding, tenant/model concurrency controls, cancellation, and output/error writeback to manage the full data-distillation lifecycle.</li>
+          <li>Uses Redis for shard competition and dispatch while the database remains authoritative for batch, shard, and claim state; Kubernetes Lease provides scheduler leadership, and expired worker claims are reassigned.</li>
+          <li>Combines shared result files with custom_id-based skipping under at-least-once backend execution and result-level de-duplication, providing recovery, request-level error isolation, and stable long-running operation.</li>
         </ul>
       </div>
     </section>
@@ -469,10 +460,10 @@
     <section>
       <h2>Core Technologies</h2>
       <div class="skills">
-        <div class="skill-row"><span class="skill-label">Runtime &amp; Data Plane:</span> <span>Dynamo Runtime / DistributedRuntime, SGLang, vLLM, KV Event Plane, Mooncake Transfer Engine, RDMA KV transfer, P/D disaggregation</span></div>
-        <div class="skill-row"><span class="skill-label">Control Plane &amp; Scheduling:</span> <span>Go, Kubernetes Operator, CRD/controller, declarative model-service orchestration, capacity modeling, P/D autoscaling, Device Plugin, Helm, ArgoCD</span></div>
-        <div class="skill-row"><span class="skill-label">Routing &amp; Admission:</span> <span>KV-aware routing, Rust, HTTP/gRPC P/D routing, prefix radix index, P0-P3 admission, streaming-request lifecycle</span></div>
-        <div class="skill-row"><span class="skill-label">Serving &amp; Observability:</span> <span>Python, OpenAI-compatible API, Batch API, LiteLLM, Higress, Redis, MySQL, Prometheus, QPS/TTFT/TPOT, request tracing</span></div>
+        <div class="skill-row"><span class="skill-label">Runtime &amp; Data Plane:</span> <span>distributed inference runtime, SGLang, vLLM, KV Event Plane, ZMQ/NATS, Mooncake Transfer Engine, P/D disaggregation</span></div>
+        <div class="skill-row"><span class="skill-label">Control Plane &amp; Scheduling:</span> <span>Go, Kubernetes Operator, CRD/controller, worker pools, capacity modeling, P/D replica autoscaling, Device Plugin, Helm, ArgoCD</span></div>
+        <div class="skill-row"><span class="skill-label">Routing &amp; Gateway:</span> <span>Rust, KV-aware routing, HTTP/gRPC P/D routing, prefix index, LiteLLM, OpenAI/Anthropic APIs, authentication and rate limits</span></div>
+        <div class="skill-row"><span class="skill-label">Batch &amp; Observability:</span> <span>Python, OpenAI Batch API, Redis, MySQL, Kubernetes Lease, Prometheus, QPS/TTFT/TPOT, request tracing</span></div>
       </div>
     </section>
 
@@ -496,7 +487,7 @@
       </section>
     </div>
 
-    <div class="page-footer">Weichi Zhao · Last updated: July 28, 2026 · 2 / 2</div>
+    <div class="page-footer">Weichi Zhao · Last updated: July 29, 2026 · 2 / 2</div>
   </article>
 </body>
 </html>
