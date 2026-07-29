@@ -343,7 +343,7 @@
       <h2>Professional Summary</h2>
       <p class="summary">
         AI infrastructure engineer with nearly five years of cloud-native AI/HPC experience, focused on production LLM serving since 2024.
-        Owns a distributed inference runtime for heterogeneous accelerator platforms, a Rust KV-aware Router, a P/D Planner, and BatchFlow;
+        Owns a distributed inference runtime for heterogeneous accelerator platforms, a Rust KV-aware Router, a P/D Planner, and a production batch-inference platform;
         contributes to a Kubernetes-native MaaS control plane, the KV Event/Mooncake transfer path, and a LiteLLM gateway.
         Strong in Go and Python, with Rust engineering experience across model lifecycle, request routing, capacity management, and recovery.
       </p>
@@ -370,7 +370,7 @@
             <li>Contributed to the architecture and model-service CRDs of a Kubernetes-native MaaS control plane; implemented controller paths for P/D-disaggregated deployment, prefill/decode worker pools, worker status, and endpoint aggregation, and supported production releases and diagnosis.</li>
             <li>Owned an in-house distributed inference runtime inspired by Dynamo's service-discovery and P/D architecture, implementing SGLang/vLLM engine adapters, worker registration and discovery, and drain-before-scale-in semantics while unifying model publication, P/D bootstrap, and layered readiness.</li>
             <li>Owned a P/D Planner and Rust KV-aware Router: combined multi-cluster load, queue, KV state, and offline capacity profiles for replica planning, then selected P/D workers from prefix KV overlap, real-time load, and health.</li>
-            <li>Independently designed and implemented BatchFlow for offline batch inference; contributed to the KV Event/Mooncake path and LiteLLM gateway setup, including unified APIs, authentication, rate limits, monitoring, and cross-component production diagnosis.</li>
+            <li>Independently designed and implemented a production offline batch-inference platform; contributed to the KV Event/Mooncake path and LiteLLM gateway setup, including unified APIs, authentication, rate limits, monitoring, and cross-component production diagnosis.</li>
           </ul>
         </div>
         <div class="role-entry">
@@ -446,7 +446,7 @@
 
       <div class="system">
         <div class="system-head">
-          <h3>BatchFlow Multi-Tenant Offline Batch Inference</h3>
+          <h3>Multi-Tenant Offline Batch-Inference Platform</h3>
           <div class="system-tag">OpenAI Batch API · Scheduling · Recovery</div>
         </div>
         <ul>

@@ -342,7 +342,7 @@
       <h2>职业概述</h2>
       <p class="summary">
         近 5 年云原生 AI / HPC 平台经验，自 2024 年起聚焦生产级 LLM Serving。负责面向国产异构加速卡的分布式推理 Runtime、
-        Rust KV-aware Router、P/D Planner 与 BatchFlow；参与 Kubernetes 原生 MaaS 控制面、KV Event / Mooncake 传输链路和 LiteLLM
+        Rust KV-aware Router、P/D Planner 与离线批量推理平台；参与 Kubernetes 原生 MaaS 控制面、KV Event / Mooncake 传输链路和 LiteLLM
         模型网关建设。主要使用 Go、Python，具备 Rust 工程经验，关注模型服务生命周期、请求路由、容量治理与故障恢复。
       </p>
     </section>
@@ -368,7 +368,7 @@
             <li>参与 Kubernetes 原生 MaaS 控制面架构与模型服务 CRD 设计，负责 P/D 分离及 Prefill / Decode Worker 池化的 Controller 逻辑、Worker 状态与 Endpoint 聚合，并承担生产发布和故障排查。</li>
             <li>负责自研分布式推理 Runtime，参考 Dynamo 的服务发现与 P/D 分离架构，完成 SGLang / vLLM 引擎 Adapter、Worker 注册发现及扩缩容摘流，统一模型发布、P/D Bootstrap 与分层就绪状态。</li>
             <li>负责 P/D Planner 与 Rust KV-aware Router：结合多集群实时负载、队列、KV 状态和离线容量画像计算副本目标，并基于 Prefix KV overlap、Worker 负载及健康状态完成 P/D Worker 选择。</li>
-            <li>独立设计并实现 BatchFlow 离线批量推理框架；参与 KV Event / Mooncake 链路及 LiteLLM 模型网关建设，覆盖统一 API、认证限流、监控和跨组件生产排障。</li>
+            <li>独立设计并实现生产级离线批量推理平台；参与 KV Event / Mooncake 链路及 LiteLLM 模型网关建设，覆盖统一 API、认证限流、监控和跨组件生产排障。</li>
           </ul>
         </div>
         <div class="role-entry">
@@ -444,7 +444,7 @@
 
       <div class="system">
         <div class="system-head">
-          <h3>BatchFlow 多租户离线批量推理平台</h3>
+          <h3>多租户离线批量推理平台</h3>
           <div class="system-tag">OpenAI Batch API · Scheduling · Recovery</div>
         </div>
         <ul>
