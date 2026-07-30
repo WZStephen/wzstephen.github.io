@@ -1,0 +1,24 @@
+---
+layout: default
+title: 随笔与感想
+---
+
+<section class="hero">
+  <div class="wrap">
+    <h1>随笔与感想</h1>
+    <p>记录阅读、技术与日常工作之外，那些值得继续想一想的事情。</p>
+  </div>
+</section>
+
+<section class="wrap section">
+  <div class="post-list">
+    {% assign essay_posts = site.posts | where_exp: "post", "post.categories contains 'personal-essay'" %}
+    {% for post in essay_posts %}
+      <a class="post-card" href="{{ post.url | relative_url }}">
+        <div class="post-date">{{ post.date | date: "%Y-%m-%d" }}</div>
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.excerpt | strip_html | truncate: 180 }}</p>
+      </a>
+    {% endfor %}
+  </div>
+</section>
