@@ -5,6 +5,7 @@ baseurl: ""
 timezone: Asia/Shanghai
 permalink: /blog/:year/:month/:day/:title/
 markdown: kramdown
+future: true
 exclude:
   - resume
 
