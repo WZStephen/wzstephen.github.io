@@ -7,7 +7,7 @@ title: Weichi Zhao
   <div class="wrap hero-inner">
     <div>
       <h1>赵伟驰 / Weichi Zhao</h1>
-      <p>记录技术实践、市场观察与生活中的长期思考。</p>
+      <p>记录技术实践、个人随笔与生活中的长期思考。</p>
     </div>
     <img class="hero-photo" src="{{ '/Img_Files/weichi2.jpg' | relative_url }}" alt="Weichi Zhao">
   </div>
@@ -32,23 +32,6 @@ title: Weichi Zhao
   </div>
 </section>
 {% endif %}
-
-<section class="wrap section">
-  <div class="section-title">
-    <h2>最新 AI 技术分享</h2>
-  </div>
-
-  <div class="post-list">
-    {% assign ai_posts = site.posts | where_exp: "post", "post.categories contains 'ai-technical-report'" %}
-    {% for post in ai_posts limit: 6 %}
-      <a class="post-card" href="{{ post.url | relative_url }}">
-        <div class="post-date">{{ post.date | date: "%Y-%m-%d" }}</div>
-        <h3>{{ post.title }}</h3>
-        <p>{{ post.excerpt | strip_html | truncate: 180 }}</p>
-      </a>
-    {% endfor %}
-  </div>
-</section>
 
 <section class="wrap section">
   <div class="section-title">
@@ -77,19 +60,5 @@ title: Weichi Zhao
         <a href="{{ '/Files/evidence/gordon-bell-prize-team-certificate.pdf' | relative_url }}">Gordon Bell 证明</a>
       </p>
     </div>
-  </div>
-</section>
-
-<section class="wrap section">
-  <div class="section-title">
-    <h2>更多入口</h2>
-  </div>
-
-  <div class="feature-grid">
-    <a class="feature-card" href="{{ '/markets/' | relative_url }}">
-      <span>市场观察</span>
-      <h3>股票、加密货币、黄金、利率与地缘变量</h3>
-      <p>用公开市场信息做长期投资复盘，不披露私人持仓明细，也不构成投资建议。</p>
-    </a>
   </div>
 </section>
