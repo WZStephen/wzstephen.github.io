@@ -24,9 +24,12 @@ title: Weichi Zhao
   <div class="post-list">
     {% for post in essay_posts limit: 3 %}
       <a class="post-card" href="{{ post.url | relative_url }}">
-        <div class="post-date">{{ post.date | date: "%Y-%m-%d" }}</div>
+        <div class="post-card-meta">
+          <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+          {% if post.eyebrow %}<span class="post-topic">{{ post.eyebrow }}</span>{% endif %}
+        </div>
         <h3>{{ post.title }}</h3>
-        <p>{{ post.excerpt | strip_html | truncate: 180 }}</p>
+        <p>{{ post.description | default: post.excerpt | strip_html | truncate: 180 }}</p>
       </a>
     {% endfor %}
   </div>

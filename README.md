@@ -34,6 +34,22 @@ categories: [personal-essay]
 ---
 ```
 
+Use the optional presentation fields for the full essay layout:
+
+```yaml
+eyebrow: '短分类'
+description: '一到两句文章导语'
+thesis: '文章中已经成立的核心判断'
+visual_center: '中心概念'
+visual_terms: ['关联概念一', '关联概念二', '关联概念三']
+visual_caption: '解释这组关系的一句话'
+```
+
+The post layout renders these fields as a topic label, deck, lead quote, and
+article-specific relationship graphic. Keep `thesis` in the author's own voice;
+do not present a paraphrase as an external quotation. Fenced `text` diagrams
+render as structure cards inside the article.
+
 Write essays in first person by default, with plain language and concrete
 examples. The homepage shows the newest `personal-essay` posts.
 

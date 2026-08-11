@@ -3,6 +3,12 @@ layout: post
 title: '模型之外，效率才是智能真正落地的地方'
 date: 2026-07-30 10:01:17 +0800
 categories: [personal-essay]
+eyebrow: 'AI 基础设施'
+description: '模型能力决定上限，推理系统和 Agent harness 的效率决定智能能否被反复、可靠地使用。'
+thesis: '能力决定上限，效率决定这个上限有多少人能够真正使用。'
+visual_center: '可用智能'
+visual_terms: ['能力', '可靠性', '效率']
+visual_caption: '真正可用的智能同时受能力、可靠性、成本与延迟约束'
 ---
 
 读 OpenAI 关于 GPT-5.6 的文章时，我最关心的并不是新模型在榜单上超过了谁，而是文章反复强调的另一个词：效率。

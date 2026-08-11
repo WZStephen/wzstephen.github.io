@@ -3,6 +3,12 @@ layout: post
 title: '从 Loop 到 Graph：Agent 不是越复杂越好'
 date: 2026-08-03 09:00:00 +0800
 categories: [personal-essay]
+eyebrow: 'Agent 工程'
+description: 'Loop 让 Agent 持续行动，Graph 显式组织路径，确定性校验决定系统是否值得信任。'
+thesis: '真正的工程判断，不是把系统画得更复杂，而是决定哪些事情应该由模型临场判断，哪些事情必须由系统明确规定。'
+visual_center: '控制流'
+visual_terms: ['Loop', 'Graph', '校验']
+visual_caption: '模型负责开放判断，系统负责边界、恢复和确定性检查'
 ---
 
 最近在学习 Agent 和 harness 工程时，我连续遇到了几个很容易混在一起的词：loop engineering、graph engineering、LangChain 和 LangGraph。

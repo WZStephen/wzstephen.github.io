@@ -3,6 +3,12 @@ layout: post
 title: '一天不能重启人生，但可以重新校准方向'
 date: 2026-08-11 09:23:26 +0800
 categories: [personal-essay]
+eyebrow: '阅读与生活'
+description: '一天无法改变整个人生，但可以看清旧模式、选择一个小实验，并重新建立行动和反馈。'
+thesis: '一天能完成的，不是改变人生，而是停止自动驾驶。'
+visual_center: '方向'
+visual_terms: ['反愿景', '行动', '反馈']
+visual_caption: '从看见旧模式开始，用小实验和反馈持续校准方向'
 ---
 
 最近读了 Dan Koe 的文章《How to fix your entire life in 1 day》。这个标题很像典型的自我提升内容：承诺足够大，时间压得足够短，让人忍不住点进去看看。
