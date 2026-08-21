@@ -326,11 +326,12 @@
         <h1>赵伟驰</h1>
         <div class="role-block">
           <div class="role">大模型推理平台与资源调度工程师</div>
-          <div class="focus">Model Serving Control Plane · Distributed Inference Runtime · KV-aware Routing · P/D Autoscaling</div>
+          <div class="focus">Model Serving Control Plane · Distributed Inference Runtime · KV-aware Routing · Capacity Planning</div>
         </div>
       </div>
       <div class="contact">
         <span>杭州</span>
+        <a href="tel:+8617355100580">173 5510 0580</a>
         <a href="mailto:wzhao4z@outlook.com">wzhao4z@outlook.com</a>
         <a href="https://github.com/WZStephen">github.com/WZStephen</a>
         <a href="https://www.linkedin.com/in/wzhao42/">linkedin.com/in/wzhao42</a>
@@ -341,9 +342,7 @@
     <section>
       <h2>职业概述</h2>
       <p class="summary">
-        近 5 年云原生 AI / HPC 平台经验，自 2024 年起聚焦生产级 LLM Serving。负责面向国产异构加速卡的分布式推理 Runtime、
-        Rust KV-aware Router、P/D Planner 与离线批量推理平台；参与 Kubernetes 原生 MaaS 控制面、KV Event / Mooncake 传输链路和 LiteLLM
-        模型网关建设。主要使用 Go、Python，具备 Rust 工程经验，关注模型服务生命周期、请求路由、容量治理与故障恢复。
+        近 5 年云原生 AI / HPC 平台经验，自 2024 年起聚焦生产级 LLM Serving。负责面向国产异构加速卡的分布式推理 Runtime、Rust KV-aware Router、集群内负载感知 Planner 与离线批量推理平台；参与 Kubernetes 原生 MaaS 控制面、KV Event 链路，以及统一网关的调研与接入。主要使用 Go、Python，具备 Rust 工程经验，关注模型服务生命周期、请求路由、容量治理与故障恢复。
       </p>
     </section>
 
@@ -365,10 +364,10 @@
             <div class="date">2024 - 至今</div>
           </div>
           <ul>
-            <li>参与 Kubernetes 原生 MaaS 控制面架构与模型服务 CRD 设计，负责 P/D 分离及 Prefill / Decode Worker 池化的 Controller 逻辑、Worker 状态与 Endpoint 聚合，并承担生产发布和故障排查。</li>
-            <li>负责自研分布式推理 Runtime，参考 Dynamo 的服务发现与 P/D 分离架构，完成 SGLang / vLLM 引擎 Adapter、Worker 注册发现及扩缩容摘流，统一模型发布、P/D Bootstrap 与分层就绪状态。</li>
-            <li>负责 P/D Planner 与 Rust KV-aware Router：结合多集群实时负载、队列、KV 状态和离线容量画像计算副本目标，并基于 Prefix KV overlap、Worker 负载及健康状态完成 P/D Worker 选择。</li>
-            <li>独立设计并实现生产级离线批量推理平台；参与 KV Event / Mooncake 链路及 LiteLLM 模型网关建设，覆盖统一 API、认证限流、监控和跨组件生产排障。</li>
+            <li>参与 Kubernetes 原生 MaaS 控制面架构与模型服务 CRD 设计，将模型、资源规格和服务形态收敛为统一声明，支持模板化一键部署；负责推理实例池、状态与 Endpoint 聚合，并承担生产发布和故障排查。</li>
+            <li>负责自研分布式推理 Runtime，完成 SGLang Engine Adapter、推理实例注册发现及生命周期管理，统一模型发布、拓扑协作、分层就绪和扩缩容摘流。</li>
+            <li>负责集群内负载感知 Planner 与 Rust KV-aware Router：结合实时负载、队列、KV 状态和离线容量画像计算副本目标，并基于 Prefix KV overlap、推理实例负载及健康状态完成请求调度。</li>
+            <li>独立设计并实现生产级离线批量推理平台；参与统一网关的技术调研与接入，覆盖模型接入、配置验证和跨组件生产排障。</li>
           </ul>
         </div>
         <div class="role-entry">
@@ -395,21 +394,21 @@
           <div class="system-tag">Declarative Serving · Runtime · Readiness</div>
         </div>
         <ul>
-          <li>参与统一模型服务 CRD 与 Controller 建设，将聚合 / P/D 分离拓扑、Worker 池、Service 与 Ingress 收敛为声明式交付入口；控制面负责期望状态，Runtime 发布实际服务能力，Planner 只计算副本目标。</li>
-          <li>负责 SGLang / vLLM 引擎 Adapter、Worker 注册发现与模型发布链路，参考 Dynamo 架构统一 P/D Bootstrap 和分层就绪状态，但不直接依赖或改造 Dynamo Runtime。</li>
-          <li>扩容 Worker 在完整就绪并注册后进入流量池；缩容时先摘流，再等待在途请求结束并注销 Endpoint，故障 Worker 可被隔离，减少人工配置和跨组件排障成本。</li>
+          <li>参与统一模型服务 CRD 与 Controller 建设，将模型、资源规格、服务形态和访问入口收敛为声明式交付模板，支持模型服务一键部署；控制面管理期望状态，Runtime 发布实际服务能力。</li>
+          <li>负责 SGLang Engine Adapter、推理实例注册发现与模型发布链路，统一拓扑协作、分层就绪和生命周期管理，隔离引擎内部接口与上层平台。</li>
+          <li>扩容实例在完整就绪并注册后进入流量池；缩容时先摘流，再等待在途请求结束并注销 Endpoint，故障实例可被隔离，减少人工配置和跨组件排障成本。</li>
         </ul>
       </div>
 
       <div class="system">
         <div class="system-head">
-          <h3>KV-aware Router 与 KV Event / Mooncake 链路</h3>
-          <div class="system-tag">Rust Routing · KV Event · Mooncake Transfer</div>
+          <h3>KV-aware Router 与 KV Event 链路</h3>
+          <div class="system-tag">Rust Routing · KV Event · Prefix Index</div>
         </div>
         <ul>
-          <li>使用 Rust 实现 KV-aware Router，在同一模型与卡型服务域内综合 Prefix KV overlap、Worker 实时负载、队列和健康状态选择 Prefill / Decode Worker，接入 SGLang / vLLM HTTP 与 gRPC 请求链路。</li>
+          <li>使用 Rust 实现 KV-aware Router，在同一模型与卡型服务域内综合 Prefix KV overlap、推理实例实时负载、队列和健康状态选择目标实例，接入 SGLang HTTP 与 gRPC 请求链路。</li>
           <li>负责 KV Event Adapter、ZMQ→NATS Event Bridge 及 Router 事件消费与 Prefix 索引，将 BlockStored、BlockRemoved、AllBlocksCleared 标准化为 Stored、Removed、Cleared RouterEvent。</li>
-          <li>Router 只传递 Bootstrap / Transfer Context，KV Tensor 由 Mooncake Transfer Engine 在 P/D Worker 间直接传输；生产链路支持故障 Worker 摘除、异常重选和稳定请求处理。</li>
+          <li>根据持续更新的 Prefix 索引在缓存局部性与实时负载之间权衡，并在推理实例异常时将其移出候选集，支持稳定的请求重选与调度。</li>
         </ul>
       </div>
     </section>
@@ -423,7 +422,7 @@
         <h1>赵伟驰</h1>
         <div class="role-block">
           <div class="role">大模型推理平台与资源调度工程师</div>
-          <div class="focus">Model Serving Control Plane · Distributed Inference Runtime · KV-aware Routing · P/D Autoscaling</div>
+          <div class="focus">Model Serving Control Plane · Distributed Inference Runtime · KV-aware Routing · Capacity Planning</div>
         </div>
       </div>
     </header>
@@ -432,11 +431,11 @@
       <h2>重点生产系统（续）</h2>
       <div class="system">
         <div class="system-head">
-          <h3>多集群负载感知的 P/D Planner</h3>
+          <h3>集群内负载感知的 P/D Planner</h3>
           <div class="system-tag">Capacity Modeling · Replica Autoscaling · Observability</div>
         </div>
         <ul>
-          <li>汇聚多个集群的 Router、Worker 与 Prometheus 实时指标，结合请求负载、队列、KV 状态和离线容量画像持续计算模型服务副本目标。</li>
+          <li>汇聚集群内 Router、推理实例与 Prometheus 实时指标，结合请求负载、队列、KV 状态和离线容量画像持续计算模型服务副本目标。</li>
           <li>对 P/D 分离服务分别计算 Prefill、Decode 副本，对聚合服务统一计算副本；Planner 负责容量决策，控制面与 Kubernetes 负责资源创建和最终调度。</li>
           <li>生产运行中在压力升高时成功扩容并降低队列积压，使请求恢复稳定；负载回落后自动回收空闲副本，提高集群资源利用率。</li>
         </ul>
@@ -448,9 +447,9 @@
           <div class="system-tag">OpenAI Batch API · Scheduling · Recovery</div>
         </div>
         <ul>
-          <li>独立实现 OpenAI Batch API、持久化任务状态机、Scheduler / Worker、JSONL 流式处理、任务分片、租户 / 模型并发控制、取消及 output / error 回写，统一管理数据蒸馏任务生命周期。</li>
-          <li>Redis 负责待处理分片竞争与分发，数据库保存 Batch、Shard 和 Claim 权威状态；Scheduler 通过 Kubernetes Lease 选主，Worker Claim 过期后可被其他副本重新认领。</li>
-          <li>结合共享结果文件与 custom_id 跳过已落盘请求，采用至少一次后端执行与结果级去重边界，实现故障恢复、请求级错误隔离和长期稳定运行。</li>
+          <li>面向数据蒸馏、数据生成和评测等大规模离线任务，实现 OpenAI Batch API、JSONL 流式处理、任务分片、并发控制以及 output / error 结果汇总。</li>
+          <li>通过持久化任务进度、Kubernetes Lease 选主和分片重新认领，使调度器或执行实例异常后能够从已有进度继续执行，避免整批任务重跑。</li>
+          <li>采用至少一次后端执行与结果级去重，结合 custom_id 跳过已落盘请求，实现请求级错误隔离和长期稳定运行。</li>
         </ul>
       </div>
     </section>
@@ -458,9 +457,9 @@
     <section>
       <h2>核心技术</h2>
       <div class="skills">
-        <div class="skill-row"><span class="skill-label">Runtime &amp; Data Plane:</span> <span>分布式推理 Runtime、SGLang、vLLM、KV Event Plane、ZMQ / NATS、Mooncake Transfer Engine、P/D 分离</span></div>
-        <div class="skill-row"><span class="skill-label">Control Plane &amp; Scheduling:</span> <span>Go、Kubernetes Operator、CRD / Controller、Worker 池、容量画像、P/D 副本弹性伸缩、Device Plugin、Helm、ArgoCD</span></div>
-        <div class="skill-row"><span class="skill-label">Routing &amp; Gateway:</span> <span>Rust、KV-aware Routing、HTTP / gRPC P/D 路由、Prefix Index、LiteLLM、OpenAI / Anthropic API、认证与限流</span></div>
+        <div class="skill-row"><span class="skill-label">Runtime &amp; Data Plane:</span> <span>分布式推理 Runtime、SGLang、KV Event Plane、ZMQ / NATS、P/D 分离</span></div>
+        <div class="skill-row"><span class="skill-label">Control Plane &amp; Scheduling:</span> <span>Go、Kubernetes Operator、CRD / Controller、推理实例池、容量画像、P/D 副本弹性伸缩、Device Plugin、Helm、ArgoCD</span></div>
+        <div class="skill-row"><span class="skill-label">Routing &amp; Gateway:</span> <span>Rust、KV-aware Routing、HTTP / gRPC 路由、Prefix Index、LiteLLM 调研与接入、OpenAI / Anthropic API、认证与限流配置</span></div>
         <div class="skill-row"><span class="skill-label">Batch &amp; Observability:</span> <span>Python、OpenAI Batch API、Redis、MySQL、Kubernetes Lease、Prometheus、QPS / TTFT / TPOT、request tracing</span></div>
       </div>
     </section>
@@ -485,7 +484,7 @@
       </section>
     </div>
 
-    <div class="page-footer">赵伟驰 · 最后更新：2026 年 7 月 29 日 · 2 / 2</div>
+    <div class="page-footer">赵伟驰 · 最后更新：2026 年 8 月 21 日 · 2 / 2</div>
   </article>
 </body>
 </html>
