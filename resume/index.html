@@ -41,7 +41,7 @@
       color: var(--ink);
       font-family: "Resume Unicode", Arial, sans-serif;
       font-size: 9.35pt;
-      line-height: 1.32;
+      line-height: 1.39;
     }
 
     a {
@@ -78,6 +78,7 @@
       font-size: 25pt;
       line-height: 1;
       letter-spacing: 0.01em;
+      white-space: nowrap;
     }
 
     .role-block {
@@ -133,14 +134,14 @@
       margin: 0;
       color: var(--ink);
       font-size: 9.7pt;
-      line-height: 1.28;
+      line-height: 1.32;
     }
 
     .summary {
       margin: 0;
       color: #25353f;
       font-size: 9.15pt;
-      line-height: 1.4;
+      line-height: 1.46;
     }
 
     .item {
@@ -154,7 +155,7 @@
     }
 
     .role-entry {
-      margin-top: 6px;
+      margin-top: 7px;
       padding-left: 10px;
       border-left: 2px solid var(--line);
     }
@@ -183,12 +184,12 @@
     }
 
     ul {
-      margin: 4px 0 0 17px;
+      margin: 5px 0 0 17px;
       padding: 0;
     }
 
     li {
-      margin: 2px 0;
+      margin: 3px 0;
       padding-left: 1px;
     }
 
@@ -197,8 +198,8 @@
     }
 
     .system {
-      margin-top: 7px;
-      padding: 7px 9px 6px;
+      margin-top: 9px;
+      padding: 8px 9px 7px;
       border-left: 3px solid var(--accent);
       background: #f7f9fa;
       break-inside: avoid;
@@ -224,11 +225,11 @@
     }
 
     .system ul {
-      margin-top: 3px;
+      margin-top: 4px;
     }
 
     .skill-row {
-      padding: 2.5px 0;
+      padding: 3.2px 0;
       border-bottom: 1px dotted var(--line);
     }
 
@@ -343,10 +344,8 @@
     <section>
       <h2>Professional Summary</h2>
       <p class="summary">
-        AI infrastructure engineer with nearly five years of cloud-native AI/HPC experience, focused on production LLM serving since 2024.
-        Owns a distributed inference runtime for heterogeneous accelerator platforms, a Rust KV-aware Router, a cluster-local load-aware Planner, and a production batch-inference platform;
-        contributes to a Kubernetes-native MaaS control plane, the KV Event pipeline, and research and integration for a unified gateway.
-        Strong in Go and Python, with Rust engineering experience across model lifecycle, request routing, capacity management, and recovery.
+        AI infrastructure engineer with nearly five years of cloud-native AI/HPC experience, focused since 2024 on production LLM serving.
+        Owns the platform layer between inference engines and application traffic, with end-to-end experience spanning a Kubernetes-native control plane, SGLang runtime, Rust KV-aware Router, cluster-local P/D capacity planning, and offline batch inference. Builds service validation and optimization loops around request success rate, TTFT, TPOT, throughput, queue depth, and ready capacity. Strong in Go and Python, with Rust engineering experience.
       </p>
     </section>
 
@@ -369,9 +368,8 @@
           </div>
           <ul>
             <li>Contributed to the architecture and model-service CRDs of a Kubernetes-native MaaS control plane, expressing models, resource profiles, and service forms through one declaration for template-based one-click deployment; implemented inference-instance pools, status and endpoint aggregation, and supported production releases and diagnosis.</li>
-            <li>Owned an in-house distributed inference runtime, implementing the SGLang engine adapter, inference-instance registration and discovery, and lifecycle management while unifying model publication, topology coordination, layered readiness, and traffic draining.</li>
-            <li>Owned a cluster-local load-aware Planner and Rust KV-aware Router: combined live load, queues, KV state, and offline capacity profiles for replica planning, then routed requests from prefix KV overlap, inference-instance load, and health.</li>
-            <li>Independently designed and implemented a production offline batch-inference platform; contributed research and integration work for a unified gateway, including model onboarding, configuration validation, and cross-component production diagnosis.</li>
+            <li>Owned the online serving path for heterogeneous accelerator platforms, connecting the SGLang runtime, KV-aware routing, and cluster-local capacity planning into a closed loop from instance-state awareness and readiness to request placement and replica adjustment.</li>
+            <li>Independently designed and implemented a production offline batch-inference platform for data distillation, generation, and evaluation; contributed unified-gateway research and integration, model onboarding, configuration validation, and cross-component production diagnosis.</li>
           </ul>
         </div>
         <div class="role-entry">
@@ -398,9 +396,9 @@
           <div class="system-tag">Declarative Serving · Runtime · Readiness</div>
         </div>
         <ul>
-          <li>Contributed to unified model-service CRDs and controllers that express models, resource profiles, service forms, and access endpoints through declarative templates for one-click deployment; the control plane owns desired state while the runtime publishes actual service capability.</li>
+          <li>Contributed to unified model-service CRDs and controllers that express models, resource profiles, service forms, and access endpoints as declarative templates, enabling a one-click path from service declaration and resource orchestration to status aggregation and endpoint publication.</li>
           <li>Owned the SGLang engine adapter, inference-instance registration and discovery, and model publication, unifying topology coordination, layered readiness, and lifecycle management while isolating engine internals from the platform.</li>
-          <li>Admits newly scaled instances only after complete readiness and registration; on scale-in, drains new traffic before in-flight completion and endpoint unregistration, while isolating failed instances and reducing manual configuration and cross-component diagnosis.</li>
+          <li>Built layered availability gates and graceful lifecycle handling: scaled-out instances receive traffic only after engine readiness and registration; scale-in drains new traffic, waits for in-flight requests, and then unregisters endpoints, while failed instances are isolated.</li>
         </ul>
       </div>
 
@@ -410,9 +408,8 @@
           <div class="system-tag">Rust Routing · KV Event · Prefix Index</div>
         </div>
         <ul>
-          <li>Implemented a Rust KV-aware Router that selects inference instances within a single-model, single-accelerator routing domain from prefix KV overlap, real-time load, queue state, and health, with SGLang HTTP and gRPC integration.</li>
-          <li>Owned the KV Event adapter, ZMQ-to-NATS bridge, Router event consumption, and prefix index, normalizing BlockStored, BlockRemoved, and AllBlocksCleared into Stored, Removed, and Cleared RouterEvents.</li>
-          <li>Balances cache locality against live load from the continuously updated prefix index, removes unhealthy inference instances from the candidate set, and supports stable request reselection and scheduling.</li>
+          <li>Implemented a Rust KV-aware Router that combines prefix KV overlap, live load, queue state, and health for request-level instance selection within a model-and-accelerator service domain; integrated SGLang HTTP and gRPC request paths.</li>
+          <li>Connected the KV Event adapter, ZMQ-to-NATS bridge, Router event consumption, and prefix index, turning engine KV-cache state into a live routing index and closing the data loop from block events to request placement.</li>
         </ul>
       </div>
     </section>
@@ -439,9 +436,9 @@
           <div class="system-tag">Capacity Modeling · Replica Autoscaling · Observability</div>
         </div>
         <ul>
-          <li>Aggregates Router, inference-instance, and Prometheus signals within a cluster, combining request load, queue depth, KV state, and offline capacity profiles to continuously compute service replica targets.</li>
+          <li>Built a cluster-local load-aware Planner that aggregates Router, inference-instance, and Prometheus signals, combining request load, queue depth, KV state, and offline capacity profiles to continuously compute service replica targets.</li>
           <li>Plans prefill and decode replicas independently for P/D-disaggregated services and a unified replica target for co-located services; the Planner owns capacity decisions while the control plane and Kubernetes create and place resources.</li>
-          <li>In production, scales successfully under pressure to reduce queue backlog and restore stable requests, then reclaims idle replicas as load falls to improve cluster utilization.</li>
+          <li>Closed the production loop from load sensing and capacity decisions to elastic scaling and outcome readback; validated scale-out under rising load and scale-in after load subsided using request success rate, TTFT/TPOT, queue depth, and ready capacity.</li>
         </ul>
       </div>
 
@@ -451,7 +448,7 @@
           <div class="system-tag">OpenAI Batch API · Scheduling · Recovery</div>
         </div>
         <ul>
-          <li>Built the OpenAI Batch API, streaming JSONL processing, task sharding, concurrency controls, and output/error aggregation for large, long-running data-distillation, generation, and evaluation workloads.</li>
+          <li>Built an OpenAI Batch API-compatible platform for large, long-running data-distillation, generation, and evaluation workloads; JSONL submissions are streamed, sharded, scheduled concurrently, and aggregated automatically.</li>
           <li>Persists task progress and uses Kubernetes Lease leadership plus shard reassignment so schedulers or executors can fail without restarting an entire batch.</li>
           <li>Uses at-least-once backend execution with result-level de-duplication and custom_id-based skipping, providing request-level error isolation and stable long-running operation.</li>
         </ul>
@@ -488,7 +485,7 @@
       </section>
     </div>
 
-    <div class="page-footer">Weichi Zhao · Last updated: August 21, 2026 · 2 / 2</div>
+    <div class="page-footer">Weichi Zhao · Last updated: August 26, 2026 · 2 / 2</div>
   </article>
 </body>
 </html>

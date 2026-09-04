@@ -41,7 +41,7 @@
       color: var(--ink);
       font-family: "Resume CJK", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
       font-size: 10.2pt;
-      line-height: 1.42;
+      line-height: 1.48;
     }
 
     a {
@@ -78,6 +78,7 @@
       font-size: 27pt;
       line-height: 1;
       letter-spacing: 0.06em;
+      white-space: nowrap;
     }
 
     .role-block {
@@ -132,14 +133,14 @@
       margin: 0;
       color: var(--ink);
       font-size: 10.4pt;
-      line-height: 1.3;
+      line-height: 1.34;
     }
 
     .summary {
       margin: 0;
       color: #25353f;
       font-size: 9.7pt;
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     .item {
@@ -153,7 +154,7 @@
     }
 
     .role-entry {
-      margin-top: 8px;
+      margin-top: 9px;
       padding-left: 10px;
       border-left: 2px solid var(--line);
     }
@@ -182,12 +183,12 @@
     }
 
     ul {
-      margin: 5px 0 0 17px;
+      margin: 6px 0 0 17px;
       padding: 0;
     }
 
     li {
-      margin: 2.5px 0;
+      margin: 3.5px 0;
       padding-left: 1px;
     }
 
@@ -196,8 +197,8 @@
     }
 
     .system {
-      margin-top: 8px;
-      padding: 8px 10px 7px;
+      margin-top: 10px;
+      padding: 9px 10px 8px;
       border-left: 3px solid var(--accent);
       background: #f7f9fa;
       break-inside: avoid;
@@ -223,11 +224,11 @@
     }
 
     .system ul {
-      margin-top: 3px;
+      margin-top: 4px;
     }
 
     .skill-row {
-      padding: 3px 0;
+      padding: 3.5px 0;
       border-bottom: 1px dotted var(--line);
     }
 
@@ -342,7 +343,7 @@
     <section>
       <h2>职业概述</h2>
       <p class="summary">
-        近 5 年云原生 AI / HPC 平台经验，自 2024 年起聚焦生产级 LLM Serving。负责面向国产异构加速卡的分布式推理 Runtime、Rust KV-aware Router、集群内负载感知 Planner 与离线批量推理平台；参与 Kubernetes 原生 MaaS 控制面、KV Event 链路，以及统一网关的调研与接入。主要使用 Go、Python，具备 Rust 工程经验，关注模型服务生命周期、请求路由、容量治理与故障恢复。
+        近 5 年云原生 AI / HPC 平台经验，自 2024 年起聚焦生产级 LLM Serving。核心负责推理引擎与业务流量之间的平台层建设，具备从 Kubernetes 声明式控制面、SGLang Runtime、Rust KV-aware Router、集群内 P/D 容量规划到离线批量推理的端到端实践；能够围绕请求成功率、TTFT、TPOT、吞吐、队列水位和可服务容量构建服务验收与优化闭环。主要使用 Go、Python，具备 Rust 工程经验。
       </p>
     </section>
 
@@ -365,9 +366,8 @@
           </div>
           <ul>
             <li>参与 Kubernetes 原生 MaaS 控制面架构与模型服务 CRD 设计，将模型、资源规格和服务形态收敛为统一声明，支持模板化一键部署；负责推理实例池、状态与 Endpoint 聚合，并承担生产发布和故障排查。</li>
-            <li>负责自研分布式推理 Runtime，完成 SGLang Engine Adapter、推理实例注册发现及生命周期管理，统一模型发布、拓扑协作、分层就绪和扩缩容摘流。</li>
-            <li>负责集群内负载感知 Planner 与 Rust KV-aware Router：结合实时负载、队列、KV 状态和离线容量画像计算副本目标，并基于 Prefix KV overlap、推理实例负载及健康状态完成请求调度。</li>
-            <li>独立设计并实现生产级离线批量推理平台；参与统一网关的技术调研与接入，覆盖模型接入、配置验证和跨组件生产排障。</li>
+            <li>核心负责面向国产异构加速卡的在线推理链路，打通 SGLang Runtime、KV-aware 路由与集群内容量决策，形成从实例状态感知、就绪判断、请求调度到副本调整的服务闭环。</li>
+            <li>独立设计并实现生产级离线批量推理平台，支撑数据蒸馏、数据生成与评测任务；参与统一网关调研与接入，完成模型接入、配置验证及跨组件生产排障。</li>
           </ul>
         </div>
         <div class="role-entry">
@@ -394,9 +394,9 @@
           <div class="system-tag">Declarative Serving · Runtime · Readiness</div>
         </div>
         <ul>
-          <li>参与统一模型服务 CRD 与 Controller 建设，将模型、资源规格、服务形态和访问入口收敛为声明式交付模板，支持模型服务一键部署；控制面管理期望状态，Runtime 发布实际服务能力。</li>
+          <li>参与统一模型服务 CRD 与 Controller 建设，将模型、资源规格、服务形态和访问入口收敛为声明式模板，打通从服务声明、资源编排、状态聚合到 Endpoint 发布的一键部署链路。</li>
           <li>负责 SGLang Engine Adapter、推理实例注册发现与模型发布链路，统一拓扑协作、分层就绪和生命周期管理，隔离引擎内部接口与上层平台。</li>
-          <li>扩容实例在完整就绪并注册后进入流量池；缩容时先摘流，再等待在途请求结束并注销 Endpoint，故障实例可被隔离，减少人工配置和跨组件排障成本。</li>
+          <li>构建分层可用性门控与优雅上下线机制：扩容实例仅在引擎就绪、完成注册后接入流量；缩容先摘流、等待在途请求结束再注销 Endpoint，并隔离故障实例。</li>
         </ul>
       </div>
 
@@ -406,11 +406,11 @@
           <div class="system-tag">Rust Routing · KV Event · Prefix Index</div>
         </div>
         <ul>
-          <li>使用 Rust 实现 KV-aware Router，在同一模型与卡型服务域内综合 Prefix KV overlap、推理实例实时负载、队列和健康状态选择目标实例，接入 SGLang HTTP 与 gRPC 请求链路。</li>
-          <li>负责 KV Event Adapter、ZMQ→NATS Event Bridge 及 Router 事件消费与 Prefix 索引，将 BlockStored、BlockRemoved、AllBlocksCleared 标准化为 Stored、Removed、Cleared RouterEvent。</li>
-          <li>根据持续更新的 Prefix 索引在缓存局部性与实时负载之间权衡，并在推理实例异常时将其移出候选集，支持稳定的请求重选与调度。</li>
+          <li>使用 Rust 实现 KV-aware Router，将 Prefix KV overlap、实时负载、队列与健康状态统一纳入调度，在同一模型与卡型的服务域内完成请求级实例选择，并接入 SGLang HTTP / gRPC 链路。</li>
+          <li>打通 KV Event Adapter、ZMQ→NATS Event Bridge、Router 事件消费与 Prefix 索引链路，将引擎 KV Cache 状态转化为实时路由索引，形成从 Block 事件到请求调度的数据闭环。</li>
         </ul>
       </div>
+
     </section>
 
     <div class="page-footer">赵伟驰 · 中文简历 · 1 / 2</div>
@@ -435,9 +435,9 @@
           <div class="system-tag">Capacity Modeling · Replica Autoscaling · Observability</div>
         </div>
         <ul>
-          <li>汇聚集群内 Router、推理实例与 Prometheus 实时指标，结合请求负载、队列、KV 状态和离线容量画像持续计算模型服务副本目标。</li>
+          <li>构建集群内负载感知 Planner，汇聚 Router、推理实例与 Prometheus 实时指标，结合请求负载、队列、KV 状态和离线容量画像持续计算服务副本目标。</li>
           <li>对 P/D 分离服务分别计算 Prefill、Decode 副本，对聚合服务统一计算副本；Planner 负责容量决策，控制面与 Kubernetes 负责资源创建和最终调度。</li>
-          <li>生产运行中在压力升高时成功扩容并降低队列积压，使请求恢复稳定；负载回落后自动回收空闲副本，提高集群资源利用率。</li>
+          <li>打通生产环境负载感知、容量决策、弹性伸缩与效果回读闭环；以请求成功率、TTFT / TPOT、队列水位和可服务容量为核心指标，验证高负载扩容与负载回落缩容。</li>
         </ul>
       </div>
 
@@ -447,7 +447,7 @@
           <div class="system-tag">OpenAI Batch API · Scheduling · Recovery</div>
         </div>
         <ul>
-          <li>面向数据蒸馏、数据生成和评测等大规模离线任务，实现 OpenAI Batch API、JSONL 流式处理、任务分片、并发控制以及 output / error 结果汇总。</li>
+          <li>面向数据蒸馏、数据生成和评测等大规模长任务，对外兼容 OpenAI Batch API；用户提交 JSONL 后，平台自动完成流式解析、任务分片、并发调度和结果汇总。</li>
           <li>通过持久化任务进度、Kubernetes Lease 选主和分片重新认领，使调度器或执行实例异常后能够从已有进度继续执行，避免整批任务重跑。</li>
           <li>采用至少一次后端执行与结果级去重，结合 custom_id 跳过已落盘请求，实现请求级错误隔离和长期稳定运行。</li>
         </ul>
@@ -484,7 +484,7 @@
       </section>
     </div>
 
-    <div class="page-footer">赵伟驰 · 最后更新：2026 年 8 月 21 日 · 2 / 2</div>
+    <div class="page-footer">赵伟驰 · 最后更新：2026 年 8 月 26 日 · 2 / 2</div>
   </article>
 </body>
 </html>
